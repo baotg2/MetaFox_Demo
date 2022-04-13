@@ -11,7 +11,7 @@ import io.cucumber.testng.CucumberOptions;
         plugin = {
                 "html:target/result/",
                 "pretty",
-                "html:target/test-classes/reports/result.html"
+                "json:target/pHpFox_V5/Cucumber_reports/V5Report.json"
         },
         monochrome = true
 )

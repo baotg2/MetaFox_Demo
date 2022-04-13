@@ -1,7 +1,6 @@
 package pHpFox.pageObject;
 
 
-import io.cucumber.java.de.Wenn;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +13,8 @@ public class loginPage extends index {
     By btn_SignIn = By.id("mui-3");
     By txt_userNameProfile = By.xpath("//a[@data-testid='user']/span[2]");
     By dilalogErrMsg = By.id("dialogDescription");
+    By btn_More = By.xpath("//div[@data-testid ='more']");
+    By btn_Logout = By.xpath("//span[text()='Logout']");
 
     public WebElement txt_UserName (WebDriver driver){
         webElement = driver.findElement(txt_email);
@@ -38,13 +39,20 @@ public class loginPage extends index {
         return webElement;
     }
 
-    public WebElement accessMenuSide(WebDriver driver, String sideMenuName){
-        webElement = driver.findElement(By.xpath("//div[@data-testid='"+sideMenuName+"']/a/div/span"));
-        return webElement;
-    }
+
 
     public WebElement btn_HomePage(WebDriver driver){
         webElement = driver.findElement(By.xpath("//img[@data-testid ='imgLogo']"));
+        return webElement;
+    }
+
+    public WebElement btn_more(WebDriver driver){
+        webElement = driver.findElement(btn_More);
+        return webElement;
+    }
+
+    public WebElement btn_logout(WebDriver driver){
+        webElement = driver.findElement(btn_Logout);
         return webElement;
     }
 }

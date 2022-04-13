@@ -108,6 +108,7 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>7.2.3</version>
+            <scope>test</scope>
         </dependency>
 
 
@@ -151,7 +152,17 @@
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>1.2.6</version>
+            <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>1.1.8</version>
+        </dependency>
+        <!-- Thanks for using https://jar-download.com -->
+
+
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-core</artifactId>
@@ -178,8 +189,20 @@
             <version>7.2.3</version>
         </dependency>
         <!-- Thanks for using https://jar-download.com -->
+         <!--Import report -->
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>3.19.0</version>
+        </dependency>
+        <!-- Thanks for using https://jar-download.com -->
 
-
+        <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>5.7.0</version>
+        </dependency>
 
     </dependencies>
 </project>

@@ -5,7 +5,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import pHpFox.conf.constants;
 import pHpFox.conf.hook;
 import pHpFox.conf.index;
@@ -20,11 +19,8 @@ public class loginStep extends index {
     hook hook = new hook();
     constants constants = new constants();
 
-    @Given("I want to open pHp by Firefox")
+    @Given("I get pHpFox address")
     public void iWantToOpenPHpBy() throws InterruptedException {
-        System.setProperty("webdriver.gecko.driver", "src/test/java/pHpFox/driver/geckodriver.exe");
-        driver = new FirefoxDriver();
-        driver.manage().window().maximize();
         driver.get(constants.URL);
         iWaitForSeconds(5);
     }
@@ -47,7 +43,6 @@ public class loginStep extends index {
     public boolean isUserFormDisplayed(String username) throws InterruptedException {
         waitElement(By.name("search"));
         assertTrue(loginPage.isField_userNameProfile(driver).getText().equals(username));
-        driver.quit();
         return true;
     }
 
@@ -58,22 +53,17 @@ public class loginStep extends index {
         loginPage.btn_login(driver).click();
         waitElement(By.id("dialogDescription"));
         assertTrue(loginPage.getTextDialog(driver).getText().equals(errorMsg));
-        driver.quit();
         return true;
     }
 
-
-    @Then("I want to access {string} menu")
-    public void iWantToAccessMenu(String arg0) throws InterruptedException {
-        iWaitForSeconds(5);
-        assertTrue(loginPage.accessMenuSide(driver, arg0).getText().toLowerCase().contains(arg0));
-        loginPage.accessMenuSide(driver,arg0).click();
-    }
-    @And("I back to homePage and I see {string}")
-    public void homePageClick(String itemsName){
-        waitElement(By.xpath("//img[@data-testid ='imgLogo']"));
-        loginPage.btn_HomePage(driver).click();
-        assertTrue(loginPage.accessMenuSide(driver, itemsName).isDisplayed());
+    @And("I want to logout and change another user")
+    public void logout() throws InterruptedException {
+        waitElement(By.xpath("//div[@data-testid ='more']/span"));
+        loginPage.btn_more(driver).click();
+        waitElement(By.xpath("//span[text()='Logout']"));
+        loginPage.btn_logout(driver).click();
+        iWaitForSeconds(4);
+        assertTrue(loginPage.btn_login(driver).isDisplayed());
     }
 
 }

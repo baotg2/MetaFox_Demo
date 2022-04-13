@@ -16,7 +16,7 @@ import org.openqa.selenium.By;
 import java.io.*;
 
 public class index extends constants {
-    public WebDriver driver;
+    public static WebDriver driver;
     private static XSSFWorkbook workbook;
     private static XSSFSheet sheet;
     private static XSSFRow row;
@@ -55,6 +55,10 @@ public class index extends constants {
         workbook.write(outputStream);
     }
 
+    public void closeWookBook() throws IOException {
+        workbook.close();
+    }
+
     public void waitElement(By webElement) {
         WebDriverWait wait = new WebDriverWait(driver,120);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(webElement));
@@ -63,13 +67,4 @@ public class index extends constants {
     public void iWaitForSeconds(int seconds) throws InterruptedException {
         Thread.sleep(seconds * 1000);
     }
-
-    public void Open_browser(String browserName) throws InterruptedException {
-        System.setProperty("webdriver.gecko.driver", "src/test/java/pHpFox/driver/geckodriver.exe");
-        driver = new FirefoxDriver();
-        driver.manage().window().maximize();
-        iWaitForSeconds(5);
-    }
-
-
 }
