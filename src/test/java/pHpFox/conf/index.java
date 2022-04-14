@@ -1,7 +1,5 @@
 package pHpFox.conf;
 
-import io.cucumber.java.en.Given;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -55,9 +53,6 @@ public class index extends constants {
         workbook.write(outputStream);
     }
 
-    public void closeWookBook() throws IOException {
-        workbook.close();
-    }
 
     public void waitElement(By webElement) {
         WebDriverWait wait = new WebDriverWait(driver,120);
@@ -66,5 +61,18 @@ public class index extends constants {
 
     public void iWaitForSeconds(int seconds) throws InterruptedException {
         Thread.sleep(seconds * 1000);
+    }
+    public void OpenBroswer(String browserName){
+        switch (browserName){
+            case "FireFox":
+                System.setProperty("webdriver.gecko.driver", "src/test/java/pHpFox/driver/geckodriver.exe");
+                driver = new FirefoxDriver();
+                driver.manage().window().maximize();
+                break;
+            default:
+                System.setProperty("webdriver.chrome.driver", "src/test/java/pHpFox/driver/chromedriver.exe");
+                driver = new ChromeDriver();
+                driver.manage().window().maximize();
+        }
     }
 }

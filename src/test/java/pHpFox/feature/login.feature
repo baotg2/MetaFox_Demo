@@ -1,10 +1,23 @@
 @pHpV5 @Login
-  Feature: VerifyLogin Page success
+  Feature: Verify login pHpFox success
     @ScrenarioLogin1
-    Scenario: verify login success
+    Scenario: Verify login success with all users
       Given I get pHpFox address
       Then I want to login pHpFox with user "admin" at sheet "users"
       And I want verified login homepage success "admin"
+      And I want to logout and change another user
+      Then I want to login pHpFox with user "brian" at sheet "users"
+      And I want verified login homepage success "brian"
+      And I want to logout and change another user
+      Then I want to login pHpFox with user "terry" at sheet "users"
+      And I want verified login homepage success "terry"
+      And I want to logout and change another user
+      Then I want to login pHpFox with user "luna" at sheet "users"
+      And I want verified login homepage success "luna"
+      And I want to logout and change another user
+      Then I want to login pHpFox with user "katie" at sheet "users"
+      And I want verified login homepage success "katie"
+
 
     @ScrenarioLogin2
     Scenario Outline: verify errorMsg with wrong user info

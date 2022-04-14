@@ -26,12 +26,19 @@ public class loginStep extends index {
     }
 
     @Then("I want to login pHpFox with user {string} at sheet {string}")
-    public void LoginpHpFox(String username, String sheetname) throws IOException {
+    public void LoginpHpFox(String username, String sheetname) throws IOException, InterruptedException {
         setExcelFile(excelPathFile, sheetname);
         for(int i=1; i<=getRowCountInSheet(); i++){
             if(getCellData(i, 2).toLowerCase().equals(username)){
                 loginPage.txt_UserName(driver).sendKeys(getCellData(i,4));
-                loginPage.txt_Password(driver).sendKeys(getCellData(i, 5));
+                iWaitForSeconds(3);
+                if(!getCellData(i, 2).toLowerCase().equals("admin")){
+                    loginPage.txt_Password(driver).sendKeys("123456");
+                }
+                else {
+                    loginPage.txt_Password(driver).sendKeys(getCellData(i, 5));
+                }
+
                 break;
             }
         }
@@ -42,7 +49,7 @@ public class loginStep extends index {
     @And("I want verified login homepage success {string}")
     public boolean isUserFormDisplayed(String username) throws InterruptedException {
         waitElement(By.name("search"));
-        assertTrue(loginPage.isField_userNameProfile(driver).getText().equals(username));
+        assertTrue(loginPage.isField_userNameProfile(driver).getText().toLowerCase().equals(username));
         return true;
     }
 
