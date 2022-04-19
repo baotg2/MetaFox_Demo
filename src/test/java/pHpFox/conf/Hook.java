@@ -6,10 +6,13 @@ import io.cucumber.java.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-public class hook extends index{
+import static pHpFox.conf.Index.driver;
+
+public class Hook{
+    Index index = new Index();
     @Before
     public void setUp(){
-        OpenBroswer("FireFox");
+        index.openBrowser("FireFox");
     }
     @After
     public void after(Scenario scenario) throws InterruptedException {

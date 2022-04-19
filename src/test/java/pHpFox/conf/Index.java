@@ -1,48 +1,43 @@
 package pHpFox.conf;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.By;
+import pHpFox.Constant;
 
 import java.io.*;
 
-public class index extends constants {
+public class Index {
     public static WebDriver driver;
-    private static XSSFWorkbook workbook;
-    private static XSSFSheet sheet;
-    private static XSSFRow row;
-    private static XSSFCell cell;
+    private XSSFWorkbook workbook;
+    private XSSFSheet sheet;
+    private XSSFCell cell;
 
-
+    Constant constant = new Constant();
     public void setExcelFile(String fileName, String sheetName) throws IOException {
        File file = new File(fileName);
-        FileInputStream inputStream = new FileInputStream(file);
-
-        //creating workbook instance that refers to .xls file
-        workbook=new XSSFWorkbook(inputStream);
-
-        //creating a Sheet object
-        sheet=workbook.getSheet(sheetName);
+       File sameFileName = new File(fileName);
+       if (file.renameTo(sameFileName)){
+           FileInputStream inputStream = new FileInputStream(file);
+           workbook=new XSSFWorkbook(inputStream);
+           sheet=workbook.getSheet(sheetName);
+       }
     }
 
-    public String getCellData(int rowNumber,int cellNumber){
+    public String getCellData(int rowNumber,int cellNumber) throws IOException {
         //getting the cell value from rowNumber and cell Number
         cell =sheet.getRow(rowNumber).getCell(cellNumber);
-
+        workbook.close();
         //returning the cell value as string
         return cell.getStringCellValue();
     }
 
     public int getRowCountInSheet(){
-        int rowcount = sheet.getLastRowNum()-sheet.getFirstRowNum();
-        return rowcount;
+        int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
+        return rowCount;
     }
 
     public void setCellValue(int rowNum,int cellNum,String cellValue,String excelFilePath) throws IOException {
@@ -53,16 +48,7 @@ public class index extends constants {
         workbook.write(outputStream);
     }
 
-
-    public void waitElement(By webElement) {
-        WebDriverWait wait = new WebDriverWait(driver,120);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(webElement));
-    }
-
-    public void iWaitForSeconds(int seconds) throws InterruptedException {
-        Thread.sleep(seconds * 1000);
-    }
-    public void OpenBroswer(String browserName){
+    public void openBrowser(String browserName){
         switch (browserName){
             case "FireFox":
                 System.setProperty("webdriver.gecko.driver", "src/test/java/pHpFox/driver/geckodriver.exe");
@@ -74,5 +60,10 @@ public class index extends constants {
                 driver = new ChromeDriver();
                 driver.manage().window().maximize();
         }
+
+        driver.get(constant.URL);
+
     }
+
+
 }

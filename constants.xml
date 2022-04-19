@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<constants>
+    <URL>
+        https://preview-foxsocial.phpfox.us/
+    </URL>
+    <TestDataFolder>
+        src/test/java/pHpFox/testdata/
+    </TestDataFolder>
+    <DataFile>
+        v5DataProvider.xlsx
+    </DataFile>
+    <BlogName>
+        TestAuto
+    </BlogName>
+    <Description>
+        TestAutoDescription
+    </Description>
+    <DirImage>
+        imageTest.jpg
+    </DirImage>
+    <Album>
+        NewAlbum
+    </Album>
+</constants>

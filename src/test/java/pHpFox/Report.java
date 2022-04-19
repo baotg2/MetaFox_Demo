@@ -1,4 +1,4 @@
-package pHpFox.conf;
+package pHpFox;
 
 import net.masterthought.cucumber.json.support.Status;
 import org.junit.Test;
@@ -11,11 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class constants {
-    public final String URL = "https://preview-foxsocial.phpfox.us/";
-    public final String testDataFolder = "src/test/java/pHpFox/testdata/";
-    public final String testDataFile = "v5DataProvider.xlsx";
-    public String excelPathFile = testDataFolder+testDataFile;
+public class Report {
 
     @Test
     public void generateDemoReport() throws IOException {

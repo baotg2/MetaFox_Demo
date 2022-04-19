@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/pHpFox/feature"},
         glue = "pHpFox",
-        tags = "@ScenarioBlogs3",
+        tags = "@BrianCommentOnBlog",
         plugin = {
                 "html:target/result/",
                 "pretty",
@@ -16,5 +16,6 @@ import io.cucumber.testng.CucumberOptions;
         monochrome = true
 )
 
-public class runner extends AbstractTestNGCucumberTests {
+public class Runner extends AbstractTestNGCucumberTests {
+
 }
