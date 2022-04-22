@@ -1,69 +1,51 @@
 package pHpFox.conf;
 
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import pHpFox.Constant;
+import org.openqa.selenium.remote.DesiredCapabilities;;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import pHpFox.support.DataExcutor;
 
-import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Index {
     public static WebDriver driver;
-    private XSSFWorkbook workbook;
-    private XSSFSheet sheet;
-    private XSSFCell cell;
+    public static String selectPlatform;
+    public static String AUTOMATE_USERNAME = "baotran_moYtnK";
+    public static String AUTOMATE_ACCESS_KEY = "2cnCJbmwkKAmmb9hEVsN";
+    public static String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
+    DataExcutor dataExcutor = new DataExcutor();
 
-    Constant constant = new Constant();
-    public void setExcelFile(String fileName, String sheetName) throws IOException {
-       File file = new File(fileName);
-       File sameFileName = new File(fileName);
-       if (file.renameTo(sameFileName)){
-           FileInputStream inputStream = new FileInputStream(file);
-           workbook=new XSSFWorkbook(inputStream);
-           sheet=workbook.getSheet(sheetName);
-       }
-    }
-
-    public String getCellData(int rowNumber,int cellNumber) throws IOException {
-        //getting the cell value from rowNumber and cell Number
-        cell =sheet.getRow(rowNumber).getCell(cellNumber);
-        workbook.close();
-        //returning the cell value as string
-        return cell.getStringCellValue();
-    }
-
-    public int getRowCountInSheet(){
-        int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
-        return rowCount;
-    }
-
-    public void setCellValue(int rowNum,int cellNum,String cellValue,String excelFilePath) throws IOException {
-        //creating a new cell in row and setting value to it
-        sheet.getRow(rowNum).createCell(cellNum).setCellValue(cellValue);
-
-        FileOutputStream outputStream = new FileOutputStream(excelFilePath);
-        workbook.write(outputStream);
-    }
-
-    public void openBrowser(String browserName){
-        switch (browserName){
-            case "FireFox":
-                System.setProperty("webdriver.gecko.driver", "src/test/java/pHpFox/driver/geckodriver.exe");
-                driver = new FirefoxDriver();
-                driver.manage().window().maximize();
+    public void openBrowser(String browserName, String selectPlatform) throws MalformedURLException {
+        Index.selectPlatform = selectPlatform;
+        switch (selectPlatform){
+            case "browserStack":
+                DesiredCapabilities caps = new DesiredCapabilities();
+                caps.setCapability("os_version", "10");
+                caps.setCapability("resolution", "1920x1080");
+                caps.setCapability("browser", browserName);
+                caps.setCapability("browser_version", "90.0");
+                caps.setCapability("os", "Windows");
+                caps.setCapability("name", "V5 Automate Test"); // test name
+                caps.setCapability("build", "Process on Blogs"); // CI/CD job or build name
+                caps.setCapability("browserstack.debug", "true");
+                driver= new RemoteWebDriver(new URL(URL), caps);
                 break;
-            default:
-                System.setProperty("webdriver.chrome.driver", "src/test/java/pHpFox/driver/chromedriver.exe");
-                driver = new ChromeDriver();
-                driver.manage().window().maximize();
+            case "local":
+                if ("Firefox".equals(browserName)) {
+                    System.setProperty("webdriver.gecko.driver", "src/test/java/pHpFox/driver/geckodriver.exe");
+                    driver = new FirefoxDriver();
+                    driver.manage().window().maximize();
+                } else {
+                    System.setProperty("webdriver.chrome.driver", "src/test/java/pHpFox/driver/chromedriver.exe");
+                    driver = new ChromeDriver();
+                    driver.manage().window().maximize();
+                }
+                break;
         }
-
-        driver.get(constant.URL);
-
+        driver.get(dataExcutor.URL_PHP_V5);
     }
-
-
 }

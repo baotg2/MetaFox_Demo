@@ -5,14 +5,14 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
+import java.net.MalformedURLException;
 import static pHpFox.conf.Index.driver;
 
 public class Hook{
     Index index = new Index();
     @Before
-    public void setUp(){
-        index.openBrowser("FireFox");
+    public void setUp() throws MalformedURLException {
+        index.openBrowser( "Firefox", "local");
     }
     @After
     public void after(Scenario scenario) throws InterruptedException {
@@ -20,9 +20,8 @@ public class Hook{
             final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png", "");
         }
+
         Thread.sleep(3000);
         driver.quit();
     }
-
-
 }

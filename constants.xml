@@ -15,10 +15,14 @@
     <Description>
         TestAutoDescription
     </Description>
-    <DirImage>
-        imageTest.jpg
-    </DirImage>
     <Album>
         NewAlbum
     </Album>
+    <BROWSERSTACK_USERNAME>
+        baotran_moYtnK
+    </BROWSERSTACK_USERNAME>
+
+    <BROWSERSTACK_ACCESS_KEY>
+        2cnCJbmwkKAmmb9hEVsN
+    </BROWSERSTACK_ACCESS_KEY>
 </constants>

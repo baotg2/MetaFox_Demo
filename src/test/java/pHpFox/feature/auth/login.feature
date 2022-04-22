@@ -17,7 +17,8 @@
 
     @ScrenarioLogin2
     Scenario Outline: verify errorMsg with wrong user info
-      Given I want to verified error message "<errorMsg>" with user "<userName>", "<passWord>"
+      Given I want to verified error message with user "<userName>", "<passWord>"
+      Then the user see error message "<errorMsg>"is displayed
       Examples:
       |errorMsg | userName | passWord
       |The user credentials were incorrect.| abc@gmail.com| 123456

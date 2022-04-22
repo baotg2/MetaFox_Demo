@@ -2,7 +2,6 @@ package pHpFox.pageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 import static pHpFox.conf.Index.driver;
@@ -17,8 +16,8 @@ public class Components {
     }
 
 
-    public WebElement componentDivID(String id){
-        webElement = driver.findElement(By.xpath("//div[contains(@id,'"+id+"')]"));
+    public WebElement componentH1ItemTitle(String text){
+        webElement = driver.findElement(By.xpath("//h1[text()='"+text+"']"));
         return webElement;
     }
 
@@ -29,6 +28,12 @@ public class Components {
 
     public WebElement componentButtonDataTestID(String dataTestid){
         webElement = driver.findElement(By.xpath("//button[@data-testid ='"+dataTestid+"']"));
+        return webElement;
+    }
+
+
+    public WebElement componentButtonText(String textValue){
+        webElement = driver.findElement(By.xpath("//button[text()='"+textValue+"']"));
         return webElement;
     }
 
@@ -62,24 +67,39 @@ public class Components {
         return webElement;
     }
 
-    public WebElement componentDivClass(String className){
-        webElement = driver.findElement(By.className(className));
+    public WebElement componentLinkDataTestID(String className){
+        webElement = driver.findElement(By.xpath("//a[@data-testid='"+className+"']"));
         return webElement;
     }
 
-    public List<WebElement> listButtonDataTestID(String dataTestID)
+    public List<WebElement> componentListButtonDataTestID(String dataTestID)
     {
         webElementList = driver.findElements(By.xpath("//button[@data-testid='"+dataTestID+"']"));
         return webElementList;
     }
 
-    public WebElement searchAttributes(){
-        webElement = driver.findElement(By.xpath("//input[@placeholder='Search blogs']"));
+    public WebElement componentSearchAttributes(String attributesName){
+        webElement = driver.findElement(By.xpath("//input[@placeholder='"+attributesName+"']"));
         return webElement;
     }
 
-    public WebElement textAreaDataTestID(String areaName){
+    public WebElement componentTextAreaDataTestID(String areaName){
         webElement = driver.findElement(By.xpath("//textarea[@data-testid ='"+areaName+"']"));
+        return webElement;
+    }
+
+    public WebElement componentMainFormDataTestID(String formIdName){
+        webElement = driver.findElement(By.xpath("//form[@data-testid ='"+formIdName+"']"));
+        return webElement;
+    }
+
+    public WebElement componentInputType(String typeValue){
+        webElement = driver.findElement(By.xpath("//input[@type='"+typeValue+"']"));
+        return  webElement;
+    }
+
+    public WebElement componentSpanDataTestID(String dataTestID){
+        webElement = driver.findElement(By.xpath("//span[@data-testid ='"+dataTestID+"']//img"));
         return webElement;
     }
 }

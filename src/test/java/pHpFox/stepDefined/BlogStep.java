@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebElement;
 import pHpFox.pageObject.Components;
 import pHpFox.support.DataExcutor;
 import pHpFox.support.IsComponentVisible;
@@ -15,21 +17,36 @@ import java.util.Objects;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static pHpFox.conf.Index.driver;
+import static pHpFox.conf.Index.selectPlatform;
 
 
 public class BlogStep {
     Components components = new Components();
     DataExcutor dataExcutor = new DataExcutor();
     IsComponentVisible isComponentVisible = new IsComponentVisible();
-    @Then ("the user action on input field \"([^\"]*)\"$")
-    public void inputValueOnField(String fieldName){
-        isComponentVisible.waitElement(By.xpath("//input[@data-testid='inputTitle']"));
-        components.componentInputDataTestID(fieldName).sendKeys(dataExcutor.readConstants("BlogName"));
+    @Then ("the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$")
+    public void inputValueOnField(String fieldName, String value){
+        isComponentVisible.waitElement(By.xpath("//input[@data-testid='"+fieldName+"']"));
+        if (value.equals("BlogName"))
+        {
+            components.componentInputDataTestID(fieldName).sendKeys(dataExcutor.readConstants(value));
+        }
+        else {
+            components.componentInputDataTestID(fieldName).sendKeys(value);
+        }
+
     }
     @And("^the user (want to|don't) add photo$")
     public void actionAttachImage(String status) throws IOException {
         if (status.equals("want to")){
-            components.componentInputDataTestID("inputFile").sendKeys(dataExcutor.getAlphaNumericString());
+            if(selectPlatform.equals("browserStack")){
+                WebElement upload = components.componentInputDataTestID("inputFile");
+                ((RemoteWebElement) upload ).setFileDetector(new LocalFileDetector());
+                upload.sendKeys(dataExcutor.getRandomPathDocuments());
+            }
+            else {
+                components.componentInputDataTestID("inputFile").sendKeys(dataExcutor.getRandomPathDocuments());
+            }
         }
     }
     @And("the user add value on div \"([^\"]*)\"$")
@@ -38,20 +55,28 @@ public class BlogStep {
     }
     @And("the user click on button\"([^\"]*)\"$")
     public void clickOnButton (String buttonName){
+        isComponentVisible.waitElement(By.xpath("//button[@data-testid ='"+buttonName+"']"));
         components.componentButtonDataTestID(buttonName).click();
     }
 
     @And("the user see message \"([^\"]*)\" displayed$")
-    public void isMsgCreateSuccessDisplayed(String msg){
+    public void isMsgCreateSuccessDisplayed(String msg) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//div[text()='"+msg+"']"));
+        Thread.sleep(3);
     }
 
     @And("^the user (want to|don't) add attach files$")
     public void actionAttachFile(String status) throws IOException, InterruptedException {
         if (status.equals("want to")) {
-            components.componentInputDataTestID("inputAttachments").sendKeys(dataExcutor.getAlphaNumericString());
+            if(selectPlatform.equals("browserStack")){
+                WebElement upload = components.componentInputDataTestID("inputAttachments");
+                ((RemoteWebElement) upload ).setFileDetector(new LocalFileDetector());
+                upload.sendKeys(dataExcutor.getRandomPathDocuments());
+            }
+            else {
+                components.componentInputDataTestID("inputAttachments").sendKeys(dataExcutor.getRandomPathDocuments());
+            }
         }
-
     }
 
     @And ("the user want add categories is \"([^\"]*)\"$")
@@ -83,40 +108,45 @@ public class BlogStep {
         assertTrue(driver.findElement(By.xpath("//h2[text()='"+myBlogs+"']")).getText().equals(myBlogs));
     }
 
+    @Then("^the user see main form \"([^\"]*)\" is displayed$")
+    public void seeMainForm(String formValue){
+        isComponentVisible.waitElement(By.xpath("//form[@data-testid ='form']"));
+        assertTrue(components.componentMainFormDataTestID(formValue).isDisplayed());
+    }
+
     @And("^the user click on \"([^\"]*)\" to access blog$")
     public void accessFirstBlog(String buttonName){
         isComponentVisible.waitElement(By.xpath("//button[@data-testid='"+buttonName+"']"));
-         components.listButtonDataTestID(buttonName).get(0).click();
+        components.componentListButtonDataTestID(buttonName).get(0).click();
     }
 
-    @And("^the user \"([^\"]*)\" this blogs")
+    @And("^the user \"([^\"]*)\" this item")
     public void accessEditMainForm(String action){
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid='"+action+"']"));
         components.componentDivDataTestID(action).click();
-        //isComponentVisible.waitElement(By.xpath("//h1[text()='Editing Blog']"));
     }
 
-    @Then("^the user typing keys \"([^\"]*)\" on search field$")
-    public void typingKeySearch(String keySearch){
-        if (!Objects.equals(keySearch, "")){
-            components.searchAttributes().sendKeys(keySearch);
+    @Then("^the user see search field \"([^\"]*)\" and typing keys \"([^\"]*)\"$")
+    public void typingKeySearch(String attributes, String keySearch){
+        if (keySearch.equals("BlogName")){
+            components.componentSearchAttributes(attributes).sendKeys(dataExcutor.readConstants(keySearch));
         }
         else {
-            components.searchAttributes().sendKeys(dataExcutor.readConstants("BlogName"));
+            components.componentSearchAttributes(attributes).sendKeys(keySearch);
         }
-        //components.searchAttributes("input", "placeholder", "Search blogs").click();
 
-        components.searchAttributes().sendKeys(Keys.ENTER);
+        components.componentSearchAttributes(attributes).sendKeys(Keys.ENTER);
     }
 
     @And("^the user (see|not see) \"([^\"]*)\" is displayed on result table$")
     public void seeMsgText(String status, String msgText) throws InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//h2[text()='Search Results']"));
+        //isComponentVisible.waitElement(By.xpath("//h2[text()='Search Results']"));
         if (status.equals("see")){
             isComponentVisible.waitElement(By.xpath("//div[@data-testid='noResultFound']"));
             assertEquals(components.componentDivDataTestID("noResultFound").getText(), msgText);
         }
         else {
-            isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemBlog']"));
+            isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemText']"));
             assertTrue(components.componentDivDataTestID("itemText").isDisplayed());
         }
 
@@ -131,15 +161,16 @@ public class BlogStep {
 
     @Then("^the user add comment \"([^\"]*)\" on blog$")
     public void addComment(String comment) throws InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemMedia']"));
-        components.componentDivDataTestID("itemMedia").click();
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemTitle']"));
-
         String inputText = comment;
         WebElement myElement = driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/div/div[2]/div/div/div/div/div/div[2]/div[5]/div[3]/form/div/div[2]/div/div[1]/div/div[2]/div/div/div/div/span"));
         String js = "arguments[0].setAttribute('value','"+inputText+"')";
         ((JavascriptExecutor) driver).executeScript(js, myElement);
-        Thread.sleep(3);
+    }
+
+    @And("^the user access this blog by \"([^\"]*)\" and process")
+    public void accessBlogOnSearchResult(String itemName){
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid='"+itemName+"']//a"));
+        driver.findElement(By.xpath("//div[@data-testid='"+itemName+"']//a")).click();
 
     }
 }

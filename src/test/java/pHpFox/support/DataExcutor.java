@@ -1,15 +1,12 @@
 package pHpFox.support;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -20,38 +17,37 @@ import java.io.IOException;
 import java.util.*;
 
 public class DataExcutor {
-    public Map<String, Map<String, String>> setMapData(String fileName, String sheetName) throws IOException {
-        FileInputStream fileInputStream = new FileInputStream(fileName);
-        Workbook workbook = new XSSFWorkbook(fileInputStream);
-        Sheet sheet = workbook.getSheet(sheetName);
-        int lastRow = sheet.getLastRowNum();
 
-        Map<String, Map<String, String>> excelFileMap = new HashMap<String, Map<String,String>>();
+    private XSSFWorkbook workbook;
+    private XSSFSheet sheet;
+    private XSSFCell cell;
 
-        Map<String, String> dataMap = new HashMap<String, String>();
+    public final String URL_PHP_V5 = "https://preview-foxsocial.phpfox.us/";
+    public final String testDataFolder = "src/test/java/pHpFox/testdata/";
+    public final String testDataFile = "v5DataProvider.xlsx";
+    public String excelPathFile = testDataFolder+testDataFile;
 
-        //Looping over entire row
-        for(int i=0; i<=lastRow; i++){
-
-            Row row = sheet.getRow(i);
-
-            //1st Cell as Value
-            Cell valueCell = row.getCell(1);
-
-            //0th Cell as Key
-            Cell keyCell = row.getCell(0);
-
-            String value = valueCell.getStringCellValue().trim();
-            String key = keyCell.getStringCellValue().trim();
-
-            //Putting key & value in dataMap
-            dataMap.put(key, value);
-
-            //Putting dataMap to excelFileMap
-            excelFileMap.put("DataSheet", dataMap);
+    public void setExcelFile(String fileName, String sheetName) throws IOException {
+        File file = new File(fileName);
+        File sameFileName = new File(fileName);
+        if (file.renameTo(sameFileName)){
+            FileInputStream inputStream = new FileInputStream(file);
+            workbook=new XSSFWorkbook(inputStream);
+            sheet=workbook.getSheet(sheetName);
         }
-        //Returning excelFileMap
-        return excelFileMap;
+    }
+
+    public String getCellData(int rowNumber,int cellNumber) throws IOException {
+        //getting the cell value from rowNumber and cell Number
+        cell =sheet.getRow(rowNumber).getCell(cellNumber);
+        workbook.close();
+        //returning the cell value as string
+        return cell.getStringCellValue();
+    }
+
+    public int getRowCountInSheet(){
+        int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
+        return rowCount;
     }
 
     public String readConstants(String stabName){
@@ -90,11 +86,10 @@ public class DataExcutor {
 
     private ArrayList<String> getPathDocument() throws IOException {
         File directory = new File("src/test/java/pHpFox/testdata");
-        List<File> resultList = new ArrayList<File>();
         ArrayList<String> list = new ArrayList<String>();
         // get all the files from a directory
         File[] fList = directory.listFiles();
-        resultList.addAll(Arrays.asList(fList));
+        assert fList != null;
         for (File file : fList) {
             if (file.isFile()) {
                 list.add(file.getAbsolutePath());
@@ -107,7 +102,7 @@ public class DataExcutor {
     }
 
 
-    public String getAlphaNumericString() throws IOException {
+    public String getRandomPathDocuments() throws IOException {
         String sb = null;
 
         for (int i = 0; i < getPathDocument().size(); i++) {
@@ -115,6 +110,7 @@ public class DataExcutor {
                     = (int)(getPathDocument().size()
                     * Math.random());
             sb = getPathDocument().get(index);
+            sb =  sb.replace("\\", "\\\\");
         }
         return sb;
     }
