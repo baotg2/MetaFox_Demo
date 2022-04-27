@@ -84,6 +84,19 @@ public class DataExcutor {
         return attributeName;
     }
 
+    public String getRandomPathDocuments() throws IOException {
+        String sb = null;
+
+        for (int i = 0; i < getPathDocument().size(); i++) {
+            int index
+                    = (int)(getPathDocument().size()
+                    * Math.random());
+            sb = getPathDocument().get(index);
+            sb =  sb.replace("\\", "\\\\");
+        }
+        return sb;
+    }
+
     private ArrayList<String> getPathDocument() throws IOException {
         File directory = new File("src/test/java/pHpFox/testdata");
         ArrayList<String> list = new ArrayList<String>();
@@ -99,19 +112,5 @@ public class DataExcutor {
             }
         }
         return list;
-    }
-
-
-    public String getRandomPathDocuments() throws IOException {
-        String sb = null;
-
-        for (int i = 0; i < getPathDocument().size(); i++) {
-            int index
-                    = (int)(getPathDocument().size()
-                    * Math.random());
-            sb = getPathDocument().get(index);
-            sb =  sb.replace("\\", "\\\\");
-        }
-        return sb;
     }
 }

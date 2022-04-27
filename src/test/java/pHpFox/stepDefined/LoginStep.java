@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import pHpFox.pageObject.Components;
 import pHpFox.support.DataExcutor;
 import pHpFox.support.IsComponentVisible;
@@ -42,7 +43,7 @@ public class LoginStep {
     }
 
     @Then("I want to verified error message with user {string}, {string}")
-    public void invalidUserCredentials(String errorMsg, String userName, String passWord ) throws PendingException {
+    public void invalidUserCredentials(String userName, String passWord ) throws PendingException {
         isComponentVisible.waitElement(By.id("mui-1"));
         components.componentInputDataTestID("inputEmail").sendKeys(userName);
         components.componentInputDataTestID("inputPassword").sendKeys(passWord);
@@ -51,9 +52,10 @@ public class LoginStep {
 
     }
 
-    @Then("^the user see error message \"([^\"]*)\"is displayed$")
+    @Then("^the user see error message \"([^\"]*)\" is displayed$")
     public boolean isErrMsgDisplayed(String mss){
-        assertEquals(components.componentMSg("popupMessage").getText(), mss);
+        isComponentVisible.waitElement(By.xpath("//p[text() ='"+mss+"']"));
+        assertEquals(driver.findElement(By.xpath("//p[text() ='"+mss+"']")).getText(), mss);
         return true;
     }
 
@@ -74,8 +76,50 @@ public class LoginStep {
             components.componentLinkText(url).click();
         }
     }
+
+    @Then("^the user want to click on \"([^\"]*)\"$")
+    public void accessNewPage(String item) {
+        isComponentVisible.waitElement(By.xpath("//a[contains(@href, '"+item+"')]"));
+        components.componentLinkText(item).click();
+    }
+
+    @Then("^the move to page \"([^\"]*)\"$")
+    public void openNewPage(String item) {
+        driver.get("https://preview-foxsocial.phpfox.us/"+item+"");
+    }
     @Then("^back to previous page")
     public void backToPreviousPage(){
         driver.navigate().back();
+    }
+
+    @Then("^the user input info sign up \"([^\"]*)\" with value \"([^\"]*)\"$")
+    public void valueEmailSignUp(String placeHolder, String value){
+        components.componentSearchAttributes(placeHolder).sendKeys(value);
+        components.componentSearchAttributes(placeHolder).sendKeys(Keys.ENTER);
+    }
+
+    @And("the user input info password sign up {string} with value {string}")
+    public void theUserInputInfoPasswordSignUpWithValue(String arg0, String arg1) {
+        components.componentInputID(arg0).sendKeys(arg1);
+        components.componentInputID(arg0).sendKeys(Keys.ENTER);
+    }
+
+    @And("the user click on check box {string}")
+    public void theUserClickOnCheckOn(String arg0) {
+        components.componentInputType(arg0).click();
+    }
+
+
+    @And("^the user want to \"([^\"]*)\"$")
+    public void clickOnSpanText(String actionName){
+        isComponentVisible.waitElement(By.xpath("//button[text()='"+actionName+"']"));
+        components.componentButtonText(actionName).click();
+
+    }
+
+    @Then("^the user see button \"([^\"]*)\" is displayed")
+    public void isButtonDisplayed(String buttonName){
+        isComponentVisible.waitElement(By.xpath("//button[text()='Un Friend']"));
+        assertTrue(components.componentButtonText(buttonName).isDisplayed());
     }
 }

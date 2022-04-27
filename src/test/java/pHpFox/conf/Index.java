@@ -17,6 +17,7 @@ public class Index {
     public static String AUTOMATE_USERNAME = "baotran_moYtnK";
     public static String AUTOMATE_ACCESS_KEY = "2cnCJbmwkKAmmb9hEVsN";
     public static String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
+
     DataExcutor dataExcutor = new DataExcutor();
 
     public void openBrowser(String browserName, String selectPlatform) throws MalformedURLException {
@@ -25,12 +26,12 @@ public class Index {
             case "browserStack":
                 DesiredCapabilities caps = new DesiredCapabilities();
                 caps.setCapability("os_version", "10");
-                caps.setCapability("resolution", "1920x1080");
+                //caps.setCapability("resolution", "");
                 caps.setCapability("browser", browserName);
-                caps.setCapability("browser_version", "90.0");
+                caps.setCapability("browser_version", "latest");
                 caps.setCapability("os", "Windows");
-                caps.setCapability("name", "V5 Automate Test"); // test name
-                caps.setCapability("build", "Process on Blogs"); // CI/CD job or build name
+                caps.setCapability("name",dataExcutor.readConstants("TestCaseRunner")); // test name
+//                caps.setCapability("build", "Process on Blogs"); // CI/CD job or build name
                 caps.setCapability("browserstack.debug", "true");
                 driver= new RemoteWebDriver(new URL(URL), caps);
                 break;
@@ -47,5 +48,6 @@ public class Index {
                 break;
         }
         driver.get(dataExcutor.URL_PHP_V5);
+        driver.manage().window().maximize();
     }
 }

@@ -9,4 +9,3 @@ Feature: Verify access side menu success
       And I want to access "members"
       And I want to access "quiz"
       And I want to access "event"
-     

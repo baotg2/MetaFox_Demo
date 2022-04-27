@@ -9,7 +9,6 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import pHpFox.pageObject.Components;
 import pHpFox.support.DataExcutor;
 import pHpFox.support.IsComponentVisible;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -81,9 +80,9 @@ public class PhotoStep {
         }
         return ass;
     }
-    @And("^the user back to home page$")
-    public void isBackToHomePage(){
-        components.componentLinkDataTestID("linkLogo").click();
+    @And("^the user back to \"([^\"]*)\" page$")
+    public void isBackToHomePage(String pageMove){
+        components.componentLinkDataTestID(pageMove).click();
     }
 
     @And("^the user see title \"([^\"]*)\" is displayed")

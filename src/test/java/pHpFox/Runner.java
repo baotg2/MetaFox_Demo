@@ -1,13 +1,12 @@
 package pHpFox;
 
-
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features = {"src/test/java/pHpFox/feature"},
         glue = "pHpFox",
-        tags = "@VisitorRegisterNewAccount",
+        tags = "@pHpV5",
         plugin = {
                 "html:target/result/",
                 "pretty",
@@ -15,7 +14,6 @@ import io.cucumber.testng.CucumberOptions;
         },
         monochrome = true
 )
-
 public class Runner extends AbstractTestNGCucumberTests {
 
 }

@@ -12,7 +12,7 @@ import pHpFox.pageObject.Components;
 import pHpFox.support.DataExcutor;
 import pHpFox.support.IsComponentVisible;
 import java.io.IOException;
-import java.util.Objects;
+
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -34,7 +34,6 @@ public class BlogStep {
         else {
             components.componentInputDataTestID(fieldName).sendKeys(value);
         }
-
     }
     @And("^the user (want to|don't) add photo$")
     public void actionAttachImage(String status) throws IOException {
@@ -53,7 +52,7 @@ public class BlogStep {
     public void inputValueOnDiv(String fieldName){
         components.componentDivRole(fieldName).sendKeys(dataExcutor.readConstants("Description"));
     }
-    @And("the user click on button\"([^\"]*)\"$")
+    @And("the user click on button \"([^\"]*)\"$")
     public void clickOnButton (String buttonName){
         isComponentVisible.waitElement(By.xpath("//button[@data-testid ='"+buttonName+"']"));
         components.componentButtonDataTestID(buttonName).click();
@@ -140,7 +139,6 @@ public class BlogStep {
 
     @And("^the user (see|not see) \"([^\"]*)\" is displayed on result table$")
     public void seeMsgText(String status, String msgText) throws InterruptedException {
-        //isComponentVisible.waitElement(By.xpath("//h2[text()='Search Results']"));
         if (status.equals("see")){
             isComponentVisible.waitElement(By.xpath("//div[@data-testid='noResultFound']"));
             assertEquals(components.componentDivDataTestID("noResultFound").getText(), msgText);
@@ -149,7 +147,6 @@ public class BlogStep {
             isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemText']"));
             assertTrue(components.componentDivDataTestID("itemText").isDisplayed());
         }
-
     }
 
     @And("the user access first condition \"([^\"]*)\"$")
@@ -161,9 +158,8 @@ public class BlogStep {
 
     @Then("^the user add comment \"([^\"]*)\" on blog$")
     public void addComment(String comment) throws InterruptedException {
-        String inputText = comment;
         WebElement myElement = driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/div/div[2]/div/div/div/div/div/div[2]/div[5]/div[3]/form/div/div[2]/div/div[1]/div/div[2]/div/div/div/div/span"));
-        String js = "arguments[0].setAttribute('value','"+inputText+"')";
+        String js = "arguments[0].setAttribute('value','"+ comment +"')";
         ((JavascriptExecutor) driver).executeScript(js, myElement);
     }
 
@@ -171,6 +167,5 @@ public class BlogStep {
     public void accessBlogOnSearchResult(String itemName){
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='"+itemName+"']//a"));
         driver.findElement(By.xpath("//div[@data-testid='"+itemName+"']//a")).click();
-
     }
 }
