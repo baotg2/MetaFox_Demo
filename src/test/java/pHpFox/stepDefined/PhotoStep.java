@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
 import pHpFox.pageObject.Components;
-import pHpFox.support.DataExcutor;
+import pHpFox.support.DataExecutor;
 import pHpFox.support.IsComponentVisible;
 import java.io.IOException;
 import java.util.List;
@@ -19,37 +19,37 @@ import static pHpFox.conf.Index.selectPlatform;
 public class PhotoStep {
     IsComponentVisible isComponentVisible = new IsComponentVisible();
     Components components = new Components();
-    DataExcutor dataExcutor = new DataExcutor();
+    DataExecutor dataExecutor = new DataExecutor();
     Integer idOfLastImageBeforeUpload;
     @Then("the user want to add new album")
     public void addAlbum(){
         isComponentVisible.waitElement(By.xpath("//form[@data-testid ='form']"));
         components.componentButtonDataTestID("add_new_album").click();
         isComponentVisible.waitElement(By.xpath("//input[@data-testid ='inputNewAlbumName']"));
-        components.componentInputDataTestID("inputNewAlbumName").sendKeys(dataExcutor.readConstants("Album"));
-        components.componentTextAreaDataTestID("inputNewAlbumDescription").sendKeys(dataExcutor.readConstants("Description"));
+        components.componentInputDataTestID("inputNewAlbumName").sendKeys(dataExecutor.readConstants("Album"));
+        components.componentTextAreaDataTestID("inputNewAlbumDescription").sendKeys(dataExecutor.readConstants("Description"));
     }
 
     @Then("the user want upload {int} photo")
-    public void addPhoto(int numberOfImage) throws IOException {
+    public void addPhoto(int numberOfImage) {
         isComponentVisible.waitElement(By.xpath("//form[@data-testid ='form']"));
         if(selectPlatform.equals("browserStack")){
             WebElement upload = components.componentInputType("file");
             ((RemoteWebElement) upload ).setFileDetector(new LocalFileDetector());
-            upload.sendKeys(dataExcutor.getRandomPathDocuments());
+            upload.sendKeys(dataExecutor.getRandomPathDocuments());
             if(numberOfImage > 1){
                 for (int i=0; i<numberOfImage; i++){
                     isComponentVisible.waitElement(By.xpath("//button[text() ='Add Photos']"));
-                    upload.sendKeys(dataExcutor.getRandomPathDocuments());
+                    upload.sendKeys(dataExecutor.getRandomPathDocuments());
                 }
             }
         }
         else {
-            components.componentInputType("file").sendKeys(dataExcutor.getRandomPathDocuments());
+            components.componentInputType("file").sendKeys(dataExecutor.getRandomPathDocuments());
             if(numberOfImage > 1){
                 for (int i=0; i<numberOfImage; i++){
                     isComponentVisible.waitElement(By.xpath("//button[text() ='Add Photos']"));
-                    components.componentInputType("file").sendKeys(dataExcutor.getRandomPathDocuments());
+                    components.componentInputType("file").sendKeys(dataExecutor.getRandomPathDocuments());
                 }
             }
         }
@@ -100,5 +100,17 @@ public class PhotoStep {
     public void isReactionSuccess(String reactionName){
         isComponentVisible.waitElement(By.xpath("//span[@data-testid='"+reactionName+"']"));
         assertTrue(components.componentSpanDataTestID(reactionName).isDisplayed());
+    }
+
+    @And("the user see photo of \"([^\"]*)\"$")
+    public void isSeePhoto (String buttonName){
+        isComponentVisible.waitElement(By.xpath("//div[text()='"+buttonName+"']"));
+        components.componentsDivMsg(buttonName).click();
+    }
+
+    @And("the user click on button \"([^\"]*)\" to action$")
+    public void clickOnButton (String buttonName){
+        isComponentVisible.waitElement(By.xpath("//div[@class ='ltr-77ogkp']/button[@data-testid='"+buttonName+"']"));
+        components.componentButtonAction(buttonName).click();
     }
 }

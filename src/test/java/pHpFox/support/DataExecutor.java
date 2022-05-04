@@ -16,11 +16,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
-public class DataExcutor {
+public class DataExecutor {
 
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
-    private XSSFCell cell;
 
     public final String URL_PHP_V5 = "https://preview-foxsocial.phpfox.us/";
     public final String testDataFolder = "src/test/java/pHpFox/testdata/";
@@ -39,15 +38,14 @@ public class DataExcutor {
 
     public String getCellData(int rowNumber,int cellNumber) throws IOException {
         //getting the cell value from rowNumber and cell Number
-        cell =sheet.getRow(rowNumber).getCell(cellNumber);
+        XSSFCell cell = sheet.getRow(rowNumber).getCell(cellNumber);
         workbook.close();
         //returning the cell value as string
         return cell.getStringCellValue();
     }
 
     public int getRowCountInSheet(){
-        int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
-        return rowCount;
+        return sheet.getLastRowNum()-sheet.getFirstRowNum();
     }
 
     public String readConstants(String stabName){
@@ -63,8 +61,6 @@ public class DataExcutor {
 
             doc.getDocumentElement().normalize();
 
-            System.out.println("Root Element :" + doc.getDocumentElement().getNodeName());
-            System.out.println("------");
 
             NodeList list = doc.getElementsByTagName(stabName);
 
@@ -84,7 +80,7 @@ public class DataExcutor {
         return attributeName;
     }
 
-    public String getRandomPathDocuments() throws IOException {
+    public String getRandomPathDocuments() {
         String sb = null;
 
         for (int i = 0; i < getPathDocument().size(); i++) {
@@ -97,16 +93,16 @@ public class DataExcutor {
         return sb;
     }
 
-    private ArrayList<String> getPathDocument() throws IOException {
+    private ArrayList<String> getPathDocument() {
         File directory = new File("src/test/java/pHpFox/testdata");
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         // get all the files from a directory
         File[] fList = directory.listFiles();
         assert fList != null;
         for (File file : fList) {
             if (file.isFile()) {
                 list.add(file.getAbsolutePath());
-                if(file.getAbsolutePath().contains("v5DataProvider.xlsx")){
+                if(file.getAbsolutePath().contains("xlsx") || (file.getAbsolutePath().contains("gif"))){
                     list.remove(file.getAbsolutePath());
                 }
             }

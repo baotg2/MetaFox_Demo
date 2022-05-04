@@ -29,7 +29,6 @@ Scenario: Admin Add New Blog Without Image
   And the user see message "Blog published successfully." displayed
   Then the user verify title of blog is displayed
 
-
 @AdminEditHisBlog
 Scenario: Admin Edit His Blog
   Given the user logged in as "admin"
@@ -37,7 +36,6 @@ Scenario: Admin Edit His Blog
   And the user see "My Blogs" is displayed
   And the user click on "actionMenuButton" to access blog
   And the user "edit" this item
-
 
 @AdminSearchHisBlog
 Scenario: Admin Search bla bla bla
@@ -47,7 +45,6 @@ Scenario: Admin Search bla bla bla
   And the user access first condition "inputSort"
   And the user access first condition "inputWhen"
   And the user see "No Results Found" is displayed on result table
-
 
 @AdminDeleteBlogsJustAdded
 Scenario: Admin Delete Blog Just Added

@@ -1,6 +1,5 @@
 package pHpFox.pageObject;
 
-import io.cucumber.java.de.Wenn;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.util.List;
@@ -53,8 +52,8 @@ public class Components {
         webElementList = driver.findElements(By.xpath("//span[text()='"+text+"']"));
         return webElementList;
     }
-    public WebElement componentMSg(String txtName){
-        webElement = driver.findElement(By.xpath("//p[@data-testid='"+txtName+"']"));
+    public WebElement componentButtonAction(String actionName){
+        webElement = driver.findElement(By.xpath("//div[@class ='ltr-77ogkp']/button[@data-testid='"+actionName+"']"));
         return webElement;
     }
 
@@ -77,7 +76,6 @@ public class Components {
         webElement = driver.findElement(By.xpath("//a[@data-testid='"+className+"']"));
         return webElement;
     }
-
 
     public List<WebElement> componentListButtonDataTestID(String dataTestID)
     {

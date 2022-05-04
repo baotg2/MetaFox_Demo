@@ -23,4 +23,3 @@ Feature:  Brain Process On Add Friend UnFriend
     And the user want to click on "/admin"
     And the user want to "Un Friend"
     And the user click on button "buttonSubmit"
-

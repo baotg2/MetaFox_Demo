@@ -27,7 +27,7 @@
     </BROWSERSTACK_ACCESS_KEY>
 
     <TestCaseRunner>
-        BrianAddNewBlogWithImage
+        photoFunction_Brain
     </TestCaseRunner>
 
 </constants>

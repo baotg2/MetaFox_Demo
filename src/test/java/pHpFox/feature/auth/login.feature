@@ -1,6 +1,6 @@
 @pHpV5 @Login
 Feature: Verify login pHpFox success
-  @ScrenarioLogin1
+  @ScenarioLogin1
   Scenario: Verify login success with all users
     Given the user logged in as "admin"
     And I want to logout and change another user
@@ -13,7 +13,7 @@ Feature: Verify login pHpFox success
     And the user logged in as "katie"
     And I want to logout and change another user
 
-  @ScrenarioLogin2
+  @ScenarioLogin2
   Scenario Outline: verify errorMsg with wrong user info
     Given I want to verified error message with user "<userName>", "<passWord>"
     Then the user see error message "The user credentials were incorrect." is displayed

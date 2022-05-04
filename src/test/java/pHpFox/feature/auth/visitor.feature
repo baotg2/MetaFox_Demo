@@ -1,5 +1,7 @@
 @pHpV5 @VisitorProcessHomePage
 Feature: Verify Visitor Process on HomePage
+
+
 @VisitorProcessOnMenuSide
 Scenario: Verify Visitor Process on Menu Side
   Given the user click on div "friends" and process
@@ -28,8 +30,8 @@ Scenario Outline: Visitor Process register new account With Error Msg
   Then the user see error message "Email Address must be a valid email" is displayed
   Examples:
   | firstName | lastName| fullName| emailValue
-  |testAuto1  | testAuto1|testAuto1| abcbsfds
-  |testAuto2  | testAuto2|testAuto2 | adasdjmscdvdvd
+  |testAuto1  | testAuto1|testAuto1| adv@abc
+  |testAuto2  | testAuto2|testAuto2 | adv@abc
 
 
 
