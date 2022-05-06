@@ -44,7 +44,7 @@ Scenario: Admin Search bla bla bla
   And the user see search field "Search blogs" and typing keys "bla bla bla"
   And the user access first condition "inputSort"
   And the user access first condition "inputWhen"
-  And the user see "No Results Found" is displayed on result table
+  Then the user see "No Results Found" is displayed on result table
 
 @AdminDeleteBlogsJustAdded
 Scenario: Admin Delete Blog Just Added

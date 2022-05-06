@@ -33,8 +33,6 @@ Scenario Outline: Visitor Process register new account With Error Msg
   |testAuto1  | testAuto1|testAuto1| adv@abc
   |testAuto2  | testAuto2|testAuto2 | adv@abc
 
-
-
 @VisitorRegisterNewAccountWithErrorMsgExistEmail
 Scenario: Visitor Process register new account With Error Msg Exist Email
   Given the user click on div "fieldRegister" and process

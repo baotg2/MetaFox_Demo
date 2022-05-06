@@ -3,7 +3,6 @@ package pHpFox.stepDefined;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
@@ -11,7 +10,6 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import pHpFox.pageObject.Components;
 import pHpFox.support.DataExecutor;
 import pHpFox.support.IsComponentVisible;
-import java.io.IOException;
 
 
 import static org.junit.Assert.assertEquals;
@@ -24,14 +22,17 @@ public class BlogStep {
     Components components = new Components();
     DataExecutor dataExecutor = new DataExecutor();
     IsComponentVisible isComponentVisible = new IsComponentVisible();
+
     @Then ("the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$")
     public void inputValueOnField(String fieldName, String value){
         isComponentVisible.waitElement(By.xpath("//input[@data-testid='"+fieldName+"']"));
-        if (value.equals("BlogName"))
+        if (value.equals("BlogName") || (value.equals("Album")))
         {
+            components.componentInputDataTestID(fieldName).clear();
             components.componentInputDataTestID(fieldName).sendKeys(dataExecutor.readConstants(value));
         }
         else {
+            components.componentInputDataTestID(fieldName).clear();
             components.componentInputDataTestID(fieldName).sendKeys(value);
         }
     }
@@ -158,14 +159,15 @@ public class BlogStep {
 
     @Then("^the user add comment \"([^\"]*)\" on blog$")
     public void addComment(String comment) {
-        WebElement myElement = driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/div/div[2]/div/div/div/div/div/div[2]/div[5]/div[3]/form/div/div[2]/div/div[1]/div/div[2]/div/div/div/div/span"));
-        String js = "arguments[0].setAttribute('value','"+ comment +"')";
-        ((JavascriptExecutor) driver).executeScript(js, myElement);
+        components.componentDivRole("combobox").sendKeys(comment);
+        components.componentDivRole("combobox").sendKeys(Keys.ENTER);
+        isComponentVisible.waitElement(By.xpath("//p[text() = '"+comment+"']"));
+        assertTrue(components.componentText(comment).isDisplayed());
     }
 
     @And("^the user access this blog by \"([^\"]*)\" and process")
     public void accessBlogOnSearchResult(String itemName){
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='"+itemName+"']//a"));
-        driver.findElement(By.xpath("//div[@data-testid='"+itemName+"']//a")).click();
+        components.componentDivDataTestID(itemName).click();
     }
 }

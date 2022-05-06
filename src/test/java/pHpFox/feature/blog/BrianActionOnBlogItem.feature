@@ -18,10 +18,13 @@ Feature:  Brian process on blogs item
   @BrianCommentOnBlog
   Scenario: Brian comment on blog
   Given the user logged in as "brian"
-  Then the browser opened at item "blog" and tab "/blog/all"
+  Then the browser opened at item "blog" and tab ""
+  And the user see search field "Search blogs" and typing keys "BlogName"
+  And the user access first condition "inputSort"
+  And the user access first condition "inputWhen"
+  And the user not see "No Results Found" is displayed on result table
   And the user access this blog by "itemMedia" and process
   And the user add comment "test comment" on blog
-
 
   @BrianReactionOnBlogJustAdd
   Scenario: Brain Reaction On This Blog
@@ -55,6 +58,7 @@ Feature:  Brian process on blogs item
     Then the user "delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully." displayed
+    Then the user see "No Results Found" is displayed on result table
 
   @BrianAddNewBlogAndSaveDraft
   Scenario: Brian Add New Blog And Save As Draft
@@ -67,24 +71,44 @@ Feature:  Brian process on blogs item
     And the user want add categories is "Education"
     And the user add topic is "tag-tag"
     And the user click on button "buttonDraft"
-    And the user see message "Already saved blog as draft" displayed
+    Then the user see message "Already saved blog as draft" displayed
     Then the user verify title of blog is displayed
 
-  @BrianSearchHisBlog
-  Scenario: Brian Search bla bla bla
+  @BrianPublishDraftBlog
+  Scenario: Brian Publish Draft Blog
+    Given the user logged in as "brian"
+    Then the browser opened at item "blog" and tab "/blog/draft"
+    And the user click on "actionMenuButton" to access blog
+    And the user "publish" this item
+    And the user click on button "buttonSubmit"
+    And the user see message "Blog published successfully." displayed
+
+  @BrainDeleteDraftBlog
+  Scenario: Brain Delete Draft Blog
+    Given the user logged in as "brian"
+    Then the browser opened at item "blog" and tab ""
+    And the user see search field "Search blogs" and typing keys "BlogName"
+    And the user access first condition "inputSort"
+    And the user access first condition "inputWhen"
+    And the user not see "No Results Found" is displayed on result table
+    And the user click on "actionMenuButton" to access blog
+    Then the user "delete" this item
+    And the user click on button "buttonSubmit"
+    Then the user see message "Blog deleted successfully." displayed
+
+  @BrianReportBlog
+  Scenario: Brian Report Blog
+    Given the user logged in as "brian"
+    Then the browser opened at item "blog" and tab "/blog/all"
+    And the user click on "actionMenuButton" to access blog
+    And the user "report" this item
+    Then the user see main form "form" is displayed
+
+  @BrianSearchEmptyKeyWord
+  Scenario: Brian Search Empty KeyWord
     Given the user logged in as "brian"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "bla bla bla"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     Then the user see "No Results Found" is displayed on result table
-
-
-  @BrianReportBlog
-  Scenario: Brian Report Blog
-    Given the user logged in as "brian"
-    And the user see search field "Search blogs" and typing keys "BlogName"
-    And the user not see "No Results Found" is displayed on result table
-    And the user click on "actionMenuButton" to access blog
-    And the user "report" this item
-    Then the user see main form "form" is displayed

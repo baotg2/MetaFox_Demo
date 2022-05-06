@@ -21,6 +21,8 @@ public class PhotoStep {
     Components components = new Components();
     DataExecutor dataExecutor = new DataExecutor();
     Integer idOfLastImageBeforeUpload;
+
+
     @Then("the user want to add new album")
     public void addAlbum(){
         isComponentVisible.waitElement(By.xpath("//form[@data-testid ='form']"));
@@ -87,6 +89,7 @@ public class PhotoStep {
 
     @And("^the user see title \"([^\"]*)\" is displayed")
     public void isTitleDisplayed(String titleName){
+        isComponentVisible.waitElement(By.xpath("//h1[text()='"+titleName+"']"));
         assertTrue(components.componentH1ItemTitle(titleName).isDisplayed());
     }
 

@@ -7,7 +7,7 @@ Feature: Brian process on album item
     Then the browser opened at item "photo" and tab "/photo/add"
     And the user want to add new album
     And the user click on button "buttonSubmit"
-    And the user see message "The files field is required." displayed
+    Then the user see message "The files field is required." displayed
 
   @BrainAddNewAlbumWithPhoto
   Scenario: Brian Add New Album With Photo
@@ -28,7 +28,7 @@ Feature: Brian process on album item
   Scenario: Brian Search His Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
-    And the user see search field "Search albums" and typing keys "NewAlbum"
+    And the user see search field "Search albums" and typing keys "Album"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     Then the user not see "No Results Found" is displayed on result table
@@ -42,11 +42,22 @@ Feature: Brian process on album item
     And the user click on button "reactionButton"
     Then the user see result of "reactionResult" displayed
 
+  @BrianEditAlbum
+  Scenario: Brian Reaction On Album
+    Given the user logged in as "brian"
+    Then the browser opened at item "photo" and tab "/photo/albums"
+    And the user see search field "Search albums" and typing keys "Album"
+    And the user click on "actionMenuButton" to access blog
+    Then the user "edit" this item
+    And the user action on input field "inputName" with value "Auto Test New AlbumName"
+    And the user click on button "buttonSubmit"
+    Then the user see message "Photo album updated successfully." displayed
+
   @BrianDeleteAlbum
   Scenario: Brian Delete Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
-    And the user see search field "Search albums" and typing keys "Album"
+    And the user see search field "Search albums" and typing keys "Auto Test New AlbumName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user not see "No Results Found" is displayed on result table

@@ -47,10 +47,10 @@ public class Components {
         return webElement;
     }
 
-    public List<WebElement> componentListSpanText(String text)
+    public WebElement componentText(String text)
     {
-        webElementList = driver.findElements(By.xpath("//span[text()='"+text+"']"));
-        return webElementList;
+        webElement= driver.findElement(By.xpath("//p[text()='"+text+"']"));
+        return webElement;
     }
     public WebElement componentButtonAction(String actionName){
         webElement = driver.findElement(By.xpath("//div[@class ='ltr-77ogkp']/button[@data-testid='"+actionName+"']"));
@@ -104,6 +104,11 @@ public class Components {
 
     public WebElement componentSpanDataTestID(String dataTestID){
         webElement = driver.findElement(By.xpath("//span[@data-testid ='"+dataTestID+"']//img"));
+        return webElement;
+    }
+
+    public WebElement componentDivButton(String dataTestID){
+        webElement = driver.findElement(By.xpath("//div[@data-testid = '"+dataTestID+"']//button"));
         return webElement;
     }
 }

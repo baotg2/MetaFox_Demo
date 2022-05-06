@@ -28,7 +28,7 @@ public class LoginStep {
         for(int i = 1; i<= dataExecutor.getRowCountInSheet(); i++){
             if(dataExecutor.getCellData(i, 2).toLowerCase().equals(username)){
                 components.componentInputDataTestID("inputEmail").sendKeys(dataExecutor.getCellData(i,4));
-                if(!dataExecutor.getCellData(i, 2).equals("admin")){
+                if(!dataExecutor.getCellData(i, 2).toLowerCase().equals("admin")){
                     components.componentInputDataTestID("inputPassword").sendKeys("123456");
                 }
                 else {
@@ -59,14 +59,12 @@ public class LoginStep {
         return true;
     }
 
-    @And("I want to logout and change another user")
-    public void logout() throws InterruptedException {
+    @And("^I want to click on \"([^\"]*)\"$")
+    public void logout(String spanText) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//div[@data-testid ='more']"));
         components.componentDivDataTestID("more").click();
-        isComponentVisible.waitElement(By.xpath("//span[text()='Logout']"));
-        components.componentSpanName("Logout").click();
-        isComponentVisible.iWaitForSeconds(4);
-        assertTrue(components.componentButtonDataTestID("buttonLogin").isDisplayed());
+        isComponentVisible.waitElement(By.xpath("//span[text()='"+spanText+"']"));
+        components.componentSpanName(spanText).click();
     }
 
     @And("I want to ")
@@ -122,15 +120,15 @@ public class LoginStep {
 
 
     @And("^the user want to \"([^\"]*)\"$")
-    public void clickOnSpanText(String actionName){
+    public void clickOnButtonText(String actionName){
         isComponentVisible.waitElement(By.xpath("//button[text()='"+actionName+"']"));
         components.componentButtonText(actionName).click();
 
     }
 
-    @Then("^the user see button \"([^\"]*)\" is displayed")
+    @Then("^the user see button \"([^\"]*)\" is displayed$")
     public void isButtonDisplayed(String buttonName){
-        isComponentVisible.waitElement(By.xpath("//button[text()='Un Friend']"));
+        isComponentVisible.waitElement(By.xpath("//button[text()='"+buttonName+"']"));
         assertTrue(components.componentButtonText(buttonName).isDisplayed());
     }
 }
