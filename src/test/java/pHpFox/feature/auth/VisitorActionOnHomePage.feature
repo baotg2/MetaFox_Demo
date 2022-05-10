@@ -1,22 +1,22 @@
 @MetaFox  @VisitorProcessHomePage
 Feature: Verify Visitor Process on HomePage
 
-  @VisitorProcessOnMenuSide
-  Scenario: Verify Visitor Process on Menu Side
-    Given the user click on div "friends" and process
-    And the user see "Welcome Back" is displayed
-    And back to previous page
-    And the user click on div "blogs" and process
-    And the user see "No Blogs" is displayed when not yet login
-    And the user back to "linkLogo" page
-    And the user click on div "videos" and process
-    And the user see title "Popular Videos" is displayed
-    And the user back to "linkLogo" page
-    And the user click on div "photos" and process
-    And the user see title "Popular Photos" is displayed
-    And the user back to "linkLogo" page
-    And the user click on div "poll" and process
-    And the user see title "Featured Polls" is displayed
+#  @VisitorProcessOnMenuSide
+#  Scenario: Verify Visitor Process on Menu Side
+#    Given the user click on div "friends" and process
+#    And the user see "Welcome Back" is displayed
+#    And back to previous page
+#    And the user click on div "blogs" and process
+#    And the user see "No Blogs" is displayed when not yet login
+#    And the user back to "linkLogo" page
+#    And the user click on div "videos" and process
+#    And the user see title "Popular Videos" is displayed
+#    And the user back to "linkLogo" page
+#    And the user click on div "photos" and process
+#    And the user see title "Popular Photos" is displayed
+#    And the user back to "linkLogo" page
+#    And the user click on div "poll" and process
+#    And the user see title "Featured Polls" is displayed
 
   @VisitorRegisterNewAccountWithErrorMsg
   Scenario Outline: Visitor Process register new account With Error Msg

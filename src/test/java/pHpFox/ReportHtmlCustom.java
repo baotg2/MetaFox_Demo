@@ -14,7 +14,7 @@ public class ReportHtmlCustom {
 
     @Test
     public void generateDemoReport(){
-        File reportOutputDirectory = new File("target/MetaFox_V5/Cucumber_reports");
+        File reportOutputDirectory = new File("src/report/Cucumber_reports");
         List<String> jsonFiles = new ArrayList<>();
         jsonFiles.add("target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json");
         String buildNumber = "1";

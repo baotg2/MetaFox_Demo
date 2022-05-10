@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/pHpFox/feature"},
         glue = "pHpFox",
-        tags = "@VisitorSignUpWithEmptyValue",
+        tags = "@VisitorProcessHomePage",
         plugin = {
                 "html:target/result/",
                 "pretty",

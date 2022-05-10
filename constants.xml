@@ -27,7 +27,7 @@
     </BROWSERSTACK_ACCESS_KEY>
 
     <TestCaseRunner>
-        photoFunction_Brain
+        VisitorProcessSignUp
     </TestCaseRunner>
 
 </constants>
