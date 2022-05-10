@@ -8,7 +8,6 @@ import static pHpFox.conf.Index.driver;
 
 public class Components {
     private WebElement webElement;
-    private List<WebElement> webElementList;
 
     public WebElement componentInputDataTestID(String dataTestid){
         webElement = driver.findElement(By.xpath("//input[@data-testid ='"+dataTestid+"']"));
@@ -47,6 +46,10 @@ public class Components {
         return webElement;
     }
 
+    public List<WebElement> componentListSpanName(String spanName){
+        return driver.findElements(By.xpath("//span[text()='"+spanName+"']"));
+    }
+
     public WebElement componentText(String text)
     {
         webElement= driver.findElement(By.xpath("//p[text()='"+text+"']"));
@@ -58,18 +61,19 @@ public class Components {
     }
 
     public WebElement componentDivRole(String roleName){
-        webElement = driver.findElement(By.xpath("//div[@role='"+roleName+"']"));
-        return webElement;
+        return driver.findElement(By.xpath("//div[@role='"+roleName+"']"));
+    }
+
+    public List<WebElement> componentsListDivRole(String roleName){
+        return driver.findElements(By.xpath("//div[@role='"+roleName+"']"));
     }
 
     public WebElement componentsDivMsg(String msgValue){
-        webElement = driver.findElement(By.xpath("//div[text()='"+msgValue+"']"));
-        return webElement;
+        return driver.findElement(By.xpath("//div[text()='"+msgValue+"']"));
     }
 
     public WebElement componentInputID(String id){
-        webElement = driver.findElement(By.id(id));
-        return webElement;
+       return driver.findElement(By.id(id));
     }
 
     public WebElement componentLinkDataTestID(String className){
@@ -79,8 +83,7 @@ public class Components {
 
     public List<WebElement> componentListButtonDataTestID(String dataTestID)
     {
-        webElementList = driver.findElements(By.xpath("//button[@data-testid='"+dataTestID+"']"));
-        return webElementList;
+        return driver.findElements(By.xpath("//button[@data-testid='" + dataTestID + "']"));
     }
 
     public WebElement componentSearchAttributes(String attributesName){
@@ -110,5 +113,9 @@ public class Components {
     public WebElement componentDivButton(String dataTestID){
         webElement = driver.findElement(By.xpath("//div[@data-testid = '"+dataTestID+"']//button"));
         return webElement;
+    }
+
+    public List<WebElement>componentsSpanlist(){
+        return driver.findElements(By.xpath("//div[@class ='MuiListItemText-root ltr-1x690uy']//span"));
     }
 }

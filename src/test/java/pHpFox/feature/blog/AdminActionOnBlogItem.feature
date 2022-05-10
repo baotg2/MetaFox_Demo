@@ -1,5 +1,5 @@
-@pHpV5 @blogFunction_Admin
-Feature:  Admin process on blogs item
+@MetaFox  @blogFunction_Admin
+Feature:  Admin process on blogs app
 
 @AdminAddNewBlogWithImage
 Scenario: Admin Add New Blog With Image
@@ -57,7 +57,6 @@ Scenario: Admin Delete Blog Just Added
   And the user click on "actionMenuButton" to access blog
   Then the user "delete" this item
   And the user click on button "buttonSubmit"
-
 
 @AdminSeePendingBlog
 Scenario: Admin See Pending Blog

@@ -91,15 +91,9 @@ public class BlogStep {
     }
 
     @Then ("the user verify title of blog is displayed")
-    public boolean compareTitleBlogAdded(){
+    public void compareTitleBlogAdded(){
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemTitle']"));
-        boolean ass;
-        if (components.componentDivDataTestID("itemTitle").getText().equals(dataExecutor.readConstants("BlogName"))){
-            ass = true;
-        }
-        else {ass= false;}
-
-        return ass;
+        assertEquals(components.componentDivDataTestID("itemTitle").getText(), dataExecutor.readConstants("BlogName"));
     }
 
     @And("^the user see \"([^\"]*)\" is displayed$")
@@ -169,5 +163,11 @@ public class BlogStep {
     public void accessBlogOnSearchResult(String itemName){
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='"+itemName+"']//a"));
         components.componentDivDataTestID(itemName).click();
+    }
+
+    @Then("^the user see page \"([^\"]*)\" is displayed")
+    public String getURL(String currentURL){
+        assertTrue(driver.getCurrentUrl().contains(currentURL));
+        return currentURL;
     }
 }

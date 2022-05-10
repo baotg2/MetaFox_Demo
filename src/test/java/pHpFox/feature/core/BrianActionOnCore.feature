@@ -1,4 +1,4 @@
-@pHpV5 @brianProcessOnCore
+@MetaFox @brianProcessOnCore
 Feature: Brain Process On Core
 
   @BrainAccessSettings
@@ -14,9 +14,27 @@ Feature: Brain Process On Core
     And the user see "Blocked Users" on left menu
     And the user see "Profile Menu" on left menu
 
-  @BrainAccessSettings
-  Scenario: Brain Access Settings
+  @BrainVerifySendFriendRequest
+  Scenario: Brain Verify Send Friend Request
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
-    And the user want to edit "editName"
-    And the user see button "cancel" is displayed
+    And the user back to "profile" page
+    And the user select privacy at field "Who can send me a friend request?" and change to "No One"
+    And I want to click on "Logout"
+    Then the user logged in as "terry"
+    And the user see search field "search_dots" and typing keys "brian"
+    And the user want to click on "/brian"
+    Then the user see button "Message" is displayed
+
+  @BrainVerifyViewHisFriendsList
+  Scenario: Brain Verify View His Friends List
+    Given the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "profile" page
+    And the user select privacy at field "list?" and change to "No One"
+    And I want to click on "Logout"
+    Then the user logged in as "terry"
+    And the user see search field "search_dots" and typing keys "brian"
+    And the user want to click on "/brian"
+    And the user want to click on "/friend"
+    Then the user see message "No Content" displayed

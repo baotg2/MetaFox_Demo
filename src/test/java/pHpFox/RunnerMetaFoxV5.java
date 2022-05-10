@@ -6,14 +6,14 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/pHpFox/feature"},
         glue = "pHpFox",
-        tags = "@BrainDeleteBlogsJustAdded",
+        tags = "@VisitorSignUpWithEmptyValue",
         plugin = {
                 "html:target/result/",
                 "pretty",
-                "json:target/pHpFox_V5/Cucumber_reports/V5Report.json"
+                "json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json"
         },
         monochrome = true
 )
-public class Runner extends AbstractTestNGCucumberTests {
+public class RunnerMetaFoxV5 extends AbstractTestNGCucumberTests {
 
 }

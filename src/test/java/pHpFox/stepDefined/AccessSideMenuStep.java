@@ -39,5 +39,4 @@ public class AccessSideMenuStep{
         isComponentVisible.waitElement(By.xpath("//div[text()='"+msg+"']"));
         assertEquals(components.componentsDivMsg(msg).getText(), msg);
     }
-
 }

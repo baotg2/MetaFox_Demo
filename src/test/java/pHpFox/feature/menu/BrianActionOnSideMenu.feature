@@ -1,4 +1,4 @@
-@pHpV5 @sideMenu
+@MetaFox  @sideMenu
 Feature: Verify access side menu success
   @ScenarioAccessSideMenu1
   Scenario: verify access child side menu

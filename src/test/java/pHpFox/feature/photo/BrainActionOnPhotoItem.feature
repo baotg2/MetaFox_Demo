@@ -1,4 +1,4 @@
-@pHpV5 @photoFunction_Brain
+@MetaFox @photoFunction_Brain
 Feature: Brian process on photos item
 
   @BrainAddNewPhoto

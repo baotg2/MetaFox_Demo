@@ -1,4 +1,4 @@
-@pHpV5 @PhotoItem_Admin
+@MetaFox  @PhotoItem_Admin
 Feature: Admin process on photos item
 
   @AdminSeePendingPhoto

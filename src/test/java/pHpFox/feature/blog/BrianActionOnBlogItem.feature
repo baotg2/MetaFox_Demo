@@ -1,5 +1,5 @@
-@pHpV5 @blogFunction_Brian
-Feature:  Brian process on blogs item
+@MetaFox  @blogFunction_Brian
+Feature:  Brian process on blogs app
 
   @BrianAddNewBlogWithImage
   Scenario: Brian Add New Blog With Image
@@ -95,6 +95,7 @@ Feature:  Brian process on blogs item
     Then the user "delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully." displayed
+    Then the user see "No Results Found" is displayed on result table
 
   @BrianReportBlog
   Scenario: Brian Report Blog
@@ -103,12 +104,14 @@ Feature:  Brian process on blogs item
     And the user click on "actionMenuButton" to access blog
     And the user "report" this item
     Then the user see main form "form" is displayed
+    And the user click on button "buttonSubmit"
+
 
   @BrianSearchEmptyKeyWord
   Scenario: Brian Search Empty KeyWord
     Given the user logged in as "brian"
     Then the browser opened at item "blog" and tab ""
-    And the user see search field "Search blogs" and typing keys "bla bla bla"
+    And the user see search field "Search blogs" and typing keys "SearchSomethings"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     Then the user see "No Results Found" is displayed on result table

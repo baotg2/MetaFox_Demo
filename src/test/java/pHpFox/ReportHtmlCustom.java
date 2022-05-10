@@ -6,18 +6,17 @@ import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 import net.masterthought.cucumber.presentation.PresentationMode;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Report {
+public class ReportHtmlCustom {
 
     @Test
-    public void generateDemoReport() throws IOException {
-        File reportOutputDirectory = new File("target/pHpFox_V5/Cucumber_reports");
+    public void generateDemoReport(){
+        File reportOutputDirectory = new File("target/MetaFox_V5/Cucumber_reports");
         List<String> jsonFiles = new ArrayList<>();
-        jsonFiles.add("target/pHpFox_V5/Cucumber_reports/V5Report.json");
+        jsonFiles.add("target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json");
         String buildNumber = "1";
         String projectName = "pHpDoemo";
         Configuration configuration = new Configuration(reportOutputDirectory, projectName);

@@ -1,4 +1,4 @@
-@pHpV5 @albumFunction_Brain
+@MetaFox  @albumFunction_Brain
 Feature: Brian process on album item
 
   @BrianAddNewAlbumWithoutImage

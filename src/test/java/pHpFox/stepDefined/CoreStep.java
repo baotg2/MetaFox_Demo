@@ -8,6 +8,7 @@ import pHpFox.support.DataExecutor;
 import pHpFox.support.IsComponentVisible;
 
 import static org.junit.Assert.assertTrue;
+import static pHpFox.conf.Index.driver;
 
 public class CoreStep {
     Components components = new Components();
@@ -25,5 +26,20 @@ public class CoreStep {
     public void editInfoAccount(String fieldName){
         isComponentVisible.waitElement(By.xpath("//div[@data-testid = '"+fieldName+"']//button"));
         components.componentDivButton(fieldName).click();
+    }
+
+    @And("the user select privacy at field \"([^\"]*)\" and change to \"([^\"]*)\"$")
+    public void selectPrivacy(String fieldSetting, String valueChanged){
+        isComponentVisible.waitElement(By.xpath("//div[@role ='button']"));
+        for(int i =0; i < components.componentsSpanlist().size(); i++) {
+            if (components.componentsSpanlist().get(i).getText().contains(fieldSetting)) {
+                if(!components.componentsListDivRole("button").get(i).getText().equals(valueChanged))
+                {
+                    components.componentsListDivRole("button").get(i).click();
+                    components.componentsDivMsg(valueChanged).click();
+                }
+                break;
+            }
+        }
     }
 }
