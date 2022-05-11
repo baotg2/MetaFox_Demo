@@ -45,12 +45,15 @@ Feature:  Brian process on blogs app
   And the user click on "actionMenuButton" to access blog
   And the user "edit" this item
   Then the user see main form "form" is displayed
+  And the user action on input field "inputTitle" with value "Auto Test New Blogs Name"
+  And the user click on button "buttonSubmit"
+  Then the user see message "Already saved changes." displayed
 
   @BrainDeleteBlogsJustAdded
   Scenario: Brain Delete Blog Just Added
     Given the user logged in as "brian"
     Then the browser opened at item "blog" and tab ""
-    And the user see search field "Search blogs" and typing keys "BlogName"
+    And the user see search field "Search blogs" and typing keys "Auto Test New Blogs Name"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user not see "No Results Found" is displayed on result table
@@ -105,7 +108,6 @@ Feature:  Brian process on blogs app
     And the user "report" this item
     Then the user see main form "form" is displayed
     And the user click on button "buttonSubmit"
-
 
   @BrianSearchEmptyKeyWord
   Scenario: Brian Search Empty KeyWord

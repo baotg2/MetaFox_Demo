@@ -1,25 +1,25 @@
-@MetaFox  @VisitorProcessHomePage
-Feature: Verify Visitor Process on HomePage
+@MetaFox  @VisitorProcessSignUp
+Feature: Verify Visitor Process on Sign Up
 
-#  @VisitorProcessOnMenuSide
-#  Scenario: Verify Visitor Process on Menu Side
-#    Given the user click on div "friends" and process
-#    And the user see "Welcome Back" is displayed
-#    And back to previous page
+  @VisitorProcessOnMenuSide
+  Scenario: Verify Visitor Process on Menu Side
+    Given the user click on div "friends" and process
+    And the user see "Welcome Back" is displayed
+    And back to previous page
+    And the user click on div "members" and process
+    And the user see title "Members" is displayed
+    And the user back to "linkLogo" page
 #    And the user click on div "blogs" and process
-#    And the user see "No Blogs" is displayed when not yet login
+#    And the user see "Popular Blogs" on left menu
 #    And the user back to "linkLogo" page
-#    And the user click on div "videos" and process
-#    And the user see title "Popular Videos" is displayed
-#    And the user back to "linkLogo" page
-#    And the user click on div "photos" and process
-#    And the user see title "Popular Photos" is displayed
-#    And the user back to "linkLogo" page
-#    And the user click on div "poll" and process
-#    And the user see title "Featured Polls" is displayed
+    And the user click on div "photos" and process
+    And the user see title "Popular Photos" is displayed
+    And the user back to "linkLogo" page
+    And the user click on div "poll" and process
+    And the user see "No Polls Found" on left menu
 
-  @VisitorRegisterNewAccountWithErrorMsg
-  Scenario Outline: Visitor Process register new account With Error Msg
+  @VisitorRegisterNewAccountWithErrorMsgInvalidEmail
+  Scenario Outline: Visitor Process register new account With Error Msg Invalid Email
     Given the user click on div "fieldRegister" and process
     Then the user see title "Create account" is displayed
     And the user action on input field "inputFirstName" with value "<firstName>"
@@ -51,9 +51,9 @@ Feature: Verify Visitor Process on HomePage
     Given the user click on div "fieldRegister" and process
     Then the user see title "Create account" is displayed
     And the user click on button "buttonSubmit"
-    Then the user see error message "Last name is a required field" is displayed
-    Then the user see error message "First name is a required field" is displayed
-    Then the user see error message "Full name is a required field" is displayed
+    Then the user see error message "Last Name is a required field" is displayed
+    Then the user see error message "First Name is a required field" is displayed
+    Then the user see error message "Full Name is a required field" is displayed
     Then the user see error message "Choose an Username" is displayed
     Then the user see error message "Email is a required field" is displayed
     Then the user see error message "Enter Password" is displayed
@@ -64,3 +64,45 @@ Feature: Verify Visitor Process on HomePage
     Then the user see title "Create account" is displayed
     And the user back to "buttonUndefined" page
     Then the user see "Welcome Back" is displayed
+
+  @VisitorRegisterNewAccountWithExistUserName
+  Scenario: Visitor Process register new account With Exist User Name
+    Given the user click on div "fieldRegister" and process
+    Then the user see title "Create account" is displayed
+    And the user action on input field "inputFirstName" with value "Test exist email"
+    And the user action on input field "inputLastName" with value "Test exist email"
+    And the user action on input field "inputFullName" with value "Test exist email"
+    And the user input info sign up "Email Address" with value "brian1@example.com"
+    And the user input info sign up "Choose an Username" with value "admin"
+    And the user input info password sign up "mui-12" with value "123456"
+    And the user click on check box "checkbox"
+    And the user click on button "buttonSubmit"
+    Then the user see error message "The user name has already been taken." is displayed
+
+  @VisitorRegisterNewAccountWithShortPassword
+  Scenario: Visitor Process register new account With Short Password
+    Given the user click on div "fieldRegister" and process
+    Then the user see title "Create account" is displayed
+    And the user action on input field "inputFirstName" with value "Test exist email"
+    And the user action on input field "inputLastName" with value "Test exist email"
+    And the user action on input field "inputFullName" with value "Test exist email"
+    And the user input info sign up "Email Address" with value "brian@example123.com"
+    And the user input info sign up "Choose an Username" with value "TestAuto1"
+    And the user input info password sign up "mui-12" with value "cv"
+    And the user click on check box "checkbox"
+    And the user click on button "buttonSubmit"
+    Then the user see error message "Your password must be at least 6 characters long. Please try another." is displayed
+
+  @VisitorRegisterNewAccountWithSpaceOnPasswordField
+  Scenario: Visitor Process register new account With Space On Password Field
+    Given the user click on div "fieldRegister" and process
+    Then the user see title "Create account" is displayed
+    And the user action on input field "inputFirstName" with value "Test exist email"
+    And the user action on input field "inputLastName" with value "Test exist email"
+    And the user action on input field "inputFullName" with value "Test exist email"
+    And the user input info sign up "Email Address" with value "brian@example123.com"
+    And the user input info sign up "Choose an Username" with value "TestAuto1"
+    And the user input info password sign up "mui-12" with value " "
+    And the user click on check box "checkbox"
+    And the user click on button "buttonSubmit"
+    Then the user see error message "The password is required." is displayed

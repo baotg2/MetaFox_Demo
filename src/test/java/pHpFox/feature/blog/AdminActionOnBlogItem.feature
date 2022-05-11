@@ -1,23 +1,9 @@
 @MetaFox  @blogFunction_Admin
 Feature:  Admin process on blogs app
 
-@AdminAddNewBlogWithImage
-Scenario: Admin Add New Blog With Image
-  Given the user logged in as "admin"
-  Then the browser opened at item "blog" and tab "/blog/add"
-  Then the user action on input field "inputTitle" with value "BlogName"
-  Then the user want to add photo
-  And the user add value on div "textbox"
-  And the user want to add attach files
-  And the user want add categories is "Education"
-  And the user add topic is "tag-tag"
-  And the user click on button "buttonSubmit"
-  And the user see message "Blog published successfully." displayed
-  Then the user verify title of blog is displayed
-
 @AdminAddNewBlogWithoutImage
 Scenario: Admin Add New Blog Without Image
-  Given the user logged in as "brian"
+  Given the user logged in as "admin"
   Then the browser opened at item "blog" and tab "/blog/add"
   Then the user action on input field "inputTitle" with value "BlogName"
   Then the user don't add photo
@@ -50,7 +36,7 @@ Scenario: Admin Search bla bla bla
 Scenario: Admin Delete Blog Just Added
   Given the user logged in as "admin"
   Then the browser opened at item "blog" and tab ""
-  And the user see search field "Search blogs" and typing keys ""
+  And the user see search field "Search blogs" and typing keys "BlogName"
   And the user access first condition "inputSort"
   And the user access first condition "inputWhen"
   And the user not see "No Results Found" is displayed on result table
@@ -61,6 +47,6 @@ Scenario: Admin Delete Blog Just Added
 @AdminSeePendingBlog
 Scenario: Admin See Pending Blog
   Given the user logged in as "admin"
-  Then the browser opened at item "blog" and tab "/photo/pending"
-  And the user see title "Pending Blogs" is displayed
+  And the browser opened at item "blog" and tab "/blog/pending"
+  And the user see "No Blogs Found" on left menu
   And the user back to "linkLogo" page

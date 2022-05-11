@@ -30,8 +30,8 @@ public class Index {
                 caps.setCapability("browser", browserName);
                 caps.setCapability("browser_version", "latest");
                 caps.setCapability("os", "Windows");
-                caps.setCapability("name", dataExecutor.readConstants("TestCaseRunner")); // test name
-//                caps.setCapability("build", "Process on Blogs"); // CI/CD job or build name
+                caps.setCapability("build", dataExecutor.readConstants("TestCaseRunner")); // test name
+                caps.setCapability("name", "VisitorRegisterNewAccountWithShortPassword"); // CI/CD job or build name
                 caps.setCapability("browserstack.debug", "true");
                 driver= new RemoteWebDriver(new URL(URL), caps);
                 break;

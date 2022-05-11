@@ -91,6 +91,11 @@ public class Components {
         return webElement;
     }
 
+
+    public List<WebElement> componentListSearchAttributes(String attributesName){
+        return driver.findElements(By.xpath("//input[@placeholder='"+attributesName+"']"));
+    }
+
     public WebElement componentTextAreaDataTestID(String areaName){
         webElement = driver.findElement(By.xpath("//textarea[@data-testid ='"+areaName+"']"));
         return webElement;
@@ -117,5 +122,9 @@ public class Components {
 
     public List<WebElement>componentsSpanlist(){
         return driver.findElements(By.xpath("//div[@class ='MuiListItemText-root ltr-1x690uy']//span"));
+    }
+
+    public WebElement componentLink(String linkText){
+        return driver.findElement(By.xpath("//a[text() ='"+linkText+"']"));
     }
 }

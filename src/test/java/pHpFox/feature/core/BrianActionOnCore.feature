@@ -6,7 +6,7 @@ Feature: Brain Process On Core
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user see "General" on left menu
-    And the user see "Payment" on left menu
+    #And the user see "Payment" on left menu
     And the user see "Your Profile" on left menu
     And the user see "Invisible Mode" on left menu
     And the user see "Sharing Items" on left menu
@@ -22,7 +22,7 @@ Feature: Brain Process On Core
     And the user select privacy at field "Who can send me a friend request?" and change to "No One"
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "search_dots" and typing keys "brian"
+    And the user see search field "Search ..." and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see button "Message" is displayed
 
@@ -34,7 +34,19 @@ Feature: Brain Process On Core
     And the user select privacy at field "list?" and change to "No One"
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "search_dots" and typing keys "brian"
+    And the user see search field "Search ..." and typing keys "brian"
     And the user want to click on "/brian"
-    And the user want to click on "/friend"
+    And the user want to access items "/friend" on user profile
     Then the user see message "No Content" displayed
+
+    @BrianVerifyViewPostOnHisWall
+    Scenario: Brian Verify View Post On His Wall
+      Given the user logged in as "brian"
+      Then I want to click on "Account Settings"
+      And the user back to "profile" page
+      And the user select privacy at field "Who can share a post on your wall?" and change to "No One"
+      And I want to click on "Logout"
+      Then the user logged in as "terry"
+      And the user see search field "Search ..." and typing keys "brian"
+      And the user want to click on "/brian"
+      Then the user don't see "Search ..." is displayed

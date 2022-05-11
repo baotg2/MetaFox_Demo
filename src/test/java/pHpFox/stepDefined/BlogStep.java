@@ -11,7 +11,6 @@ import pHpFox.pageObject.Components;
 import pHpFox.support.DataExecutor;
 import pHpFox.support.IsComponentVisible;
 
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static pHpFox.conf.Index.driver;
@@ -23,7 +22,7 @@ public class BlogStep {
     DataExecutor dataExecutor = new DataExecutor();
     IsComponentVisible isComponentVisible = new IsComponentVisible();
 
-    @Then ("the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$")
+    @Then ("^the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$")
     public void inputValueOnField(String fieldName, String value){
         isComponentVisible.waitElement(By.xpath("//input[@data-testid='"+fieldName+"']"));
         if (value.equals("BlogName") || (value.equals("Album")))
@@ -93,7 +92,7 @@ public class BlogStep {
     @Then ("the user verify title of blog is displayed")
     public void compareTitleBlogAdded(){
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemTitle']"));
-        assertEquals(components.componentDivDataTestID("itemTitle").getText(), dataExecutor.readConstants("BlogName"));
+        components.componentDivDataTestID("itemTitle").getText().contains(dataExecutor.readConstants("BlogName"));
     }
 
     @And("^the user see \"([^\"]*)\" is displayed$")
