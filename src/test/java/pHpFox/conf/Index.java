@@ -1,6 +1,5 @@
 package pHpFox.conf;
 
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -11,18 +10,45 @@ import pHpFox.support.DataExecutor;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**------------------------------------------------------------------------------------------------------------------------------------------------
+ * @since 04-05-2022
+ * @Author  baotg2
+ * @purpose: Index is class set up before and after execute tests
+ * @package conf
+ * @version 1.0.1
+ ------------------------------------------------------------------------------------------------------------------------------------------------*/
 public class Index {
     public static WebDriver driver;
     public static String selectPlatform;
-    public static String AUTOMATE_USERNAME = "baotran_moYtnK";
-    public static String AUTOMATE_ACCESS_KEY = "2cnCJbmwkKAmmb9hEVsN";
-    public static String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
+    public String AUTOMATE_USERNAME = "baotran_moYtnK";
+    public String AUTOMATE_ACCESS_KEY = "2cnCJbmwkKAmmb9hEVsN";
+    public String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
     DataExecutor dataExecutor = new DataExecutor();
 
+    public Index (WebDriver driver){
+        Index.driver = driver;
+    }
+
+    /**-------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     * @Author  baotg2
+     * @purpose getDriver is function to call the driver from another class
+     -------------------------------------------------------------------------------------------------------------------------------------------*/
+    public static WebDriver getDriver(){
+       return driver;
+    }
+
+    /**------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     * @param browserName is param to set open browser
+     * @param selectPlatform is param to get test cases run on Platform
+     * @throws MalformedURLException thrown when the built-in URL class encounters an invalid URL
+     * @purpose openBrowser is a function to set up test cases run on local or cloud
+     ------------------------------------------------------------------------------------------------------------------------------------------*/
     public void openBrowser(String browserName, String selectPlatform) throws MalformedURLException {
         Index.selectPlatform = selectPlatform;
-        switch (selectPlatform){
+        switch (selectPlatform) {
             case "browserStack":
                 DesiredCapabilities caps = new DesiredCapabilities();
                 caps.setCapability("os_version", "10");
@@ -33,7 +59,7 @@ public class Index {
                 caps.setCapability("build", dataExecutor.readConstants("TestCaseRunner")); // test name
                 caps.setCapability("name", "VisitorRegisterNewAccountWithShortPassword"); // CI/CD job or build name
                 caps.setCapability("browserstack.debug", "true");
-                driver= new RemoteWebDriver(new URL(URL), caps);
+                driver = new RemoteWebDriver(new URL(URL), caps);
                 break;
             case "local":
                 if ("Firefox".equals(browserName)) {

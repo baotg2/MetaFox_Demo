@@ -25,6 +25,11 @@ Feature: Brain Process On Core
     And the user see search field "Search ..." and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see button "Message" is displayed
+    And I want to click on "Logout"
+    Then the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "profile" page
+    And the user select privacy at field "Who can send me a friend request?" and change to "Anyone"
 
   @BrainVerifyViewHisFriendsList
   Scenario: Brain Verify View His Friends List
@@ -36,17 +41,27 @@ Feature: Brain Process On Core
     Then the user logged in as "terry"
     And the user see search field "Search ..." and typing keys "brian"
     And the user want to click on "/brian"
-    And the user want to access items "/friend" on user profile
+    And the user want to access items "friend" on user profile
     Then the user see message "No Content" displayed
+    And I want to click on "Logout"
+    Then the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "profile" page
+    And the user select privacy at field "list?" and change to "Anyone"
 
-    @BrianVerifyViewPostOnHisWall
-    Scenario: Brian Verify View Post On His Wall
-      Given the user logged in as "brian"
-      Then I want to click on "Account Settings"
-      And the user back to "profile" page
-      And the user select privacy at field "Who can share a post on your wall?" and change to "No One"
-      And I want to click on "Logout"
-      Then the user logged in as "terry"
-      And the user see search field "Search ..." and typing keys "brian"
-      And the user want to click on "/brian"
-      Then the user don't see "Search ..." is displayed
+  @BrianVerifyViewPostOnHisWall
+  Scenario: Brian Verify View Post On His Wall
+    Given the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "profile" page
+    And the user select privacy at field "Who can share a post on your wall?" and change to "No One"
+    And I want to click on "Logout"
+    Then the user logged in as "terry"
+    And the user see search field "Search ..." and typing keys "brian"
+    And the user want to click on "/brian"
+    Then the user don't see "whatsHappening" is displayed
+    And I want to click on "Logout"
+    Then the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "profile" page
+    And the user select privacy at field "Who can share a post on your wall?" and change to "Friends Only"

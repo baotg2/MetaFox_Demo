@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/pHpFox/feature"},
         glue = "pHpFox",
-        tags = "@BrainVerifyViewHisFriendsList",
+        tags = "@BrainVerifySendFriendRequest",
         plugin = {
                 "html:target/result/",
                 "pretty",
@@ -14,6 +14,6 @@ import io.cucumber.testng.CucumberOptions;
         },
         monochrome = true
 )
-public class runnerTestMetaFoxV5 extends AbstractTestNGCucumberTests {
+public class TestRunnerMetaFoxV5 extends AbstractTestNGCucumberTests {
 
 }
