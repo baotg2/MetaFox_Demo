@@ -3,28 +3,28 @@ Feature:  Brian process on blogs app
 
   @BrianAddNewBlogWithImage
   Scenario: Brian Add New Blog With Image
-  Given the user logged in as "brian"
-  Then the browser opened at item "blog" and tab "/blog/add"
-  Then the user action on input field "inputTitle" with value "BlogName"
-  Then the user want to add photo
-  And the user add value on div "textbox"
-  And the user want to add attach files
-  And the user want add categories is "Education"
-  And the user add topic is "tag-tag"
-  And the user click on button "buttonSubmit"
-  And the user see message "Blog published successfully." displayed
-  Then the user verify title of blog is displayed
+    Given the user logged in as "brian"
+    Then the browser opened at item "blog" and tab "/blog/add"
+    Then the user action on input field "inputTitle" with value "BlogName"
+    Then the user want to add photo
+    And the user add value on div "textbox"
+    And the user want to add attach files
+    And the user want add categories is "Education"
+    And the user add topic is "tag-tag"
+    And the user click on button "buttonSubmit"
+    And the user see message "Blog published successfully." displayed
+    Then the user verify title of blog is displayed
 
   @BrianCommentOnBlog
   Scenario: Brian comment on blog
-  Given the user logged in as "brian"
-  Then the browser opened at item "blog" and tab ""
-  And the user see search field "Search blogs" and typing keys "BlogName"
-  And the user access first condition "inputSort"
-  And the user access first condition "inputWhen"
-  And the user not see "No Results Found" is displayed on result table
-  And the user access this blog by "itemMedia" and process
-  And the user add comment "test comment" on blog
+    Given the user logged in as "brian"
+    Then the browser opened at item "blog" and tab ""
+    And the user see search field "Search blogs" and typing keys "BlogName"
+    And the user access first condition "inputSort"
+    And the user access first condition "inputWhen"
+    And the user not see "No Results Found" is displayed on result table
+    And the user access this blog by "itemMedia" and process
+    And the user add comment "test comment" on blog
 
   @BrianReactionOnBlogJustAdd
   Scenario: Brain Reaction On This Blog
@@ -39,15 +39,15 @@ Feature:  Brian process on blogs app
 
   @BrianEditHisBlog
   Scenario: Brian Edit His Blog
-  Given the user logged in as "brian"
-  Then the browser opened at item "blog" and tab "/blog/my"
-  And the user see "My Blogs" is displayed
-  And the user click on "actionMenuButton" to access blog
-  And the user "edit" this item
-  Then the user see main form "form" is displayed
-  And the user action on input field "inputTitle" with value "Auto Test New Blogs Name"
-  And the user click on button "buttonSubmit"
-  Then the user see message "Already saved changes." displayed
+    Given the user logged in as "brian"
+    Then the browser opened at item "blog" and tab "/blog/my"
+    And the user see "My Blogs" is displayed
+    And the user click on "actionMenuButton" to access blog
+    And the user "edit" this item
+    Then the user see main form "form" is displayed
+    And the user action on input field "inputTitle" with value "Auto Test New Blogs Name"
+    And the user click on button "buttonSubmit"
+    Then the user see message "Already saved changes." displayed
 
   @BrainDeleteBlogsJustAdded
   Scenario: Brain Delete Blog Just Added

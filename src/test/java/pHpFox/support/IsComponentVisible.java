@@ -8,15 +8,12 @@ import pHpFox.conf.Index;
 
 public class IsComponentVisible {
 
-    public IsComponentVisible(WebDriver driver){
+    public IsComponentVisible(WebDriver driver) {
         Index.driver = driver;
     }
 
     public void waitElement(By webElement) {
-        WebDriverWait wait = new WebDriverWait(Index.getDriver(),120);
+        WebDriverWait wait = new WebDriverWait(Index.getDriver(), 120);
         wait.until(ExpectedConditions.presenceOfElementLocated(webElement));
-    }
-    public void iWaitForSeconds(int seconds) throws InterruptedException {
-        Thread.sleep(seconds * 1000L);
     }
 }

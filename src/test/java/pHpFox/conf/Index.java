@@ -1,5 +1,7 @@
 package pHpFox.conf;
 
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -52,7 +54,6 @@ public class Index {
             case "browserStack":
                 DesiredCapabilities caps = new DesiredCapabilities();
                 caps.setCapability("os_version", "10");
-                //caps.setCapability("resolution", "");
                 caps.setCapability("browser", browserName);
                 caps.setCapability("browser_version", "latest");
                 caps.setCapability("os", "Windows");
@@ -63,17 +64,21 @@ public class Index {
                 break;
             case "local":
                 if ("Firefox".equals(browserName)) {
-                    System.setProperty("webdriver.gecko.driver", "src/test/java/pHpFox/driver/geckodriver.exe");
+                    //System.setProperty("webdriver.gecko.driver", "src/test/java/pHpFox/driver/geckodriver.exe");
                     driver = new FirefoxDriver();
-                    driver.manage().window().maximize();
                 } else {
-                    System.setProperty("webdriver.chrome.driver", "src/test/java/pHpFox/driver/chromedriver.exe");
+                    System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
                     driver = new ChromeDriver();
-                    driver.manage().window().maximize();
                 }
                 break;
         }
-        driver.get(dataExecutor.URL_PHP_V5);
+        driver.get(dataExecutor.readConstants("URL"));
         driver.manage().window().maximize();
+    }
+
+    public void restApi_TestResult(){
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        // Setting name of the test
+        jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"Java test \" }}");
     }
 }

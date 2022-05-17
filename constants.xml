@@ -1,33 +1,12 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <constants>
-    <URL>
-        https://preview-foxsocial.phpfox.us/
-    </URL>
-    <TestDataFolder>
-        src/test/java/pHpFox/testdata/
-    </TestDataFolder>
-    <DataFile>
-        v5DataProvider.xlsx
-    </DataFile>
-    <BlogName>
-        TestAuto
-    </BlogName>
-    <Description>
-        TestAutoDescription
-    </Description>
-    <Album>
-        NewAlbum
-    </Album>
-    <BROWSERSTACK_USERNAME>
-        baotran_moYtnK
-    </BROWSERSTACK_USERNAME>
-
-    <BROWSERSTACK_ACCESS_KEY>
-        2cnCJbmwkKAmmb9hEVsN
-    </BROWSERSTACK_ACCESS_KEY>
-
-    <TestCaseRunner>
-        VisitorProcessSignUp
-    </TestCaseRunner>
-
+    <URL>https://preview-foxsocial.phpfox.us/</URL>
+    <TestDataFolder>src/test/java/pHpFox/testdata/</TestDataFolder>
+    <DataFile>v5DataProvider.xlsx</DataFile>
+    <BlogName>TestAuto</BlogName>
+    <Description>TestAutoDescription</Description>
+    <Album>NewAlbum</Album>
+    <BROWSERSTACK_USERNAME>baotran_moYtnK</BROWSERSTACK_USERNAME>
+    <BROWSERSTACK_ACCESS_KEY>2cnCJbmwkKAmmb9hEVsN</BROWSERSTACK_ACCESS_KEY>
+    <TestCaseRunner>VisitorProcessSignUp</TestCaseRunner>
 </constants>

@@ -10,283 +10,405 @@ import pHpFox.conf.Index;
 import pHpFox.pageObject.Components;
 import pHpFox.support.DataExecutor;
 import pHpFox.support.IsComponentVisible;
+
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static pHpFox.conf.Index.selectPlatform;
 
-/**---------------------------------------------------------------------------------------------------------------------------------------------
- * @since 04-05-2022
- * @Author  baotg2
- * @purpose: AndStepDefinitions is class defined all steps use Method @And
+/**
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ *
  * @version 1.0.1
- ---------------------------------------------------------------------------------------------------------------------------------------------*/
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ * @Author baotg2
+ * @purpose: AndStepDefinitions is class defined all steps use Method @And
+ * @since 04-05-2022
+ */
 public class AndStepDefinitions {
     IsComponentVisible isComponentVisible = new IsComponentVisible(Index.getDriver());
     Components components = new Components(Index.getDriver());
     DataExecutor dataExecutor = new DataExecutor();
     Integer idOfLastImageBeforeUpload;
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     * @Author baotg2
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param menuItemName is menu's name
+     * @Author baotg2
      * @purpose: Verify element visible on left menu
-     -----------------------------------------------------------------------------------------------------------------------------------------*/
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user see \"([^\"]*)\" on left menu$")
-    public void isChildMenuItemDisplayed(String menuItemName){
-        isComponentVisible.waitElement(By.xpath("//span[text()='"+menuItemName+"']"));
+    public void isChildMenuItemDisplayed(String menuItemName) {
+        isComponentVisible.waitElement(By.xpath("//span[text()='" + menuItemName + "']"));
         assertTrue(components.componentSpanName(menuItemName).isDisplayed());
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     * @Author baotg2
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param itemName is menu's name
+     * @Author baotg2
      * @purpose: Return latest image's id before upload
-    ------------------------------------------------------------------------------------------------------------------------------------------*/
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user verify \"([^\"]*)\" before upload$")
-    public Integer getNumberOfLastImage (String itemName){
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid='"+itemName+"']//a"));
-        List<WebElement> listElementImage = Index.getDriver().findElements(By.xpath("//div[@data-testid='"+itemName+"']//a"));
+    public Integer getNumberOfLastImage(String itemName) {
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + itemName + "']//a"));
+        List<WebElement> listElementImage = Index.getDriver().findElements(By.xpath("//div[@data-testid='" + itemName + "']//a"));
         int index = listElementImage.get(0).getAttribute("href").lastIndexOf('/');
-        String lastString = listElementImage.get(0).getAttribute("href").substring(index +1);
+        String lastString = listElementImage.get(0).getAttribute("href").substring(index + 1);
         idOfLastImageBeforeUpload = Integer.valueOf(lastString);
         return idOfLastImageBeforeUpload;
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     * @Author baotg2
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param itemName is menu's name
+     * @Author baotg2
      * @purpose: Return latest image's id after upload
-    ------------------------------------------------------------------------------------------------------------------------------------------*/
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user verify \"([^\"]*)\" after upload$")
-    public boolean isUploadSuccess(String itemName){
+    public boolean isUploadSuccess(String itemName) {
         Index.getDriver().navigate().refresh();
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid='"+itemName+"']//a"));
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + itemName + "']//a"));
         boolean ass = false;
-        List<WebElement> listElementImage = Index.getDriver().findElements(By.xpath("//div[@data-testid='"+itemName+"']//a"));
+        List<WebElement> listElementImage = Index.getDriver().findElements(By.xpath("//div[@data-testid='" + itemName + "']//a"));
         int index = listElementImage.get(0).getAttribute("href").lastIndexOf('/');
-        String lastString = listElementImage.get(0).getAttribute("href").substring(index +1);
+        String lastString = listElementImage.get(0).getAttribute("href").substring(index + 1);
         int idImageUploaded = Integer.parseInt(lastString);
-        if (idImageUploaded > idOfLastImageBeforeUpload){
+        if (idImageUploaded > idOfLastImageBeforeUpload) {
             ass = true;
         }
         return ass;
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     * @Author baotg2
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param pageMove is id of icon MetaFox
+     * @Author baotg2
      * @purpose: Back to HomePage
-    ------------------------------------------------------------------------------------------------------------------------------------------*/
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user back to \"([^\"]*)\" page$")
-    public void isBackToHomePage(String pageMove){
-        isComponentVisible.waitElement(By.xpath("//a[@data-testid='"+pageMove+"']"));
+    public void isBackToHomePage(String pageMove) {
+        isComponentVisible.waitElement(By.xpath("//a[@data-testid='" + pageMove + "']"));
         components.componentLinkDataTestID(pageMove).click();
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     * @Author baotg2
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param titleName is title of element
+     * @Author baotg2
      * @purpose: verify title displayed correct with expected
-    ------------------------------------------------------------------------------------------------------------------------------------------*/
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user see title \"([^\"]*)\" is displayed")
-    public void isTitleDisplayed(String titleName){
-        isComponentVisible.waitElement(By.xpath("//h1[text()='"+titleName+"']"));
+    public void isTitleDisplayed(String titleName) {
+        isComponentVisible.waitElement(By.xpath("//h1[text()='" + titleName + "']"));
         assertTrue(components.componentH1ItemTitle(titleName).isDisplayed());
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     * @Author baotg2
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param itemName is id of div element
+     * @Author baotg2
      * @purpose: click and access "edit, report, delete" from main contain
-    ------------------------------------------------------------------------------------------------------------------------------------------*/
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user click on div \"([^\"]*)\" and process")
-    public void accessBlogOnSearchResult(String itemName) throws InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid='"+itemName+"']"));
-        isComponentVisible.iWaitForSeconds(2);
-        Index.getDriver().findElement(By.xpath("//div[@data-testid='"+itemName+"']")).click();
+    public void accessBlogOnSearchResult(String itemName){
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + itemName + "']"));
+        Index.getDriver().findElement(By.xpath("//div[@data-testid='" + itemName + "']")).click();
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     * @Author baotg2
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param reactionName is id of span element
+     * @Author baotg2
      * @purpose: the user see result after reaction
-    ------------------------------------------------------------------------------------------------------------------------------------------*/
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user see result of \"([^\"]*)\" displayed")
-    public void isReactionSuccess(String reactionName){
-        isComponentVisible.waitElement(By.xpath("//span[@data-testid='"+reactionName+"']"));
+    public void isReactionSuccess(String reactionName) {
+        isComponentVisible.waitElement(By.xpath("//span[@data-testid='" + reactionName + "']"));
         assertTrue(components.componentSpanDataTestID(reactionName).isDisplayed());
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     * @Author baotg2
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param buttonName is id of div element
+     * @Author baotg2
      * @purpose: the user see photo of who want to delete photo
-    ------------------------------------------------------------------------------------------------------------------------------------------*/
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("the user see photo of \"([^\"]*)\"$")
-    public void isSeePhoto (String buttonName){
-        isComponentVisible.waitElement(By.xpath("//div[text()='"+buttonName+"']"));
+    public void isSeePhoto(String buttonName) {
+        isComponentVisible.waitElement(By.xpath("//div[text()='" + buttonName + "']"));
         components.componentsDivMsg(buttonName).click();
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     * @Author baotg2
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param buttonName is id of div element
+     * @Author baotg2
      * @purpose: click and access "edit, report, delete" on items in detail page
-    ------------------------------------------------------------------------------------------------------------------------------------------*/
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("the user click on button \"([^\"]*)\" to action$")
-    public void clickOnButtonAction (String buttonName){
-        isComponentVisible.waitElement(By.xpath("//div[@class ='ltr-77ogkp']/button[@data-testid='"+buttonName+"']"));
+    public void clickOnButtonAction(String buttonName) {
+        isComponentVisible.waitElement(By.xpath("//div[@class ='ltr-77ogkp']/button[@data-testid='" + buttonName + "']"));
         components.componentButtonAction(buttonName).click();
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param fieldSetting get attribute on profile setting
+     * @param valueChanged the new privacy on this attribute
+     * @Author baotg2
+     * @purpose change the privacy on field to valueChanged
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("the user select privacy at field \"([^\"]*)\" and change to \"([^\"]*)\"$")
-    public void selectPrivacy(String fieldSetting, String valueChanged){
+    public void selectPrivacy(String fieldSetting, String valueChanged) {
         isComponentVisible.waitElement(By.xpath("//div[@role ='button']"));
-        for(int i =0; i < components.componentsSpanlist().size(); i++) {
+        for (int i = 0; i < components.componentsSpanlist().size(); i++) {
             if (components.componentsSpanlist().get(i).getText().contains(fieldSetting)) {
-                if(!components.componentsListDivRole("button").get(i).getText().equals(valueChanged))
-                {
+                if (!components.componentsListDivRole("button").get(i).getText().equals(valueChanged)) {
                     components.componentsListDivRole("button").get(i).click();
                     isComponentVisible.waitElement(By.xpath("//ul[@role = 'listbox']"));
-                    Index.getDriver().findElements(By.xpath("//ul//div[text()='"+valueChanged+"']")).get(1).click();
+                    Index.getDriver().findElements(By.xpath("//ul//div[text()='" + valueChanged + "']")).get(1).click();
                 }
                 break;
             }
         }
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param itemProfile name's user
+     * @purpose access the user profile has itemProfile
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user want to access items \"([^\"]*)\" on user profile")
-    public void accessItemONProFile(String itemProfile){
-        isComponentVisible.waitElement(By.xpath("//a[contains(@href, '"+itemProfile+"')]"));
+    public void accessItemONProFile(String itemProfile) {
+        isComponentVisible.waitElement(By.xpath("//a[contains(@href, '" + itemProfile + "')]"));
         Index.getDriver().findElements(By.xpath("//*[@id=\"friend\"]")).get(1).click();
 
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param whatsHappening this is name of element poss on wall
+     * @purpose don't see field poss on wall when this setting is "No One"
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user don't see \"([^\"]*)\" is displayed")
-    public void isSearchFormDisplayed(String whatsHappening){
+    public void isSearchFormDisplayed(String whatsHappening) {
         assertEquals(components.componentListDivDataTestID(whatsHappening).size(), 0);
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param spanText this is value of span
+     * @purpose access all items on menuAccount
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^I want to click on \"([^\"]*)\"$")
-    public void logout(String spanText){
+    public void logout(String spanText) {
         isComponentVisible.waitElement(By.xpath("//div[@data-testid ='more']"));
         components.componentDivDataTestID("more").click();
-        isComponentVisible.waitElement(By.xpath("//span[text()='"+spanText+"']"));
+        isComponentVisible.waitElement(By.xpath("//span[text()='" + spanText + "']"));
         components.componentSpanName(spanText).click();
     }
 
-    @And("^the user see \"([^\"]*)\" is displayed when not yet login$")
-    public void msgDisplay(String msg){
-        isComponentVisible.waitElement(By.xpath("//div[text()='"+msg+"']"));
-        assertEquals(components.componentsDivMsg(msg).getText(), msg);
-    }
+//    /**
+//     *
+//     * @param msg
+//     */
+////    @And("^the user see \"([^\"]*)\" is displayed when not yet login$")
+////    public void msgDisplay(String msg) {
+////        isComponentVisible.waitElement(By.xpath("//div[text()='" + msg + "']"));
+////        assertEquals(components.componentsDivMsg(msg).getText(), msg);
+////    }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param status has 2 type want | don't
+     * @purpose handle upload document on test case want to
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user (want to|don't) add photo$")
     public void actionAttachImage(String status) {
-        if (status.equals("want to")){
-            if(selectPlatform.equals("browserStack")){
+        if (status.equals("want to")) {
+            if (selectPlatform.equals("browserStack")) {
                 WebElement upload = components.componentInputDataTestID("inputFile");
-                ((RemoteWebElement) upload ).setFileDetector(new LocalFileDetector());
+                ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
                 upload.sendKeys(dataExecutor.getRandomPathDocuments());
-            }
-            else {
+            } else {
                 components.componentInputDataTestID("inputFile").sendKeys(dataExecutor.getRandomPathDocuments());
             }
         }
     }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param fieldName is value of field input
+     * @purpose handle input value
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("the user add value on div \"([^\"]*)\"$")
-    public void inputValueOnDiv(String fieldName){
+    public void inputValueOnDiv(String fieldName) {
         components.componentDivRole(fieldName).sendKeys(dataExecutor.readConstants("Description"));
     }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param buttonName is name of button
+     * @purpose handle click on button
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("the user click on button \"([^\"]*)\"$")
-    public void clickOnButton (String buttonName){
-        isComponentVisible.waitElement(By.xpath("//button[@data-testid ='"+buttonName+"']"));
+    public void clickOnButton(String buttonName) {
+        isComponentVisible.waitElement(By.xpath("//button[@data-testid ='" + buttonName + "']"));
         components.componentButtonDataTestID(buttonName).click();
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param msg is content of message
+     * @throws InterruptedException is expection driver wait in seconds
+     * @purpose verify message displayed success
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("the user see message \"([^\"]*)\" displayed$")
     public void isMsgCreateSuccessDisplayed(String msg) throws InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//div[text()='"+msg+"']"));
+        isComponentVisible.waitElement(By.xpath("//div[text()='" + msg + "']"));
         Thread.sleep(3);
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param status has 2 option want|don't
+     * @purpose handle on case upload attachment
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user (want to|don't) add attach files$")
     public void actionAttachFile(String status) {
         if (status.equals("want to")) {
-            if(selectPlatform.equals("browserStack")){
+            if (selectPlatform.equals("browserStack")) {
                 WebElement upload = components.componentInputDataTestID("inputAttachments");
-                ((RemoteWebElement) upload ).setFileDetector(new LocalFileDetector());
+                ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
                 upload.sendKeys(dataExecutor.getRandomPathDocuments());
-            }
-            else {
+            } else {
                 components.componentInputDataTestID("inputAttachments").sendKeys(dataExecutor.getRandomPathDocuments());
             }
         }
     }
 
-    @And ("the user want add categories is \"([^\"]*)\"$")
-    public void actionOnCategoriesFiled(String value){
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param value value of Categories
+     * @purpose add categories when create/edit item
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @And("the user want add categories is \"([^\"]*)\"$")
+    public void actionOnCategoriesFiled(String value) {
         components.componentInputDataTestID("inputCategories").sendKeys(value);
         components.componentInputDataTestID("inputCategories").sendKeys(Keys.ENTER);
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param value is value of tag
+     * @purpose input tag when create/edit item
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("the user add topic is \"([^\"]*)\"$")
-    public void actionOnTopicField(String value){
+    public void actionOnTopicField(String value) {
         components.componentInputID("tags-tags").sendKeys(value);
     }
 
 
     @And("^the user see \"([^\"]*)\" is displayed$")
-    public void myBlogIsDisplayed(String myBlogs){
-        isComponentVisible.waitElement(By.xpath("//h2[text()='"+myBlogs+"']"));
+    public void myBlogIsDisplayed(String myBlogs) {
+        isComponentVisible.waitElement(By.xpath("//h2[text()='" + myBlogs + "']"));
         assertEquals(Index.getDriver().findElement(By.xpath("//h2[text()='" + myBlogs + "']")).getText(), myBlogs);
     }
 
     @And("^the user click on \"([^\"]*)\" to access blog$")
-    public void accessFirstBlog(String buttonName){
-        isComponentVisible.waitElement(By.xpath("//button[@data-testid='"+buttonName+"']"));
+    public void accessFirstBlog(String buttonName) {
+        isComponentVisible.waitElement(By.xpath("//button[@data-testid='" + buttonName + "']"));
         components.componentListButtonDataTestID(buttonName).get(0).click();
     }
 
     @And("^the user \"([^\"]*)\" this item")
-    public void accessEditMainForm(String action){
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid='"+action+"']"));
+    public void accessEditMainForm(String action) {
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + action + "']"));
         components.componentDivDataTestID(action).click();
     }
 
     @And("^the user (see|not see) \"([^\"]*)\" is displayed on result table$")
     public void seeMsgText(String status, String msgText) {
-        if (status.equals("see")){
+        if (status.equals("see")) {
             isComponentVisible.waitElement(By.xpath("//div[@data-testid='noResultFound']"));
             assertEquals(components.componentDivDataTestID("noResultFound").getText(), msgText);
-        }
-        else {
+        } else {
             isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemText']"));
             assertTrue(components.componentDivDataTestID("itemText").isDisplayed());
         }
     }
 
     @And("the user access first condition \"([^\"]*)\"$")
-    public void accessFirstCondition(String conditionName){
-        isComponentVisible.waitElement(By.xpath("//input[@data-testid='"+conditionName+"']"));
+    public void accessFirstCondition(String conditionName) {
+        isComponentVisible.waitElement(By.xpath("//input[@data-testid='" + conditionName + "']"));
         components.componentInputDataTestID(conditionName).click();
         components.componentInputDataTestID(conditionName).sendKeys(Keys.ENTER);
     }
 
     @And("^the user access this blog by \"([^\"]*)\" and process")
-    public void accessBlogOnSearchResultByLInkText(String itemName){
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid='"+itemName+"']//a"));
+    public void accessBlogOnSearchResultByLInkText(String itemName) {
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + itemName + "']//a"));
         components.componentDivDataTestID(itemName).click();
     }
 
@@ -303,10 +425,8 @@ public class AndStepDefinitions {
 
 
     @And("^the user want to \"([^\"]*)\"$")
-    public void clickOnButtonText(String actionName){
-        isComponentVisible.waitElement(By.xpath("//button[text()='"+actionName+"']"));
+    public void clickOnButtonText(String actionName) {
+        isComponentVisible.waitElement(By.xpath("//button[text()='" + actionName + "']"));
         components.componentButtonText(actionName).click();
-
     }
-
 }

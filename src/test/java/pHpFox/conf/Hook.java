@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 /**---------------------------------------------------------------------------------------------------------------------------------------------
  * @since 04-05-2022
  * @Author  baotg2
- * @purpose: Hook is class set up before and after execute tests
+ * @purpose Hook is class set up before and after execute tests
  * @package conf
  ---------------------------------------------------------------------------------------------------------------------------------------------*/
 public class Hook{
@@ -18,7 +18,7 @@ public class Hook{
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
-     * @purpose: setUp is function call browsers will execute before every scenario
+     * @purpose setUp is function call browsers will execute before every scenario
      -----------------------------------------------------------------------------------------------------------------------------------------*/
     @Before
     public void setUp() throws MalformedURLException {
@@ -27,7 +27,7 @@ public class Hook{
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
-     * @purpose: regardless of whether the scenario finishes successfully. If "fail" create screenshot
+     * @purpose regardless of whether the scenario finishes successfully. If "fail" create screenshot
      * @param scenario this is param to get status of test cases
      -----------------------------------------------------------------------------------------------------------------------------------------*/
     @After
