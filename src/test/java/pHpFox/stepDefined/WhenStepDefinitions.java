@@ -14,6 +14,14 @@ public class WhenStepDefinitions {
     IsComponentVisible isComponentVisible = new IsComponentVisible( Index.getDriver() );
 
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param item item name
+     * @param url link to page want to open
+     * @purpose link to page on Side Menu
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @When ( "^the browser opened at item \"([^\"]*)\" and tab \"([^\"]*)\"$" )
     public void openNewURL( String item , String url ) {
         components.componentLinkText( item ).click();

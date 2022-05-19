@@ -62,7 +62,7 @@ public class ThenStepDefinitions {
     @Then( "the user want upload {int} photo" )
     public void addPhoto( int numberOfImage ) {
         isComponentVisible.waitElement( By.xpath( "//form[@data-testid ='form']" ) );
-        if ( selectPlatform.equals( "browserStack" ) ) {
+        if ( selectPlatform.equals( "BROWSERSTACK" ) ) {
             WebElement upload = components.componentInputType( "file" );
             ( (RemoteWebElement) upload ).setFileDetector( new LocalFileDetector() );
             upload.sendKeys( dataExecutor.getRandomPathDocuments() );

@@ -1,6 +1,5 @@
 package pHpFox.conf;
 
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import pHpFox.support.DataExecutor;
+import pHpFox.support.EnumDataValue;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -43,18 +43,18 @@ public class Index {
 
     /**------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
-     * @param browserName is param to set open browser
+     * @param enumDataValue is param to set open browser
      * @param selectPlatform is param to get test cases run on Platform
      * @throws MalformedURLException thrown when the built-in URL class encounters an invalid URL
      * @purpose openBrowser is a function to set up test cases run on local or cloud
      ------------------------------------------------------------------------------------------------------------------------------------------*/
-    public void openBrowser(String browserName, String selectPlatform) throws MalformedURLException {
-        Index.selectPlatform = selectPlatform;
+    public void openBrowser(EnumDataValue enumDataValue, EnumDataValue selectPlatform) throws MalformedURLException {
+        Index.selectPlatform = String.valueOf(selectPlatform);
         switch (selectPlatform) {
-            case "browserStack":
+            case BROWSERSTACK:
                 DesiredCapabilities caps = new DesiredCapabilities();
                 caps.setCapability("os_version", "10");
-                caps.setCapability("browser", browserName);
+                caps.setCapability("browser", enumDataValue);
                 caps.setCapability("browser_version", "latest");
                 caps.setCapability("os", "Windows");
                 caps.setCapability("build", dataExecutor.readConstants("TestCaseRunner")); // test name
@@ -62,15 +62,23 @@ public class Index {
                 caps.setCapability("browserstack.debug", "true");
                 driver = new RemoteWebDriver(new URL(URL), caps);
                 break;
-            case "local":
-                if ("Firefox".equals(browserName)) {
-                    //System.setProperty("webdriver.gecko.driver", "src/test/java/pHpFox/driver/geckodriver.exe");
-                    driver = new FirefoxDriver();
-                } else {
-                    System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
-                    driver = new ChromeDriver();
-                }
-                break;
+            case LOCAL:
+               switch (enumDataValue){
+                   case FIREFOX:
+                       driver = new FirefoxDriver();
+                       break;
+                   case CHROME:
+                       driver = new ChromeDriver();
+                       break;
+                   case IE:
+                       break;
+                   default:
+               }
+               break;
+            default:
+            {
+                driver = new FirefoxDriver();
+            }
         }
         driver.get(dataExecutor.readConstants("URL"));
         driver.manage().window().maximize();

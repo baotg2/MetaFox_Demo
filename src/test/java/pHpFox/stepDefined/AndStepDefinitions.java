@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import pHpFox.conf.Index;
 import pHpFox.pageObject.Components;
 import pHpFox.support.DataExecutor;
+import pHpFox.support.EnumDataValue;
 import pHpFox.support.IsComponentVisible;
 
 import java.util.List;
@@ -121,7 +122,7 @@ public class AndStepDefinitions {
     }
 
     /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * -------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param itemName is id of div element
      * @Author baotg2
@@ -263,13 +264,13 @@ public class AndStepDefinitions {
      * @param status has 2 type want | don't
      * @purpose handle upload document on test case want to
      * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * -------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
     @And("^the user (want to|don't) add photo$")
     public void actionAttachImage(String status) {
         if (status.equals("want to")) {
-            if (selectPlatform.equals("browserStack")) {
+            if (selectPlatform.equals("BROWSERSTACK")) {
                 WebElement upload = components.componentInputDataTestID("inputFile");
                 ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
                 upload.sendKeys(dataExecutor.getRandomPathDocuments());
@@ -332,7 +333,7 @@ public class AndStepDefinitions {
     @And("^the user (want to|don't) add attach files$")
     public void actionAttachFile(String status) {
         if (status.equals("want to")) {
-            if (selectPlatform.equals("browserStack")) {
+            if (selectPlatform.equals("BROWSERSTACK")) {
                 WebElement upload = components.componentInputDataTestID("inputAttachments");
                 ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
                 upload.sendKeys(dataExecutor.getRandomPathDocuments());
@@ -369,27 +370,58 @@ public class AndStepDefinitions {
         components.componentInputID("tags-tags").sendKeys(value);
     }
 
-
+    /**-------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param myBlogs title on main contain
+     * @purpose see title like Feature, Popular on main contain
+     * @Author baotg2
+     * -------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user see \"([^\"]*)\" is displayed$")
     public void myBlogIsDisplayed(String myBlogs) {
         isComponentVisible.waitElement(By.xpath("//h2[text()='" + myBlogs + "']"));
         assertEquals(Index.getDriver().findElement(By.xpath("//h2[text()='" + myBlogs + "']")).getText(), myBlogs);
     }
 
+    /**-------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param buttonTestDataID is id of button
+     * @purpose access first blog on My Blog or All Blog
+     * @Author baotg2
+     *--------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user click on \"([^\"]*)\" to access blog$")
-    public void accessFirstBlog(String buttonName) {
-        isComponentVisible.waitElement(By.xpath("//button[@data-testid='" + buttonName + "']"));
-        components.componentListButtonDataTestID(buttonName).get(0).click();
+    public void accessFirstBlog(String buttonTestDataID) {
+        isComponentVisible.waitElement(By.xpath("//button[@data-testid='" + buttonTestDataID + "']"));
+        components.componentListButtonDataTestID(buttonTestDataID).get(0).click();
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param action action's name
+     * @purpose access action at main form like 'edit, delete, report'
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user \"([^\"]*)\" this item")
-    public void accessEditMainForm(String action) {
+    public void accessActionOnMainForm(String action) {
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + action + "']"));
         components.componentDivDataTestID(action).click();
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param status is status of message want to verify
+     * @param msgText content of mesage
+     * @purpose verify message display, if not > noResultFound is displayed
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user (see|not see) \"([^\"]*)\" is displayed on result table$")
-    public void seeMsgText(String status, String msgText) {
+    public void isSeeMsgText(String status, String msgText) {
         if (status.equals("see")) {
             isComponentVisible.waitElement(By.xpath("//div[@data-testid='noResultFound']"));
             assertEquals(components.componentDivDataTestID("noResultFound").getText(), msgText);
@@ -399,6 +431,14 @@ public class AndStepDefinitions {
         }
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param conditionName condition name on search filter
+     * @purpose access first condition on search filter
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("the user access first condition \"([^\"]*)\"$")
     public void accessFirstCondition(String conditionName) {
         isComponentVisible.waitElement(By.xpath("//input[@data-testid='" + conditionName + "']"));
@@ -406,24 +446,52 @@ public class AndStepDefinitions {
         components.componentInputDataTestID(conditionName).sendKeys(Keys.ENTER);
     }
 
+    /**
+     *
+     * @param itemName
+     */
     @And("^the user access this blog by \"([^\"]*)\" and process")
     public void accessBlogOnSearchResultByLInkText(String itemName) {
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + itemName + "']//a"));
         components.componentDivDataTestID(itemName).click();
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param idPassWord is id of passWordField
+     * @param passWordInput value of PassWord
+     * @purpose find field password and input value on Sign Up form
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("the user input info password sign up {string} with value {string}")
-    public void theUserInputInfoPasswordSignUpWithValue(String arg0, String arg1) {
-        components.componentInputID(arg0).sendKeys(arg1);
-        components.componentInputID(arg0).sendKeys(Keys.ENTER);
+    public void theUserInputInfoPasswordSignUpWithValue(String idPassWord, String passWordInput) {
+        components.componentInputID(idPassWord).clear();
+        components.componentInputID(idPassWord).sendKeys(passWordInput);
+        components.componentInputID(idPassWord).sendKeys(Keys.ENTER);
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param typeName is "Check Box" type
+     * @purpose click on check box on sign up form
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("the user click on check box {string}")
-    public void theUserClickOnCheckOn(String arg0) {
-        components.componentInputType(arg0).click();
+    public void theUserClickOnCheckOn(String typeName) {
+        components.componentInputType(typeName).click();
     }
 
-
+    /**-------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param actionName is action name
+     * @purpose click on action on action menu
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @And("^the user want to \"([^\"]*)\"$")
     public void clickOnButtonText(String actionName) {
         isComponentVisible.waitElement(By.xpath("//button[text()='" + actionName + "']"));

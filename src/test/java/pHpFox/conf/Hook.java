@@ -4,8 +4,9 @@ import io.cucumber.java.*;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
+import pHpFox.support.EnumDataValue;
 import java.net.MalformedURLException;
+import java.util.Scanner;
 
 /**---------------------------------------------------------------------------------------------------------------------------------------------
  * @since 04-05-2022
@@ -22,9 +23,8 @@ public class Hook{
      -----------------------------------------------------------------------------------------------------------------------------------------*/
     @Before
     public void setUp() throws MalformedURLException {
-        index.openBrowser( "Firefox", "local");
+        index.openBrowser( EnumDataValue.FIREFOX, EnumDataValue.LOCAL);
     }
-
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      * @purpose regardless of whether the scenario finishes successfully. If "fail" create screenshot

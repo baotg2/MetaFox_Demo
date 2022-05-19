@@ -22,8 +22,8 @@ public class DataExecutor {
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
 
-    public String testDataFolder = "src/test/java/pHpFox/testdata/";
-    public String testDataFile = "v5DataProvider.xlsx";
+    private final String testDataFolder = "src/test/java/pHpFox/testdata/";
+    private final String testDataFile = "v5DataProvider.xlsx";
     public String excelPathFile = testDataFolder + testDataFile;
 
     public void setExcelFile( String fileName , String sheetName ) throws IOException {
@@ -73,7 +73,6 @@ public class DataExecutor {
 
     public String getRandomPathDocuments() {
         String sb = null;
-
         for ( int i = 0 ; i < getPathDocument().size() ; i++ ) {
             int index = (int) ( getPathDocument().size() * Math.random() );
             sb = getPathDocument().get( index );

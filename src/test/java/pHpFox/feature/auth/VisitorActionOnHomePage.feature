@@ -69,12 +69,12 @@ Feature: Verify Visitor Process on Sign Up
   Scenario: Visitor Process register new account With Exist User Name
     Given the user click on div "fieldRegister" and process
     Then the user see title "Create account" is displayed
-    And the user action on input field "inputFirstName" with value "Test exist email"
-    And the user action on input field "inputLastName" with value "Test exist email"
-    And the user action on input field "inputFullName" with value "Test exist email"
-    And the user input info sign up "Email Address" with value "brian1@example.com"
-    And the user input info sign up "Choose an Username" with value "admin"
-    And the user input info password sign up "mui-12" with value "123456"
+    And the user action on input field "inputFirstName" with value "N"
+    And the user action on input field "inputLastName" with value "L"
+    And the user action on input field "inputFullName" with value "V"
+    And the user input info sign up "Email Address" with value "nlv@phpfox.com"
+    And the user input info sign up "Choose an Username" with value "Ivan1"
+    And the user input info password sign up "mui-16" with value "123456"
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"
     Then the user see error message "The user name has already been taken." is displayed

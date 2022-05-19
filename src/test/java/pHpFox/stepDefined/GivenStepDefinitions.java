@@ -17,6 +17,15 @@ public class GivenStepDefinitions {
     IsComponentVisible isComponentVisible = new IsComponentVisible(Index.getDriver());
     DataExecutor dataExecutor = new DataExecutor();
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param username is user's name login success to MetaFox
+     * @throws IOException occurs when an IO operation fails
+     * @purpose Login with username success to Meta Fox
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Given("^the user logged in as \"([^\"]*)\"$")
     public void login(String username) throws IOException {
         isComponentVisible.waitElement(By.xpath("//input[@data-testid ='inputEmail']"));
