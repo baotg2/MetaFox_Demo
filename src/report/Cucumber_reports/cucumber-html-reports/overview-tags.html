@@ -48,32 +48,32 @@ $(document).ready(function() {
 $(document).ready(function() {
 
     var chartData = {
-        labels:  [ "@AdminAddNewAlbumWithPhoto",  "@AdminAddNewBlogWithoutImage",  "@AdminAddNewPhoto",  "@AdminDeleteBlogsJustAdded",  "@AdminEditHisBlog",  "@AdminSearchHisBlog",  "@AdminSeePendingBlog",  "@AdminSeePendingPhoto",  "@BrainAccessSettings",  "@BrainAddFriend",  "@BrainAddNewAlbumWithPhoto",  "@BrainAddNewPhoto",  "@BrainDeleteBlogsJustAdded",  "@BrainDeleteDraftBlog",  "@BrainVerifySendFriendRequest",  "@BrainVerifyViewHisFriendsList",  "@BrianAddNewAlbumWithoutImage",  "@BrianAddNewBlogAndSaveDraft",  "@BrianAddNewBlogWithImage",  "@BrianCommentOnBlog",  "@BrianDeleteAlbum",  "@BrianDeletePhoto",  "@BrianEditAlbum",  "@BrianEditHisBlog",  "@BrianEditPhoto",  "@BrianPublishDraftBlog",  "@BrianReactionOnAlbum",  "@BrianReactionOnBlogJustAdd",  "@BrianReactionOnPhoto",  "@BrianReportBlog",  "@BrianReportPhoto",  "@BrianSearchEmptyKeyWord",  "@BrianSearchHisAlbum",  "@BrianUnFriend",  "@BrianVerifyViewPostOnHisWall",  "@Login",  "@MetaFox",  "@PhotoItem_Admin",  "@ScenarioAccessSideMenu1",  "@ScenarioLogin1",  "@ScenarioLogin2",  "@VisitorBreakSignUpAction",  "@VisitorProcessOnMenuSide",  "@VisitorProcessSignUp",  "@VisitorRegisterNewAccountWithErrorMsgExistEmail",  "@VisitorRegisterNewAccountWithErrorMsgInvalidEmail",  "@VisitorRegisterNewAccountWithExistUserName",  "@VisitorRegisterNewAccountWithShortPassword",  "@VisitorRegisterNewAccountWithSpaceOnPasswordField",  "@VisitorSignUpWithEmptyValue",  "@albumFunction_Brain",  "@blogFunction_Admin",  "@blogFunction_Brian",  "@brianActionAdd_UnFriend",  "@brianProcessOnCore",  "@photoFunction_Brain",  "@sideMenu", ] ,
+        labels:  [ "@BrainAddNewPhoto",  "@BrianDeletePhoto",  "@BrianEditPhoto",  "@BrianReactionOnPhoto",  "@BrianReportPhoto",  "@MetaFox",  "@photoFunction_Brain", ] ,
         datasets: [
             {
                 label: "Passed",
                 backgroundColor: "#92DD96",
-                data:  [ 100.00,  100.00,  60.00,  100.00,  100.00,  100.00,  100.00,  100.00,  30.00,  63.64,  100.00,  60.00,  100.00,  100.00,  100.00,  30.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  88.89,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  33.33,  100.00,  91.14,  84.62,  71.43,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  98.85,  76.47,  47.37,  89.47,  71.43, ] 
+                data:  [ 100.00,  100.00,  100.00,  100.00,  100.00,  100.00,  100.00, ] 
             },
             {
                 label: "Failed",
                 backgroundColor: "#F2928C",
-                data:  [ 0.00,  0.00,  10.00,  0.00,  0.00,  0.00,  0.00,  0.00,  10.00,  9.09,  0.00,  10.00,  0.00,  0.00,  0.00,  10.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  11.11,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  11.11,  0.00,  2.03,  3.85,  14.29,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  1.15,  5.88,  7.89,  2.63,  14.29, ] 
+                data:  [ 0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00, ] 
             },
             {
                 label: "Skipped",
                 backgroundColor: "#8AF",
-                data:  [ 0.00,  0.00,  30.00,  0.00,  0.00,  0.00,  0.00,  0.00,  60.00,  27.27,  0.00,  30.00,  0.00,  0.00,  0.00,  60.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  55.56,  0.00,  6.84,  11.54,  14.29,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  17.65,  44.74,  7.89,  14.29, ] 
+                data:  [ 0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00, ] 
             },
             {
                 label: "Pending",
                 backgroundColor: "#F5F28F",
-                data:  [ 0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00, ] 
+                data:  [ 0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00, ] 
             },
             {
                 label: "Undefined",
                 backgroundColor: "#F5B975",
-                data:  [ 0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00, ] 
+                data:  [ 0.00,  0.00,  0.00,  0.00,  0.00,  0.00,  0.00, ] 
             }
         ]
     };
@@ -137,7 +137,7 @@ $(document).ready(function() {
     <tr class="info">
       <td>pHpDoemo</td>
         <td>1</td>
-      <td>11 May 2022, 14:10</td>
+      <td>18 May 2022, 16:01</td>
     </tr>
   </tbody>
 </table>
@@ -199,347 +199,7 @@ $(document).ready(function() {
 
   <tbody>
       <tr>
-        <td class="tagname"><a href="report-tag_322393098.html">@AdminAddNewAlbumWithPhoto</a></td>
-
-        <td      class="passed"    >12</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">12</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="108936000000">1:48.936</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_1525571426.html">@AdminAddNewBlogWithoutImage</a></td>
-
-        <td      class="passed"    >11</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">11</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="20970000000">20.970</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_3528385987.html">@AdminAddNewPhoto</a></td>
-
-        <td      class="passed"    >6</td>
-        <td      class="failed"    >1</td>
-        <td     class="skipped"   >3</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">10</td>
-
-        <td >0</td>
-        <td  class="failed"    >1</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="22988000000">22.988</td>
-        <td class="failed">Failed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_4070889852.html">@AdminDeleteBlogsJustAdded</a></td>
-
-        <td      class="passed"    >9</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">9</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="10539000000">10.539</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_1653070458.html">@AdminEditHisBlog</a></td>
-
-        <td      class="passed"    >5</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">5</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="11363000000">11.363</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_4272198876.html">@AdminSearchHisBlog</a></td>
-
-        <td      class="passed"    >6</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">6</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="11689000000">11.689</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_3868281940.html">@AdminSeePendingBlog</a></td>
-
-        <td      class="passed"    >4</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">4</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="10151000000">10.151</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_3965433822.html">@AdminSeePendingPhoto</a></td>
-
-        <td      class="passed"    >4</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">4</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="7966000000">7.966</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_2815705564.html">@BrainAccessSettings</a></td>
-
-        <td      class="passed"    >3</td>
-        <td      class="failed"    >1</td>
-        <td     class="skipped"   >6</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">10</td>
-
-        <td >0</td>
-        <td  class="failed"    >1</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="128850000000">2:8.850</td>
-        <td class="failed">Failed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_3174881448.html">@BrainAddFriend</a></td>
-
-        <td      class="passed"    >7</td>
-        <td      class="failed"    >1</td>
-        <td     class="skipped"   >3</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">11</td>
-
-        <td >0</td>
-        <td  class="failed"    >1</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="145178000000">2:25.178</td>
-        <td class="failed">Failed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_3844751921.html">@BrainAddNewAlbumWithPhoto</a></td>
-
-        <td      class="passed"    >12</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">12</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="32103000000">32.103</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
         <td class="tagname"><a href="report-tag_125509564.html">@BrainAddNewPhoto</a></td>
-
-        <td      class="passed"    >6</td>
-        <td      class="failed"    >1</td>
-        <td     class="skipped"   >3</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">10</td>
-
-        <td >0</td>
-        <td  class="failed"    >1</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="20429000000">20.429</td>
-        <td class="failed">Failed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_3298281379.html">@BrainDeleteBlogsJustAdded</a></td>
-
-        <td      class="passed"    >11</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">11</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="12289000000">12.289</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_1366763009.html">@BrainDeleteDraftBlog</a></td>
-
-        <td      class="passed"    >11</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">11</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="11566000000">11.566</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_498087033.html">@BrainVerifySendFriendRequest</a></td>
-
-        <td      class="passed"    >9</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">9</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="28491000000">28.491</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_3190710260.html">@BrainVerifyViewHisFriendsList</a></td>
-
-        <td      class="passed"    >3</td>
-        <td      class="failed"    >1</td>
-        <td     class="skipped"   >6</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">10</td>
-
-        <td >0</td>
-        <td  class="failed"    >1</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="9963000000">9.963</td>
-        <td class="failed">Failed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_1746252668.html">@BrianAddNewAlbumWithoutImage</a></td>
-
-        <td      class="passed"    >5</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">5</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="15540000000">15.540</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_4211888499.html">@BrianAddNewBlogAndSaveDraft</a></td>
-
-        <td      class="passed"    >11</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">11</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="16034000000">16.034</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_4205660717.html">@BrianAddNewBlogWithImage</a></td>
-
-        <td      class="passed"    >11</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">11</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="18819000000">18.819</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_4096044889.html">@BrianCommentOnBlog</a></td>
-
-        <td      class="passed"    >8</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">8</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="9982000000">9.982</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_1184612349.html">@BrianDeleteAlbum</a></td>
 
         <td      class="passed"    >10</td>
         <td >0</td>
@@ -552,7 +212,7 @@ $(document).ready(function() {
         <td >0</td>
         <td class="total">1</td>
 
-        <td class="duration" data-value="14981000000">14.981</td>
+        <td class="duration" data-value="23910000000">23.910</td>
         <td class="passed">Passed</td>
       </tr>
       <tr>
@@ -569,42 +229,8 @@ $(document).ready(function() {
         <td >0</td>
         <td class="total">1</td>
 
-        <td class="duration" data-value="17960000000">17.960</td>
+        <td class="duration" data-value="14199000000">14.199</td>
         <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_4177727870.html">@BrianEditAlbum</a></td>
-
-        <td      class="passed"    >8</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">8</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="15939000000">15.939</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_847916387.html">@BrianEditHisBlog</a></td>
-
-        <td      class="passed"    >8</td>
-        <td      class="failed"    >1</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">9</td>
-
-        <td >0</td>
-        <td  class="failed"    >1</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="134226000000">2:14.226</td>
-        <td class="failed">Failed</td>
       </tr>
       <tr>
         <td class="tagname"><a href="report-tag_4191473985.html">@BrianEditPhoto</a></td>
@@ -620,58 +246,7 @@ $(document).ready(function() {
         <td >0</td>
         <td class="total">1</td>
 
-        <td class="duration" data-value="12412000000">12.412</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_1473249369.html">@BrianPublishDraftBlog</a></td>
-
-        <td      class="passed"    >6</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">6</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="9621000000">9.621</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_4153219296.html">@BrianReactionOnAlbum</a></td>
-
-        <td      class="passed"    >6</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">6</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="12855000000">12.855</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_1853505284.html">@BrianReactionOnBlogJustAdd</a></td>
-
-        <td      class="passed"    >8</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">8</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="10480000000">10.480</td>
+        <td class="duration" data-value="13975000000">13.975</td>
         <td class="passed">Passed</td>
       </tr>
       <tr>
@@ -688,24 +263,7 @@ $(document).ready(function() {
         <td >0</td>
         <td class="total">1</td>
 
-        <td class="duration" data-value="15774000000">15.774</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_1174856507.html">@BrianReportBlog</a></td>
-
-        <td      class="passed"    >6</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">6</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="11259000000">11.259</td>
+        <td class="duration" data-value="13080000000">13.080</td>
         <td class="passed">Passed</td>
       </tr>
       <tr>
@@ -722,483 +280,75 @@ $(document).ready(function() {
         <td >0</td>
         <td class="total">1</td>
 
-        <td class="duration" data-value="18275000000">18.275</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_4072472585.html">@BrianSearchEmptyKeyWord</a></td>
-
-        <td      class="passed"    >6</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">6</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="12414000000">12.414</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_340662538.html">@BrianSearchHisAlbum</a></td>
-
-        <td      class="passed"    >6</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">6</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="13529000000">13.529</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_4026199132.html">@BrianUnFriend</a></td>
-
-        <td      class="passed"    >6</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">6</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="13571000000">13.571</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_2309520440.html">@BrianVerifyViewPostOnHisWall</a></td>
-
-        <td      class="passed"    >3</td>
-        <td      class="failed"    >1</td>
-        <td     class="skipped"   >5</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">9</td>
-
-        <td >0</td>
-        <td  class="failed"    >1</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="9399000000">9.399</td>
-        <td class="failed">Failed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_4053346056.html">@Login</a></td>
-
-        <td      class="passed"    >18</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">18</td>
-
-        <td  class="passed"    >5</td>
-        <td >0</td>
-        <td class="total">5</td>
-
-        <td class="duration" data-value="48748000000">48.748</td>
+        <td class="duration" data-value="13417000000">13.417</td>
         <td class="passed">Passed</td>
       </tr>
       <tr>
         <td class="tagname"><a href="report-tag_343168041.html">@MetaFox</a></td>
 
-        <td      class="passed"    >360</td>
-        <td      class="failed"    >8</td>
-        <td     class="skipped"   >27</td>
+        <td      class="passed"    >38</td>
         <td >0</td>
         <td >0</td>
-        <td class="total">395</td>
-
-        <td  class="passed"    >42</td>
-        <td  class="failed"    >8</td>
-        <td class="total">50</td>
-
-        <td class="duration" data-value="1114786000000">18:34.786</td>
-        <td class="failed">Failed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_827050612.html">@PhotoItem_Admin</a></td>
-
-        <td      class="passed"    >22</td>
-        <td      class="failed"    >1</td>
-        <td     class="skipped"   >3</td>
         <td >0</td>
         <td >0</td>
-        <td class="total">26</td>
-
-        <td  class="passed"    >2</td>
-        <td  class="failed"    >1</td>
-        <td class="total">3</td>
-
-        <td class="duration" data-value="139890000000">2:19.890</td>
-        <td class="failed">Failed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_2243626118.html">@ScenarioAccessSideMenu1</a></td>
-
-        <td      class="passed"    >5</td>
-        <td      class="failed"    >1</td>
-        <td     class="skipped"   >1</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">7</td>
-
-        <td >0</td>
-        <td  class="failed"    >1</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="22746000000">22.746</td>
-        <td class="failed">Failed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_457362935.html">@ScenarioLogin1</a></td>
-
-        <td      class="passed"    >10</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">10</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="36761000000">36.761</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_457362936.html">@ScenarioLogin2</a></td>
-
-        <td      class="passed"    >8</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">8</td>
-
-        <td  class="passed"    >4</td>
-        <td >0</td>
-        <td class="total">4</td>
-
-        <td class="duration" data-value="11987000000">11.987</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_2239188414.html">@VisitorBreakSignUpAction</a></td>
-
-        <td      class="passed"    >4</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">4</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="4003000000">4.003</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_1191761845.html">@VisitorProcessOnMenuSide</a></td>
-
-        <td      class="passed"    >11</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">11</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="12934000000">12.934</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_1937595160.html">@VisitorProcessSignUp</a></td>
-
-        <td      class="passed"    >82</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">82</td>
-
-        <td  class="passed"    >9</td>
-        <td >0</td>
-        <td class="total">9</td>
-
-        <td class="duration" data-value="66751000000">1:6.751</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_3693245761.html">@VisitorRegisterNewAccountWithErrorMsgExistEmail</a></td>
-
-        <td      class="passed"    >11</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">11</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="7850000000">7.850</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_3331271425.html">@VisitorRegisterNewAccountWithErrorMsgInvalidEmail</a></td>
-
-        <td      class="passed"    >14</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">14</td>
-
-        <td  class="passed"    >2</td>
-        <td >0</td>
-        <td class="total">2</td>
-
-        <td class="duration" data-value="10180000000">10.180</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_342769000.html">@VisitorRegisterNewAccountWithExistUserName</a></td>
-
-        <td      class="passed"    >11</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">11</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="7712000000">7.712</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_2248130450.html">@VisitorRegisterNewAccountWithShortPassword</a></td>
-
-        <td      class="passed"    >11</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">11</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="10801000000">10.801</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_4270712253.html">@VisitorRegisterNewAccountWithSpaceOnPasswordField</a></td>
-
-        <td      class="passed"    >11</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">11</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="8969000000">8.969</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_883854863.html">@VisitorSignUpWithEmptyValue</a></td>
-
-        <td      class="passed"    >9</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">9</td>
-
-        <td  class="passed"    >1</td>
-        <td >0</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="4302000000">4.302</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_316105661.html">@albumFunction_Brain</a></td>
-
-        <td      class="passed"    >47</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">47</td>
-
-        <td  class="passed"    >6</td>
-        <td >0</td>
-        <td class="total">6</td>
-
-        <td class="duration" data-value="104947000000">1:44.947</td>
-        <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_3149336713.html">@blogFunction_Admin</a></td>
-
-        <td      class="passed"    >35</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">35</td>
+        <td class="total">38</td>
 
         <td  class="passed"    >5</td>
         <td >0</td>
         <td class="total">5</td>
 
-        <td class="duration" data-value="64712000000">1:4.712</td>
+        <td class="duration" data-value="78581000000">1:18.581</td>
         <td class="passed">Passed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_3150673216.html">@blogFunction_Brian</a></td>
-
-        <td      class="passed"    >86</td>
-        <td      class="failed"    >1</td>
-        <td >0</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">87</td>
-
-        <td  class="passed"    >9</td>
-        <td  class="failed"    >1</td>
-        <td class="total">10</td>
-
-        <td class="duration" data-value="246690000000">4:6.690</td>
-        <td class="failed">Failed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_4204693584.html">@brianActionAdd_UnFriend</a></td>
-
-        <td      class="passed"    >13</td>
-        <td      class="failed"    >1</td>
-        <td     class="skipped"   >3</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">17</td>
-
-        <td  class="passed"    >1</td>
-        <td  class="failed"    >1</td>
-        <td class="total">2</td>
-
-        <td class="duration" data-value="158749000000">2:38.749</td>
-        <td class="failed">Failed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_730355526.html">@brianProcessOnCore</a></td>
-
-        <td      class="passed"    >18</td>
-        <td      class="failed"    >3</td>
-        <td     class="skipped"   >17</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">38</td>
-
-        <td  class="passed"    >1</td>
-        <td  class="failed"    >3</td>
-        <td class="total">4</td>
-
-        <td class="duration" data-value="176703000000">2:56.703</td>
-        <td class="failed">Failed</td>
       </tr>
       <tr>
         <td class="tagname"><a href="report-tag_4166046272.html">@photoFunction_Brain</a></td>
 
-        <td      class="passed"    >34</td>
-        <td      class="failed"    >1</td>
-        <td     class="skipped"   >3</td>
+        <td      class="passed"    >38</td>
+        <td >0</td>
+        <td >0</td>
         <td >0</td>
         <td >0</td>
         <td class="total">38</td>
 
-        <td  class="passed"    >4</td>
-        <td  class="failed"    >1</td>
+        <td  class="passed"    >5</td>
+        <td >0</td>
         <td class="total">5</td>
 
-        <td class="duration" data-value="84850000000">1:24.850</td>
-        <td class="failed">Failed</td>
-      </tr>
-      <tr>
-        <td class="tagname"><a href="report-tag_2651431829.html">@sideMenu</a></td>
-
-        <td      class="passed"    >5</td>
-        <td      class="failed"    >1</td>
-        <td     class="skipped"   >1</td>
-        <td >0</td>
-        <td >0</td>
-        <td class="total">7</td>
-
-        <td >0</td>
-        <td  class="failed"    >1</td>
-        <td class="total">1</td>
-
-        <td class="duration" data-value="22746000000">22.746</td>
-        <td class="failed">Failed</td>
+        <td class="duration" data-value="78581000000">1:18.581</td>
+        <td class="passed">Passed</td>
       </tr>
   </tbody>
 
   <tfoot class="total">
     <tr>
       <td></td>
-      <td>1080</td>
-      <td>24</td>
-      <td>81</td>
+      <td>114</td>
       <td>0</td>
       <td>0</td>
-      <td>1185</td>
+      <td>0</td>
+      <td>0</td>
+      <td>114</td>
 
-      <td>92</td>
-      <td>58</td>
-      <td>150</td>
+      <td>15</td>
+      <td>0</td>
+      <td>15</td>
 
-      <td class="duration">55:44.358</td>
-      <td>57</td>
+      <td class="duration">3:55.743</td>
+      <td>7</td>
     </tr>
     <tr>
       <td></td>
-      <td>91.14%</td>
-      <td>2.03%</td>
-      <td>6.84%</td>
+      <td>100.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
       <td>0.00%</td>
       <td>0.00%</td>
       <td></td>
-      <td>61.33%</td>
-      <td>38.67%</td>
+      <td>100.00%</td>
+      <td>0.00%</td>
       <td></td>
       <td></td>
-      <td>40.00%</td>
+      <td>100.00%</td>
     </tr>
   </tfoot>
 </table>
