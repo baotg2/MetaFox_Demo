@@ -157,6 +157,15 @@ public class ThenStepDefinitions {
         }
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param attributes field search name
+     * @param keySearch value search
+     * @purpose search item or document
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Then( "^the user see search field \"([^\"]*)\" and typing keys \"([^\"]*)\"$" )
     public void typingKeySearch( String attributes , String keySearch ) {
         if ( keySearch.equals( "BlogName" ) || keySearch.equals( "Album" ) ) {
@@ -168,6 +177,14 @@ public class ThenStepDefinitions {
         components.componentSearchAttributes( attributes ).sendKeys( Keys.ENTER );
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param comment content want to comment
+     * @purpose add comment on items
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Then( "^the user add comment \"([^\"]*)\" on blog$" )
     public void addComment( String comment ) {
         components.componentDivRole( "combobox" ).sendKeys( comment );
@@ -176,24 +193,55 @@ public class ThenStepDefinitions {
         assertTrue( components.componentPText( comment ).isDisplayed() );
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param currentURL value of url want to compare
+     * @return true when url displayed success
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Then( "^the user see page \"([^\"]*)\" is displayed" )
     public String getURL( String currentURL ) {
         assertTrue( Index.getDriver().getCurrentUrl().contains( currentURL ) );
         return currentURL;
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param buttonName name's button
+     * @purpose verified button is displayed
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Then( "^the user see button \"([^\"]*)\" is displayed$" )
     public void isButtonDisplayed( String buttonName ) {
         isComponentVisible.waitElement( By.xpath( "//button[text()='" + buttonName + "']" ) );
         assertTrue( components.componentButtonText( buttonName ).isDisplayed() );
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @purpose verified title of blog is displayed
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Then( "the user verify title of blog is displayed" )
     public void compareTitleBlogAdded() {
         isComponentVisible.waitElement( By.xpath( "//div[@data-testid='itemTitle']" ) );
         components.componentDivDataTestID( "itemTitle" ).getText().contains( dataExecutor.readConstants( "BlogName" ) );
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param formValue id of form
+     * @purpose verify form is displayed. Like report form, add form, etc
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Then( "^the user see main form \"([^\"]*)\" is displayed$" )
     public void seeMainForm( String formValue ) {
         isComponentVisible.waitElement( By.xpath( "//form[@data-testid ='form']" ) );
