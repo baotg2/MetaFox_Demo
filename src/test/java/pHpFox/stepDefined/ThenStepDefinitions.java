@@ -1,7 +1,5 @@
 package pHpFox.stepDefined;
 
-
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -24,10 +22,18 @@ public class ThenStepDefinitions {
     IsComponentVisible isComponentVisible = new IsComponentVisible( Index.getDriver() );
     DataExecutor dataExecutor = new DataExecutor();
     SupportStepDefinition supportStepDefinition = new SupportStepDefinition( Index.driver );
-    Index index = new Index(Index.getDriver());
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param userName is invalid user name
+     * @param passWord is invalid password
+     * @purpose verify error msg is displayed when login with invalid infor username and passWord
+     * @Author baotg2
+     *-------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Then( "I want to verified error message with user {string}, {string}" )
-    public void invalidUserCredentials( String userName , String passWord ) throws PendingException {
+    public void invalidUserCredentials( String userName , String passWord ) {
         isComponentVisible.waitElement( By.id( "mui-1" ) );
         components.componentInputDataTestID( "inputEmail" ).sendKeys( userName );
         components.componentInputDataTestID( "inputPassword" ).sendKeys( passWord );
@@ -36,6 +42,14 @@ public class ThenStepDefinitions {
 
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param mss is content of message want to verify
+     * @return true if msg is displayed
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Then( "^the user see error message \"([^\"]*)\" is displayed$" )
     public boolean isErrMsgDisplayed( String mss ) {
         isComponentVisible.waitElement( By.xpath( "//p[text() ='" + mss + "']" ) );
@@ -43,13 +57,26 @@ public class ThenStepDefinitions {
         return true;
     }
 
-
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param fieldName is action name want to handle
+     * @purpose click on button has name is fieldName and handle
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Then( "^the user want to edit \"([^\"]*)\"$" )
     public void editInfoAccount( String fieldName ) {
         isComponentVisible.waitElement( By.xpath( "//div[@data-testid = '" + fieldName + "']//button" ) );
         components.componentDivButton( fieldName ).click();
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     * @purpose handle add new album
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Then( "the user want to add new album" )
     public void addAlbum() {
         isComponentVisible.waitElement( By.xpath( "//form[@data-testid ='form']" ) );
@@ -59,6 +86,13 @@ public class ThenStepDefinitions {
         components.componentTextAreaDataTestID( "inputNewAlbumDescription" ).sendKeys( dataExecutor.readConstants( "Description" ) );
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param numberOfImage is number image want to upload
+     * @purpose handle upload imnage from local machine
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Then( "the user want upload {int} photo" )
     public void addPhoto( int numberOfImage ) {
         isComponentVisible.waitElement( By.xpath( "//form[@data-testid ='form']" ) );
@@ -83,6 +117,14 @@ public class ThenStepDefinitions {
         }
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param fieldName name of title field (album, blog)
+     * @param value is value want to input
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     @Then( "^the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$" )
     public void inputValueOnField( String fieldName , String value ) {
         isComponentVisible.waitElement( By.xpath( "//input[@data-testid='" + fieldName + "']" ) );
@@ -95,6 +137,14 @@ public class ThenStepDefinitions {
         }
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param module menu's name on side menu
+     * @throws IOException occurs when an IO operation fails
+     * @purpose access side menu
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     */
     @Then( "I want to access {string}" )
     public void iWantToAccessMenu( String module ) throws IOException {
         dataExecutor.setExcelFile( dataExecutor.excelPathFile , "pages" );

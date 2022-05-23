@@ -11,7 +11,7 @@ public class SupportStepDefinition {
     /**------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param driver is param call driver
-     * @purpose constructor of {@link SupportStepDefinition}
+     * @purpose constructor of SupportStepDefinition
      * @Author baotg2
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 044-05-2022

@@ -16,5 +16,5 @@ import io.cucumber.testng.CucumberOptions;
 )
 public class TestRunnerMetaFoxV5 extends AbstractTestNGCucumberTests {
  //mvn test -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.options="--tags @BrainAddNewPhoto" -Dcucumber.options="--plugin json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.jso
-        //>mvn test -Dcucumber.options="--plugin json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json"  -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="@BrianCommentOnBlog"
+        // mvn test -Dcucumber.options="--plugin json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json"  -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="@BrianCommentOnBlog"
 }
