@@ -21,5 +21,5 @@ Feature: Verify login pHpFox success
     | userName | passWord
     |abc@gmail.com| 123456
     | 123@gmail.com| 123rfb
-    | dev@phpfox.com| bubble666
+    | dev@phpfox.com| bubble666vds
     | a@mail.com|bubble666

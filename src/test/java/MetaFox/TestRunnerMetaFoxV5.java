@@ -4,7 +4,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        features = {"src/test/java/pHpFox/feature"},
+        features = {"src/test/java/MetaFox/feature"},
         glue = "MetaFox",
         tags = "@VisitorRegisterNewAccountWithShortPassword",
         plugin = {

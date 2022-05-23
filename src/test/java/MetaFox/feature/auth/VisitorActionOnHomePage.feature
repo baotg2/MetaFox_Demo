@@ -41,7 +41,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user action on input field "inputFullName" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example.com"
     And the user input info sign up "Choose an Username" with value "Test Auto1"
-    And the user input info password sign up "mui-12" with value "123456"
+    And the user input info password sign up "mui-16" with value "123456"
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"
     Then the user see error message "The email has already been taken." is displayed
@@ -88,7 +88,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user action on input field "inputFullName" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example123.com"
     And the user input info sign up "Choose an Username" with value "TestAuto1"
-    And the user input info password sign up "mui-12" with value "cv"
+    And the user input info password sign up "mui-16" with value "cv"
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"
     Then the user see error message "Your password must be at least 6 characters long. Please try another." is displayed
@@ -102,7 +102,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user action on input field "inputFullName" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example123.com"
     And the user input info sign up "Choose an Username" with value "TestAuto1"
-    And the user input info password sign up "mui-12" with value " "
+    And the user input info password sign up "mui-16" with value " "
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"
     Then the user see error message "The password is required." is displayed
