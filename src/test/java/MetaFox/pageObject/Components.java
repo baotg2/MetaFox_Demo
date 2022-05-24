@@ -3,7 +3,7 @@ package MetaFox.pageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import MetaFox.conf.Index;
+import MetaFox.browserConfig.Index;
 
 import java.util.List;
 
@@ -191,6 +191,19 @@ public class Components {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
+     * @param linkText is is attributes find elements
+     * @return element <list></list>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public WebElement componentTooltip(String linkText) {
+        return Index.getDriver().findElement(By.xpath("//div[@role ='tooltip']//a[text()='" + linkText + "']"));
+    }
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param msgValue is is attributes find elements
      * @return element <div></div>
      * ------------------------------------------------------------------------------------------------------------------------------------------
@@ -296,13 +309,26 @@ public class Components {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param dataTestID is is attributes find elements
+     * @return element <span></span>/img
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public WebElement componentSpanDataTestIDImage(String dataTestID) {
+        return Index.getDriver().findElement(By.xpath("//span[@data-testid ='" + dataTestID + "']//img"));
+    }
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param dataTestID is is attributes find elements
      * @return element <span></span>
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @Author BaoTG
      * @since 04-05-2022
      */
     public WebElement componentSpanDataTestID(String dataTestID) {
-        return Index.getDriver().findElement(By.xpath("//span[@data-testid ='" + dataTestID + "']//img"));
+        return Index.getDriver().findElement(By.xpath("//span[@data-testid ='" + dataTestID + "']"));
     }
 
     /**

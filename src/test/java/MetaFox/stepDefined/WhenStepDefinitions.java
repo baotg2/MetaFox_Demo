@@ -3,13 +3,22 @@ package MetaFox.stepDefined;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import MetaFox.conf.Index;
+import MetaFox.browserConfig.Index;
 import MetaFox.pageObject.Components;
 import MetaFox.support.DataExecutor;
 import MetaFox.support.IsComponentVisible;
 
 import java.util.Objects;
 
+/**
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ * @version 1.0.1
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ * @Author baotg2
+ * @purpose: WhenStepDefinitions is class defined all steps use Method @When
+ * @since 04-05-2022
+ */
 public class WhenStepDefinitions {
     Components components = new Components( Index.getDriver() );
     IsComponentVisible isComponentVisible = new IsComponentVisible( Index.getDriver() );
@@ -24,7 +33,7 @@ public class WhenStepDefinitions {
      * @since 04-05-2022
      */
     @When ( "^the browser opened at item \"([^\"]*)\" and tab \"([^\"]*)\"$" )
-    public void openNewURL( String item , String url ) {
+    public void openNewURL( String item , String url ) throws InterruptedException {
         components.componentLinkText( item ).click();
         if ( !Objects.equals( url , "" ) ) {
             components.componentLinkText( url ).click();
@@ -81,5 +90,18 @@ public class WhenStepDefinitions {
     public void valueEmailSignUp( String placeHolder , String value ) {
         components.componentSearchAttributes( placeHolder ).sendKeys( value );
         components.componentSearchAttributes( placeHolder ).sendKeys( Keys.ENTER );
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param value of tool tip
+     * @purpose access tool tip on user profile from more
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @When ( "^the user want access tool tip \"([^\"]*)\" from More")
+    public void accessToolTip(String value){
+        components.componentTooltip(value).click();
     }
 }

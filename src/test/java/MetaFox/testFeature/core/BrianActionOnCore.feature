@@ -65,3 +65,10 @@ Feature: Brain Process On Core
     Then I want to click on "Account Settings"
     And the user back to "profile" page
     And the user select privacy at field "Who can share a post on your wall?" and change to "Friends Only"
+
+
+  @BrianEditProfile
+  Scenario: Brian Edit Profile
+    Given the user logged in as "brian"
+    Then the user want to access "userAvatar"
+    And the user want to "Edit Profile"

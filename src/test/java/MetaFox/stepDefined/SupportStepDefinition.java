@@ -1,9 +1,18 @@
 package MetaFox.stepDefined;
 
 import org.openqa.selenium.WebDriver;
-import MetaFox.conf.Index;
+import MetaFox.browserConfig.Index;
 import MetaFox.pageObject.Components;
 
+/**
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ * @version 1.0.1
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ * @Author baotg2
+ * @purpose: SupportStepDefinition is class defined all steps use anywhere in test step
+ * @since 04-05-2022
+ */
 public class SupportStepDefinition {
 
     Components components = new Components(Index.driver);

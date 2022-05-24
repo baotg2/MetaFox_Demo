@@ -6,7 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
-import MetaFox.conf.Index;
+import MetaFox.browserConfig.Index;
 import MetaFox.pageObject.Components;
 import MetaFox.support.DataExecutor;
 import MetaFox.support.IsComponentVisible;
@@ -15,8 +15,17 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static MetaFox.conf.Index.selectPlatform;
+import static MetaFox.browserConfig.Index.selectPlatform;
 
+/**
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ * @version 1.0.1
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ * @Author baotg2
+ * @purpose: ThenStepDefinitions is class defined all steps use Method @Then
+ * @since 04-05-2022
+ */
 public class ThenStepDefinitions {
     Components components = new Components( Index.getDriver() );
     IsComponentVisible isComponentVisible = new IsComponentVisible( Index.getDriver() );
@@ -246,5 +255,19 @@ public class ThenStepDefinitions {
     public void seeMainForm( String formValue ) {
         isComponentVisible.waitElement( By.xpath( "//form[@data-testid ='form']" ) );
         assertTrue( components.componentMainFormDataTestID( formValue ).isDisplayed() );
+    }
+
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param spanValue id of form
+     * @purpose access user profile
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then( "^the user want to access \"([^\"]*)\"$" )
+    public void accessUserProfile( String spanValue){
+        isComponentVisible.waitElement(By.xpath("//span[@data-testid='" + spanValue + "']"));
+        components.componentSpanDataTestID(spanValue).click();
     }
 }

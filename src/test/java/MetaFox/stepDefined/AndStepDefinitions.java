@@ -6,7 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
-import MetaFox.conf.Index;
+import MetaFox.browserConfig.Index;
 import MetaFox.pageObject.Components;
 import MetaFox.support.DataExecutor;
 import MetaFox.support.IsComponentVisible;
@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static MetaFox.conf.Index.selectPlatform;
+import static MetaFox.browserConfig.Index.selectPlatform;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -147,7 +147,7 @@ public class AndStepDefinitions {
     @And("^the user see result of \"([^\"]*)\" displayed")
     public void isReactionSuccess(String reactionName) {
         isComponentVisible.waitElement(By.xpath("//span[@data-testid='" + reactionName + "']"));
-        assertTrue(components.componentSpanDataTestID(reactionName).isDisplayed());
+        assertTrue(components.componentSpanDataTestIDImage(reactionName).isDisplayed());
     }
 
     /**
@@ -159,7 +159,7 @@ public class AndStepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("the user see photo of \"([^\"]*)\"$")
+    @And("the user see item of \"([^\"]*)\"$")
     public void isSeePhoto(String buttonName) {
         isComponentVisible.waitElement(By.xpath("//div[text()='" + buttonName + "']"));
         components.componentsDivMsg(buttonName).click();

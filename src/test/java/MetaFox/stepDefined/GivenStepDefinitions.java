@@ -2,7 +2,7 @@ package MetaFox.stepDefined;
 
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.By;
-import MetaFox.conf.Index;
+import MetaFox.browserConfig.Index;
 import MetaFox.pageObject.Components;
 import MetaFox.support.DataExecutor;
 import MetaFox.support.IsComponentVisible;
@@ -11,6 +11,15 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertTrue;
 
+/**
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ * @version 1.0.1
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ * @Author baotg2
+ * @purpose: GivenStepDefinitions is class defined all steps use Method @Given
+ * @since 04-05-2022
+ */
 public class GivenStepDefinitions {
 
     Components components = new Components(Index.getDriver());
@@ -43,7 +52,7 @@ public class GivenStepDefinitions {
             }
         }
         components.componentButtonDataTestID("buttonLogin").click();
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='new_notification']"));
-        assertTrue(components.componentDivDataTestID("new_notification").isDisplayed());
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='formSearch']"));
+        assertTrue(components.componentDivDataTestID("formSearch").isDisplayed());
     }
 }

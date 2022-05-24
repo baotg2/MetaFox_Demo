@@ -49,7 +49,7 @@ Feature: Brian process on photos item
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/all"
     And the user see title "All Photos" is displayed
-    And the user see photo of "test"
+    And the user see item of "test"
     And the user click on button "actionMenuButton" to action
     And the user "report" this item
     Then the user see main form "form" is displayed

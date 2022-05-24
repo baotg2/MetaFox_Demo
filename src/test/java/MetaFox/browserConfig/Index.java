@@ -1,8 +1,7 @@
-package MetaFox.conf;
+package MetaFox.browserConfig;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -15,8 +14,8 @@ import java.net.URL;
 /**------------------------------------------------------------------------------------------------------------------------------------------------
  * @since 04-05-2022
  * @Author  baotg2
- * @purpose: Index is class set up before and after execute tests
- * @package conf
+ * @purpose: Index is class set up browser
+ * @package browserConfig
  * @version 1.0.1
  ------------------------------------------------------------------------------------------------------------------------------------------------*/
 public class Index {

@@ -117,3 +117,20 @@ Feature:  Brian process on blogs app
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     Then the user see "No Results Found" is displayed on result table
+
+  @BrianDeleteBlogOnUserProfile
+  Scenario: Brian Delete Blog On User Profile
+    Given the user logged in as "brian"
+    Then the browser opened at item "blog" and tab "/blog/add"
+    Then the user action on input field "inputTitle" with value "BlogName"
+    Then the user want to add photo
+    And the user add value on div "textbox"
+    And the user want to add attach files
+    And the user want add categories is "Education"
+    And the user add topic is "tag-tag"
+    And the user click on button "buttonSubmit"
+    And the user see message "Blog published successfully." displayed
+    Then the user verify title of blog is displayed
+    Then the user want to access "userAvatar"
+    And the user see item of "More"
+    And the user want access tool tip "Blogs" from More

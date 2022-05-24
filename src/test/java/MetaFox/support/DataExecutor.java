@@ -17,15 +17,34 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ * @version 1.0.1
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ * @Author baotg2
+ * @purpose: DataExecutor is class defined all function handle related to test data
+ * @since 04-05-2022
+ */
 public class DataExecutor {
 
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
 
-    private final String testDataFolder = "src/test/java/pHpFox/testdata/";
+    private final String testDataFolder = "src/test/java/MetaFox/testdata/";
     private final String testDataFile = "v5DataProvider.xlsx";
     public String excelPathFile = testDataFolder + testDataFile;
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param fileName name's excel file
+     * @param sheetName is sheet want to access/get data
+     * @throws IOException occurs when an IO operation fails
+     * @purpose get sheet from excel file
+     * @Author baotg2
+     * ----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     public void setExcelFile( String fileName , String sheetName ) throws IOException {
         File file = new File( fileName );
         File sameFileName = new File( fileName );
@@ -36,18 +55,42 @@ public class DataExecutor {
         }
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param rowNumber is row want to access
+     * @param cellNumber is cell on row
+     * @return value of cell as string at rowNumber
+     * @throws IOException occurs when an IO operation fails
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     public String getCellData( int rowNumber , int cellNumber ) throws IOException {
         //getting the cell value from rowNumber and cell Number
         XSSFCell cell = sheet.getRow( rowNumber ).getCell( cellNumber );
         workbook.close();
-        //returning the cell value as string
         return cell.getStringCellValue();
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @return the number on sheet
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     public int getRowCountInSheet() {
         return sheet.getLastRowNum() - sheet.getFirstRowNum();
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param stabName is tab name on xml file
+     * @return value of tab name
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     public String readConstants( String stabName ) {
         String attributeName = null;
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -71,6 +114,13 @@ public class DataExecutor {
         return attributeName;
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @return random path file in test data folder
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     public String getRandomPathDocuments() {
         String sb = null;
         for ( int i = 0 ; i < getPathDocument().size() ; i++ ) {
@@ -81,6 +131,13 @@ public class DataExecutor {
         return sb;
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @return get all path file in test data folder
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     private ArrayList<String> getPathDocument() {
         File directory = new File( "src/test/java/pHpFox/testdata" );
         ArrayList<String> list = new ArrayList<>();
