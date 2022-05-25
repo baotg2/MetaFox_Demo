@@ -10,7 +10,7 @@ Feature:  Brian process on blogs app
     And the user add value on div "textbox"
     And the user want to add attach files
     And the user want add categories is "Education"
-    And the user add topic is "tag-tag"
+    And And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonSubmit"
     And the user see message "Blog published successfully." displayed
     Then the user verify title of blog is displayed
@@ -72,7 +72,7 @@ Feature:  Brian process on blogs app
     And the user add value on div "textbox"
     And the user want to add attach files
     And the user want add categories is "Education"
-    And the user add topic is "tag-tag"
+    And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonDraft"
     Then the user see message "Already saved blog as draft" displayed
     Then the user verify title of blog is displayed
@@ -120,17 +120,22 @@ Feature:  Brian process on blogs app
 
   @BrianDeleteBlogOnUserProfile
   Scenario: Brian Delete Blog On User Profile
-    Given the user logged in as "brian"
+    Given the user logged in as "admin"
     Then the browser opened at item "blog" and tab "/blog/add"
     Then the user action on input field "inputTitle" with value "BlogName"
     Then the user want to add photo
     And the user add value on div "textbox"
     And the user want to add attach files
     And the user want add categories is "Education"
-    And the user add topic is "tag-tag"
+    And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonSubmit"
     And the user see message "Blog published successfully." displayed
     Then the user verify title of blog is displayed
     Then the user want to access "userAvatar"
     And the user see item of "More"
     And the user want access tool tip "Blogs" from More
+    And the user "buttonActionMenu" this item
+    And the user "Delete" this item
+    And the user click on button "buttonSubmit"
+    Then the user see message "Blog deleted successfully." displayed
+

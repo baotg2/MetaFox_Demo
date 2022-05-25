@@ -13,6 +13,7 @@ import MetaFox.support.IsComponentVisible;
 
 import java.util.List;
 
+import static MetaFox.browserConfig.Index.driver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static MetaFox.browserConfig.Index.selectPlatform;
@@ -197,7 +198,7 @@ public class AndStepDefinitions {
                 if (!components.componentsListDivRole("button").get(i).getText().equals(valueChanged)) {
                     components.componentsListDivRole("button").get(i).click();
                     isComponentVisible.waitElement(By.xpath("//ul[@role = 'listbox']"));
-                    Index.getDriver().findElements(By.xpath("//ul//div[text()='" + valueChanged + "']")).get(1).click();
+                    Index.getDriver().findElements(By.xpath("//ul//div[text()='" + valueChanged + "']")).get(0).click();
                 }
                 break;
             }
@@ -242,8 +243,8 @@ public class AndStepDefinitions {
      */
     @And("^I want to click on \"([^\"]*)\"$")
     public void logout(String spanText) {
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='more']"));
-        components.componentDivDataTestID("more").click();
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='menuAppBar']/div[4]/div"));
+        driver.findElement(By.xpath("//div[@data-testid ='menuAppBar']/div[4]/div")).click();
         isComponentVisible.waitElement(By.xpath("//span[text()='" + spanText + "']"));
         components.componentSpanName(spanText).click();
     }
@@ -359,14 +360,18 @@ public class AndStepDefinitions {
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param value is value of tag
+     * @param id is id of element
      * @purpose input tag when create/edit item
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("the user add topic is \"([^\"]*)\"$")
-    public void actionOnTopicField(String value) {
-        components.componentInputID("tags-tags").sendKeys(value);
+    @And("the user add value on \"([^\"]*)\" is \"([^\"]*)\"$")
+    public void actionOnTopicField(String id, String value) {
+        isComponentVisible.waitElement(By.id(id));
+        components.componentInputID(id).clear();
+        components.componentInputID(id).sendKeys(value);
+        components.componentInputID(id).sendKeys(Keys.ENTER);
     }
 
     /**-------------------------------------------------------------------------------------------------------------------------------------------

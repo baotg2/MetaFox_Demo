@@ -1,8 +1,12 @@
 package MetaFox.stepDefined;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import MetaFox.browserConfig.Index;
 import MetaFox.pageObject.Components;
+import org.openqa.selenium.WebElement;
+
+import static MetaFox.browserConfig.Index.driver;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -15,7 +19,7 @@ import MetaFox.pageObject.Components;
  */
 public class SupportStepDefinition {
 
-    Components components = new Components(Index.driver);
+    Components components = new Components(driver);
 
     /**------------------------------------------------------------------------------------------------------------------------------------------
      *

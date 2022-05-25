@@ -53,4 +53,11 @@ Feature: Brian process on photos item
     And the user click on button "actionMenuButton" to action
     And the user "report" this item
     Then the user see main form "form" is displayed
+
+  @BrianAttachPhotoFromUserProfile
+  Scenario: Brian Attach Photo From User Profile
+    Given the user logged in as "brian"
+    Then the user want to access "userAvatar"
+    And the user want upload 1 photo
+
     

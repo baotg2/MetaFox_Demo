@@ -3,7 +3,7 @@ Feature: Verify Visitor Process on Sign Up
 
   @VisitorProcessOnMenuSide
   Scenario: Verify Visitor Process on Menu Side
-    Given the user click on div "friends" and process
+    Given the user click on div "Friends" and process
     And the user see "Welcome Back" is displayed
     And back to previous page
     And the user click on div "members" and process
@@ -28,9 +28,9 @@ Feature: Verify Visitor Process on Sign Up
     And the user input info sign up "Email Address" with value "<emailValue>"
     Then the user see error message "Email Address must be a valid email" is displayed
     Examples:
-    | firstName | lastName| fullName| emailValue
-    |testAuto1  | testAuto1|testAuto1| adv@abc
-    |testAuto2  | testAuto2|testAuto2 | adv@abc
+    |firstName |lastName|fullName|emailValue
+    |testAuto1 | testAuto1|testAuto1|adv@abc
+    |testAuto2 | testAuto2|testAuto2 |adv@abc
 
   @VisitorRegisterNewAccountWithErrorMsgExistEmail
   Scenario: Visitor Process register new account With Error Msg Exist Email

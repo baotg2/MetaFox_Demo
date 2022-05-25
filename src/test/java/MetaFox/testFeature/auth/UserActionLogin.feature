@@ -18,8 +18,8 @@ Feature: Verify login pHpFox success
     Given I want to verified error message with user "<userName>", "<passWord>"
     Then the user see error message "The user credentials were incorrect." is displayed
     Examples:
-    | userName | passWord
-    |abc@gmail.com| 123456
-    | 123@gmail.com| 123rfb
-    | dev@phpfox.com| bubble666vds
-    | a@mail.com|bubble666
+    |userName |passWord
+    |abc@gmail.com|123456
+    |123@gmail.com|123rfb
+    |dev@phpfox.com|bubble666vds
+    |a@mail.com|bubble666

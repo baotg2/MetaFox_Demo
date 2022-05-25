@@ -36,13 +36,13 @@ public class GivenStepDefinitions {
      * @since 04-05-2022
      */
     @Given("^the user logged in as \"([^\"]*)\"$")
-    public void login(String username) throws IOException {
+    public void login(String username) throws IOException, InterruptedException {
         isComponentVisible.waitElement(By.xpath("//input[@data-testid ='inputEmail']"));
         dataExecutor.setExcelFile(dataExecutor.excelPathFile, "users");
         for ( int i = 1; i <= dataExecutor.getRowCountInSheet(); i++ ) {
-            if ( dataExecutor.getCellData(i, 2).toLowerCase().equals(username) ) {
+            if ( dataExecutor.getCellData(i, 3).toLowerCase().equals(username) ) {
                 components.componentInputDataTestID("inputEmail").sendKeys(dataExecutor.getCellData(i, 4));
-                if ( !dataExecutor.getCellData(i, 2).toLowerCase().equals("admin") ) {
+                if ( !dataExecutor.getCellData(i, 3).toLowerCase().equals("admin") ) {
                     components.componentInputDataTestID("inputPassword").sendKeys("123456");
                 }
                 else {
@@ -54,5 +54,6 @@ public class GivenStepDefinitions {
         components.componentButtonDataTestID("buttonLogin").click();
         isComponentVisible.waitElement(By.xpath("//div[@data-testid ='formSearch']"));
         assertTrue(components.componentDivDataTestID("formSearch").isDisplayed());
+        Thread.sleep(4);
     }
 }

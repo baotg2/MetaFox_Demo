@@ -10,7 +10,7 @@ Feature:  Admin process on blogs app
     And the user add value on div "textbox"
     And the user want to add attach files
     And the user want add categories is "Education"
-    And the user add topic is "tag-tag"
+    And And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonSubmit"
     And the user see message "Blog published successfully." displayed
     Then the user verify title of blog is displayed

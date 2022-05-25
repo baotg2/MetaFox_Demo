@@ -139,9 +139,8 @@ public class DataExecutor {
      * @since 04-05-2022
      */
     private ArrayList<String> getPathDocument() {
-        File directory = new File( "src/test/java/pHpFox/testdata" );
+        File directory = new File( "src/test/java/MetaFox/testdata" );
         ArrayList<String> list = new ArrayList<>();
-        // get all the files from a directory
         File[] fList = directory.listFiles();
         assert fList != null;
         for ( File file : fList ) {

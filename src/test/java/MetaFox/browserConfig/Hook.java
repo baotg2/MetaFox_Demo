@@ -23,7 +23,7 @@ public class Hook{
      -----------------------------------------------------------------------------------------------------------------------------------------*/
     @Before
     public void setUp() throws MalformedURLException {
-        index.openBrowser( EnumDataValue.FIREFOX, EnumDataValue.LOCAL);
+        index.openBrowser( EnumDataValue.FIREFOX, EnumDataValue.BROWSERSTACK);
     }
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022

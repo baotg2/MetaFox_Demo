@@ -1,8 +1,11 @@
 package MetaFox.browserConfig;
 
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import MetaFox.support.DataExecutor;
@@ -43,13 +46,13 @@ public class Index {
     /**------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      * @param enumDataValue is param to set open browser
-     * @param selectPlatform is param to get test cases run on Platform
+     * @param selectFlatForm is param to get test cases run on Platform
      * @throws MalformedURLException thrown when the built-in URL class encounters an invalid URL
      * @purpose openBrowser is a function to set up test cases run on local or cloud
      ------------------------------------------------------------------------------------------------------------------------------------------*/
-    public void openBrowser(EnumDataValue enumDataValue, EnumDataValue selectPlatform) throws MalformedURLException {
-        Index.selectPlatform = String.valueOf(selectPlatform);
-        switch (selectPlatform) {
+    public void openBrowser(EnumDataValue enumDataValue, EnumDataValue selectFlatForm) throws MalformedURLException {
+        Index.selectPlatform = String.valueOf(selectFlatForm);
+        switch (selectFlatForm) {
             case BROWSERSTACK:
                 DesiredCapabilities caps = new DesiredCapabilities();
                 caps.setCapability("os_version", "10");
@@ -62,7 +65,10 @@ public class Index {
                 driver = new RemoteWebDriver(new URL(URL), caps);
                 break;
             case LOCAL:
-                driver = new FirefoxDriver();
+                //driver = new FirefoxDriver();
+                FirefoxOptions opts = new FirefoxOptions();
+                opts.addArguments("-private");
+                driver = new FirefoxDriver(opts);
         }
         driver.get(dataExecutor.readConstants("URL"));
         driver.manage().window().maximize();
