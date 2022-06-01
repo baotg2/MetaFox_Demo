@@ -1,4 +1,4 @@
-@MetaFox @photoFunction_Brain
+@MetaFox @photo @photoFunction_Brain
 Feature: Brian process on photos item
 
   @BrainAddNewPhoto
@@ -27,7 +27,7 @@ Feature: Brian process on photos item
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user click on "actionMenuButton" to access blog
-    And the user "edit" this item
+    And the user "Edit" this item
     And the user action on input field "inputTitle" with value "newPhotoName"
     And the user click on button "buttonSubmit"
     Then the user see message "Photo item successfully updated." displayed
@@ -40,7 +40,7 @@ Feature: Brian process on photos item
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user click on "actionMenuButton" to access blog
-    Then the user "delete" this item
+    Then the user "Delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Photo deleted successfully" displayed
 
@@ -49,15 +49,13 @@ Feature: Brian process on photos item
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/all"
     And the user see title "All Photos" is displayed
-    And the user see item of "test"
+    And the user see item of "admin"
     And the user click on button "actionMenuButton" to action
-    And the user "report" this item
+    And the user "Report" this item
     Then the user see main form "form" is displayed
 
   @BrianAttachPhotoFromUserProfile
   Scenario: Brian Attach Photo From User Profile
     Given the user logged in as "brian"
-    Then the user want to access "userAvatar"
-    And the user want upload 1 photo
-
-    
+    Then the browser opened at item "photo" and tab "/photo/all"
+    And the user click on div "itemPhoto" and process

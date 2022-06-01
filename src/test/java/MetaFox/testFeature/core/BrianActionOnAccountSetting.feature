@@ -1,5 +1,5 @@
-@MetaFox @brianProcessOnCore
-Feature: Brain Process On Core
+@MetaFox @core @brianProcessOnAccountSettings
+Feature: Brain Process On Account Settings
 
   @BrainAccessSettings
   Scenario: Brain Access Settings

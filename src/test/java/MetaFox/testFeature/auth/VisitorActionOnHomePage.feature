@@ -1,4 +1,4 @@
-@MetaFox  @VisitorProcessSignUp
+@MetaFox @Author @VisitorProcessSignUp
 Feature: Verify Visitor Process on Sign Up
 
   @VisitorProcessOnMenuSide
@@ -6,17 +6,17 @@ Feature: Verify Visitor Process on Sign Up
     Given the user click on div "Friends" and process
     And the user see "Welcome Back" is displayed
     And back to previous page
-    And the user click on div "members" and process
+    And the user click on div "Members" and process
     And the user see title "Members" is displayed
     And the user back to "linkLogo" page
 #    And the user click on div "blogs" and process
 #    And the user see "Popular Blogs" on left menu
 #    And the user back to "linkLogo" page
-    And the user click on div "photos" and process
+    And the user click on div "Photos" and process
     And the user see title "Popular Photos" is displayed
     And the user back to "linkLogo" page
-    And the user click on div "poll" and process
-    And the user see "No Polls Found" on left menu
+    And the user click on div "Polls" and process
+    And the user see title "Popular Polls" is displayed
 
   @VisitorRegisterNewAccountWithErrorMsgInvalidEmail
   Scenario Outline: Visitor Process register new account With Error Msg Invalid Email

@@ -1,4 +1,4 @@
-@MetaFox  @blogFunction_Admin
+@MetaFox @blogs  @blogFunction_Admin
 Feature:  Admin process on blogs app
 
   @AdminAddNewBlogWithoutImage
@@ -10,7 +10,7 @@ Feature:  Admin process on blogs app
     And the user add value on div "textbox"
     And the user want to add attach files
     And the user want add categories is "Education"
-    And And the user add value on "tags-tags" is "tag-tag"
+    And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonSubmit"
     And the user see message "Blog published successfully." displayed
     Then the user verify title of blog is displayed
@@ -21,7 +21,7 @@ Feature:  Admin process on blogs app
     Then the browser opened at item "blog" and tab "/blog/my"
     And the user see "My Blogs" is displayed
     And the user click on "actionMenuButton" to access blog
-    And the user "edit" this item
+    And the user "Edit" this item
 
   @AdminSearchHisBlog
   Scenario: Admin Search bla bla bla
@@ -41,12 +41,12 @@ Feature:  Admin process on blogs app
     And the user access first condition "inputWhen"
     And the user not see "No Results Found" is displayed on result table
     And the user click on "actionMenuButton" to access blog
-    Then the user "delete" this item
+    Then the user "Delete" this item
     And the user click on button "buttonSubmit"
 
-  @AdminSeePendingBlog
-  Scenario: Admin See Pending Blog
-    Given the user logged in as "admin"
-    And the browser opened at item "blog" and tab "/blog/pending"
-    And the user see "No Blogs Found" on left menu
-    And the user back to "linkLogo" page
+#  @AdminSeePendingBlog
+#  Scenario: Admin See Pending Blog
+#    Given the user logged in as "admin"
+#    And the browser opened at item "blog" and tab "/blog/pending"
+#    And the user see "No Blogs Found" on left menu
+#    And the user back to "linkLogo" page

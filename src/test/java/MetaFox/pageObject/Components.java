@@ -61,6 +61,20 @@ public class Components {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
+     * @param text is attributes find elements
+     * @return element <h3></h3>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public WebElement componentH3ItemTitle(String text) {
+        return Index.getDriver().findElement(By.xpath("//h3[text()='" + text + "']"));
+
+    }
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param dataTestid is attributes find elements
      * @return element <div></div>
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -224,7 +238,7 @@ public class Components {
      * @since 04-05-2022
      */
     public WebElement componentInputID(String id) {
-        return Index.getDriver().findElement(By.id(id));
+        return Index.getDriver().findElement(By.xpath("//input[@id ='" + id + "']"));
     }
 
     /**
@@ -354,5 +368,17 @@ public class Components {
      */
     public List <WebElement> componentsSpanlist() {
         return Index.getDriver().findElements(By.xpath("//div[@class ='MuiListItemText-root ltr-1x690uy']//span"));
+    }
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @return element <span></span>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public WebElement componentsTagButton(String labelValue) {
+        return Index.getDriver().findElement(By.xpath("//button[@aria-label ='"+labelValue+"']"));
     }
 }

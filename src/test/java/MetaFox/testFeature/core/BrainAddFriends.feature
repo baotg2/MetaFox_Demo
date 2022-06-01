@@ -1,4 +1,4 @@
-@MetaFox  @brianActionAdd_UnFriend
+@MetaFox @core  @brianActionAdd_UnFriend
 Feature:  Brain Process On Add Friend UnFriend
 
   @BrainAddFriend
@@ -22,3 +22,4 @@ Feature:  Brain Process On Add Friend UnFriend
     And the user want to "Un Friend"
     And the user click on button "buttonSubmit"
     Then the user see message "Unfriend successfully." displayed
+    Then the user see button "Add Friend" is displayed

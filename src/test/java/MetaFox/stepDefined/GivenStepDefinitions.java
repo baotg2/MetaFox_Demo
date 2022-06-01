@@ -1,6 +1,7 @@
 package MetaFox.stepDefined;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.sl.In;
 import org.openqa.selenium.By;
 import MetaFox.browserConfig.Index;
 import MetaFox.pageObject.Components;
@@ -54,6 +55,7 @@ public class GivenStepDefinitions {
         components.componentButtonDataTestID("buttonLogin").click();
         isComponentVisible.waitElement(By.xpath("//div[@data-testid ='formSearch']"));
         assertTrue(components.componentDivDataTestID("formSearch").isDisplayed());
-        Thread.sleep(4);
+        Index.driver.navigate().refresh();
+
     }
 }

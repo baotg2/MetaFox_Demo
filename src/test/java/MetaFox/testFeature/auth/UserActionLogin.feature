@@ -1,4 +1,4 @@
-@MetaFox  @Login
+@MetaFox @Author  @Login
 Feature: Verify login pHpFox success
   @ScenarioLogin1
   Scenario: Verify login success with all users

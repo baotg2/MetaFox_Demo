@@ -215,8 +215,8 @@ public class AndStepDefinitions {
      */
     @And("^the user want to access items \"([^\"]*)\" on user profile")
     public void accessItemONProFile(String itemProfile) {
-        isComponentVisible.waitElement(By.xpath("//a[contains(@href, '" + itemProfile + "')]"));
-        Index.getDriver().findElements(By.xpath("//*[@id=\"friend\"]")).get(1).click();
+        isComponentVisible.waitElement(By.xpath("//*[@id='"+itemProfile+"']"));
+        Index.getDriver().findElements(By.xpath("//*[@id='"+itemProfile+"']")).get(1).click();
 
     }
 

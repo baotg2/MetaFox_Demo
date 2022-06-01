@@ -1,4 +1,4 @@
-@MetaFox  @albumFunction_Brain
+@MetaFox @photo  @albumFunction_Brain
 Feature: Brian process on album item
 
   @BrianAddNewAlbumWithoutImage
@@ -7,7 +7,7 @@ Feature: Brian process on album item
     Then the browser opened at item "photo" and tab "/photo/add"
     And the user want to add new album
     And the user click on button "buttonSubmit"
-    Then the user see message "The files field is required." displayed
+    Then the user see message "Media files are required." displayed
 
   @BrainAddNewAlbumWithPhoto
   Scenario: Brian Add New Album With Photo
@@ -48,7 +48,7 @@ Feature: Brian process on album item
     Then the browser opened at item "photo" and tab "/photo/albums"
     And the user see search field "Search albums" and typing keys "Album"
     And the user click on "actionMenuButton" to access blog
-    Then the user "edit" this item
+    Then the user "Edit" this item
     And the user action on input field "inputName" with value "Auto Test New AlbumName"
     And the user click on button "buttonSubmit"
     Then the user see message "Photo album updated successfully." displayed
@@ -62,6 +62,6 @@ Feature: Brian process on album item
     And the user access first condition "inputWhen"
     And the user not see "No Results Found" is displayed on result table
     And the user click on "actionMenuButton" to access blog
-    Then the user "delete" this item
+    Then the user "Delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Photo album deleted successfully." displayed

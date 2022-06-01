@@ -104,7 +104,7 @@ public class ThenStepDefinitions {
      */
     @Then( "the user want upload {int} photo" )
     public void addPhoto( int numberOfImage ) {
-        isComponentVisible.waitElement( By.xpath( "//form[@data-testid ='form']" ) );
+        isComponentVisible.waitElement( By.xpath( "//input[@type='file']" ) );
         if ( selectPlatform.equals( "BROWSERSTACK" ) ) {
             WebElement upload = components.componentInputType( "file" );
             ( (RemoteWebElement) upload ).setFileDetector( new LocalFileDetector() );
@@ -177,6 +177,7 @@ public class ThenStepDefinitions {
      */
     @Then( "^the user see search field \"([^\"]*)\" and typing keys \"([^\"]*)\"$" )
     public void typingKeySearch( String attributes , String keySearch ) {
+        isComponentVisible.waitElement(By.xpath("//input[@placeholder='" + attributes + "']"));
         if ( keySearch.equals( "BlogName" ) || keySearch.equals( "Album" ) ) {
             components.componentSearchAttributes( attributes ).sendKeys( dataExecutor.readConstants( keySearch ) );
         } else {
@@ -198,8 +199,8 @@ public class ThenStepDefinitions {
     public void addComment( String comment ) {
         components.componentDivRole( "combobox" ).sendKeys( comment );
         components.componentDivRole( "combobox" ).sendKeys( Keys.ENTER );
-        isComponentVisible.waitElement( By.xpath( "//p[text() = '" + comment + "']" ) );
-        assertTrue( components.componentPText( comment ).isDisplayed() );
+//        isComponentVisible.waitElement( By.xpath( "//p[text() = '" + comment + "']" ) );
+//        assertTrue( components.componentPText( comment ).isDisplayed() );
     }
 
     /**------------------------------------------------------------------------------------------------------------------------------------------------
@@ -269,5 +270,47 @@ public class ThenStepDefinitions {
     public void accessUserProfile( String spanValue){
         isComponentVisible.waitElement(By.xpath("//span[@data-testid='" + spanValue + "']"));
         components.componentSpanDataTestID(spanValue).click();
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param statusContent is content of status
+     * @purpose verify status after post
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user see \"([^\"]*)\" displayed success")
+    public void isStatusVisible(String statusContent){
+        isComponentVisible.waitElement( By.xpath( "//p[text() = '" + statusContent + "']" ) );
+        assertTrue( components.componentPText( statusContent ).isDisplayed() );
+    }
+
+    /**------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param text is tab's name
+     * @purpose verify elements h3 is displayed
+     * @Author baotg2
+     * -------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user see  tab \"([^\"]*)\" displayed success$")
+    public void isTabDisplayedSuccess(String text) {
+        isComponentVisible.waitElement(By.xpath("//h3[text()='" + text + "']"));
+        assertEquals(components.componentH3ItemTitle(text).getText(), text);
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param ariaLabel is value ariaLabel of button
+     * @purpose is click to action tag user on photo
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    public void startTagUser(String ariaLabel)
+    {
+        isComponentVisible.waitElement(By.xpath("//button[@aria-label ='"+ariaLabel+"']"));
+        components.componentsTagButton(ariaLabel).click();
     }
 }

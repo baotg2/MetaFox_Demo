@@ -1,4 +1,4 @@
-@MetaFox  @blogFunction_Brian
+@MetaFox @blogs  @blogFunction_Brian
 Feature:  Brian process on blogs app
 
   @BrianAddNewBlogWithImage
@@ -10,7 +10,7 @@ Feature:  Brian process on blogs app
     And the user add value on div "textbox"
     And the user want to add attach files
     And the user want add categories is "Education"
-    And And the user add value on "tags-tags" is "tag-tag"
+    And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonSubmit"
     And the user see message "Blog published successfully." displayed
     Then the user verify title of blog is displayed
@@ -25,6 +25,7 @@ Feature:  Brian process on blogs app
     And the user not see "No Results Found" is displayed on result table
     And the user access this blog by "itemMedia" and process
     And the user add comment "test comment" on blog
+    Then the user see "test comment" displayed success
 
   @BrianReactionOnBlogJustAdd
   Scenario: Brain Reaction On This Blog
@@ -43,7 +44,7 @@ Feature:  Brian process on blogs app
     Then the browser opened at item "blog" and tab "/blog/my"
     And the user see "My Blogs" is displayed
     And the user click on "actionMenuButton" to access blog
-    And the user "edit" this item
+    And the user "Edit" this item
     Then the user see main form "form" is displayed
     And the user action on input field "inputTitle" with value "Auto Test New Blogs Name"
     And the user click on button "buttonSubmit"
@@ -58,7 +59,7 @@ Feature:  Brian process on blogs app
     And the user access first condition "inputWhen"
     And the user not see "No Results Found" is displayed on result table
     And the user click on "actionMenuButton" to access blog
-    Then the user "delete" this item
+    Then the user "Delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully." displayed
     Then the user see "No Results Found" is displayed on result table
@@ -82,7 +83,7 @@ Feature:  Brian process on blogs app
     Given the user logged in as "brian"
     Then the browser opened at item "blog" and tab "/blog/draft"
     And the user click on "actionMenuButton" to access blog
-    And the user "publish" this item
+    And the user "Publish" this item
     And the user click on button "buttonSubmit"
     And the user see message "Blog published successfully." displayed
 
@@ -95,7 +96,7 @@ Feature:  Brian process on blogs app
     And the user access first condition "inputWhen"
     And the user not see "No Results Found" is displayed on result table
     And the user click on "actionMenuButton" to access blog
-    Then the user "delete" this item
+    Then the user "Delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully." displayed
     Then the user see "No Results Found" is displayed on result table
@@ -105,7 +106,7 @@ Feature:  Brian process on blogs app
     Given the user logged in as "brian"
     Then the browser opened at item "blog" and tab "/blog/all"
     And the user click on "actionMenuButton" to access blog
-    And the user "report" this item
+    And the user "Report" this item
     Then the user see main form "form" is displayed
     And the user click on button "buttonSubmit"
 
@@ -120,8 +121,11 @@ Feature:  Brian process on blogs app
 
   @BrianDeleteBlogOnUserProfile
   Scenario: Brian Delete Blog On User Profile
-    Given the user logged in as "admin"
-    Then the browser opened at item "blog" and tab "/blog/add"
+    Given the user logged in as "brian"
+    Then the user want to access "userAvatar"
+    And the user see item of "More"
+    And the user want access tool tip "Blogs" from More
+    And the user want to click on "/blog/add"
     Then the user action on input field "inputTitle" with value "BlogName"
     Then the user want to add photo
     And the user add value on div "textbox"
@@ -138,4 +142,3 @@ Feature:  Brian process on blogs app
     And the user "Delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully." displayed
-

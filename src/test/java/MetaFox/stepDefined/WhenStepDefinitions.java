@@ -34,6 +34,7 @@ public class WhenStepDefinitions {
      */
     @When ( "^the browser opened at item \"([^\"]*)\" and tab \"([^\"]*)\"$" )
     public void openNewURL( String item , String url ) throws InterruptedException {
+        isComponentVisible.waitElement(By.xpath("//a[contains(@href, '" + item + "')]"));
         components.componentLinkText( item ).click();
         if ( !Objects.equals( url , "" ) ) {
             components.componentLinkText( url ).click();
@@ -103,5 +104,15 @@ public class WhenStepDefinitions {
     @When ( "^the user want access tool tip \"([^\"]*)\" from More")
     public void accessToolTip(String value){
         components.componentTooltip(value).click();
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param value is value want to input
+     * @param element
+     */
+    @When("^the user add value \"([^\"]*)\" on \"([^\"]*)\"$")
+    public void addContent(String value, String element){
+
     }
 }
