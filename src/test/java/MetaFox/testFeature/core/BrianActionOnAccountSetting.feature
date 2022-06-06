@@ -42,7 +42,7 @@ Feature: Brain Process On Account Settings
     And the user see search field "Search ..." and typing keys "brian"
     And the user want to click on "/brian"
     And the user want to access items "friend" on user profile
-    Then the user see message "No Content" displayed
+    Then the user see message "No Friends" displayed
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
@@ -66,18 +66,54 @@ Feature: Brain Process On Account Settings
     And the user back to "Your Profile" page
     And the user select privacy at field "Who can share a post on your wall?" and change to "Friends Only"
 
-
-  @BrianEditProfile
-  Scenario Outline: Brian Edit Profile
+  @BrianVerifyViewBasicInformation
+  Scenario: Brian Verify View Basic Information
     Given the user logged in as "brian"
-    Then the user want to access "userAvatar"
-    And the user want to "Edit Profile"
-    Then the user see title "Edit profile" is displayed
-    And the user add value on "selectCountryState" is "<country_state>"
-    And the user action on input field "inputPostalCode" with value "<postalCode>"
-    Then the user click on button "buttonSubmit"
-    Then the user see message "Information updated successfully" displayed
-    Examples:
-    |country_state|postalCode|
-    |Vietnam     |7000000    |
-    |United States|1         |
+    Then I want to click on "Account Settings"
+    And the user back to "Your Profile" page
+    And the user select privacy at field "Who can view your basic info?" and change to "No One"
+    And I want to click on "Logout"
+    Then the user logged in as "terry"
+    And the user see search field "Search ..." and typing keys "brian"
+    And the user want to click on "/brian"
+    Then the user see "No Content" is displayed on user profile
+    And I want to click on "Logout"
+    Then the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "Your Profile" page
+    And the user select privacy at field "Who can view your basic info?" and change to "Anyone"
+
+  @BrainVerifyViewPhoto
+  Scenario: Brian Verify View Photo
+    Given the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "Your Profile" page
+    And the user select privacy at field "Who can view photos on your profile page?" and change to "No One"
+    And I want to click on "Logout"
+    Then the user logged in as "terry"
+    And the user see search field "Search ..." and typing keys "brian"
+    And the user want to click on "/brian"
+    And the user want to access items "photo" on user profile
+    Then the user see "No Photos" is displayed on user profile
+    And I want to click on "Logout"
+    Then the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "Your Profile" page
+    And the user select privacy at field "Who can view photos on your profile page?" and change to "Anyone"
+
+  @BrainVerifyViewProfilePage
+  Scenario: Brian Verify View Profile Page
+    Given the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "Your Profile" page
+    And the user select privacy at field "Who can view your profile page?" and change to "No One"
+    And I want to click on "Logout"
+    Then the user logged in as "terry"
+    And the user see search field "Search ..." and typing keys "brian"
+    And the user want to click on "/brian"
+    Then the user see "Profile is private" on left menu
+    And I want to click on "Logout"
+    Then the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "Your Profile" page
+    And the user select privacy at field "Who can view photos on your profile page?" and change to "Anyone"

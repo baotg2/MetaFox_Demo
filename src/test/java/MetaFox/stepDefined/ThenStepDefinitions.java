@@ -137,7 +137,7 @@ public class ThenStepDefinitions {
     @Then( "^the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$" )
     public void inputValueOnField( String fieldName , String value ) {
         isComponentVisible.waitElement( By.xpath( "//input[@data-testid='" + fieldName + "']" ) );
-        if ( value.equals( "BlogName" ) || ( value.equals( "Album" ) ) ) {
+        if ( value.equals( "BlogName" ) || ( value.equals( "Album" ) || (value.equals( "Groups")) ) ) {
             components.componentInputDataTestID( fieldName ).clear();
             components.componentInputDataTestID( fieldName ).sendKeys( dataExecutor.readConstants( value ) );
         } else {
@@ -272,6 +272,22 @@ public class ThenStepDefinitions {
         components.componentSpanDataTestID(spanValue).click();
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param spanValue id of form
+     * @purpose access user profile
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then( "^the user see label of action \"([^\"]*)\" is displayed$" )
+    public void seeLabelAction( String spanValue){
+        isComponentVisible.waitElement(By.xpath("//span[@data-testid='" + spanValue + "']"));
+        components.componentSpanDataTestID(spanValue).isDisplayed();
+    }
+
+
+
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param statusContent is content of status
@@ -312,5 +328,25 @@ public class ThenStepDefinitions {
     {
         isComponentVisible.waitElement(By.xpath("//button[@aria-label ='"+ariaLabel+"']"));
         components.componentsTagButton(ariaLabel).click();
+    }
+
+    /**---------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param bioValue is value of Bio
+     * @purpose verify Bio/Interested/AboutMe/Hobbies is displayed on user profile
+     * @Author baotg2
+     * --------------------------------------------------------------------------------------------------------------------------------
+     * @since 06-01-2022
+     */
+    @Then("^the user see \"([^\"]*)\" is displayed on user profile")
+    public void isBio(String bioValue){
+        isComponentVisible.waitElement(By.xpath("//div[text()='" + bioValue +"']"));
+        components.componentsDivMsg(bioValue).getText().contains(bioValue);
+    }
+
+    @Then("^the user want to click on title \"([^\"]*)\" and process$")
+    public void clickOnTitle(String title){
+        isComponentVisible.waitElement(By.xpath("//h4[@data-testid='"+title+"']"));
+        components.h4DataTestID(title).click();
     }
 }

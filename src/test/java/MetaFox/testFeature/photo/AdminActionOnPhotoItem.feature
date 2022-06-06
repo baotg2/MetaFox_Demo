@@ -23,7 +23,6 @@ Feature: Admin process on photos item
     Then the browser opened at item "photo" and tab "/photo/my-albums"
     Then the user verify "itemMedia" after upload
 
-
   @AdminAddNewPhoto
   Scenario: Admin Add New Photo
     Given the user logged in as "admin"

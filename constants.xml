@@ -9,6 +9,8 @@
     <NewDescription>NewTestDescription</NewDescription>
     <Album>NewAlbum</Album>
     <NewAlbumName>NewAlbumName</NewAlbumName>
+    <Groups>GroupTestAuto</Groups>
+    <NewGroupName>NewGroupName</NewGroupName>
     <BROWSERSTACK_USERNAME>baotran_moYtnK</BROWSERSTACK_USERNAME>
     <BROWSERSTACK_ACCESS_KEY>2cnCJbmwkKAmmb9hEVsN</BROWSERSTACK_ACCESS_KEY>
     <TestCaseRunner>Brian process on blogs app</TestCaseRunner>

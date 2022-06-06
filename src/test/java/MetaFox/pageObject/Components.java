@@ -205,6 +205,19 @@ public class Components {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
+     * @param dataValue is index of element on ListBox
+     * @return child element of <list></list>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public WebElement componentsDivDataValue(String dataValue) {
+        return Index.getDriver().findElement(By.xpath("//div[@data-value='" + dataValue + "']"));
+    }
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param linkText is is attributes find elements
      * @return element <list></list>
      * ------------------------------------------------------------------------------------------------------------------------------------------
@@ -370,8 +383,7 @@ public class Components {
         return Index.getDriver().findElements(By.xpath("//div[@class ='MuiListItemText-root ltr-1x690uy']//span"));
     }
 
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @return element <span></span>
      * ------------------------------------------------------------------------------------------------------------------------------------------
@@ -380,5 +392,17 @@ public class Components {
      */
     public WebElement componentsTagButton(String labelValue) {
         return Index.getDriver().findElement(By.xpath("//button[@aria-label ='"+labelValue+"']"));
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param dataTestID is datatestID of element
+     * @return element h4 has dataTestID
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author baotg2
+     * @since 04-05-2022
+     */
+    public WebElement h4DataTestID(String dataTestID){
+        return Index.getDriver().findElement(By.xpath("//h4[@data-testid='"+dataTestID+"']"));
     }
 }

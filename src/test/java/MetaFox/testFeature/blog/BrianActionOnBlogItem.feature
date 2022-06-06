@@ -142,3 +142,20 @@ Feature:  Brian process on blogs app
     And the user "Delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully." displayed
+
+  @BrianFeatureBlogs
+  Scenario: Brain Feature Blogs
+    Given the user logged in as "brian"
+    Then the browser opened at item "blog" and tab "/blog/all"
+    And the user click on "actionMenuButton" to access blog
+    And the user "Feature" this item
+    Then the user see message "Blog featured successfully." displayed
+    Then the user see label of action "featured" is displayed
+
+  @BrianUnFeatureBlogs
+  Scenario: Brain UnFeature Blogs
+    Given the user logged in as "brian"
+    Then the browser opened at item "blog" and tab "/blog/all"
+    And the user click on "actionMenuButton" to access blog
+    And the user "Un-Feature" this item
+    Then the user see message "Blog unfeatured successfully." displayed

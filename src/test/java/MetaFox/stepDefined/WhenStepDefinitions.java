@@ -33,7 +33,7 @@ public class WhenStepDefinitions {
      * @since 04-05-2022
      */
     @When ( "^the browser opened at item \"([^\"]*)\" and tab \"([^\"]*)\"$" )
-    public void openNewURL( String item , String url ) throws InterruptedException {
+    public void openNewURL( String item , String url ) {
         isComponentVisible.waitElement(By.xpath("//a[contains(@href, '" + item + "')]"));
         components.componentLinkText( item ).click();
         if ( !Objects.equals( url , "" ) ) {
@@ -109,10 +109,16 @@ public class WhenStepDefinitions {
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param value is value want to input
-     * @param element
+     * @param element is element on web page
+     * @purpose add value on TextArea
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 06-02-2022
      */
-    @When("^the user add value \"([^\"]*)\" on \"([^\"]*)\"$")
+    @When("^the user add value \"([^\"]*)\" on textArea \"([^\"]*)\"$")
     public void addContent(String value, String element){
-
+        isComponentVisible.waitElement(By.xpath("//textarea[@data-testid ='" + element +"']"));
+        components.componentTextAreaDataTestID(element).clear();
+        components.componentTextAreaDataTestID(element).sendKeys(value);
     }
 }

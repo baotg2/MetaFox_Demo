@@ -1,6 +1,7 @@
 package MetaFox.stepDefined;
 
 import io.cucumber.java.en.And;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -13,10 +14,9 @@ import MetaFox.support.IsComponentVisible;
 
 import java.util.List;
 
-import static MetaFox.browserConfig.Index.driver;
+import static MetaFox.browserConfig.Index.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static MetaFox.browserConfig.Index.selectPlatform;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -198,7 +198,17 @@ public class AndStepDefinitions {
                 if (!components.componentsListDivRole("button").get(i).getText().equals(valueChanged)) {
                     components.componentsListDivRole("button").get(i).click();
                     isComponentVisible.waitElement(By.xpath("//ul[@role = 'listbox']"));
-                    Index.getDriver().findElements(By.xpath("//ul//div[text()='" + valueChanged + "']")).get(0).click();
+                    switch(valueChanged){
+                        case "Anyone":
+                            components.componentsDivDataValue("0").click();
+                            break;
+                        case "Friends Only":
+                            components.componentsDivDataValue("1").click();
+                            break;
+                        case "No One":
+                            components.componentsDivDataValue("3").click();
+                            break;
+                    }
                 }
                 break;
             }
@@ -317,9 +327,8 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("the user see message \"([^\"]*)\" displayed$")
-    public void isMsgCreateSuccessDisplayed(String msg) throws InterruptedException {
+    public void isMsgCreateSuccessDisplayed(String msg) {
         isComponentVisible.waitElement(By.xpath("//div[text()='" + msg + "']"));
-        Thread.sleep(3);
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
@@ -331,7 +340,7 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("^the user (want to|don't) add attach files$")
-    public void actionAttachFile(String status) {
+    public void actionAttachFile(@NotNull String status) {
         if (status.equals("want to")) {
             if (selectPlatform.equals("BROWSERSTACK")) {
                 WebElement upload = components.componentInputDataTestID("inputAttachments");
@@ -452,7 +461,7 @@ public class AndStepDefinitions {
 
     /**
      *
-     * @param itemName
+     * @param itemName is blog item
      */
     @And("^the user access this blog by \"([^\"]*)\" and process")
     public void accessBlogOnSearchResultByLInkText(String itemName) {
