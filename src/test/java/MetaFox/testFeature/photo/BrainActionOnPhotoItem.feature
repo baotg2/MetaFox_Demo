@@ -54,8 +54,25 @@ Feature: Brian process on photos item
     And the user "Report" this item
     Then the user see main form "form" is displayed
 
+  @BrianAttachPhotoFromFeed
+  Scenario: Brian Attach Photo From Feed
+    Given the user logged in as "brian"
+    Then the browser opened at item "photo" and tab "/photo/my"
+    And the user verify "itemPhoto" before upload
+    And the user back to "linkLogo" page
+    And the user want upload 1 photo
+    Then the user click on button "submit"
+    Then the browser opened at item "photo" and tab "/photo/my"
+    Then the user verify "itemPhoto" after upload
+
   @BrianAttachPhotoFromUserProfile
   Scenario: Brian Attach Photo From User Profile
     Given the user logged in as "brian"
-    Then the browser opened at item "photo" and tab "/photo/all"
-    And the user click on div "itemPhoto" and process
+    Then the browser opened at item "photo" and tab "/photo/my"
+    And the user verify "itemPhoto" before upload
+    And the user back to "linkLogo" page
+    Then the user want to access "userAvatar"
+    And the user want upload 1 photo
+    Then the user click on button "submit"
+    Then the browser opened at item "photo" and tab "/photo/my"
+    Then the user verify "itemPhoto" after upload

@@ -15,38 +15,38 @@ Feature:  Admin process on blogs app
     And the user see message "Blog published successfully." displayed
     Then the user verify title of blog is displayed
 
-  @AdminEditHisBlog
-  Scenario: Admin Edit His Blog
+  @AdminSeePendingBlog
+  Scenario: Admin See Pending Blog
     Given the user logged in as "admin"
-    Then the browser opened at item "blog" and tab "/blog/my"
-    And the user see "My Blogs" is displayed
+    And the browser opened at item "blog" and tab "/blog/pending"
+    And the user see "No Blogs Found" on left menu
+    And the user back to "linkLogo" page
+
+  @AdminEditRanDomBlog
+  Scenario: Admin Edit Ran Dom Blog
+    Given the user logged in as "admin"
+    And the browser opened at item "blog" and tab "/blog"
     And the user click on "actionMenuButton" to access blog
     And the user "Edit" this item
-
-  @AdminSearchHisBlog
-  Scenario: Admin Search bla bla bla
-    Given the user logged in as "admin"
-    Then the browser opened at item "blog" and tab ""
-    And the user see search field "Search blogs" and typing keys "bla bla bla"
-    And the user access first condition "inputSort"
-    And the user access first condition "inputWhen"
-    Then the user see "No Results Found" is displayed on result table
-
-  @AdminDeleteBlogsJustAdded
-  Scenario: Admin Delete Blog Just Added
-    Given the user logged in as "admin"
-    Then the browser opened at item "blog" and tab ""
-    And the user see search field "Search blogs" and typing keys "BlogName"
-    And the user access first condition "inputSort"
-    And the user access first condition "inputWhen"
-    And the user not see "No Results Found" is displayed on result table
-    And the user click on "actionMenuButton" to access blog
-    Then the user "Delete" this item
+    Then the user see main form "form" is displayed
+    And the user action on input field "inputTitle" with value "NewBlogName"
     And the user click on button "buttonSubmit"
+    Then the user see message "Blog updated successfully." displayed
 
-#  @AdminSeePendingBlog
-#  Scenario: Admin See Pending Blog
-#    Given the user logged in as "admin"
-#    And the browser opened at item "blog" and tab "/blog/pending"
-#    And the user see "No Blogs Found" on left menu
-#    And the user back to "linkLogo" page
+  @AdminDeleteRanDomBlog
+  Scenario: Admin Delete Ran Dom Blog
+    Given the user logged in as "admin"
+    And the browser opened at item "blog" and tab "/blog"
+    And the user click on "actionMenuButton" to access blog
+    And the user "Delete" this item
+    Then the user see id button "buttonSubmit" is displayed
+    Then the user see id button "buttonCancel" is displayed
+
+  @AdminDeleteRanDomBlog
+  Scenario: Admin Delete Ran Dom Blog
+    Given the user logged in as "admin"
+    And the browser opened at item "blog" and tab "/blog"
+    And the user click on "actionMenuButton" to access blog
+    And the user "Delete" this item
+    Then the user see id button "buttonSubmit" is displayed
+    Then the user see id button "buttonCancel" is displayed

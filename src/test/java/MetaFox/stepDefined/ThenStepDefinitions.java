@@ -13,9 +13,9 @@ import MetaFox.support.IsComponentVisible;
 
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static MetaFox.browserConfig.Index.driver;
 import static MetaFox.browserConfig.Index.selectPlatform;
+import static org.junit.Assert.*;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -30,7 +30,7 @@ public class ThenStepDefinitions {
     Components components = new Components( Index.getDriver() );
     IsComponentVisible isComponentVisible = new IsComponentVisible( Index.getDriver() );
     DataExecutor dataExecutor = new DataExecutor();
-    SupportStepDefinition supportStepDefinition = new SupportStepDefinition( Index.driver );
+    SupportStepDefinition supportStepDefinition = new SupportStepDefinition( driver );
 
     /**------------------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -348,5 +348,24 @@ public class ThenStepDefinitions {
     public void clickOnTitle(String title){
         isComponentVisible.waitElement(By.xpath("//h4[@data-testid='"+title+"']"));
         components.h4DataTestID(title).click();
+    }
+
+    @Then("^the user don't see user \"([^\"]*)\" on tag list \"([^\"]*)\"$")
+    public void seeUserOnTagList(String userName, String tagList){
+        isComponentVisible.waitElement(By.xpath("//h5[@data-testid='"+tagList+"']"));
+        assertFalse(components.listH5DataTestID(tagList).toString().contains(userName));
+    }
+
+    @Then("^the user see id button \"([^\"]*)\" is displayed$")
+    public void isButtonIdDisplayed(String buttonName){
+        isComponentVisible.waitElement(By.xpath("//button[@data-testid ='" + buttonName + "']"));
+        assertTrue(components.componentButtonDataTestID(buttonName).isDisplayed());
+    }
+
+    @Then("^the user see address page is \"([^\"]*)\"$")
+    public boolean isPageAddressSuccessDisplayed(String pageAddressValue) throws InterruptedException {
+        Thread.sleep(5);
+        assertTrue(Index.driver.getCurrentUrl().contains(pageAddressValue));
+        return true;
     }
 }

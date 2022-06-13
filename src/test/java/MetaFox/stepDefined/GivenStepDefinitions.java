@@ -1,7 +1,6 @@
 package MetaFox.stepDefined;
 
 import io.cucumber.java.en.Given;
-import io.cucumber.java.sl.In;
 import org.openqa.selenium.By;
 import MetaFox.browserConfig.Index;
 import MetaFox.pageObject.Components;

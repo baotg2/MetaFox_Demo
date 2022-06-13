@@ -101,14 +101,14 @@ public class Components {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param dataTestid is attributes find elements
+     * @param dataTestId is attributes find elements
      * @return element <button></button>
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @Author BaoTG
      * @since 04-05-2022
      */
-    public WebElement componentButtonDataTestID(String dataTestid) {
-        return Index.getDriver().findElement(By.xpath("//button[@data-testid ='" + dataTestid + "']"));
+    public WebElement componentButtonDataTestID(String dataTestId) {
+        return Index.getDriver().findElement(By.xpath("//button[@data-testid ='" + dataTestId + "']"));
     }
 
     /**
@@ -405,4 +405,41 @@ public class Components {
     public WebElement h4DataTestID(String dataTestID){
         return Index.getDriver().findElement(By.xpath("//h4[@data-testid='"+dataTestID+"']"));
     }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param dataTestID is datatestID of element
+     * @return element h5 has dataTestID
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author baotg2
+     * @since 04-05-2022
+     */
+    public WebElement listH5DataTestID(String dataTestID){
+        return Index.getDriver().findElement(By.xpath("//h5[@data-testid='"+dataTestID+"']"));
+    }
+
+    /**------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param itemProfile is ID of element
+     * @return list of element have itemProfile
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author baotg2
+     * @since 06-07-2022
+     */
+    public List<WebElement> listElementByID(String itemProfile)
+    {
+        return Index.getDriver().findElements(By.xpath("//*[@id='"+itemProfile+"']"));
+    }
+
+     /**-------------------------------------------------------------------------------------------------------------------------------------------
+      *
+      * @param srcValue is vakue of src
+      * @return imnage has value is srcValue
+      *--------------------------------------------------------------------------------------------------------------------------------------------
+      * @Author baotg2
+      * @since 06-10-2022
+      */
+     public List<WebElement> getImageSRC(String srcValue){
+         return Index.getDriver().findElements(By.xpath("//img[contains(@src, "+srcValue+"]"));
+     }
 }

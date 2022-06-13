@@ -28,7 +28,6 @@ Feature: Brain Process On User Profile
       |Vietnam     |7000000    |
       |United States|1         |
 
-
   @BrianAddBio
   Scenario: Brian Add Bio
     Given the user logged in as "brian"
@@ -80,3 +79,12 @@ Feature: Brain Process On User Profile
     And the user want to access "userAvatar"
     And the user want to access items "about" on user profile
     Then the user see "Judo" is displayed on user profile
+
+  @BrianEditBirthDay
+  Scenario: Brian Edit Birth Day
+    Given the user logged in as "brian"
+    Then the user want to access "userAvatar"
+    And the user want to "Edit Profile"
+    And the user add value on " " is "mui-88"
+    And the user click on button "buttonSubmit"
+    Then the user see message "Information updated successfully" displayed

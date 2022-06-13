@@ -226,8 +226,26 @@ public class AndStepDefinitions {
     @And("^the user want to access items \"([^\"]*)\" on user profile")
     public void accessItemONProFile(String itemProfile) {
         isComponentVisible.waitElement(By.xpath("//*[@id='"+itemProfile+"']"));
-        Index.getDriver().findElements(By.xpath("//*[@id='"+itemProfile+"']")).get(1).click();
+        components.listElementByID(itemProfile).get(1).click();
 
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param itemProfile name's user
+     * @purpose access the user profile has itemProfile
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @And("^the user don't see tab \"([^\"]*)\" on user profile")
+    public boolean dontSeeItemONProFile(String itemProfile) {
+        boolean isItemDisplay = false;
+        isComponentVisible.waitElement(By.xpath("//*[@id='"+itemProfile+"']"));
+        if(components.listElementByID(itemProfile).size() == 0){
+            isItemDisplay = true;
+        }
+        return isItemDisplay;
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
@@ -259,17 +277,20 @@ public class AndStepDefinitions {
         components.componentSpanName(spanText).click();
     }
 
-//    /**
-//     *
-//     * @param msg
-//     */
-////    @And("^the user see \"([^\"]*)\" is displayed when not yet login$")
-////    public void msgDisplay(String msg) {
-////        isComponentVisible.waitElement(By.xpath("//div[text()='" + msg + "']"));
-////        assertEquals(components.componentsDivMsg(msg).getText(), msg);
-////    }
+    /**-------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param actionName is action name on user profile
+     * @purpose click action on user profile
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------------
+     */
+    @And("^the user action on \"([^\"]*)\"$")
+    public void msgDisplay(String actionName) {
+        isComponentVisible.waitElement(By.xpath("//span[text()='" + actionName + "']"));
+        components.componentSpanName(actionName).click();
+    }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**-------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param status has 2 type want | don't
      * @purpose handle upload document on test case want to
@@ -320,7 +341,6 @@ public class AndStepDefinitions {
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param msg is content of message
-     * @throws InterruptedException is expection driver wait in seconds
      * @purpose verify message displayed success
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -423,6 +443,21 @@ public class AndStepDefinitions {
     public void accessActionOnMainForm(String action) {
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + action + "']"));
         components.componentDivDataTestID(action).click();
+    }
+
+    /**------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param divID is data-testid of div
+     * @param value is value input
+     * @purpose input value on divID
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 07-06-2022
+     */
+    @And("^the user want to input value \"([^\"]*)\" on div \"([^\"]*)\"")
+    public void inputOnDiv(String value, String divID) {
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + divID + "']"));
+        Index.driver.findElements(By.xpath("//div[contains(text(),'happening')]")).get(1).sendKeys(value);
     }
 
     /**------------------------------------------------------------------------------------------------------------------------------------------
