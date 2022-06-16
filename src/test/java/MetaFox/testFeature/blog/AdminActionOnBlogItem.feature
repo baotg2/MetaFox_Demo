@@ -41,12 +41,3 @@ Feature:  Admin process on blogs app
     And the user "Delete" this item
     Then the user see id button "buttonSubmit" is displayed
     Then the user see id button "buttonCancel" is displayed
-
-  @AdminDeleteRanDomBlog
-  Scenario: Admin Delete Ran Dom Blog
-    Given the user logged in as "admin"
-    And the browser opened at item "blog" and tab "/blog"
-    And the user click on "actionMenuButton" to access blog
-    And the user "Delete" this item
-    Then the user see id button "buttonSubmit" is displayed
-    Then the user see id button "buttonCancel" is displayed

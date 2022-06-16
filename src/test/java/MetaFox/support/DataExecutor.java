@@ -12,6 +12,9 @@ import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -153,4 +156,39 @@ public class DataExecutor {
         }
         return list;
     }
+
+    /**
+     *
+     * @param fileLocation
+     */
+    public void uploadFile(String fileLocation)
+    {
+        try
+        {
+            setClipboardData(fileLocation);
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+            robot.delay(2000);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyPress(KeyEvent.VK_ESCAPE);
+            robot.keyRelease(KeyEvent.VK_ESCAPE);
+        }
+        catch (Exception exp)
+        {
+            exp.printStackTrace();
+        }
+    }
+    private void setClipboardData(String string)
+    {
+        // TODO Auto-generated method stub
+        StringSelection stringSelection = new StringSelection(string);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+
+    }
+
 }

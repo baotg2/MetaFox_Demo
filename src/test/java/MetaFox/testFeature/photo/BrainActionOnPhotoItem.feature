@@ -62,7 +62,7 @@ Feature: Brian process on photos item
     And the user back to "linkLogo" page
     And the user want upload 1 photo
     Then the user click on button "submit"
-    Then the browser opened at item "photo" and tab "/photo/my"
+    Then the browser opened at item "photo" and tab "/photo/m  y"
     Then the user verify "itemPhoto" after upload
 
   @BrianAttachPhotoFromUserProfile

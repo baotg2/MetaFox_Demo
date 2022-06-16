@@ -178,7 +178,7 @@ public class ThenStepDefinitions {
     @Then( "^the user see search field \"([^\"]*)\" and typing keys \"([^\"]*)\"$" )
     public void typingKeySearch( String attributes , String keySearch ) {
         isComponentVisible.waitElement(By.xpath("//input[@placeholder='" + attributes + "']"));
-        if ( keySearch.equals( "BlogName" ) || keySearch.equals( "Album" ) ) {
+        if ( keySearch.equals( "BlogName" ) || keySearch.equals( "Album" ) || (keySearch.equals( "Groups")) ) {
             components.componentSearchAttributes( attributes ).sendKeys( dataExecutor.readConstants( keySearch ) );
         } else {
             components.componentSearchAttributes( attributes ).sendKeys( keySearch );
@@ -197,8 +197,9 @@ public class ThenStepDefinitions {
      */
     @Then( "^the user add comment \"([^\"]*)\" on blog$" )
     public void addComment( String comment ) {
+        isComponentVisible.waitElement(By.xpath("//div[@role='combobox']"));
         components.componentDivRole( "combobox" ).sendKeys( comment );
-        components.componentDivRole( "combobox" ).sendKeys( Keys.ENTER );
+        //components.componentDivRole( "combobox" ).sendKeys( Keys.ENTER );
 //        isComponentVisible.waitElement( By.xpath( "//p[text() = '" + comment + "']" ) );
 //        assertTrue( components.componentPText( comment ).isDisplayed() );
     }
@@ -324,6 +325,7 @@ public class ThenStepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
+    @Then("^the user want to click on button label \"([^\"]*)\" and process")
     public void startTagUser(String ariaLabel)
     {
         isComponentVisible.waitElement(By.xpath("//button[@aria-label ='"+ariaLabel+"']"));
@@ -344,28 +346,72 @@ public class ThenStepDefinitions {
         components.componentsDivMsg(bioValue).getText().contains(bioValue);
     }
 
+    /**
+     *
+     * @param title is title content
+     *
+     */
     @Then("^the user want to click on title \"([^\"]*)\" and process$")
     public void clickOnTitle(String title){
         isComponentVisible.waitElement(By.xpath("//h4[@data-testid='"+title+"']"));
         components.h4DataTestID(title).click();
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param userName is value off userName
+     * @param tagList is tag list friend
+     * @purpose verify user is not displayed on tag list
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------
+     * @since 06-10-2022
+     */
     @Then("^the user don't see user \"([^\"]*)\" on tag list \"([^\"]*)\"$")
     public void seeUserOnTagList(String userName, String tagList){
         isComponentVisible.waitElement(By.xpath("//h5[@data-testid='"+tagList+"']"));
         assertFalse(components.listH5DataTestID(tagList).toString().contains(userName));
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param buttonName is name of button
+     * @purpose verify the button displayed on screen
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------
+     * @since 10-06-2022
+     */
     @Then("^the user see id button \"([^\"]*)\" is displayed$")
     public void isButtonIdDisplayed(String buttonName){
         isComponentVisible.waitElement(By.xpath("//button[@data-testid ='" + buttonName + "']"));
         assertTrue(components.componentButtonDataTestID(buttonName).isDisplayed());
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param pageAddressValue is page address value
+     * @return true if move to page PageAddressValue success
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------
+     * @since 10-06-2022
+     */
     @Then("^the user see address page is \"([^\"]*)\"$")
-    public boolean isPageAddressSuccessDisplayed(String pageAddressValue) throws InterruptedException {
-        Thread.sleep(5);
+    public boolean isPageAddressSuccessDisplayed(String pageAddressValue){
         assertTrue(Index.driver.getCurrentUrl().contains(pageAddressValue));
+        return true;
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param postTitle the title of post on feed
+     * @return true if the feed has post title displayed on screen
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------
+     * @since 10-06-2022
+     */
+    @Then("^the user see the post \"([^\"]*)\" after upload")
+    public boolean isThePostCreated(String postTitle){
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='itemFeed']//div//span[2]"));
+        assertTrue(Index.driver.findElement(By.xpath("//div[@data-testid ='itemFeed']//div//span[2]")).getText().contains(postTitle));
         return true;
     }
 }

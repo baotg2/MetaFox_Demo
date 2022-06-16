@@ -1,5 +1,6 @@
 package MetaFox.stepDefined;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -120,5 +121,30 @@ public class WhenStepDefinitions {
         isComponentVisible.waitElement(By.xpath("//textarea[@data-testid ='" + element +"']"));
         components.componentTextAreaDataTestID(element).clear();
         components.componentTextAreaDataTestID(element).sendKeys(value);
+    }
+
+    /**------------------------------------------------------------------------------------------------------------------------------------
+     * @purpose the user want to change cover image
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 06-15-2022
+     */
+    @When("^the user want to changed cover image")
+    public void changeCOverImage(){
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid='upload_photo']"));
+        components.componentDivDataTestID("upload_photo").click();
+        dataExecutor.uploadFile(dataExecutor.getRandomPathDocuments().replace( "\\\\" , "\\" ));
+    }
+
+    /**
+     *
+     * @param index is index of element on dropdown list
+     * @purpose select elements on dropdown list has position index
+     */
+    @When("the user want to select category at {int} on dropdown list")
+    public void selectCategory(int index){
+//        isComponentVisible.waitElement(By.id("select-type_id"));
+        components.componentInputID("select-type_id").sendKeys(Keys.DOWN);
+        components.componentInputID("select-type_id").sendKeys(Keys.ENTER);
     }
 }

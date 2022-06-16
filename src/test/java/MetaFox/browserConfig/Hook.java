@@ -22,7 +22,7 @@ public class Hook{
      * @purpose setUp is function call browsers will execute before every scenario
      -----------------------------------------------------------------------------------------------------------------------------------------*/
     @Before
-    public void setUp() throws MalformedURLException {
+    public void setUp() throws MalformedURLException, InterruptedException {
         index.openBrowser( EnumDataValue.FIREFOX, EnumDataValue.LOCAL);
     }
     /**-----------------------------------------------------------------------------------------------------------------------------------------

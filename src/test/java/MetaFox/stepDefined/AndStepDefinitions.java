@@ -122,6 +122,21 @@ public class AndStepDefinitions {
     }
 
     /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param titleName is title of element
+     * @Author baotg2
+     * @purpose: verify title displayed correct with expected
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @And("^the user see title h2 \"([^\"]*)\" is displayed")
+    public void isTitleH2Displayed(String titleName) {
+        isComponentVisible.waitElement(By.xpath("//h2[text()='" + titleName + "']"));
+        assertTrue(components.componentH2ItemTitle(titleName).isDisplayed());
+    }
+
+    /**
      * -------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param itemName is id of div element

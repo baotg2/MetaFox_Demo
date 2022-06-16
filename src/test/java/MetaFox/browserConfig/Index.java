@@ -48,7 +48,7 @@ public class Index {
      * @throws MalformedURLException thrown when the built-in URL class encounters an invalid URL
      * @purpose openBrowser is a function to set up test cases run on local or cloud
      ------------------------------------------------------------------------------------------------------------------------------------------*/
-    public void openBrowser(EnumDataValue enumDataValue, EnumDataValue selectFlatForm) throws MalformedURLException {
+    public void openBrowser(EnumDataValue enumDataValue, EnumDataValue selectFlatForm) throws MalformedURLException, InterruptedException {
         Index.selectPlatform = String.valueOf(selectFlatForm);
         switch (selectFlatForm) {
             case BROWSERSTACK:
@@ -63,10 +63,9 @@ public class Index {
                 driver = new RemoteWebDriver(new URL(URL), caps);
                 break;
             case LOCAL:
-                //driver = new FirefoxDriver();
                 FirefoxOptions opts = new FirefoxOptions();
                 opts.addArguments("-private");
-                driver = new FirefoxDriver(opts);
+                driver = new FirefoxDriver();
         }
         driver.get(dataExecutor.readConstants("URL"));
         driver.manage().window().maximize();

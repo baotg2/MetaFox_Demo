@@ -62,6 +62,20 @@ public class Components {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param text is attributes find elements
+     * @return element <h1></h1>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public WebElement componentH2ItemTitle(String text) {
+        return Index.getDriver().findElement(By.xpath("//h2[text()='" + text + "']"));
+
+    }
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param text is attributes find elements
      * @return element <h3></h3>
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @Author BaoTG
@@ -441,5 +455,14 @@ public class Components {
       */
      public List<WebElement> getImageSRC(String srcValue){
          return Index.getDriver().findElements(By.xpath("//img[contains(@src, "+srcValue+"]"));
+     }
+
+    /**
+     *
+     * @param index is index select on dropdown list
+     * @return
+     */
+     public WebElement selectElementOnDropdown(int index){
+         return Index.getDriver().findElement(By.xpath("//input[contains(@aria-activedescendant,'"+index+"')]"));
      }
 }

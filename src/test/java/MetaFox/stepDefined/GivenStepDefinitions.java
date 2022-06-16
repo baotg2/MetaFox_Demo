@@ -54,6 +54,7 @@ public class GivenStepDefinitions {
         components.componentButtonDataTestID("buttonLogin").click();
         isComponentVisible.waitElement(By.xpath("//div[@data-testid ='formSearch']"));
         assertTrue(components.componentDivDataTestID("formSearch").isDisplayed());
+        Thread.sleep(25000);
         Index.driver.navigate().refresh();
 
     }
