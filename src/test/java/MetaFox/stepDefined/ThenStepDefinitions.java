@@ -332,6 +332,21 @@ public class ThenStepDefinitions {
         components.componentsTagButton(ariaLabel).click();
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param ariaLabel is value ariaLabel of button
+     * @purpose is click to action tag user on photo
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user want to click on list button label \"([^\"]*)\" and process")
+    public void ListStartTagUser(String ariaLabel)
+    {
+        isComponentVisible.waitElement(By.xpath("//button[@aria-label ='"+ariaLabel+"']"));
+        components.listComponentsTagButton(ariaLabel).get(1).click();
+    }
+
     /**---------------------------------------------------------------------------------------------------------------------------------
      *
      * @param bioValue is value of Bio

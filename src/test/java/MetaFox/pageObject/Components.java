@@ -399,7 +399,7 @@ public class Components {
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @return element <span></span>
+     * @return element <button></button>
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @Author BaoTG
      * @since 04-05-2022
@@ -407,6 +407,29 @@ public class Components {
     public WebElement componentsTagButton(String labelValue) {
         return Index.getDriver().findElement(By.xpath("//button[@aria-label ='"+labelValue+"']"));
     }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @return element <button></button>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public WebElement componentsActionButton(String controlsValue) {
+        return Index.getDriver().findElement(By.xpath("//button[@aria-controls ='"+controlsValue+"']"));
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @return list element <button></button>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public List<WebElement> listComponentsTagButton(String labelValue) {
+        return Index.getDriver().findElements(By.xpath("//button[@aria-label ='"+labelValue+"']"));
+    }
+
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -444,25 +467,4 @@ public class Components {
     {
         return Index.getDriver().findElements(By.xpath("//*[@id='"+itemProfile+"']"));
     }
-
-     /**-------------------------------------------------------------------------------------------------------------------------------------------
-      *
-      * @param srcValue is vakue of src
-      * @return imnage has value is srcValue
-      *--------------------------------------------------------------------------------------------------------------------------------------------
-      * @Author baotg2
-      * @since 06-10-2022
-      */
-     public List<WebElement> getImageSRC(String srcValue){
-         return Index.getDriver().findElements(By.xpath("//img[contains(@src, "+srcValue+"]"));
-     }
-
-    /**
-     *
-     * @param index is index select on dropdown list
-     * @return
-     */
-     public WebElement selectElementOnDropdown(int index){
-         return Index.getDriver().findElement(By.xpath("//input[contains(@aria-activedescendant,'"+index+"')]"));
-     }
 }

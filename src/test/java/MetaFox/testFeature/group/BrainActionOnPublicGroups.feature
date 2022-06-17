@@ -32,7 +32,7 @@ Feature:  Brain Process On Add Friend UnFriend
     And the user access this blog by "itemMedia" and process
     Then the user see title h2 "GroupTestAuto" is displayed
 
-  @AnotherUserJoinGroup
+  @AnotherUserJoinGroupOnGroupDetail
   Scenario: Another User Join Group
     Given the user logged in as "admin"
     When the user action on "More"
@@ -68,3 +68,24 @@ Feature:  Brain Process On Add Friend UnFriend
     Then the user see "Are you sure you want to leave this group?" displayed success
     And the user click on button "buttonSubmit"
     Then the user see button "Join Group" is displayed
+
+  @AnotherUserJoinGroupOnSlotMain
+  Scenario: Another User Join Group
+    Given the user logged in as "admin"
+    When the user action on "More"
+    Then the browser opened at item "group" and tab ""
+    And the user see search field "Search group" and typing keys "Groups"
+    When the user want to click on list button label "Join Group" and process
+    Then the user see message "Joined successfully." displayed
+
+  @BrianAddMemberShipQuestion
+  Scenario: Brain Add MemberShip Question
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "group" and tab ""
+    And the user see search field "Search group" and typing keys "Groups"
+    And the user access this blog by "itemMedia" and process
+    When the user see "actionMenu" and click on
+    And the user "Manage" this item
+    Then the user see "Enable Pending Mode" is displayed on user profile
+

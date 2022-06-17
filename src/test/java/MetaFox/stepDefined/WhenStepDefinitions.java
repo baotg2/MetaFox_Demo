@@ -147,4 +147,9 @@ public class WhenStepDefinitions {
         components.componentInputID("select-type_id").sendKeys(Keys.DOWN);
         components.componentInputID("select-type_id").sendKeys(Keys.ENTER);
     }
+
+    @When("^the user see \"([^\"]*)\" and click on$")
+    public void clickOnActionMenu(String actionName){
+        components.componentsActionButton(actionName).click();
+    }
 }
