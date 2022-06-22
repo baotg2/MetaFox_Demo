@@ -2,6 +2,7 @@ package MetaFox.stepDefined;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import MetaFox.browserConfig.Index;
@@ -10,6 +11,9 @@ import MetaFox.support.DataExecutor;
 import MetaFox.support.IsComponentVisible;
 
 import java.util.Objects;
+import java.util.Random;
+
+import static java.lang.Math.random;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -141,15 +145,63 @@ public class WhenStepDefinitions {
      * @param index is index of element on dropdown list
      * @purpose select elements on dropdown list has position index
      */
-    @When("the user want to select category at {int} on dropdown list")
-    public void selectCategory(int index){
-//        isComponentVisible.waitElement(By.id("select-type_id"));
-        components.componentInputID("select-type_id").sendKeys(Keys.DOWN);
-        components.componentInputID("select-type_id").sendKeys(Keys.ENTER);
+    @When("the user want to select category at {int} on dropdown list {string}")
+    public void selectCategory(int index, String dropdown_listName){
+        for (int i = 0; i< index; i++){
+            components.componentInputID(dropdown_listName).sendKeys(Keys.DOWN);
+        }
+        components.componentInputID(dropdown_listName).sendKeys(Keys.ENTER);
     }
 
     @When("^the user see \"([^\"]*)\" and click on$")
     public void clickOnActionMenu(String actionName){
         components.componentsActionButton(actionName).click();
+    }
+
+    @When("^the user select type \"([^\"]*)\" on \"([^\"]*)\"$")
+    public void selectTypeOnField(@NotNull String type, String id){
+        isComponentVisible.waitElement(By.id(id));
+        components.componentsListDivRole("button").get(0).click();
+        switch (type){
+            case "Checkbox":
+               components.componentsDivDataValue("2").click();
+               break;
+            case "Multiple Choice":
+                components.componentsDivDataValue("1").click();
+                break;
+            case "Written Answer":
+                components.componentsDivDataValue("0").click();
+                break;
+        }
+    }
+
+    @When("^the user click on notification \"([^\"]*)\" and process$")
+    public void findAndSelectNotifications(String notification) throws InterruptedException {
+        Thread.sleep(4000);
+        int temp = components.componentListDivDataTestID("itemSummary").size();
+        for(int i = 0; i < temp; i ++){
+            if (components.componentListDivDataTestID("itemSummary").get(i).getText().contains(notification)){
+                components.componentListDivDataTestID("itemSummary").get(i).click();
+            }
+        }
+    }
+
+    @When("^the user tag first friend on list tag$")
+    public void tagFirstFriendOnList() throws InterruptedException {
+        Thread.sleep(6000);
+        isComponentVisible.waitElement(By.xpath("//h5[@data-testid='itemTitle']"));
+        if( components.listH5DataTestID("itemTitle").isDisplayed()){
+           components.listH5DataTestID("itemTitle").click();
+           components.listH5DataTestID("itemTitle").click();
+        }
+        else {
+            components.componentsDivMsg("No people found").isDisplayed();
+        }
+    }
+
+    @When("^the user \"([^\"]*)\" on invite$")
+    public void actionOnInvite(String actionInvite){
+        isComponentVisible.waitElement(By.xpath("//h5[text()='"+actionInvite+"']"));
+        components.h5Text(actionInvite).click();
     }
 }

@@ -208,8 +208,8 @@ public class AndStepDefinitions {
     @And("the user select privacy at field \"([^\"]*)\" and change to \"([^\"]*)\"$")
     public void selectPrivacy(String fieldSetting, String valueChanged) {
         isComponentVisible.waitElement(By.xpath("//div[@role ='button']"));
-        for (int i = 0; i < components.componentsSpanlist().size(); i++) {
-            if (components.componentsSpanlist().get(i).getText().contains(fieldSetting)) {
+        for ( int i = 0 ; i < components.componentsSpanList().size(); i++) {
+            if (components.componentsSpanList().get(i).getText().contains(fieldSetting)) {
                 if (!components.componentsListDivRole("button").get(i).getText().equals(valueChanged)) {
                     components.componentsListDivRole("button").get(i).click();
                     isComponentVisible.waitElement(By.xpath("//ul[@role = 'listbox']"));
@@ -348,9 +348,10 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("the user click on button \"([^\"]*)\"$")
-    public void clickOnButton(String buttonName) {
+    public void clickOnButton(String buttonName) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//button[@data-testid ='" + buttonName + "']"));
         components.componentButtonDataTestID(buttonName).click();
+        Thread.sleep(3000);
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
@@ -544,7 +545,9 @@ public class AndStepDefinitions {
      */
     @And("the user click on check box {string}")
     public void theUserClickOnCheckOn(String typeName) {
-        components.componentInputType(typeName).click();
+        if(!components.componentInputType(typeName).isSelected()) {
+            components.componentInputType(typeName).click();
+        }
     }
 
     /**-------------------------------------------------------------------------------------------------------------------------------------------
