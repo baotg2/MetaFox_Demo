@@ -177,7 +177,7 @@ public class WhenStepDefinitions {
 
     @When("^the user click on notification \"([^\"]*)\" and process$")
     public void findAndSelectNotifications(String notification) throws InterruptedException {
-        Thread.sleep(4000);
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemSummary']"));
         int temp = components.componentListDivDataTestID("itemSummary").size();
         for(int i = 0; i < temp; i ++){
             if (components.componentListDivDataTestID("itemSummary").get(i).getText().contains(notification)){

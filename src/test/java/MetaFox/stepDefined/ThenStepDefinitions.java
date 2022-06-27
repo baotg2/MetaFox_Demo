@@ -76,8 +76,8 @@ public class ThenStepDefinitions {
      */
     @Then( "^the user want to edit \"([^\"]*)\"$" )
     public void editInfoAccount( String fieldName ) {
-        isComponentVisible.waitElement( By.xpath( "//div[@data-testid = '" + fieldName + "']//button" ) );
-        components.componentDivButton( fieldName ).click();
+        isComponentVisible.waitElement( By.xpath( "//div[@data-testid = '" + fieldName + "']//button[2]" ) );
+        components.componentDivButton( fieldName ).get(0).click();
     }
 
     /**------------------------------------------------------------------------------------------------------------------------------------------------

@@ -379,8 +379,8 @@ public class Components {
      * @Author BaoTG
      * @since 04-05-2022
      */
-    public WebElement componentDivButton(String dataTestID) {
-        return Index.getDriver().findElement(By.xpath("//div[@data-testid = '" + dataTestID + "']//button"));
+    public List<WebElement> componentDivButton(String dataTestID) {
+        return Index.getDriver().findElements(By.xpath("//div[@data-testid = '" + dataTestID + "']//button[2]"));
     }
 
     /**

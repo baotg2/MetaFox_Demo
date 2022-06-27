@@ -18,7 +18,7 @@ Feature:  Brain Process On Public Groups
     Then the browser opened at item "group" and tab "/group/add"
     And the user action on input field "inputName" with value "Groups"
     And the user add value on "select-type_id" is "Song"
-    When the user want to select category at 0 on dropdown list
+    When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Public"
     And the user click on button "buttonSubmit"
     Then the user see title h2 "GroupTestAuto" is displayed
@@ -132,3 +132,4 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "brian"
     Then the user "new_notification" this item
     Then the user click on notification " is waiting for your approval." and process
+    Then the user see button "Joined" is displayed

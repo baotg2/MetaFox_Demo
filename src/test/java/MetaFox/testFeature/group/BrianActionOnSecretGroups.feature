@@ -10,13 +10,13 @@ Feature:  Brain Process On Secret Groups
     And the user add value on "select-type_id" is "Song"
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Secret"
-    When the user want to select category at 3 on dropdown list "select-reg_method"
+    When the user want to select category at 1 on dropdown list "select-reg_method"
     And the user click on button "buttonSubmit"
     Then the user see title h2 "TestAutoSecretGroup" is displayed
 
   @AnotherUserSearchSecretGroup
   Scenario: Another User Search Group
-    Given the user logged in as "admin"
+    Given the user logged in as "test"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search group" and typing keys "TestAutoSecretGroup"
