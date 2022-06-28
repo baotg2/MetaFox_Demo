@@ -428,6 +428,16 @@ public class Components {
         return Index.getDriver().findElements(By.xpath("//button[@aria-label ='"+labelValue+"']"));
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @return list element <button></button>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public WebElement componentsInputChecked(String labelValue) {
+        return Index.getDriver().findElement(By.xpath("//input[@aria-label ='"+labelValue+"']"));
+    }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -438,7 +448,7 @@ public class Components {
      * @since 04-05-2022
      */
     public WebElement h4DataTestID(String dataTestID){
-        return Index.getDriver().findElement(By.xpath("//h4[@data-testid='"+dataTestID+"']"));
+        return Index.getDriver().findElement(By.xpath("//h4[@data-testid='"+dataTestID+"']/a"));
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
@@ -478,3 +488,4 @@ public class Components {
         return Index.getDriver().findElements(By.xpath("//*[@id='"+itemProfile+"']"));
     }
 }
+

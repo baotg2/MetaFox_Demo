@@ -419,6 +419,23 @@ public class AndStepDefinitions {
         components.componentInputID(id).sendKeys(Keys.ENTER);
     }
 
+    /**--------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param id is id of element
+     * @param value is value input from keyboard
+     * @purpose input value on element has id
+     * @Author baotg2
+     * --------------------------------------------------------------------------------------------------------------------------------------
+     * @since 06-28-2022
+     */
+    @And("^the user add value on id \"([^\"]*)\" is \"([^\"]*)\"")
+    public void inputValueOnElementsByID(String id, String value) {
+        isComponentVisible.waitElement(By.id(id));
+        components.listElementByID(id).get(0).click();
+        components.listElementByID(id).get(0).sendKeys(value);
+    }
+
+
     /**-------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param myBlogs title on main contain
@@ -516,7 +533,7 @@ public class AndStepDefinitions {
      */
     @And("^the user access this blog by \"([^\"]*)\" and process")
     public void accessBlogOnSearchResultByLInkText(String itemName) {
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + itemName + "']//a"));
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + itemName + "']"));
         components.componentDivDataTestID(itemName).click();
     }
 

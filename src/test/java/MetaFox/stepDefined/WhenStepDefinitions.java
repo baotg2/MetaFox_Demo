@@ -204,4 +204,13 @@ public class WhenStepDefinitions {
         isComponentVisible.waitElement(By.xpath("//h5[text()='"+actionInvite+"']"));
         components.h5Text(actionInvite).click();
     }
+
+    @When("^the user select type \"([^\"]*)\"$")
+    public void selectType(String type){
+        isComponentVisible.waitElement(By.xpath("//input[@aria-label ='"+type+"']"));
+        if(!components.componentsInputChecked(type).isSelected()){
+            components.componentsInputChecked(type).click();
+        }
+    }
+
 }

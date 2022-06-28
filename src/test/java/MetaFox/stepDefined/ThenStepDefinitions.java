@@ -137,7 +137,7 @@ public class ThenStepDefinitions {
     @Then( "^the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$" )
     public void inputValueOnField( String fieldName , String value ) {
         isComponentVisible.waitElement( By.xpath( "//input[@data-testid='" + fieldName + "']" ) );
-        if ( value.equals( "BlogName" ) || ( value.equals( "Album" ) || (value.equals( "Groups")) ) ) {
+        if ( value.equals( "BlogName" ) || ( value.equals( "Album" ) || (value.equals( "Groups")) || (value.equals( "Polls")) ) ) {
             components.componentInputDataTestID( fieldName ).clear();
             components.componentInputDataTestID( fieldName ).sendKeys( dataExecutor.readConstants( value ) );
         } else {
@@ -178,7 +178,7 @@ public class ThenStepDefinitions {
     @Then( "^the user see search field \"([^\"]*)\" and typing keys \"([^\"]*)\"$" )
     public void typingKeySearch( String attributes , String keySearch ) {
         isComponentVisible.waitElement(By.xpath("//input[@placeholder='" + attributes + "']"));
-        if ( keySearch.equals( "BlogName" ) || keySearch.equals( "Album" ) || (keySearch.equals( "Groups")) ) {
+        if ( keySearch.equals( "BlogName" ) || keySearch.equals( "Album" ) || (keySearch.equals( "Groups")) || (keySearch.equals( "Polls")) ) {
             components.componentSearchAttributes( attributes ).sendKeys( dataExecutor.readConstants( keySearch ) );
         } else {
             components.componentSearchAttributes( attributes ).sendKeys( keySearch );
@@ -367,9 +367,11 @@ public class ThenStepDefinitions {
      *
      */
     @Then("^the user want to click on title \"([^\"]*)\" and process$")
-    public void clickOnTitle(String title){
+    public void clickOnTitle(String title) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//h4[@data-testid='"+title+"']"));
+        Thread.sleep(3000);
         components.h4DataTestID(title).click();
+
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------
