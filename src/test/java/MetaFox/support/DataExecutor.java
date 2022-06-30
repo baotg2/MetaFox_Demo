@@ -157,9 +157,12 @@ public class DataExecutor {
         return list;
     }
 
-    /**
+    /**-------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param fileLocation
+     * @param fileLocation is path file uploaded
+     * @Author baotg2
+     * -------------------------------------------------------------------------------------------------------------------------------------
+     * @since 06-14-2022
      */
     public void uploadFile(String fileLocation)
     {
@@ -183,6 +186,14 @@ public class DataExecutor {
             exp.printStackTrace();
         }
     }
+
+    /**-------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param string is data want to copy
+     * @Author baotg2
+     * -------------------------------------------------------------------------------------------------------------------------------------
+     * @since 06-14-2022
+     */
     private void setClipboardData(String string)
     {
         // TODO Auto-generated method stub

@@ -344,7 +344,7 @@ public class ThenStepDefinitions {
     public void ListStartTagUser(String ariaLabel)
     {
         isComponentVisible.waitElement(By.xpath("//button[@aria-label ='"+ariaLabel+"']"));
-        components.listComponentsTagButton(ariaLabel).get(1).click();
+        components.componentsListTagButton(ariaLabel).get(1).click();
     }
 
     /**---------------------------------------------------------------------------------------------------------------------------------
@@ -370,7 +370,7 @@ public class ThenStepDefinitions {
     public void clickOnTitle(String title) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//h4[@data-testid='"+title+"']"));
         Thread.sleep(3000);
-        components.h4DataTestID(title).click();
+        components.componentH4DataTestID(title).click();
 
     }
 
@@ -386,7 +386,7 @@ public class ThenStepDefinitions {
     @Then("^the user don't see user \"([^\"]*)\" on tag list \"([^\"]*)\"$")
     public void seeUserOnTagList(String userName, String tagList){
         isComponentVisible.waitElement(By.xpath("//h5[@data-testid='"+tagList+"']"));
-        assertFalse(components.listH5DataTestID(tagList).toString().contains(userName));
+        assertFalse(components.componentsListH5DataTestID(tagList).toString().contains(userName));
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------

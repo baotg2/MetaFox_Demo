@@ -1,6 +1,5 @@
 package MetaFox.browserConfig;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -20,13 +19,14 @@ import java.net.URL;
  * @version 1.0.1
  ------------------------------------------------------------------------------------------------------------------------------------------------*/
 public class Index {
-    public static WebDriver driver;
-    public static String selectPlatform;
-    public String AUTOMATE_USERNAME = "baotran_moYtnK";
-    public String AUTOMATE_ACCESS_KEY = "2cnCJbmwkKAmmb9hEVsN";
-    public String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
     DataExecutor dataExecutor = new DataExecutor();
+
+    public static WebDriver driver;
+    public static String selectPlatform;
+    public String AUTOMATE_USERNAME = dataExecutor.readConstants("BROWSERSTACK_USERNAME");
+    public String AUTOMATE_ACCESS_KEY = dataExecutor.readConstants("BROWSERSTACK_ACCESS_KEY");
+    public String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
     public Index (WebDriver driver){
         Index.driver = driver;
@@ -69,11 +69,5 @@ public class Index {
         }
         driver.get(dataExecutor.readConstants("URL"));
         driver.manage().window().maximize();
-    }
-
-    public void restApi_TestResult(){
-        JavascriptExecutor jse = (JavascriptExecutor)driver;
-        // Setting name of the test
-        jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"Java test \" }}");
     }
 }

@@ -1,6 +1,5 @@
 package MetaFox.stepDefined;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
@@ -11,9 +10,8 @@ import MetaFox.support.DataExecutor;
 import MetaFox.support.IsComponentVisible;
 
 import java.util.Objects;
-import java.util.Random;
 
-import static java.lang.Math.random;
+import static org.junit.Assert.assertTrue;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -190,9 +188,9 @@ public class WhenStepDefinitions {
     public void tagFirstFriendOnList() throws InterruptedException {
         Thread.sleep(6000);
         isComponentVisible.waitElement(By.xpath("//h5[@data-testid='itemTitle']"));
-        if( components.listH5DataTestID("itemTitle").isDisplayed()){
-           components.listH5DataTestID("itemTitle").click();
-           components.listH5DataTestID("itemTitle").click();
+        if( components.componentsListH5DataTestID("itemTitle").isDisplayed()){
+           components.componentsListH5DataTestID("itemTitle").click();
+           components.componentsListH5DataTestID("itemTitle").click();
         }
         else {
             components.componentsDivMsg("No people found").isDisplayed();
@@ -202,7 +200,7 @@ public class WhenStepDefinitions {
     @When("^the user \"([^\"]*)\" on invite$")
     public void actionOnInvite(String actionInvite){
         isComponentVisible.waitElement(By.xpath("//h5[text()='"+actionInvite+"']"));
-        components.h5Text(actionInvite).click();
+        components.componentH5Text(actionInvite).click();
     }
 
     @When("^the user select type \"([^\"]*)\"$")
@@ -213,4 +211,24 @@ public class WhenStepDefinitions {
         }
     }
 
+    @When("^the user \"([^\"]*)\" action vote on random options$")
+    public void actionVoteOnPoll(String username) throws InterruptedException {
+
+        if ( components.componentListButtonText("Vote again").size() !=0)
+        {
+            components.componentListButtonText("Vote again").get(0).click();
+        }
+        isComponentVisible.waitElement(By.xpath("//label"));
+        int size = components.componentsListLabel().size();
+        int randomPosition = isComponentVisible.randomNumber(size);
+        components.componentsListLabel().get(randomPosition).click();
+        String value = components.componentsListLabel().get(randomPosition).getText();
+        components.componentButtonText("Vote").click();
+        Thread.sleep(2000);
+        if(components.componentsDivMsg("vote").isEnabled()){
+            components.componentsDivMsg("vote").click();
+            components.componentPText(value).click();
+            assertTrue(components.componentLinkText(username).isDisplayed());
+        }
+    }
 }

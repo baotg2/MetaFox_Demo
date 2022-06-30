@@ -139,6 +139,19 @@ public class Components {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
+     * @param textValue is attributes find elements
+     * @return element <button></button>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public List<WebElement> componentListButtonText(String textValue) {
+        return Index.getDriver().findElements(By.xpath("//button[text()='" + textValue + "']"));
+    }
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param href is attributes find elements
      * @return element <a></a>
      * ------------------------------------------------------------------------------------------------------------------------------------------
@@ -250,9 +263,8 @@ public class Components {
      * @since 04-05-2022
      */
     public WebElement componentsDivMsg(String msgValue) {
-        return Index.getDriver().findElement(By.xpath("//div[text()='" + msgValue + "']"));
+        return Index.getDriver().findElement(By.xpath("//div[contains(text(), '"+msgValue+"')]"));
     }
-
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -424,7 +436,7 @@ public class Components {
      * @Author BaoTG
      * @since 04-05-2022
      */
-    public List<WebElement> listComponentsTagButton(String labelValue) {
+    public List<WebElement> componentsListTagButton(String labelValue) {
         return Index.getDriver().findElements(By.xpath("//button[@aria-label ='"+labelValue+"']"));
     }
 
@@ -447,7 +459,7 @@ public class Components {
      * @Author baotg2
      * @since 04-05-2022
      */
-    public WebElement h4DataTestID(String dataTestID){
+    public WebElement componentH4DataTestID(String dataTestID){
         return Index.getDriver().findElement(By.xpath("//h4[@data-testid='"+dataTestID+"']/a"));
     }
 
@@ -459,7 +471,7 @@ public class Components {
      * @Author baotg2
      * @since 04-05-2022
      */
-    public WebElement h5Text(String textValue){
+    public WebElement componentH5Text(String textValue){
         return Index.getDriver().findElement(By.xpath("//h5[text()='"+textValue+"']"));
     }
 
@@ -471,7 +483,7 @@ public class Components {
      * @Author baotg2
      * @since 04-05-2022
      */
-    public WebElement listH5DataTestID(String dataTestID){
+    public WebElement componentsListH5DataTestID(String dataTestID){
         return Index.getDriver().findElement(By.xpath("//h5[@data-testid='"+dataTestID+"']"));
     }
 
@@ -483,9 +495,13 @@ public class Components {
      * @Author baotg2
      * @since 06-07-2022
      */
-    public List<WebElement> listElementByID(String itemProfile)
+    public List<WebElement> componentsListElementByID(String itemProfile)
     {
         return Index.getDriver().findElements(By.xpath("//*[@id='"+itemProfile+"']"));
+    }
+
+    public List<WebElement> componentsListLabel(){
+        return Index.getDriver().findElements(By.xpath("//label"));
     }
 }
 

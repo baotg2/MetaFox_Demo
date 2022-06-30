@@ -15,7 +15,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/MetaFox/testFeature"},
         glue = "MetaFox",
-        tags = "@BrainSearchPoll",
+        tags = "@polls",
         plugin = {
                 "html:target/result/",
                 "pretty",

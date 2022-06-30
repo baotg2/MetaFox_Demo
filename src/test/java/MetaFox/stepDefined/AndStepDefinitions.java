@@ -146,7 +146,8 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("^the user click on div \"([^\"]*)\" and process")
-    public void accessBlogOnSearchResult(String itemName){
+    public void accessBlogOnSearchResult(String itemName) throws InterruptedException {
+        Thread.sleep(2000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + itemName + "']"));
         Index.getDriver().findElement(By.xpath("//div[@data-testid='" + itemName + "']")).click();
     }
@@ -241,7 +242,7 @@ public class AndStepDefinitions {
     @And("^the user want to access items \"([^\"]*)\" on user profile")
     public void accessItemONProFile(String itemProfile) {
         isComponentVisible.waitElement(By.xpath("//*[@id='"+itemProfile+"']"));
-        components.listElementByID(itemProfile).get(1).click();
+        components.componentsListElementByID(itemProfile).get(1).click();
 
     }
 
@@ -257,7 +258,7 @@ public class AndStepDefinitions {
     public boolean dontSeeItemONProFile(String itemProfile) {
         boolean isItemDisplay = false;
         isComponentVisible.waitElement(By.xpath("//*[@id='"+itemProfile+"']"));
-        if(components.listElementByID(itemProfile).size() == 0){
+        if(components.componentsListElementByID(itemProfile).size() == 0){
             isItemDisplay = true;
         }
         return isItemDisplay;
@@ -431,8 +432,8 @@ public class AndStepDefinitions {
     @And("^the user add value on id \"([^\"]*)\" is \"([^\"]*)\"")
     public void inputValueOnElementsByID(String id, String value) {
         isComponentVisible.waitElement(By.id(id));
-        components.listElementByID(id).get(0).click();
-        components.listElementByID(id).get(0).sendKeys(value);
+        components.componentsListElementByID(id).get(0).click();
+        components.componentsListElementByID(id).get(0).sendKeys(value);
     }
 
 

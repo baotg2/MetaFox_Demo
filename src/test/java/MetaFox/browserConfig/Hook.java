@@ -22,7 +22,7 @@ public class Hook{
      * @purpose setUp is function call browsers will execute before every scenario
      -----------------------------------------------------------------------------------------------------------------------------------------*/
     @Before
-    public void setUp() throws MalformedURLException, InterruptedException {
+    public void beforeTest() throws MalformedURLException, InterruptedException {
         index.openBrowser( EnumDataValue.FIREFOX, EnumDataValue.LOCAL);
     }
     /**-----------------------------------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ public class Hook{
      * @param scenario this is param to get status of test cases
      -----------------------------------------------------------------------------------------------------------------------------------------*/
     @After
-    public void after(@NotNull Scenario scenario) throws InterruptedException {
+    public void afterTest(@NotNull Scenario scenario) throws InterruptedException {
         if (scenario.isFailed()){
             final byte[] screenshot = ((TakesScreenshot)Index.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png", "");

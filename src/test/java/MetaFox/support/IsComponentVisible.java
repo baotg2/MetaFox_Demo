@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import MetaFox.browserConfig.Index;
 
+import java.util.Random;
+
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------
  *
@@ -40,5 +42,20 @@ public class IsComponentVisible {
     public void waitElement(By webElement) {
         WebDriverWait wait = new WebDriverWait(Index.getDriver(), 120);
         wait.until(ExpectedConditions.presenceOfElementLocated(webElement));
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param number is max length random
+     * @return value random
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 06-29-2022
+     */
+    public int randomNumber(int number){
+        Random random = new Random();
+        int result;
+        result  = random.nextInt(number);
+        return result;
     }
 }
