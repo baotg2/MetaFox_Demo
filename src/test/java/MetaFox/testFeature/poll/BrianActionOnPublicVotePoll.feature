@@ -14,8 +14,8 @@ Feature:  Brian process on public vote polls
     Given the user logged in as "brian"
     When the browser opened at item "poll" and tab "/poll/add"
     And the user action on input field "inputQuestion" with value "Polls"
-    And the user add value on id "mui-3" is "Yes"
-    And the user add value on id "mui-4" is "No"
+    And the user add value on id "mui-51" is "Yes"
+    And the user add value on id "mui-52" is "No"
     And the user add value on div "textbox"
     And the user want to add attach files
     When the user select type "Public Votes"

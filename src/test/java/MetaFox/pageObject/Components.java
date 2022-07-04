@@ -265,6 +265,20 @@ public class Components {
     public WebElement componentsDivMsg(String msgValue) {
         return Index.getDriver().findElement(By.xpath("//div[contains(text(), '"+msgValue+"')]"));
     }
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param msgValue is is attributes find elements
+     * @return list element <div></div>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 07-04-2022
+     */
+    public List<WebElement> componentsListDivMsg(String msgValue) {
+        return Index.getDriver().findElements(By.xpath("//div[contains(text(), '"+msgValue+"')]"));
+    }
+
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *

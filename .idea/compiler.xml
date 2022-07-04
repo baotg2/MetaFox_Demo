@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="MetaFox_Demo" />
+        <module name="pHpDemo" />
       </profile>
     </annotationProcessing>
   </component>

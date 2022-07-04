@@ -11,6 +11,7 @@ import MetaFox.support.IsComponentVisible;
 
 import java.util.Objects;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -36,7 +37,8 @@ public class WhenStepDefinitions {
      * @since 04-05-2022
      */
     @When ( "^the browser opened at item \"([^\"]*)\" and tab \"([^\"]*)\"$" )
-    public void openNewURL( String item , String url ) {
+    public void openNewURL( String item , String url ) throws InterruptedException {
+        Thread.sleep(3000);
         isComponentVisible.waitElement(By.xpath("//a[contains(@href, '" + item + "')]"));
         components.componentLinkText( item ).click();
         if ( !Objects.equals( url , "" ) ) {
@@ -230,5 +232,10 @@ public class WhenStepDefinitions {
             components.componentPText(value).click();
             assertTrue(components.componentLinkText(username).isDisplayed());
         }
+    }
+
+    @When("^the user don't see \"([^\"]*)\" displayed on screen$")
+    public void isDivDisplayed(String divText){
+        assertEquals(0, components.componentsListDivMsg(divText).size());
     }
 }

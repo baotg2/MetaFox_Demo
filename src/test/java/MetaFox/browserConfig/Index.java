@@ -1,12 +1,11 @@
 package MetaFox.browserConfig;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import MetaFox.support.DataExecutor;
 import MetaFox.support.EnumDataValue;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -63,9 +62,11 @@ public class Index {
                 driver = new RemoteWebDriver(new URL(URL), caps);
                 break;
             case LOCAL:
-                FirefoxOptions opts = new FirefoxOptions();
-                opts.addArguments("-private");
+//                FirefoxOptions opts = new FirefoxOptions();
+//                opts.addArguments("-private");
                 driver = new FirefoxDriver();
+//                System.setProperty("webdriver.chrome.driver", "E:\\WorkSpace_BaoTran\\driver\\chromedriver.exe");
+                //driver = new ChromeDriver();
         }
         driver.get(dataExecutor.readConstants("URL"));
         driver.manage().window().maximize();
