@@ -582,4 +582,20 @@ public class AndStepDefinitions {
         isComponentVisible.waitElement(By.xpath("//button[text()='" + actionName + "']"));
         components.componentButtonText(actionName).click();
     }
+
+    /**-------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param date is date of the user input
+     * @purpose input on date input mm/dd/yyyy
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 07-05-2022
+     */
+    @And("^the user want to add new date is \"([^\"]*)\"$")
+    public void addNewDate(String date){
+        isComponentVisible.waitElement(By.xpath("//input[@placeholder='mm/dd/yyyy']"));
+        components.componentListSearchAttributes("mm/dd/yyyy").get(1).clear();
+        components.componentListSearchAttributes("mm/dd/yyyy").get(1).sendKeys(date);
+
+    }
 }

@@ -238,4 +238,10 @@ public class WhenStepDefinitions {
     public void isDivDisplayed(String divText){
         assertEquals(0, components.componentsListDivMsg(divText).size());
     }
+
+    @When("^the user click on the \"([^\"]*)\" on screen$")
+    public void clickOnDiv(String divText){
+        isComponentVisible.waitElement(By.xpath("//div[@role='"+divText+"']"));
+        components.componentDivRole(divText).click();
+    }
 }

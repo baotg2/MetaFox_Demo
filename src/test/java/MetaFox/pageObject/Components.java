@@ -334,6 +334,19 @@ public class Components {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
+     * @param attributesName is is attributes find elements
+     * @return element <input></input>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public List<WebElement> componentListSearchAttributes(String attributesName) {
+        return Index.getDriver().findElements(By.xpath("//input[@placeholder='" + attributesName + "']"));
+    }
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param areaName is is attributes find elements
      * @return element <textarea></textarea>
      * ------------------------------------------------------------------------------------------------------------------------------------------
