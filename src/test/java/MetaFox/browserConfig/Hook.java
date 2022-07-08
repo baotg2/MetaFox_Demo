@@ -23,7 +23,7 @@ public class Hook{
      -----------------------------------------------------------------------------------------------------------------------------------------*/
     @Before
     public void beforeTest() throws MalformedURLException, InterruptedException {
-        index.openBrowser( EnumDataValue.FIREFOX, EnumDataValue.LOCAL);
+        index.openBrowser( EnumDataValue.CHROME, EnumDataValue.LOCAL);
     }
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022

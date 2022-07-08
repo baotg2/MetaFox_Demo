@@ -475,7 +475,8 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("^the user \"([^\"]*)\" this item")
-    public void accessActionOnMainForm(String action) {
+    public void accessActionOnMainForm(String action) throws InterruptedException {
+        Thread.sleep(3000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + action + "']"));
         components.componentDivDataTestID(action).click();
     }
@@ -596,6 +597,5 @@ public class AndStepDefinitions {
         isComponentVisible.waitElement(By.xpath("//input[@placeholder='mm/dd/yyyy']"));
         components.componentListSearchAttributes("mm/dd/yyyy").get(1).clear();
         components.componentListSearchAttributes("mm/dd/yyyy").get(1).sendKeys(date);
-
     }
 }

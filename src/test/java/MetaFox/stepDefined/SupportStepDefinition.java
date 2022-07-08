@@ -1,10 +1,8 @@
 package MetaFox.stepDefined;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import MetaFox.browserConfig.Index;
 import MetaFox.pageObject.Components;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
 
 import static MetaFox.browserConfig.Index.driver;
 
