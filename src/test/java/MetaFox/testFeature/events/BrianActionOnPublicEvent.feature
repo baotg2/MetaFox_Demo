@@ -65,7 +65,7 @@ Feature:  Brain Process On Public Events
     Then the user see button "Going" is default
     And the user see button "DISCUSSIONS" is displayed
     And the user see button "MANAGE" is displayed
-    Then the user see button "PENDING POSTS" is displayed
+    #Then the user see button "PENDING POSTS" is displayed
     And the user see button "EVENT INFO" is displayed
 
   @BrianVerifyHostListOnEvents
@@ -186,17 +186,3 @@ Feature:  Brain Process On Public Events
     And the user want to "View list"
     And the user want to "Going"
     Then the user see "admin" on invited tab
-
-  @BrainDeleteOfflineEvents
-  Scenario: Brain delete offline events
-    Given the user logged in as "brian"
-    When the user action on "More"
-    Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
-    And the user access first condition "inputSort"
-    And the user access first condition "inputWhen"
-    When the user want to click on button label "actionMenu" and process
-    And the user click on div "Delete" and process
-    Then the user see "Are you sure you want to delete this item permanently?" displayed success
-    And the user click on button "buttonSubmit"
-    Then the user see message "Event successfully deleted." displayed

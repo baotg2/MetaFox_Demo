@@ -337,7 +337,8 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("the user add value on div \"([^\"]*)\"$")
-    public void inputValueOnDiv(String fieldName) {
+    public void inputValueOnDiv(String fieldName) throws InterruptedException {
+        Thread.sleep(2000);
         components.componentDivRole(fieldName).sendKeys(dataExecutor.readConstants("Description"));
     }
 
