@@ -3,6 +3,7 @@ package MetaFox.browserConfig;
 import MetaFox.support.DataExecutor;
 import MetaFox.support.EnumDataValue;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -62,11 +63,17 @@ public class Index {
                 driver = new RemoteWebDriver(new URL(URL), caps);
                 break;
             case LOCAL:
-//                FirefoxOptions opts = new FirefoxOptions();
-//                opts.addArguments("-private");
-                driver = new FirefoxDriver();
-//                System.setProperty("webdriver.chrome.driver", "E:\\WorkSpace_BaoTran\\driver\\chromedriver.exe");
-                //driver = new ChromeDriver();
+                switch (enumDataValue){
+                    case CHROME:
+                        driver = new ChromeDriver();
+                        break;
+                    case FIREFOX:
+                        driver = new FirefoxDriver();
+                        break;
+                }
+                break;
+            default:
+                driver = new ChromeDriver();
         }
         driver.get(dataExecutor.readConstants("URL"));
         driver.manage().window().maximize();
