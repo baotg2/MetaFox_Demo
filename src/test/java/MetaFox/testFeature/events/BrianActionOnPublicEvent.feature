@@ -10,7 +10,7 @@ Feature:  Brain Process On Public Events
     And the user click on button "buttonSubmit"
     Then the user see "The location field is required for offline event." displayed success
 
-  @BrianAddNewEventsOffline
+  @BrianAddNewEventsOffline @guestActionOnPublicEvent
   Scenario: Brian Add New Events EventsOffline
     Given the user logged in as "brian"
     Then the user action on "More"
@@ -21,7 +21,16 @@ Feature:  Brain Process On Public Events
     Then the user action on input field "fieldLocation" with value "Ho Chi Minh City"
     And the user click on the "tooltip" on screen
     And the user click on button "buttonSubmit"
+    Then the user see message "Event created successfully" displayed
     Then the user see title "IsOfflineEvents" is displayed
+
+  @BrainSeePostCreateOnFeed
+  Scenario: Brain See Post Create on Feed
+    Given the user logged in as "brian"
+    When the user want to access "userAvatar"
+    Then the user see "added an event" on left menu
+    Then the user see "1 person going" displayed success
+    And the user see "IsOfflineEvents" on left menu
 
   @BrainSeeOnGoingOnEventJustCreated
   Scenario: Brain See OnGoing On EventsOffline
@@ -40,6 +49,7 @@ Feature:  Brain Process On Public Events
     Then the browser opened at item "event" and tab "/event/hosted"
     When the user want to click on button label "ONGOING" and process
     Then the user see title "itemTitle" with value "IsOfflineEvents"
+    Then the user see button "Going" is default
 
   @BrainVerifyNumberOfGuestsJoinedEvents
   Scenario: Brain Verify Number of guests joined events
@@ -68,6 +78,8 @@ Feature:  Brain Process On Public Events
     And the user want to click on title "itemTitle" and process
     Then the user see title "IsOfflineEvents" is displayed
     And the user want to "All Hosts"
+    And the user want to "Host List"
+    Then the user see "Brian" on invited tab
 
   @BrianVerifyGuestListOnPublicEvent
   Scenario: Brain Verify GuestList On Events
@@ -173,3 +185,17 @@ Feature:  Brain Process On Public Events
     And the user want to "View list"
     And the user want to "Going"
     Then the user see "admin" on invited tab
+
+  @BrainDeleteOfflineEvents
+  Scenario: Brain delete offline events
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "event" and tab ""
+    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user access first condition "inputSort"
+    And the user access first condition "inputWhen"
+    When the user want to click on button label "actionMenu" and process
+    And the user click on div "Delete" and process
+    Then the user see "Are you sure you want to delete this item permanently?" displayed success
+    And the user click on button "buttonSubmit"
+    Then the user see message "Event successfully deleted." displayed
