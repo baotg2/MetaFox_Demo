@@ -15,11 +15,12 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/MetaFox/testFeature"},
         glue = "MetaFox",
-        tags = "@GuestChangeStatusOnEventDetails",
+        tags = "@BrianAddNewEventsWithEmptyValue",
         plugin = {
                 "html:target/result/",
                 "pretty",
-                "json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json"
+                "json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
         },
         monochrome = true
 )

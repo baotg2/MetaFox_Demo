@@ -1,4 +1,5 @@
 @MetaFox @events @brianActionOnPublicEvents
+
 Feature:  Brain Process On Public Events
 
   @BrianAddNewEventsWithEmptyValue

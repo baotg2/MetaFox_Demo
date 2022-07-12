@@ -1,10 +1,13 @@
 package MetaFox.browserConfig;
 
-import io.cucumber.java.*;
+import MetaFox.support.EnumDataValue;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import io.qameta.allure.Allure;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import MetaFox.support.EnumDataValue;
 
 import java.net.MalformedURLException;
 
@@ -35,6 +38,7 @@ public class Hook{
         if (scenario.isFailed()){
             final byte[] screenshot = ((TakesScreenshot)Index.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png", "");
+            Allure.addByteAttachmentAsync("Failure Screenshot", "image/png", () -> screenshot);
         }
         Thread.sleep(3000);
         Index.getDriver().quit();
