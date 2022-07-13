@@ -15,7 +15,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/MetaFox/testFeature"},
         glue = "MetaFox",
-        tags = "@BrianAddNewClosedGroups",
+        tags = "@BrianAddNewForumWithEmptyValue",
         plugin = {
                 "html:target/result/",
                 "pretty",
@@ -26,5 +26,5 @@ import io.cucumber.testng.CucumberOptions;
 )
 
 public class TestRunnerMetaFoxV5 extends AbstractTestNGCucumberTests {
-        // mvn test -Dcucumber.options="--plugin json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json"  -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="@BrianCommentOnBlog"
+        // mvn test -Dcucumber.options="--plugin json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json"  -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="@BrainCopyThreadWithEmptyTitle"
 }

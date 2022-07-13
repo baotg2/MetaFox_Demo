@@ -253,6 +253,18 @@ public class Components {
         return Index.getDriver().findElement(By.xpath("//div[@role ='tooltip']//a[text()='" + linkText + "']"));
     }
 
+    /**-------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param linkText is is attributes find elements
+     * @return element <a></a>
+     * -------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public WebElement componentTextLink(String linkText) {
+        return Index.getDriver().findElement(By.xpath("//a[text()='" + linkText +"']"));
+    }
+
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -527,8 +539,27 @@ public class Components {
         return Index.getDriver().findElements(By.xpath("//*[@id='"+itemProfile+"']"));
     }
 
+    /**------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @return list of element label
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author baotg2
+     * @since 06-07-2022
+     */
     public List<WebElement> componentsListLabel(){
         return Index.getDriver().findElements(By.xpath("//label"));
     }
-}
 
+    /**-------------------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param className is value of the class
+     * @return list of element have class name
+     * --------------------------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author baotg2
+     * @since 06-07-2022
+     *
+     */
+    public List<WebElement> componentsListByClassName(String className){
+        return Index.getDriver().findElements(By.className(className));
+    }
+}

@@ -152,6 +152,7 @@ public class WhenStepDefinitions {
     @When("the user want to select category at {int} on dropdown list {string}")
     public void selectCategory(int index, String dropdown_listName) throws InterruptedException {
         Thread.sleep(2000);
+        components.componentInputID(dropdown_listName).click();
         for (int i = 0; i< index; i++){
             components.componentInputID(dropdown_listName).sendKeys(Keys.DOWN);
         }
@@ -380,5 +381,16 @@ public class WhenStepDefinitions {
     @And("the user want to refresh page before handle the action")
     public void theUserWantToRefreshPageBeforeHandleTheAction() {
         Index.getDriver().navigate().refresh();
+    }
+
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param valueVerify is true to verify
+     * @purpose
+     */
+    @And("^the user see \"([^\"]*)\" displayed on search results$")
+    public void theUserWantToDisplayDisplayedOnSearchResults(String valueVerify){
+        isComponentVisible.waitElement(By.className("ltr-1h3jlzl"));
+        assertEquals(components.componentsListByClassName("ltr-1h3jlzl").get(0).getText(), valueVerify);
     }
 }

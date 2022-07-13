@@ -477,4 +477,32 @@ public class ThenStepDefinitions {
     {
         assertEquals(components.componentsListTagButton(ariaLabel).size(), 0);
     }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param elementName is data-testid attributes
+     * @purpose verify div element is displayed
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user see div element \"([^\"]*)\" displayed")
+    public void isDivDisplayed(String elementName){
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + elementName +"']"));
+        assertTrue(components.componentDivDataTestID(elementName).isDisplayed());
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param linkText is value want to verify
+     * @purpose see topic link text is displayed
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user see a element \"([^\"]*)\" is displayed on detail")
+    public void isThreadDisplayedOnDetail(String linkText){
+        isComponentVisible.waitElement(By.xpath("//a[text()='" + linkText +"']"));
+        assertTrue(components.componentTextLink(linkText).isDisplayed());
+    }
 }
