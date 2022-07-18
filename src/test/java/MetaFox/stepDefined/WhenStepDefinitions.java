@@ -4,7 +4,6 @@ import MetaFox.browserConfig.Index;
 import MetaFox.pageObject.Components;
 import MetaFox.support.DataExecutor;
 import MetaFox.support.IsComponentVisible;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
@@ -45,6 +44,7 @@ public class WhenStepDefinitions {
         if ( !Objects.equals( url , "" ) ) {
             components.componentLinkText( url ).click();
         }
+        Thread.sleep(3000);
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -138,6 +138,16 @@ public class WhenStepDefinitions {
     public void changeCOverImage(){
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='upload_photo']"));
         components.componentDivDataTestID("upload_photo").click();
+    }
+
+    /**----------------------------------------------------------------------------------------------------------------------------------------------------------------
+     * @purpose upload media
+     * @author baotg2
+     * --------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 06-15-2022
+     */
+    @When("^the user upload media$")
+    public void uploadMedia(){
         dataExecutor.uploadFile(dataExecutor.getRandomPathDocuments().replace( "\\\\" , "\\" ));
     }
 
@@ -372,33 +382,17 @@ public class WhenStepDefinitions {
         }
     }
 
-    /**------------------------------------------------------------------------------------------------------------------------------------------------
-     * @purpose refers page before handle another action
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param linkText is value want to verify
+     * @purpose see topic link text is displayed
      * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------------
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("the user want to refresh page before handle the action")
-    public void theUserWantToRefreshPageBeforeHandleTheAction() {
-        Index.getDriver().navigate().refresh();
-    }
-
-    /**------------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param valueVerify is true to verify
-     * @purpose
-     */
-    @And("^the user see \"([^\"]*)\" displayed on search results$")
-    public void theUserWantToDisplayDisplayedOnSearchResults(String valueVerify){
-        isComponentVisible.waitElement(By.className("ltr-1h3jlzl"));
-        assertEquals(components.componentsListByClassName("ltr-1h3jlzl").get(0).getText(), valueVerify);
-    }
-
-    @And("^the user click on input type check box \"([^\"]*)\"$")
-    public void theUserClickOnInputTypeCheckBox(String inputName) {
-        isComponentVisible.waitElement(By.xpath("//input[@name='" + inputName + "']"));
-        if(!components.componentInputName(inputName).isSelected()){
-            components.componentInputName(inputName).click();
-        }
+    @When("^the user click on element link text a \"([^\"]*)\"$")
+    public void clickOnLinkText(String linkText){
+        isComponentVisible.waitElement(By.xpath("//a[text()='" + linkText +"']"));
+        components.componentTextLink(linkText).click();
     }
 }

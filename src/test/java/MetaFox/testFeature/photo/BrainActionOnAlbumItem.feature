@@ -65,3 +65,33 @@ Feature: Brian process on album item
     Then the user "Delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Photo album deleted successfully." displayed
+
+  @BrainAddNewEmptyAlbum
+  Scenario: Brian Add Empty Album
+    Given the user logged in as "brian"
+    When the browser opened at item "photo" and tab "/photo/album/add"
+    Then the user see title "Create New Album" is displayed
+    And the user action on input field "inputName" with value "IsEmptyAlbum"
+    And the user add value "TestAtoDescription" on textArea "inputText"
+    When the user click on button "buttonSubmit"
+    Then the user see message "Photo Album created successfully" displayed
+    Then the user see title "IsEmptyAlbum" is displayed
+    And the user see "This album has no photos uploaded" is displayed on user profile
+    
+  @BrianSearchEmptyAlbum
+  Scenario: Brian Search Empty Album
+    Given the user logged in as "brian"
+    Then the browser opened at item "photo" and tab "/photo/my-albums"
+    Then the user see title "itemTitle" with value "IsEmptyAlbum"
+
+  @BrianAddPhotoToEmptyAlbum
+  Scenario: Brian Search Empty Album
+    Given the user logged in as "brian"
+    Then the browser opened at item "photo" and tab "/photo/my-albums"
+    Then the user see title "itemTitle" with value "IsEmptyAlbum"
+    When the user click on element link text a "IsEmptyAlbum"
+    And the user want to "Add Photos/Videos"
+    When the user want to "Select Files"
+    And the user upload media
+    When the user click on button "buttonSubmit"
+    Then the user see message "Photo album updated successfully." displayed

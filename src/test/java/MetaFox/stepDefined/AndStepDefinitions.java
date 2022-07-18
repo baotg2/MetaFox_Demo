@@ -599,4 +599,34 @@ public class AndStepDefinitions {
         components.componentListSearchAttributes("mm/dd/yyyy").get(1).clear();
         components.componentListSearchAttributes("mm/dd/yyyy").get(1).sendKeys(date);
     }
+
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     * @purpose refers page before handle another action
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @And("the user want to refresh page before handle the action")
+    public void theUserWantToRefreshPageBeforeHandleTheAction() {
+        Index.getDriver().navigate().refresh();
+    }
+
+    /**------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param valueVerify is true to verify
+     * @purpose
+     */
+    @And("^the user see \"([^\"]*)\" displayed on search results$")
+    public void theUserWantToDisplayDisplayedOnSearchResults(String valueVerify){
+        isComponentVisible.waitElement(By.className("ltr-1h3jlzl"));
+        assertEquals(components.componentsListByClassName("ltr-1h3jlzl").get(0).getText(), valueVerify);
+    }
+
+    @And("^the user click on input type check box \"([^\"]*)\"$")
+    public void theUserClickOnInputTypeCheckBox(String inputName) {
+        isComponentVisible.waitElement(By.xpath("//input[@name='" + inputName + "']"));
+        if(!components.componentInputName(inputName).isSelected()){
+            components.componentInputName(inputName).click();
+        }
+    }
 }

@@ -95,5 +95,6 @@ Feature: Brain Process On User Profile
     Then the user want to access "userAvatar"
     And the user want to click on button label "Edit Cover" and process
     When the user want to changed cover image
+    And the user upload media
     Then the user want to "Save"
     Then the user see the post "cover photo" after upload

@@ -1,10 +1,10 @@
 package MetaFox.support;
 
+import MetaFox.browserConfig.Index;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import MetaFox.browserConfig.Index;
 
 import java.util.Random;
 
@@ -40,8 +40,8 @@ public class IsComponentVisible {
      * @since 04-05-2022
      */
     public void waitElement(By webElement) {
-        WebDriverWait wait = new WebDriverWait(Index.getDriver(), 120);
-        wait.until(ExpectedConditions.presenceOfElementLocated(webElement));
+        WebDriverWait wait = new WebDriverWait(Index.getDriver(), 30);
+        wait.until(ExpectedConditions.presenceOfElementLocated(webElement)).isDisplayed();
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
