@@ -1,5 +1,5 @@
 @MetaFox @forum  @BrainActionOnForum
-Feature:  Brian process on multiple choice polls
+Feature:  Brian process on Forum
 
   @BrianAddNewForumWithEmptyValue
   Scenario: Brian Add New Poll Public Vote

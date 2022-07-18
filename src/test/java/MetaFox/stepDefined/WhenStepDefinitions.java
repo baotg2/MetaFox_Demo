@@ -1,14 +1,14 @@
 package MetaFox.stepDefined;
 
+import MetaFox.browserConfig.Index;
+import MetaFox.pageObject.Components;
+import MetaFox.support.DataExecutor;
+import MetaFox.support.IsComponentVisible;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import MetaFox.browserConfig.Index;
-import MetaFox.pageObject.Components;
-import MetaFox.support.DataExecutor;
-import MetaFox.support.IsComponentVisible;
 
 import java.util.Objects;
 
@@ -147,7 +147,7 @@ public class WhenStepDefinitions {
      * @purpose select elements on dropdown list has position index
      * @Author baotg2
      * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-     * @Since 04-05-2022
+     * @since 04-05-2022
      */
     @When("the user want to select category at {int} on dropdown list {string}")
     public void selectCategory(int index, String dropdown_listName) throws InterruptedException {
@@ -392,5 +392,13 @@ public class WhenStepDefinitions {
     public void theUserWantToDisplayDisplayedOnSearchResults(String valueVerify){
         isComponentVisible.waitElement(By.className("ltr-1h3jlzl"));
         assertEquals(components.componentsListByClassName("ltr-1h3jlzl").get(0).getText(), valueVerify);
+    }
+
+    @And("^the user click on input type check box \"([^\"]*)\"$")
+    public void theUserClickOnInputTypeCheckBox(String inputName) {
+        isComponentVisible.waitElement(By.xpath("//input[@name='" + inputName + "']"));
+        if(!components.componentInputName(inputName).isSelected()){
+            components.componentInputName(inputName).click();
+        }
     }
 }
