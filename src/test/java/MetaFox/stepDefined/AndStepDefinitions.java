@@ -287,7 +287,8 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("^I want to click on \"([^\"]*)\"$")
-    public void logout(String spanText) {
+    public void logout(String spanText) throws InterruptedException {
+        Thread.sleep(2000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid ='menuAppBar']/div[4]/div"));
         driver.findElement(By.xpath("//div[@data-testid ='menuAppBar']/div[4]/div")).click();
         isComponentVisible.waitElement(By.xpath("//span[text()='" + spanText + "']"));

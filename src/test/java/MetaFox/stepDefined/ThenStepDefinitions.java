@@ -1,6 +1,7 @@
 package MetaFox.stepDefined;
 
 import io.cucumber.java.en.Then;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -135,7 +136,7 @@ public class ThenStepDefinitions {
      * @since 04-05-2022
      */
     @Then( "^the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$" )
-    public void inputValueOnField( String fieldName , String value ) {
+    public void inputValueOnField(String fieldName , @NotNull String value ) {
         isComponentVisible.waitElement( By.xpath( "//input[@data-testid='" + fieldName + "']" ) );
         if ( value.equals( "BlogName" ) || ( value.equals( "Album" ) || (value.equals( "Groups")) || (value.equals( "Polls")) ) ) {
             components.componentInputDataTestID( fieldName ).clear();
@@ -176,7 +177,7 @@ public class ThenStepDefinitions {
      * @since 04-05-2022
      */
     @Then( "^the user see search field \"([^\"]*)\" and typing keys \"([^\"]*)\"$" )
-    public void typingKeySearch( String attributes , String keySearch ) {
+    public void typingKeySearch(String attributes , @NotNull String keySearch ) {
         isComponentVisible.waitElement(By.xpath("//input[@placeholder='" + attributes + "']"));
         if ( keySearch.equals( "BlogName" ) || keySearch.equals( "Album" ) || (keySearch.equals( "Groups")) || (keySearch.equals( "Polls")) ) {
             components.componentSearchAttributes( attributes ).sendKeys( dataExecutor.readConstants( keySearch ) );
@@ -504,5 +505,19 @@ public class ThenStepDefinitions {
     public void isThreadDisplayedOnDetail(String linkText){
         isComponentVisible.waitElement(By.xpath("//a[text()='" + linkText +"']"));
         assertTrue(components.componentTextLink(linkText).isDisplayed());
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param imgSrc is attribute of img
+     * @purpose verify imgSrc
+     * @author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user see img \"([^\"]*)\" is displayed")
+    public void isImageDisplayedOnDetail(String imgSrc){
+        isComponentVisible.waitElement(By.xpath("//img[@data-testid='imgLogo']"));
+        assertTrue(components.componentImg("imgLogo").getAttribute("src").contains(imgSrc));
     }
 }

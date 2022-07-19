@@ -95,3 +95,6 @@ Feature: Brian process on album item
     And the user upload media
     When the user click on button "buttonSubmit"
     Then the user see message "Photo album updated successfully." displayed
+    And the user want to refresh page before handle the action
+    When the browser opened at item "/photo/albums" and tab ""
+    Then the user see title "itemTitle" with value "IsEmptyAlbum"

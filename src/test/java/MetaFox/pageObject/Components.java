@@ -575,4 +575,16 @@ public class Components {
     public List<WebElement> componentsListByClassName(String className){
         return Index.getDriver().findElements(By.className(className));
     }
+
+    /**----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param imgID is id of the image
+     * @return element <img> has imgID
+     * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author baotg2
+     * @since 06-07-2022
+     */
+    public WebElement componentImg(String imgID){
+        return Index.getDriver().findElement(By.xpath("//img[@data-testid='"+imgID+"']"));
+    }
 }
