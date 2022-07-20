@@ -12,6 +12,7 @@ Feature: Brain Verify on the UI
     Then the user see "Videos" on left menu
     Then the user see img "/logo.png" is displayed
 
+
   @BrianChangeToDarkMode
   Scenario: Brian Change to dark mode
     Given the user logged in as "brian"

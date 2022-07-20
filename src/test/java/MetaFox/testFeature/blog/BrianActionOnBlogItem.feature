@@ -12,7 +12,7 @@ Feature:  Brian process on blogs app
     And the user want add categories is "Education"
     And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonSubmit"
-    And the user see message "Blog published successfully." displayed
+    And the user see message "Blog published successfully" displayed
     Then the user verify title of blog is displayed
 
   @BrianCommentOnBlog
@@ -44,11 +44,11 @@ Feature:  Brian process on blogs app
     Then the browser opened at item "blog" and tab "/blog/my"
     And the user see "My Blogs" is displayed
     And the user click on "actionMenuButton" to access blog
-    And the user "Edit" this item
+    And the user "Edit blog" this item
     Then the user see main form "form" is displayed
     And the user action on input field "inputTitle" with value "Auto Test New Blogs Name"
     And the user click on button "buttonSubmit"
-    Then the user see message "Blog updated successfully." displayed
+    Then the user see message "Blog updated successfully" displayed
 
   @BrainDeleteBlogsJustAdded
   Scenario: Brain Delete Blog Just Added
@@ -61,7 +61,7 @@ Feature:  Brian process on blogs app
     And the user click on "actionMenuButton" to access blog
     Then the user "Delete" this item
     And the user click on button "buttonSubmit"
-    Then the user see message "Blog deleted successfully." displayed
+    Then the user see message "Blog deleted successfully" displayed
     Then the user see "No Results Found" is displayed on result table
 
   @BrianAddNewBlogAndSaveDraft
@@ -75,7 +75,7 @@ Feature:  Brian process on blogs app
     And the user want add categories is "Education"
     And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonDraft"
-    Then the user see message "Already saved blog as draft" displayed
+    Then the user see message "Blog published successfully" displayed
     Then the user verify title of blog is displayed
 
   @BrianPublishDraftBlog
@@ -85,7 +85,7 @@ Feature:  Brian process on blogs app
     And the user click on "actionMenuButton" to access blog
     And the user "Publish" this item
     And the user click on button "buttonSubmit"
-    And the user see message "Blog published successfully." displayed
+    And the user see message "Blog published successfully" displayed
 
   @BrainDeleteDraftBlog
   Scenario: Brain Delete Draft Blog
@@ -98,7 +98,7 @@ Feature:  Brian process on blogs app
     And the user click on "actionMenuButton" to access blog
     Then the user "Delete" this item
     And the user click on button "buttonSubmit"
-    Then the user see message "Blog deleted successfully." displayed
+    Then the user see message "Blog deleted successfully" displayed
     Then the user see "No Results Found" is displayed on result table
 
   @BrianReportBlog
@@ -133,7 +133,7 @@ Feature:  Brian process on blogs app
     And the user want add categories is "Education"
     And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonSubmit"
-    And the user see message "Blog published successfully." displayed
+    And the user see message "Blog published successfully" displayed
     Then the user verify title of blog is displayed
     Then the user want to access "userAvatar"
     And the user see item of "More"
@@ -141,7 +141,7 @@ Feature:  Brian process on blogs app
     And the user "buttonActionMenu" this item
     And the user "Delete" this item
     And the user click on button "buttonSubmit"
-    Then the user see message "Blog deleted successfully." displayed
+    Then the user see message "Blog deleted successfully" displayed
 
   @BrianFeatureBlogs
   Scenario: Brain Feature Blogs
@@ -149,7 +149,7 @@ Feature:  Brian process on blogs app
     Then the browser opened at item "blog" and tab "/blog/all"
     And the user click on "actionMenuButton" to access blog
     And the user "Feature" this item
-    Then the user see message "Blog featured successfully." displayed
+    Then the user see message "Blog featured successfully" displayed
     Then the user see label of action "featured" is displayed
 
   @BrianUnFeatureBlogs
@@ -158,4 +158,4 @@ Feature:  Brian process on blogs app
     Then the browser opened at item "blog" and tab "/blog/all"
     And the user click on "actionMenuButton" to access blog
     And the user "Un-Feature" this item
-    Then the user see message "Blog unfeatured successfully." displayed
+    Then the user see message "Blog unfeatured successfully" displayed

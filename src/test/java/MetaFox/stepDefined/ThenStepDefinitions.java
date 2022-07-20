@@ -200,7 +200,7 @@ public class ThenStepDefinitions {
     public void addComment( String comment ) {
         isComponentVisible.waitElement(By.xpath("//div[@role='combobox']"));
         components.componentDivRole( "combobox" ).sendKeys( comment );
-        //components.componentDivRole( "combobox" ).sendKeys( Keys.ENTER );
+        components.componentDivRole( "combobox" ).sendKeys( Keys.ENTER );
 //        isComponentVisible.waitElement( By.xpath( "//p[text() = '" + comment + "']" ) );
 //        assertTrue( components.componentPText( comment ).isDisplayed() );
     }

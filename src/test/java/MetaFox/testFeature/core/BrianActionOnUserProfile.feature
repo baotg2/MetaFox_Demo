@@ -97,4 +97,5 @@ Feature: Brain Process On User Profile
     When the user want to changed cover image
     And the user upload media
     Then the user want to "Save"
+    And the user want to refresh page before handle the action
     Then the user see the post "cover photo" after upload
