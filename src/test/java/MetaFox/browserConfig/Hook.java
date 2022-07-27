@@ -25,8 +25,8 @@ public class Hook{
      * @purpose setUp is function call browsers will execute before every scenario
      -----------------------------------------------------------------------------------------------------------------------------------------*/
     @Before
-    public void beforeTest() throws MalformedURLException, InterruptedException {
-        index.openBrowser( EnumDataValue.FIREFOX, EnumDataValue.BROWSERSTACK);
+    public void beforeTest() throws MalformedURLException {
+        index.openBrowser( EnumDataValue.SAFARI, EnumDataValue.BROWSERSTACK);
     }
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
@@ -37,7 +37,6 @@ public class Hook{
     public void afterTest(@NotNull Scenario scenario) throws InterruptedException {
         if (scenario.isFailed()){
             final byte[] screenshot = ((TakesScreenshot)Index.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot,"image/png", "");
             Allure.addByteAttachmentAsync("Failure Screenshot", "image/png", () -> screenshot);
         }
         Thread.sleep(3000);

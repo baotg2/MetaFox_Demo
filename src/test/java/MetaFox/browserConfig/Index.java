@@ -48,20 +48,34 @@ public class Index {
      * @throws MalformedURLException thrown when the built-in URL class encounters an invalid URL
      * @purpose openBrowser is a function to set up test cases run on local or cloud
      ------------------------------------------------------------------------------------------------------------------------------------------*/
-    public void openBrowser(EnumDataValue enumDataValue, EnumDataValue selectFlatForm) throws MalformedURLException, InterruptedException {
+    public void openBrowser(EnumDataValue enumDataValue, EnumDataValue selectFlatForm) throws MalformedURLException{
         Index.selectPlatform = String.valueOf(selectFlatForm);
         switch (selectFlatForm) {
             case BROWSERSTACK:
-                DesiredCapabilities caps = new DesiredCapabilities();
-                caps.setCapability("os_version", "10");
-                caps.setCapability("browser", enumDataValue);
-                caps.setCapability("browser_version", "latest");
-                caps.setCapability("os", "Windows");
-                caps.setCapability("build", dataExecutor.readConstants("TestCaseRunner")); // test name
-                caps.setCapability("name", "BrianDeleteBlogOnUserProfile"); // CI/CD job or build name
-                caps.setCapability("browserstack.debug", "true");
-                driver = new RemoteWebDriver(new URL(URL), caps);
-                break;
+                switch (enumDataValue){
+                    case FIREFOX:
+                        DesiredCapabilities caps = new DesiredCapabilities();
+                        caps.setCapability("os_version", "10");
+                        caps.setCapability("browser", enumDataValue);
+                        caps.setCapability("browser_version", "latest");
+                        caps.setCapability("os", "Windows");
+                        caps.setCapability("build", dataExecutor.readConstants("TestCaseRunner")); // test name
+                        caps.setCapability("name", "BrianDeleteBlogOnUserProfile"); // CI/CD job or build name
+                        caps.setCapability("browserstack.debug", "true");
+                        driver = new RemoteWebDriver(new URL(URL), caps);
+                        break;
+                    case SAFARI:
+                        DesiredCapabilities caps_SF = new DesiredCapabilities();
+                        caps_SF.setCapability("os_version", "Big Sur");
+                        caps_SF.setCapability("browser", enumDataValue);
+                        caps_SF.setCapability("browser_version", "latest");
+                        caps_SF.setCapability("os", "OS X");
+                        caps_SF.setCapability("build", dataExecutor.readConstants("TestCaseRunner")); // test name
+                        caps_SF.setCapability("name", "BrianDeleteBlogOnUserProfile"); // CI/CD job or build name
+                        caps_SF.setCapability("browserstack.debug", "true");
+                        driver = new RemoteWebDriver(new URL(URL), caps_SF);
+                        break;
+                }
             case LOCAL:
                 switch (enumDataValue){
                     case CHROME:

@@ -10,7 +10,7 @@ package MetaFox.support;
 public enum EnumDataValue {
     CHROME,
     FIREFOX,
-    IE,
+    SAFARI,
     BROWSERSTACK,
-    LOCAL;
+    LOCAL
 }
