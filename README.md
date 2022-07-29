@@ -1,6 +1,6 @@
 # Meta_Fox_Demo
 
-Meta_Fox_Demo is a project hanlde automation test of MetaFox on Web Platform
+Meta_Fox_Demo is a project hanlde automation test of MetaFox on Web Platform.
 Technical used:
 
 - Java
