@@ -55,4 +55,9 @@ public class GivenStepDefinitions {
         isComponentVisible.waitElement(By.xpath("//div[@data-testid ='formSearch']"));
         assertTrue(components.componentDivDataTestID("formSearch").isDisplayed());
     }
+
+    @Given("the browser will get Administrator URL")
+    public void getAddressACP(){
+        Index.getDriver().get(dataExecutor.readConstants("URLACP"));
+    }
 }

@@ -5,6 +5,7 @@ import MetaFox.pageObject.Components;
 import MetaFox.support.DataExecutor;
 import MetaFox.support.IsComponentVisible;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -289,8 +290,8 @@ public class AndStepDefinitions {
     @And("^I want to click on \"([^\"]*)\"$")
     public void logout(String spanText) throws InterruptedException {
         Thread.sleep(2000);
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='menuAppBar']/div[4]/div"));
-        driver.findElement(By.xpath("//div[@data-testid ='menuAppBar']/div[4]/div")).click();
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='menuAppBar']/div[5]/div"));
+        driver.findElement(By.xpath("//div[@data-testid ='menuAppBar']/div[5]/div")).click();
         isComponentVisible.waitElement(By.xpath("//span[text()='" + spanText + "']"));
         components.componentSpanName(spanText).click();
     }
@@ -629,5 +630,20 @@ public class AndStepDefinitions {
         if(!components.componentInputName(inputName).isSelected()){
             components.componentInputName(inputName).click();
         }
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param ariaLabel is value ariaLabel of button
+     * @purpose is click to action tag user on photo
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user")
+    public void ListStartTagUser(String ariaLabel)
+    {
+        isComponentVisible.waitElement(By.xpath("//button[@aria-label ='"+ariaLabel+"']"));
+        components.componentsListTagButton(ariaLabel).get(1).click();
     }
 }

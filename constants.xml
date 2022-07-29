@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <constants>
     <URL>https://staging-foxsocial.phpfox.us/</URL>
+    <URLACP>https://staging-foxsocial.phpfox.us/admincp/</URLACP>
     <TestDataFolder>src/test/java/MetaFox/testdata/</TestDataFolder>
     <DataFile>v5DataProvider.xlsx</DataFile>
     <BlogName>TestAuto</BlogName>
