@@ -1,4 +1,4 @@
-@MetaFox @blogs  @blogFunction_Admin
+@blogs  @blogFunction_Admin
 Feature:  Admin process on blogs app
 
   @AdminAddNewBlogWithoutImage

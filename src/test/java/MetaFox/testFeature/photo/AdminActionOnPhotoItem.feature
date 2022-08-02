@@ -1,4 +1,4 @@
-@MetaFox @photo  @PhotoItem_Admin
+@photo  @PhotoItem_Admin
 Feature: Admin process on photos item
 
   @AdminSeePendingPhoto

@@ -1,4 +1,4 @@
-@MetaFox @forum  @AdminActionOnForum
+@forum  @AdminActionOnForum
 Feature:  Brian process on Forum
 
   @AdminStickThread
