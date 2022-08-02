@@ -640,7 +640,7 @@ public class AndStepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user")
+    @Then("^the user///")
     public void ListStartTagUser(String ariaLabel)
     {
         isComponentVisible.waitElement(By.xpath("//button[@aria-label ='"+ariaLabel+"']"));

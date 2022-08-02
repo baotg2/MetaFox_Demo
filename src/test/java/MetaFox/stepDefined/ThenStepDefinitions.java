@@ -199,8 +199,13 @@ public class ThenStepDefinitions {
     @Then( "^the user add comment \"([^\"]*)\" on blog$" )
     public void addComment( String comment ) {
         isComponentVisible.waitElement(By.xpath("//div[@role='combobox']"));
-        components.componentDivRole( "combobox" ).sendKeys( comment );
-        components.componentDivRole( "combobox" ).sendKeys( Keys.ENTER );
+        if(components.componentListDivDataTestID("fieldStatus").size()!=0){
+            Index.getDriver().findElement(By.xpath("//div[@data-testid='fieldStatus']//div[@role ='combobox']")).sendKeys(comment);
+        }
+        else{
+            components.componentDivRole("combobox").sendKeys(comment);
+            components.componentDivRole("combobox").sendKeys(Keys.ENTER);
+        }
 //        isComponentVisible.waitElement( By.xpath( "//p[text() = '" + comment + "']" ) );
 //        assertTrue( components.componentPText( comment ).isDisplayed() );
     }

@@ -23,7 +23,7 @@ Feature:  Brian process on blogs app
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user not see "No Results Found" is displayed on result table
-    And the user access this blog by "itemMedia" and process
+    And the user want to click on title "itemTitle" and process
     And the user add comment "test comment" on blog
     Then the user see "test comment" displayed success
 
@@ -35,7 +35,7 @@ Feature:  Brian process on blogs app
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user not see "No Results Found" is displayed on result table
-    And the user access this blog by "itemMedia" and process
+    And the user want to click on title "itemTitle" and process
     And the user click on button "reactionButton"
 
   @BrianEditHisBlog
