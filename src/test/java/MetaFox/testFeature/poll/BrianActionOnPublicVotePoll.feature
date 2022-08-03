@@ -4,7 +4,7 @@ Feature:  Brian process on public vote polls
   @BrianSeePopUpWhenRemoveAnswers
   Scenario: Brian See Pop Up When Remove Answers
     Given the user logged in as "brian"
-    When the browser opened at item "poll" and tab "/poll/add"
+    When the browser opened at item "polls" and tab "/poll/add"
     And the user want to "Remove"
     Then the user see "You must have a minimum of 2 answers." displayed success
     And the user want to "OK"
@@ -26,7 +26,7 @@ Feature:  Brian process on public vote polls
   Scenario: Brian Search Poll
     Given the user logged in as "brian"
     When the browser opened at item "poll" and tab ""
-    And the user see search field "Search poll" and typing keys "Polls"
+    And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
     Then the user see title "IsThisAutoPoll" is displayed
 
@@ -34,7 +34,7 @@ Feature:  Brian process on public vote polls
   Scenario: Another User Vote Poll
     Given the user logged in as "admin"
     When the browser opened at item "poll" and tab ""
-    And the user see search field "Search poll" and typing keys "Polls"
+    And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
     Then the user see title "IsThisAutoPoll" is displayed
     And the user "admin" action vote on random options
@@ -43,7 +43,7 @@ Feature:  Brian process on public vote polls
   Scenario: Brain Delete Public Vote Poll
     Given the user logged in as "brian"
     When the browser opened at item "poll" and tab ""
-    And the user see search field "Search poll" and typing keys "Polls"
+    And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
     When the user want to click on button label "actionMenu" and process
     And the user click on div "Delete" and process

@@ -19,7 +19,7 @@ Feature:  Brain Process On Closed Groups
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search group" and typing keys "TestAutoClosedGroup"
-    And the user access this blog by "itemMedia" and process
+    And the user want to click on title "itemTitle" and process
     Then the user see title h2 "TestAutoClosedGroup" is displayed
 
   @BrianApproveAnotherUserJoinClosedGroup
@@ -28,7 +28,7 @@ Feature:  Brain Process On Closed Groups
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search group" and typing keys "TestAutoClosedGroup"
-    And the user access this blog by "itemMedia" and process
+    And the user want to click on title "itemTitle" and process
     When the user want to "Join Group"
     Then the user see button "Pending Request" is displayed
     And I want to click on "Logout"
@@ -50,7 +50,7 @@ Feature:  Brain Process On Closed Groups
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search group" and typing keys "TestAutoClosedGroup"
-    And the user access this blog by "itemMedia" and process
+    And the user want to click on title "itemTitle" and process
     When the user want to click on button label "ActionMenu" and process
     And the user click on div "Delete" and process
     Then the user see "Are you sure you want to delete this item permanently?" displayed success

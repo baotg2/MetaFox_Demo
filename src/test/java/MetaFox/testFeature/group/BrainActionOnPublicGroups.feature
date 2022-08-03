@@ -38,7 +38,7 @@ Feature:  Brain Process On Public Groups
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search group" and typing keys "Groups"
-    And the user access this blog by "itemMedia" and process
+    And the user want to click on title "itemTitle" and process
     When the user want to "Join Group"
     Then the user see message "Joined successfully." displayed
     Then the user see button "Joined" is displayed
@@ -49,7 +49,7 @@ Feature:  Brain Process On Public Groups
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search group" and typing keys "Groups"
-    And the user access this blog by "itemMedia" and process
+    And the user want to click on title "itemTitle" and process
     Then the user "whatsHappening" this item
     And the user add comment "AutoPostStatus" on blog
     And the user click on button "submit"
@@ -62,7 +62,7 @@ Feature:  Brain Process On Public Groups
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search group" and typing keys "Groups"
-    And the user access this blog by "itemMedia" and process
+    And the user want to click on title "itemTitle" and process
     When the user want to click on button label "ActionMenu" and process
     And the user click on div "Leave group" and process
     Then the user see "Are you sure you want to leave this group?" displayed success
@@ -84,7 +84,7 @@ Feature:  Brain Process On Public Groups
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search group" and typing keys "Groups"
-    And the user access this blog by "itemMedia" and process
+    And the user want to click on title "itemTitle" and process
     When the user see "actionMenu" and click on
     And the user "Manage" this item
     And the user action on "Membership Questions"
@@ -112,7 +112,7 @@ Feature:  Brain Process On Public Groups
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search group" and typing keys "Groups"
-    And the user access this blog by "itemMedia" and process
+    And the user want to click on title "itemTitle" and process
     When the user see "actionMenu" and click on
     And the user "Manage" this item
     And the user action on "Pending Posts"

@@ -19,7 +19,7 @@ Feature:  Brian process on multiple choice polls
   Scenario: Another User Vote Poll
     Given the user logged in as "admin"
     When the browser opened at item "poll" and tab ""
-    And the user see search field "Search poll" and typing keys "Polls"
+    And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
     Then the user see title "IsThisAutoPoll" is displayed
     And the user "admin" action vote on random options
@@ -28,7 +28,7 @@ Feature:  Brian process on multiple choice polls
   Scenario: Brain Edit Multiple Choice Poll
     Given the user logged in as "brian"
     When the browser opened at item "poll" and tab ""
-    And the user see search field "Search poll" and typing keys "Polls"
+    And the user see search field "Search polls" and typing keys "Polls"
     When the user want to click on button label "actionMenu" and process
     And the user click on div "Edit" and process
     Then the user see title "Edit poll" is displayed
@@ -40,7 +40,7 @@ Feature:  Brian process on multiple choice polls
   Scenario: Brain Delete Multiple Choice Poll
     Given the user logged in as "brian"
     When the browser opened at item "poll" and tab ""
-    And the user see search field "Search poll" and typing keys "Polls"
+    And the user see search field "Search polls" and typing keys "Polls"
     When the user want to click on button label "actionMenu" and process
     And the user click on div "Delete" and process
     Then the user see "Are you sure you want to delete this item permanently?" displayed success
