@@ -51,10 +51,19 @@ Feature:  Brain Process On Public Groups
     And the user see search field "Search group" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
     Then the user "whatsHappening" this item
-    And the user add comment "AutoPostStatus" on blog
+    And the user add comment "AutoPostStatus1" on blog
     And the user click on button "submit"
     Then the user see message "Shared successfully" displayed
-    Then the user see "AutoPostStatus" displayed success
+    Then the user see "AutoPostStatus1" displayed success
+
+  @AnotherUserReactionOnGroups
+  Scenario: Brain Add Pending Post
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "group" and tab ""
+    And the user see search field "Search group" and typing keys "Groups"
+    And the user want to click on title "itemTitle" and process
+    And the user click on button "reactionButton"
 
   @AnotherUserLeaveGroup
   Scenario: Another User Leave Group

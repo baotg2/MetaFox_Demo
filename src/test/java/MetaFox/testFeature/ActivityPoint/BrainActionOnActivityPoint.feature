@@ -10,11 +10,3 @@ Feature:  Brain Action On Activity Point
     And the user see "Point Packages" on left menu
     And the user see "How To Earn" on left menu
     And the user see "Transactions History" on left menu
-
-  @AdminConfigOnACP
-  Scenario: Admin Config OnACP
-    Given the user logged in as "admin"
-    When the browser will get Administrator URL
-    And the user action on "App Settings"
-    And the user action on "Activity Point"
-    Then the user see title "Manage Point Settings" is displayed

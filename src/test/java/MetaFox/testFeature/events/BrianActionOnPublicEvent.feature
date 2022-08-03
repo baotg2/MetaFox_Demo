@@ -11,7 +11,7 @@ Feature:  Brain Process On Public Events
     And the user click on button "buttonSubmit"
     Then the user see "The location field is required for offline event." displayed success
 
-  @BrianAddNewEventsOffline @guestActionOnPublicEvent
+  @BrianAddNewEventsOffline
   Scenario: Brian Add New Events EventsOffline
     Given the user logged in as "brian"
     Then the user action on "More"
