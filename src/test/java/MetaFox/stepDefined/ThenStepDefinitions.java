@@ -514,6 +514,20 @@ public class ThenStepDefinitions {
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
+     * @param linkText is value want to verify
+     * @purpose see link text is not displayed
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user see link text element \"([^\"]*)\" is not displayed on screen$")
+    public void isLinkTextDisplayedOnDetail(String linkText){
+        isComponentVisible.waitElement(By.xpath("//input[@data-testid ='inputEmail']"));
+        assertEquals(components.componentListTestId(linkText).size(), 0);
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param imgSrc is attribute of img
      * @purpose verify imgSrc
      * @author baotg2

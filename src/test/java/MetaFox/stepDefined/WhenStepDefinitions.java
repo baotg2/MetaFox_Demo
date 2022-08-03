@@ -28,6 +28,8 @@ public class WhenStepDefinitions {
     IsComponentVisible isComponentVisible = new IsComponentVisible( Index.getDriver() );
     DataExecutor dataExecutor = new DataExecutor();
 
+    SupportStepDefinition stepDefinition = new SupportStepDefinition(Index.getDriver());
+
     /**------------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param item item name
@@ -411,5 +413,16 @@ public class WhenStepDefinitions {
         components.componentSpanDataTestID("userAvatar").click();
         components.componentsListElementByID(items).get(1).click();
         assertEquals(components.componentListH4DataTestID(titleText).size(), size);
+    }
+
+    /**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     * @purpose scroll to end page
+     * @Author baotg2
+     * --------------------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 08-03-2022
+     */
+    @When("^the user want to scroll to the end of page")
+    public void toScrollToEndOfPage() {
+        stepDefinition.scrollToEndPage();
     }
 }

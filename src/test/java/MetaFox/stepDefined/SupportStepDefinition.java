@@ -2,6 +2,7 @@ package MetaFox.stepDefined;
 
 import MetaFox.browserConfig.Index;
 import MetaFox.pageObject.Components;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import static MetaFox.browserConfig.Index.driver;
@@ -35,9 +36,22 @@ public class SupportStepDefinition {
      * @purpose lick on logo and back to home page
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 044-05-2022
+     * @since 04-05-2022
      */
     public void isBackToHomePage(){
         components.componentLinkDataTestID("linkLogo").click();
+    }
+
+    /**------------------------------------------------------------------------------------------------------------------------------------------
+     * @purpose scroll to end page
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     *
+     */
+    public void scrollToEndPage(){
+        JavascriptExecutor js = (JavascriptExecutor) Index.getDriver();
+        //Scroll down till the bottom of the page
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
 }

@@ -265,6 +265,18 @@ public class Components {
         return Index.getDriver().findElement(By.xpath("//a[text()='" + linkText +"']"));
     }
 
+    /**-------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param linkText is is attributes find elements
+     * @return list element <a></a>
+     * -------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public List<WebElement> componentListTestId(String linkText) {
+        return Index.getDriver().findElements(By.xpath("//a[@data-testid='" + linkText +"']"));
+    }
+
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
