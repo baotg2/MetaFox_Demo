@@ -4,6 +4,7 @@ Feature:  Brian process on blogs app
   @BrianAddNewBlogWithImage
   Scenario: Brian Add New Blog With Image
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/add"
     Then the user action on input field "inputTitle" with value "BlogName"
     Then the user want to add photo
@@ -15,9 +16,17 @@ Feature:  Brian process on blogs app
     And the user see message "Blog published successfully" displayed
     Then the user verify title of blog is displayed
 
+  @BrainSeePostOfBlogOnFeed
+  Scenario: Brian see post of blog on feed
+    Given the user logged in as "brian"
+    When the user want to access "userAvatar"
+    Then the user see "added a blog" on left menu
+    Then the user see a element "TestAuto" is displayed on detail
+
   @BrianCommentOnBlog
   Scenario: Brian comment on blog
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "BlogName"
     And the user access first condition "inputSort"
@@ -30,6 +39,7 @@ Feature:  Brian process on blogs app
   @BrianReactionOnBlogJustAdd
   Scenario: Brain Reaction On This Blog
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "BlogName"
     And the user access first condition "inputSort"
@@ -38,9 +48,64 @@ Feature:  Brian process on blogs app
     And the user want to click on title "itemTitle" and process
     And the user click on button "reactionButton"
 
+  @BrianShareNowOnBlogJustAdd
+  Scenario: Brain Share Now On Blog Just Add
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "blog" and tab ""
+    And the user see search field "Search blogs" and typing keys "BlogName"
+    And the user access first condition "inputSort"
+    And the user access first condition "inputWhen"
+    And the user not see "No Results Found" is displayed on result table
+    And the user want to click on title "itemTitle" and process
+    And the user click on button "menuShareButton"
+    When the user action on "Share now"
+    Then the user see message "Shared successfully" displayed
+    And the user back to "linkLogo" page
+    And the user want to refresh page before handle the action
+    Then the user see "shared a post to newsfeed" on left menu
+    Then the user see a element "TestAuto" is displayed on detail
+
+  @BrianShareOnFeedOnBlogJustAdd
+  Scenario: Brain Share On Feed Blog Just Add
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "blog" and tab ""
+    And the user see search field "Search blogs" and typing keys "BlogName"
+    And the user access first condition "inputSort"
+    And the user access first condition "inputWhen"
+    And the user not see "No Results Found" is displayed on result table
+    And the user want to click on title "itemTitle" and process
+    And the user click on button "menuShareButton"
+    When the user action on "Share to News Feed"
+    And the user add comment "AutoShareOnFeed" on blog
+    And the user click on button "submit"
+    And the user back to "linkLogo" page
+    And the user want to refresh page before handle the action
+    Then the user see "shared a post to newsfeed" on left menu
+    Then the user see a element "TestAuto" is displayed on detail
+
+  @BrianShareOnFriendOnBlogJustAdd
+  Scenario: Brain Share On Friend Blog Just Add
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "blog" and tab ""
+    And the user see search field "Search blogs" and typing keys "BlogName"
+    And the user access first condition "inputSort"
+    And the user access first condition "inputWhen"
+    And the user want to click on title "itemTitle" and process
+    And the user click on button "menuShareButton"
+    When the user "share_on_friends" this item
+    Then the user "itemMedia" this item
+    And the user click on button "submit"
+    And the user back to "linkLogo" page
+    And the user want to refresh page before handle the action
+    Then the user see a element "AutoShareOnFeed" is displayed on detail
+    
   @BrianEditHisBlog
   Scenario: Brian Edit His Blog
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/my"
     And the user see "My Blogs" is displayed
     And the user click on "actionMenuButton" to access blog
@@ -53,6 +118,7 @@ Feature:  Brian process on blogs app
   @BrainDeleteBlogsJustAdded
   Scenario: Brain Delete Blog Just Added
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "Auto Test New Blogs Name"
     And the user access first condition "inputSort"
@@ -67,6 +133,7 @@ Feature:  Brian process on blogs app
   @BrianAddNewBlogAndSaveDraft
   Scenario: Brian Add New Blog And Save As Draft
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/add"
     Then the user action on input field "inputTitle" with value "BlogName"
     Then the user don't add photo
@@ -81,6 +148,7 @@ Feature:  Brian process on blogs app
   @BrianPublishDraftBlog
   Scenario: Brian Publish Draft Blog
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/draft"
     And the user click on "actionMenuButton" to access blog
     And the user "Publish" this item
@@ -90,6 +158,7 @@ Feature:  Brian process on blogs app
   @BrainDeleteDraftBlog
   Scenario: Brain Delete Draft Blog
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "BlogName"
     And the user access first condition "inputSort"
@@ -104,6 +173,7 @@ Feature:  Brian process on blogs app
   @BrianReportBlog
   Scenario: Brian Report Blog
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/all"
     And the user click on "actionMenuButton" to access blog
     And the user "Report" this item
@@ -113,6 +183,7 @@ Feature:  Brian process on blogs app
   @BrianSearchEmptyKeyWord
   Scenario: Brian Search Empty KeyWord
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "SearchSomethings"
     And the user access first condition "inputSort"
@@ -146,6 +217,7 @@ Feature:  Brian process on blogs app
   @BrianFeatureBlogs
   Scenario: Brain Feature Blogs
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/all"
     And the user click on "actionMenuButton" to access blog
     And the user "Feature" this item
@@ -155,6 +227,7 @@ Feature:  Brian process on blogs app
   @BrianUnFeatureBlogs
   Scenario: Brain UnFeature Blogs
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/all"
     And the user click on "actionMenuButton" to access blog
     And the user "Un-Feature" this item

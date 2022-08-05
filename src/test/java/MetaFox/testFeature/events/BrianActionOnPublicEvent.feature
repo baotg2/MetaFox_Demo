@@ -25,6 +25,16 @@ Feature:  Brain Process On Public Events
     Then the user see message "Event created successfully" displayed
     Then the user see title "IsOfflineEvents" is displayed
 
+  @BrianReactionOnEventJustAdd
+  Scenario: Brain Reaction On This Blog
+    Given the user logged in as "brian"
+    Then the browser opened at item "blog" and tab ""
+    And the user see search field "Search blogs" and typing keys "IsOfflineEvents"
+    And the user access first condition "inputSort"
+    And the user access first condition "inputWhen"
+    And the user want to click on title "itemTitle" and process
+    And the user click on button "reactionButton"
+
   @BrainSeePostCreateOnFeed
   Scenario: Brain See Post Create on Feed
     Given the user logged in as "brian"
