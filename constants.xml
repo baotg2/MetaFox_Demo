@@ -15,5 +15,6 @@
     <Polls>IsThisAutoPoll</Polls>
     <BROWSERSTACK_USERNAME>baotran_moYtnK</BROWSERSTACK_USERNAME>
     <BROWSERSTACK_ACCESS_KEY>2cnCJbmwkKAmmb9hEVsN</BROWSERSTACK_ACCESS_KEY>
-    <TestCaseRunner>Brian process on blogs app</TestCaseRunner>
+    <TestBuilder>Brain Process On Sharing Items</TestBuilder>
+    <TestCaseRunner>@BrainVerifyPrivacySharingBlogs</TestCaseRunner>
 </constants>

@@ -211,20 +211,28 @@ public class AndStepDefinitions {
     @And("the user select privacy at field \"([^\"]*)\" and change to \"([^\"]*)\"$")
     public void selectPrivacy(String fieldSetting, String valueChanged) {
         isComponentVisible.waitElement(By.xpath("//div[@role ='button']"));
+        int size = components.componentsSpanList().size();
         for ( int i = 0 ; i < components.componentsSpanList().size(); i++) {
             if (components.componentsSpanList().get(i).getText().contains(fieldSetting)) {
-                if (!components.componentsListDivRole("button").get(i).getText().equals(valueChanged)) {
-                    components.componentsListDivRole("button").get(i).click();
+                String tec = components.componentsSpanList().get(i).getText();
+                if (!components.componentsListDivRole("button").get(i-7).getText().equals(valueChanged)) {
+                    components.componentsListDivRole("button").get(i-7).click();
                     isComponentVisible.waitElement(By.xpath("//ul[@role = 'listbox']"));
                     switch(valueChanged){
                         case "Anyone":
+                        case "Everyone":
                             components.componentsDivDataValue("0").click();
                             break;
                         case "Friends Only":
+                        case "Friends":
                             components.componentsDivDataValue("1").click();
                             break;
                         case "No One":
+                        case "Only Me":
                             components.componentsDivDataValue("3").click();
+                            break;
+                        case "Friends of Friends":
+                            components.componentsDivDataValue("2").click();
                             break;
                     }
                 }

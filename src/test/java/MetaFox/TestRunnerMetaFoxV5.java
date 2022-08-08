@@ -12,10 +12,12 @@ import io.cucumber.testng.CucumberOptions;
  * @purpose: TestRunnerMetaFoxV5 is class to put @tag test case/test suite want to run
  * @since 04-05-2022
  */
+
+
 @CucumberOptions(
         features = {"src/test/java/MetaFox/testFeature"},
         glue = "MetaFox",
-        tags = "@BrainSeePostOfBlogOnFeed",
+        tags = "@BrainVerifyPrivacySharingBlogs",
         plugin = {
                 "html:target/result/",
                 "pretty",

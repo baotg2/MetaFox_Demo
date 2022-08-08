@@ -481,7 +481,7 @@ public class Components {
      * @since 04-05-2022
      */
     public List <WebElement> componentsSpanList() {
-        return Index.getDriver().findElements(By.xpath("//div[@class ='MuiListItemText-root ltr-1x690uy']//span"));
+        return Index.getDriver().findElements(By.xpath("//div[contains(@class, 'MuiListItemText')]//span"));
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
