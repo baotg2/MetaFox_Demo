@@ -146,7 +146,7 @@ public class ThenStepDefinitions {
             components.componentInputDataTestID( fieldName ).sendKeys( value );
         }
     }
-//input[
+
     /**------------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param module menu's name on side menu
@@ -539,4 +539,5 @@ public class ThenStepDefinitions {
         isComponentVisible.waitElement(By.xpath("//img[@data-testid='imgLogo']"));
         assertTrue(components.componentImg("imgLogo").getAttribute("src").contains(imgSrc));
     }
+
 }

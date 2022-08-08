@@ -50,7 +50,7 @@ Feature: Brain Verify on the UI
     Given the user logged in as "brian"
     When I want to click on "Account Settings"
     Then the user see "General" on left menu
-    And the user see "Payment" on left menu
+    #And the user see "Payment" on left menu
     And the user see "Your Profile" on left menu
     And the user see "Invisible Mode" on left menu
     And the user see "Sharing Items" on left menu
