@@ -70,8 +70,8 @@ public class Index {
                         caps_SF.setCapability("browser", enumDataValue);
                         caps_SF.setCapability("browser_version", "latest");
                         caps_SF.setCapability("os", "OS X");
-                        caps_SF.setCapability("build", dataExecutor.readConstants("TestCaseRunner")); // test name
-                        caps_SF.setCapability("name", "BrianDeleteBlogOnUserProfile"); // CI/CD job or build name
+                        caps_SF.setCapability("build", dataExecutor.readConstants("TestBuilder")); // test name
+                        caps_SF.setCapability("name", dataExecutor.readConstants("TestCaseRunner"));// CI/CD job or build name
                         caps_SF.setCapability("browserstack.debug", "true");
                         driver = new RemoteWebDriver(new URL(URL), caps_SF);
                         break;
