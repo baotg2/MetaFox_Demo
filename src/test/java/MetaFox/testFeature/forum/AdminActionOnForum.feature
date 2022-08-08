@@ -4,6 +4,7 @@ Feature:  Brian process on Forum
   @AdminStickThread
   Scenario: Admin Stick Thread
     Given the user logged in as "admin"
+    When the user action on "More"
     When the browser opened at item "forum" and tab ""
     And the user see search field "Search Discussions" and typing keys "IsThreadAutotest"
     And the user access first condition "inputSort"
@@ -18,6 +19,7 @@ Feature:  Brian process on Forum
   @AdminCreateNewThread
   Scenario: Admin Create New Thread
     Given the user logged in as "admin"
+    When the user action on "More"
     When the browser opened at item "forum" and tab "/forum/thread/add"
     And the user add value on id "select-forum_id" is "General"
     When the user want to select category at 1 on dropdown list "select-forum_id"
@@ -33,11 +35,13 @@ Feature:  Brian process on Forum
   @AdminVerifyWikiTab
   Scenario: Admin Verify WikiTab
     Given the user logged in as "admin"
+    When the user action on "More"
     When the browser opened at item "forum" and tab "/forum/wiki-thread"
     Then the user see a element "IsThreadDisplayedOnWiki" is displayed on detail
 
   @AnotherVerifyWikiTab
   Scenario: Another User Verify WikiTab
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "forum" and tab "/forum/wiki-thread"
     Then the user see a element "IsThreadDisplayedOnWiki" is displayed on detail

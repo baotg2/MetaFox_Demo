@@ -4,13 +4,14 @@ Feature:  Brian process on multiple choice polls
   @BrianAddNewPollMultipleChoice
   Scenario: Brian Add New Poll Public Vote
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "poll" and tab "/poll/add"
     And the user action on input field "inputQuestion" with value "Polls"
-    And the user add value on id "mui-50" is "Yes"
-    And the user add value on id "mui-51" is "No"
+    And the user add value "Yes" on element "1"
+    And the user add value "No" on element "2"
     And the user add value on div "textbox"
     And the user want to add attach files
-    When the user select type "Public Votes"
+    When the user select type "Public votes"
     And the user select type "Allow multiple choice"
     And the user click on button "buttonSubmit"
     Then the user see title "IsThisAutoPoll" is displayed
@@ -18,6 +19,7 @@ Feature:  Brian process on multiple choice polls
   @AnotherUserVoteMultipleChoice
   Scenario: Another User Vote Poll
     Given the user logged in as "admin"
+    When the user action on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
@@ -27,6 +29,7 @@ Feature:  Brian process on multiple choice polls
   @BrianEditMultipleChoicePoll
   Scenario: Brain Edit Multiple Choice Poll
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     When the user want to click on button label "actionMenu" and process
@@ -39,6 +42,7 @@ Feature:  Brian process on multiple choice polls
   @BrianDeletePollMultipleChoicePoll
   Scenario: Brain Delete Multiple Choice Poll
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     When the user want to click on button label "actionMenu" and process

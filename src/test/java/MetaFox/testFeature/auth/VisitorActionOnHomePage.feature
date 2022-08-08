@@ -40,7 +40,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user action on input field "inputLastName" with value "Test exist email"
     And the user action on input field "inputFullName" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example.com"
-    And the user input info sign up "Choose an Username" with value "Test Auto1"
+    And the user input info sign up "Choose an Username" with value "TestAutoExistEmail"
     And the user input info password sign up "mui-16" with value "123456"
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"

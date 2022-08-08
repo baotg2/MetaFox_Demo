@@ -140,13 +140,13 @@ public class ThenStepDefinitions {
         isComponentVisible.waitElement( By.xpath( "//input[@data-testid='" + fieldName + "']" ) );
         if ( value.equals( "BlogName" ) || ( value.equals( "Album" ) || (value.equals( "Groups")) || (value.equals( "Polls")) ) ) {
             components.componentInputDataTestID( fieldName ).clear();
-            components.componentInputDataTestID( fieldName ).sendKeys( dataExecutor.readConstants( value ) );
+            components.componentInputDataTestID( fieldName).sendKeys( dataExecutor.readConstants( value ) );
         } else {
             components.componentInputDataTestID( fieldName ).clear();
             components.componentInputDataTestID( fieldName ).sendKeys( value );
         }
     }
-
+//input[
     /**------------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param module menu's name on side menu

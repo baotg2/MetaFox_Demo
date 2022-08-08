@@ -4,6 +4,7 @@ Feature:  Brian process on Forum
   @BrianAddNewForumWithEmptyValue
   Scenario: Brian Add New Poll Public Vote
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "forum" and tab "/forum/thread/add"
     And the user click on button "buttonSubmit"
     Then the user see "Title is a required field." displayed success
@@ -12,6 +13,7 @@ Feature:  Brian process on Forum
   @BrainAddNewForum
   Scenario: Brian Add New Forum
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "forum" and tab "/forum/thread/add"
     And the user add value on id "select-forum_id" is "General"
     When the user want to select category at 1 on dropdown list "select-forum_id"
@@ -26,12 +28,14 @@ Feature:  Brian process on Forum
   @BrianVerifySubscribedThreads
   Scenario: Brian verified subscribed threads
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "forum" and tab "/forum/subscribed-thread"
     Then the user see a element "IsThreadAutotest" is displayed on detail
 
   @AnotherUserReplyThread
   Scenario: Another User Reply Thread
     Given the user logged in as "terry"
+    When the user action on "More"
     Then the browser opened at item "forum" and tab ""
     And the user see search field "Search Discussions" and typing keys "IsThreadAutotest"
     And the user access first condition "inputSort"
@@ -47,6 +51,7 @@ Feature:  Brian process on Forum
  @BrianSearchReplies
  Scenario: Brain Search Replies
    Given the user logged in as "brian"
+   When the user action on "More"
    Then the browser opened at item "forum" and tab ""
    And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
    When the user want to select category at 1 on dropdown list "select-item_type"
@@ -55,6 +60,7 @@ Feature:  Brian process on Forum
  @AnotherUserCreationOnThread
  Scenario: Brain Reaction On Thread
    Given the user logged in as "brian"
+   When the user action on "More"
    Then the browser opened at item "forum" and tab ""
    And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
    And the user want to click on title "itemTitle" and process
@@ -65,6 +71,7 @@ Feature:  Brian process on Forum
   @BrianEditThread
   Scenario: Brain Edit Thread
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "forum" and tab ""
     And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
     When the user want to click on button label "actionMenu" and process
@@ -78,6 +85,7 @@ Feature:  Brian process on Forum
   @BrianMoveThreadToAnotherForum
   Scenario: Brain move thread to another forum
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "forum" and tab ""
     And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
     When the user want to click on button label "actionMenu" and process
@@ -91,12 +99,13 @@ Feature:  Brian process on Forum
   @BrainCopyThreadWithDefaultTitle
   Scenario: Brain copy thread with default title
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "forum" and tab ""
     And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
     When the user want to click on button label "actionMenu" and process
     And the user click on div "copy" and process
     Then the user see "Copy Thread" is displayed on user profile
-    When the user action on input field "inputTitle" with value ""
+    #When the user action on input field "inputTitle" with value ""
     And the user want to "Copy"
     Then the user see message "Your thread copying progress is being processed. Please wait a few minutes." displayed
     When the user "new_notification" this item
@@ -111,12 +120,14 @@ Feature:  Brian process on Forum
   @BrainVerifyOnHistory
   Scenario: Brian verify on history
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "forum" and tab "/forum/history-thread"
     Then the user see a element "IsThreadAutotest" is displayed on detail
 
   @BrainClosedThread
   Scenario: Brian closed thread
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "forum" and tab ""
     And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
     When the user want to click on button label "actionMenu" and process

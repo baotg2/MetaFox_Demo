@@ -17,7 +17,7 @@ Feature: Verify access side menu success
     Then the user "whatsHappening" this item
     And the user add comment "<autoPost>" on blog
     And the user click on button "submit"
-    Then the user see message "Shared successfully" displayed
+    Then the user see message "Post has been created successfully" displayed
     Then the user see "<autoPost>" displayed success
   Examples:
     |autoPost|

@@ -85,7 +85,7 @@ Feature: Brain Process On User Profile
     Given the user logged in as "brian"
     Then the user want to access "userAvatar"
     And the user want to "Edit Profile"
-    And the user add value on " " is "mui-88"
+    And the user add value "" on element "0"
     And the user click on button "buttonSubmit"
     Then the user see message "Information updated successfully" displayed
 

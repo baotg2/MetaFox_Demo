@@ -53,13 +53,14 @@
     And the user see search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    When the user want to click on button label "Not Interested" and process
-    Then the user action on "Interested"
+    When the user want to click on button label "Interested" and process
+    Then the user action on "Not Interested"
     Then the user see message "Updated response successfully" displayed
     And the user want to click on title "itemTitle" and process
     And the user want to refresh page before handle the action
-    Then the user see button "DISCUSSIONS" is displayed
-    And the user see button "EVENT INFO" is displayed
+    Then the user want to see tab "DISCUSSIONS" displayed on detail
+    And the user want to see tab "MANAGE" displayed on detail
+    And the user want to see tab "PENDING POSTS" displayed on detail
 
     @BrainDeleteOfflineEvents
     Scenario: Brain delete offline events

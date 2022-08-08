@@ -4,6 +4,7 @@ Feature:  Brian process on multiple choice polls
   @BrianAddNewUnPublicVotePoll
   Scenario: Brian Add New Poll Public Vote
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "polls" and tab "/poll/add"
     And the user action on input field "inputQuestion" with value "Polls"
     And the user add value on id "mui-51" is "Yes"
@@ -18,6 +19,7 @@ Feature:  Brian process on multiple choice polls
   @AnotherUserVoteUnPublicVotePoll
   Scenario: Another User Vote Poll
     Given the user logged in as "admin"
+    When the user action on "More"
     When the browser opened at item "polls" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
@@ -27,6 +29,7 @@ Feature:  Brian process on multiple choice polls
   @BrianEditUnPublicVotePoll
   Scenario: Brain Edit Un Public Vote Polls
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "polls" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     When the user want to click on button label "actionMenu" and process
@@ -39,6 +42,7 @@ Feature:  Brian process on multiple choice polls
   @BrianDeleteUnPublicVotePoll
   Scenario: Brain Delete Un Public Vote Polls
     Given the user logged in as "brian"
+    When the user action on "More"
     When the browser opened at item "polls" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     When the user want to click on button label "actionMenu" and process

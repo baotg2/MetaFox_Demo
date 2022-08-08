@@ -440,6 +440,21 @@ public class AndStepDefinitions {
         components.componentsListElementByID(id).get(0).sendKeys(value);
     }
 
+    /**--------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param index is id of element
+     * @param value is value input from keyboard
+     * @purpose input value on element has id
+     * @Author baotg2
+     * --------------------------------------------------------------------------------------------------------------------------------------
+     * @since 06-28-2022
+     */
+    @And("^the user add value \"([^\"]*)\" on element \"([^\"]*)\"$")
+    public void inputByContainsID(String value, int index) {
+        isComponentVisible.waitElement(By.xpath("//input[(contains(@id,'mui-'))]"));
+        components.componentInputContainsID("mui-").get(index).click();
+        components.componentInputContainsID("mui-").get(index).sendKeys(value);
+    }
 
     /**-------------------------------------------------------------------------------------------------------------------------------------------
      *

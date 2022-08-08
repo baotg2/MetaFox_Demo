@@ -28,6 +28,7 @@ Feature:  Brain Process On Public Events
   @BrianReactionOnEventJustAdd
   Scenario: Brain Reaction On This Blog
     Given the user logged in as "brian"
+    When the user action on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
