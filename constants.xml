@@ -15,6 +15,6 @@
     <Polls>IsThisAutoPoll</Polls>
     <BROWSERSTACK_USERNAME>baotran_moYtnK</BROWSERSTACK_USERNAME>
     <BROWSERSTACK_ACCESS_KEY>2cnCJbmwkKAmmb9hEVsN</BROWSERSTACK_ACCESS_KEY>
-    <TestBuilder>Brain Process On Sharing Items</TestBuilder>
-    <TestCaseRunner>BrainVerifyPrivacySharingPhotoAlbums</TestCaseRunner>
+    <TestBuilder>MetaFox regression Test</TestBuilder>
+    <TestCaseRunner>Builder_Features</TestCaseRunner>
 </constants>
