@@ -1,125 +1,108 @@
-@MetaFox @core @brianProcessOnSharingItems
-Feature: Brain Process On Sharing Items
+@MetaFox @core @brianProcessOnSharingItemsFriends
+Feature: Brain Process On Sharing Items Friends
 
-  @BrainVerifyPrivacySharingBlogs
-  Scenario: Brain Verify Privacy Sharing Blogs
+  @BrianVerifyPrivacyFeedDefaultPrivacyIsFriends
+  Scenario:Brain Verify Privacy Feed Default Privacy Is Friends
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
-    And the user select privacy at field "Blogs" and change to "Only Me"
+    And the user select privacy at field "Feed default privacy" and change to "Friends"
     Then the user see message "Updated successfully" displayed
     And the user back to "linkLogo" page
-    When the user action on "More"
-    And the browser opened at item "blog" and tab "/blog/add"
-    Then the user see "Only Me" is displayed on user profile
-    Then I want to click on "Account Settings"
-    And the user back to "Sharing Items" page
-    And the user select privacy at field "Blogs" and change to "Everyone"
-
-  @BrianVerifyPrivacyFeedDefaultPrivacy
-  Scenario:Brain Verify Privacy Feed Default Privacy
-    Given the user logged in as "brian"
-    Then I want to click on "Account Settings"
-    And the user back to "Sharing Items" page
-    And the user select privacy at field "Feed default privacy" and change to "Only Me"
-    Then the user see message "Updated successfully" displayed
     Then the user want to refresh page before handle the action
-    And the user back to "linkLogo" page
     When the user "whatsHappening" this item
-    Then the user see button "Only Me" is displayed
+    Then the user see button "Friends" is displayed
     And the user click on button "buttonClose"
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
     And the user select privacy at field "Blogs" and change to "Everyone"
 
-  @BrainVerifyPrivacySharingEvents
-  Scenario: Brain Verify Privacy Sharing Events
+  @BrainVerifyPrivacySharingBlogsIsFriends
+  Scenario: Brain Verify Privacy Sharing Blogs
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
-    And the user select privacy at field "Events" and change to "Only Me"
+    And the user select privacy at field "Blogs" and change to "Friends"
+    Then the user see message "Updated successfully" displayed
+    And the user back to "linkLogo" page
+    When the user action on "More"
+    And the browser opened at item "blog" and tab "/blog/add"
+    Then the user see "Friends" is displayed on user profile
+    Then I want to click on "Account Settings"
+    And the user back to "Sharing Items" page
+    And the user select privacy at field "Blogs" and change to "Everyone"
+
+  @BrainVerifyPrivacySharingEventsIsFriends
+  Scenario: Brain Verify Privacy Sharing Events Is Friends
+    Given the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "Sharing Items" page
+    And the user select privacy at field "Events" and change to "Friends"
     Then the user see message "Updated successfully" displayed
     And the user back to "linkLogo" page
     When the user action on "More"
     And the browser opened at item "event" and tab "/event/add"
-    And the user want to scroll to the end of page
-    Then the user see "Only Me" is displayed on user profile
+    Then the user see "Friends" is displayed on user profile
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
     And the user select privacy at field "Events" and change to "Everyone"
 
-  @BrainVerifyPrivacySharingPhoto
-  Scenario: Brain Verify Privacy Sharing Photos
+  @BrainVerifyPrivacySharingPhotoIsFriends
+  Scenario: Brain Verify Privacy Sharing Photo Is Friends
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
-    And the user select privacy at field "Photos" and change to "Only Me"
+    And the user select privacy at field "Photos" and change to "Friends"
     Then the user see message "Updated successfully" displayed
     And the user back to "linkLogo" page
     When the user action on "More"
     And the browser opened at item "photo" and tab "/photo/add"
-    Then the user see "Only Me" is displayed on user profile
+    Then the user see "Friends" is displayed on user profile
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
     And the user select privacy at field "Photos" and change to "Everyone"
 
-  @BrainVerifyPrivacySharingPhotoAlbums
-  Scenario: Brain Verify Privacy Sharing Photos Albums
+  @BrainVerifyPrivacySharingPhotoAlbumsIsFriends
+  Scenario: Brain Verify Privacy Sharing Photos Albums Is Friends
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
-    And the user select privacy at field "Photo Albums" and change to "Only Me"
+    And the user select privacy at field "Photo Albums" and change to "Friends"
     Then the user see message "Updated successfully" displayed
     And the user back to "linkLogo" page
     When the user action on "More"
     And the browser opened at item "photo" and tab "/photo/album/add"
-    Then the user see "Only Me" is displayed on user profile
+    Then the user see "Friends" is displayed on user profile
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
     And the user select privacy at field "Photo Albums" and change to "Everyone"
 
-
-  @BrainVerifyPrivacySharingPolls
-  Scenario: Brain Verify Privacy Sharing Polls
+  @BrainVerifyPrivacySharingPollsIsFriends
+  Scenario: Brain Verify Privacy Sharing Polls Is Friends
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
-    And the user select privacy at field "Polls" and change to "Only Me"
+    And the user select privacy at field "Polls" and change to "Friends"
     Then the user see message "Updated successfully" displayed
     And the user back to "linkLogo" page
     When the user action on "More"
     And the browser opened at item "poll" and tab "/poll/add"
-    Then the user see "Only Me" is displayed on user profile
+    Then the user see "Friends" is displayed on user profile
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
     And the user select privacy at field "Polls" and change to "Everyone"
 
-  @BrainVerifyPrivacySharingQuizzes
-  Scenario: Brain Verify Privacy Sharing Quizzes
+  @BrainVerifyPrivacySharingVideosIsFriends
+  Scenario: Brain Verify Privacy Sharing Videos Is Friends
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
-    And the user select privacy at field "Quizzes" and change to "Only Me"
-    Then the user see message "Updated successfully" displayed
-    And the user back to "linkLogo" page
-    When the user action on "More"
-    And the browser opened at item "quiz" and tab "/quiz/add"
-    Then the user see "Only Me" is displayed on user profile
-    Then I want to click on "Account Settings"
-    And the user back to "Sharing Items" page
-    And the user select privacy at field "Quizzes" and change to "Everyone"
-
-  @BrainVerifyPrivacySharingVideos
-  Scenario: Brain Verify Privacy Sharing Videos
-    Given the user logged in as "brian"
-    Then I want to click on "Account Settings"
-    And the user back to "Sharing Items" page
-    And the user select privacy at field "Videos" and change to "Only Me"
+    And the user select privacy at field "Videos" and change to "Friends"
     Then the user see message "Updated successfully" displayed
     And the user back to "linkLogo" page
     When the user action on "More"
     And the browser opened at item "video" and tab "/video/share"
-    Then the user see "Only Me" is displayed on user profile
+    Then the user see "Friends" is displayed on user profile
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
     And the user select privacy at field "Videos" and change to "Everyone"

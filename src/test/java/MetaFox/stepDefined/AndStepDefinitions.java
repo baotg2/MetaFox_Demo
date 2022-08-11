@@ -632,7 +632,8 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("the user want to refresh page before handle the action")
-    public void theUserWantToRefreshPageBeforeHandleTheAction() {
+    public void theUserWantToRefreshPageBeforeHandleTheAction() throws InterruptedException {
+        Thread.sleep(3000);
         Index.getDriver().navigate().refresh();
     }
 
