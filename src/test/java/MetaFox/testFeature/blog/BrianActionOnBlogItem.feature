@@ -77,9 +77,7 @@ Feature:  Brian process on blogs app
     And the user not see "No Results Found" is displayed on result table
     And the user want to click on title "itemTitle" and process
     And the user click on button "menuShareButton"
-    When the user action on "Share to News Feed"
-    And the user add comment "AutoShareOnFeed" on blog
-    And the user click on button "submit"
+    When the user action on "Share now"
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
     Then the user see "shared a post to newsfeed" on left menu
