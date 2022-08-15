@@ -103,7 +103,8 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("^the user back to \"([^\"]*)\" page$")
-    public void isBackToHomePage(String pageMove) {
+    public void isBackToHomePage(String pageMove) throws InterruptedException {
+        Thread.sleep(3000);
         isComponentVisible.waitElement(By.xpath("//a[@data-testid='" + pageMove + "']"));
         components.componentLinkDataTestID(pageMove).click();
     }

@@ -31,7 +31,6 @@ Feature:  Brian process on blogs app
     And the user see search field "Search blogs" and typing keys "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user not see "No Results Found" is displayed on result table
     And the user want to click on title "itemTitle" and process
     And the user add comment "test comment" on blog
     Then the user see "test comment" displayed success
@@ -44,7 +43,6 @@ Feature:  Brian process on blogs app
     And the user see search field "Search blogs" and typing keys "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user not see "No Results Found" is displayed on result table
     And the user want to click on title "itemTitle" and process
     And the user click on button "reactionButton"
 
@@ -56,7 +54,6 @@ Feature:  Brian process on blogs app
     And the user see search field "Search blogs" and typing keys "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user not see "No Results Found" is displayed on result table
     And the user want to click on title "itemTitle" and process
     And the user click on button "menuShareButton"
     When the user action on "Share now"
@@ -74,7 +71,6 @@ Feature:  Brian process on blogs app
     And the user see search field "Search blogs" and typing keys "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user not see "No Results Found" is displayed on result table
     And the user want to click on title "itemTitle" and process
     And the user click on button "menuShareButton"
     When the user action on "Share now"
@@ -98,7 +94,7 @@ Feature:  Brian process on blogs app
     And the user click on button "submit"
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
-    Then the user see a element "AutoShareOnFeed" is displayed on detail
+    Then the user see a element "TestAuto" is displayed on detail
     
   @BrianEditHisBlog
   Scenario: Brian Edit His Blog
@@ -121,7 +117,6 @@ Feature:  Brian process on blogs app
     And the user see search field "Search blogs" and typing keys "Auto Test New Blogs Name"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user not see "No Results Found" is displayed on result table
     And the user click on "actionMenuButton" to access blog
     Then the user "Delete" this item
     And the user click on button "buttonSubmit"
@@ -140,7 +135,7 @@ Feature:  Brian process on blogs app
     And the user want add categories is "Education"
     And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonDraft"
-    Then the user see message "Blog published successfully" displayed
+    Then the user see message "Already saved blog as draft" displayed
     Then the user verify title of blog is displayed
 
   @BrianPublishDraftBlog
@@ -161,7 +156,6 @@ Feature:  Brian process on blogs app
     And the user see search field "Search blogs" and typing keys "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user not see "No Results Found" is displayed on result table
     And the user click on "actionMenuButton" to access blog
     Then the user "Delete" this item
     And the user click on button "buttonSubmit"
@@ -171,12 +165,15 @@ Feature:  Brian process on blogs app
   @BrianReportBlog
   Scenario: Brian Report Blog
     Given the user logged in as "brian"
-    When the user action on "More"
-    Then the browser opened at item "blog" and tab "/blog/all"
-    And the user click on "actionMenuButton" to access blog
+    Then the user see search field "Search ..." and typing keys "admin"
+    And the user want to click on "/admin"
+    And the user see item of "More"
+    And the user want access tool tip "Blogs" from More
+    And the user want to click on button label "actionMenu" and process
     And the user "Report" this item
     Then the user see main form "form" is displayed
     And the user click on button "buttonSubmit"
+    #Then the user see message "Reported successfully!" displayed
 
   @BrianSearchEmptyKeyWord
   Scenario: Brian Search Empty KeyWord
