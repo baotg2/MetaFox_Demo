@@ -4,7 +4,7 @@ Feature: Brian process on photos item
   @BrainAddNewPhoto
   Scenario: Brian Add New Photo
     Given the user logged in as "brian"
-    Then the browser opened at item "photo" and tab "/photo/my"
+    Then the browser opened at item "photo" and tab "/photo/all"
     And the user verify "itemPhoto" before upload
     And the user back to "linkLogo" page
     Then the browser opened at item "photo" and tab "/photo/add"
@@ -17,8 +17,8 @@ Feature: Brian process on photos item
   @BrianReactionOnPhoto
   Scenario: Brian Reaction On Photo
     Given the user logged in as "brian"
-    Then the browser opened at item "photo" and tab "/photo/all"
-    And the user click on div "itemPhoto" and process
+    Then the browser opened at item "photo" and tab "/photo/my"
+    And the user see item of "Brian"
     And the user click on button "reactionButton"
     Then the user see result of "reactionResult" displayed
 
@@ -58,8 +58,53 @@ Feature: Brian process on photos item
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user verify "itemPhoto" before upload
     And the user back to "linkLogo" page
-    Then the user want to access "userAvatar"
     And the user want upload 1 photo
     Then the user click on button "submit"
+    And the user back to "linkLogo" page
+    When the user action on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     Then the user verify "itemPhoto" after upload
+
+  @BrianFeaturePhotos
+  Scenario: Brain Feature Photos
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "photo" and tab "/photo/my"
+    And the user click on "actionMenuButton" to access blog
+    And the user "Feature" this item
+    Then the user see message "Photo featured successfully." displayed
+    Then the user see label of action "featured" is displayed
+
+  @BrianUnFeaturePhotos
+  Scenario: Brain UnFeature Photos
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "photo" and tab "/photo/my"
+    And the user click on "actionMenuButton" to access blog
+    And the user "Un-Feature" this item
+    Then the user see message "Photo unfeatured successfully." displayed
+
+  @BrainShareNowPhotos
+  Scenario: Brain Share Now Photos
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "photo" and tab "/photo/my"
+    And the user see item of "Brian"
+    When the user click on button "menuShareButton"
+    When the user action on "Share now"
+    And the user want to click on button label "Close" and process
+    And the user back to "linkLogo" page
+    Then the user see "shared a post to newsfeed" on left menu
+
+  @BrainShareToNewFeedPhotos
+  Scenario: Brain Share Now Photos
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "photo" and tab "/photo/my"
+    And the user see item of "Brian"
+    When the user click on button "menuShareButton"
+    When the user action on "Share to News Feed"
+    And the user click on button "submit"
+    When the user want to click on button label "Close" and process
+    And the user back to "linkLogo" page
+    Then the user see "shared a post to newsfeed" on left menu

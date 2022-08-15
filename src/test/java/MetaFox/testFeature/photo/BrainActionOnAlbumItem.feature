@@ -31,7 +31,7 @@ Feature: Brian process on album item
     And the user see search field "Search albums" and typing keys "Album"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    Then the user not see "No Results Found" is displayed on result table
+    Then the user see a element "NewAlbum" is displayed on detail
 
   @BrianReactionOnAlbum
   Scenario: Brian Reaction On Album
@@ -43,12 +43,12 @@ Feature: Brian process on album item
     Then the user see result of "reactionResult" displayed
 
   @BrianEditAlbum
-  Scenario: Brian Reaction On Album
+  Scenario: Brian Edit On Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
     And the user see search field "Search albums" and typing keys "Album"
     And the user click on "actionMenuButton" to access blog
-    Then the user "Edit" this item
+    Then the user "Edit Photo Album" this item
     And the user action on input field "inputName" with value "Auto Test New AlbumName"
     And the user click on button "buttonSubmit"
     Then the user see message "Photo album updated successfully." displayed
@@ -60,7 +60,6 @@ Feature: Brian process on album item
     And the user see search field "Search albums" and typing keys "Auto Test New AlbumName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user not see "No Results Found" is displayed on result table
     And the user click on "actionMenuButton" to access blog
     Then the user "Delete" this item
     And the user click on button "buttonSubmit"
@@ -76,7 +75,7 @@ Feature: Brian process on album item
     When the user click on button "buttonSubmit"
     Then the user see message "Photo Album created successfully" displayed
     Then the user see title "IsEmptyAlbum" is displayed
-    And the user see "This album has no photos uploaded" is displayed on user profile
+    And the user see "This album has no photos/videos uploaded" is displayed on user profile
     
   @BrianSearchEmptyAlbum
   Scenario: Brian Search Empty Album
@@ -94,7 +93,7 @@ Feature: Brian process on album item
     When the user want to "Select Files"
     And the user upload media
     When the user click on button "buttonSubmit"
-    Then the user see message "Photo album updated successfully." displayed
+    Then the user see message "This album has no photos/videos uploaded" displayed
     And the user want to refresh page before handle the action
     When the browser opened at item "/photo/albums" and tab ""
     Then the user see title "itemTitle" with value "IsEmptyAlbum"

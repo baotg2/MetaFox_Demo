@@ -331,10 +331,11 @@ public class WhenStepDefinitions {
         int randomPosition = isComponentVisible.randomNumber(size);
         components.componentsListLabel().get(randomPosition).click();
         String value = components.componentsListLabel().get(randomPosition).getText();
+        Thread.sleep(3000);
         components.componentButtonText("Vote").click();
-        Thread.sleep(2000);
         if(components.componentsDivMsg("vote").isEnabled()){
             components.componentsDivMsg("vote").click();
+            Thread.sleep(3000);
             components.componentPText(value).click();
             assertTrue(components.componentLinkText(username).isDisplayed());
         }
