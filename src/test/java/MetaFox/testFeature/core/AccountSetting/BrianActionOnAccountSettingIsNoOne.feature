@@ -1,8 +1,8 @@
-@MetaFox @core @brianProcessOnAccountSettings
-Feature: Brain Process On Account Settings
+@MetaFox @core @brianProcessOnAccountSettingsIsNoOne
+Feature: Brain Process On Account Settings Is No One
 
-  @BrainVerifySendFriendRequest
-  Scenario: Brain Verify Send Friend Request
+  @BrainVerifySendFriendRequestIsNoOne
+  Scenario: Brain Verify Send Friend Request Is NoOne
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
@@ -20,8 +20,8 @@ Feature: Brain Process On Account Settings
     And the user select privacy at field "Who can send me a friend request?" and change to "Anyone"
     Then the user see message "Updated successfully" displayed
 
-  @BrainVerifyViewHisFriendsList
-  Scenario: Brain Verify View His Friends List
+  @BrainVerifyViewHisFriendsListIsNoOne
+  Scenario: Brain Verify View His Friends List Is NoOne
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
@@ -40,8 +40,8 @@ Feature: Brain Process On Account Settings
     And the user select privacy at field "list?" and change to "Anyone"
     Then the user see message "Updated successfully" displayed
 
-  @BrianVerifyViewPostOnHisWall
-  Scenario: Brian Verify View Post On His Wall
+  @BrianVerifyViewPostOnHisWallIsNoOne
+  Scenario: Brian Verify View Post On His Wall Is NoOne
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
@@ -59,8 +59,8 @@ Feature: Brain Process On Account Settings
     And the user select privacy at field "Who can share a post on your wall?" and change to "Friends Only"
     Then the user see message "Updated successfully" displayed
 
-  @BrianVerifyViewBasicInformation
-  Scenario: Brian Verify View Basic Information
+  @BrianVerifyViewBasicInformationIsNoOne
+  Scenario: Brian Verify View Basic Information Is NoOne
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
@@ -78,8 +78,8 @@ Feature: Brain Process On Account Settings
     And the user select privacy at field "Who can view your basic info?" and change to "Anyone"
     Then the user see message "Updated successfully" displayed
 
-  @BrainVerifyViewPhoto
-  Scenario: Brian Verify View Photo
+  @BrainVerifyViewPhotoIsNoOne
+  Scenario: Brian Verify View Photo Is NoOne
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
@@ -98,8 +98,8 @@ Feature: Brain Process On Account Settings
     And the user select privacy at field "Who can view photos on your profile page?" and change to "Anyone"
     Then the user see message "Updated successfully" displayed
 
-  @BrainVerifyViewProfilePage
-  Scenario: Brian Verify View Profile Page
+  @BrainVerifyViewProfilePageIsNoOne
+  Scenario: Brian Verify View Profile Page Is NoOne
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
@@ -117,8 +117,8 @@ Feature: Brain Process On Account Settings
     And the user select privacy at field "Who can view photos on your profile page?" and change to "Anyone"
     Then the user see message "Updated successfully" displayed
 
-  @BrainVerifyViewInfoTabOnProfilePage
-  Scenario: Brian Verify Information Tab On Profile Page
+  @BrainVerifyViewInfoTabOnProfilePageIsNoOne
+  Scenario: Brian Verify Information Tab On Profile Page Is NoOne
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
@@ -136,8 +136,8 @@ Feature: Brain Process On Account Settings
     And the user select privacy at field "Who can view the info tab on your profile page?" and change to "Anyone"
     Then the user see message "Updated successfully" displayed
 
-  @BrainVerifyTagByContext
-  Scenario: Brian Verify Tag By Context
+  @BrainVerifyTagByContextIsNoOne
+  Scenario: Brian Verify Tag By Context Is NoOne
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
