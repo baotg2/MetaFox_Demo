@@ -350,7 +350,7 @@ public class ThenStepDefinitions {
     public void isButtonEnabled(String ariaLabel)
     {
         isComponentVisible.waitElement(By.xpath("//button[@aria-label ='"+ariaLabel+"']"));
-        assertFalse(components.componentsTagButton(ariaLabel).isEnabled());
+        assertTrue(components.componentsTagButton(ariaLabel).isEnabled());
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------

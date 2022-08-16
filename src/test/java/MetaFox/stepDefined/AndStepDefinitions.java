@@ -426,10 +426,11 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("the user add value on \"([^\"]*)\" is \"([^\"]*)\"$")
-    public void actionOnTopicField(String id, String value) {
+    public void actionOnTopicField(String id, String value) throws InterruptedException {
         isComponentVisible.waitElement(By.id(id));
         components.componentInputID(id).clear();
         components.componentInputID(id).sendKeys(value);
+        Thread.sleep(2000);
         components.componentInputID(id).sendKeys(Keys.ENTER);
     }
 
