@@ -378,7 +378,7 @@ public class Components {
      * @since 04-05-2022
      */
     public List<WebElement> componentListSearchAttributes(String attributesName) {
-        return Index.getDriver().findElements(By.xpath("//input[@placeholder='" + attributesName + "']"));
+        return Index.getDriver().findElements(By.xpath("//svg[@=data-testid'" + attributesName + "']"));
     }
 
     /**
@@ -514,7 +514,7 @@ public class Components {
      * @since 04-05-2022
      */
     public List<WebElement> componentsListTagButton(String labelValue) {
-        return Index.getDriver().findElements(By.xpath("//button[@aria-label ='"+labelValue+"']"));
+        return Index.getDriver().findElements(By.xpath("//button[contains(@aria-label,'"+labelValue+"')]"));
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
@@ -540,6 +540,17 @@ public class Components {
         return Index.getDriver().findElement(By.xpath("//h4[@data-testid='"+dataTestID+"']/a"));
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param textValue is datatestID of element
+     * @return element h4 has dataTestID
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author baotg2
+     * @since 04-05-2022
+     */
+    public WebElement componentH4Text(String textValue){
+        return Index.getDriver().findElement(By.xpath("//h4[text()='"+textValue+"']"));
+    }
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param dataTestID is datatestID of element

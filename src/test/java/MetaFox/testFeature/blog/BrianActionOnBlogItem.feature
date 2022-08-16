@@ -89,7 +89,7 @@ Feature:  Brian process on blogs app
     And the user want to click on title "itemTitle" and process
     And the user click on button "menuShareButton"
     When the user "share_on_friends" this item
-    Then the user "itemMedia" this item
+    Then the user "itemUndefined" this item
     And the user click on button "submit"
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action

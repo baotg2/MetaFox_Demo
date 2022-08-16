@@ -621,9 +621,9 @@ public class AndStepDefinitions {
      */
     @And("^the user want to add new date is \"([^\"]*)\"$")
     public void addNewDate(String date){
-        isComponentVisible.waitElement(By.xpath("//input[@placeholder='mm/dd/yyyy']"));
-        components.componentListSearchAttributes("mm/dd/yyyy").get(1).clear();
-        components.componentListSearchAttributes("mm/dd/yyyy").get(1).sendKeys(date);
+        isComponentVisible.waitElement(By.xpath("//button[contains(@aria-label,'Choose date')]"));
+        components.componentsListTagButton("Choose date").get(1).click();
+        components.componentButtonText(date).click();
     }
 
     /**------------------------------------------------------------------------------------------------------------------------------------------------
@@ -655,20 +655,5 @@ public class AndStepDefinitions {
         if(!components.componentInputName(inputName).isSelected()){
             components.componentInputName(inputName).click();
         }
-    }
-
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param ariaLabel is value ariaLabel of button
-     * @purpose is click to action tag user on photo
-     * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @Then("^the user///")
-    public void ListStartTagUser(String ariaLabel)
-    {
-        isComponentVisible.waitElement(By.xpath("//button[@aria-label ='"+ariaLabel+"']"));
-        components.componentsListTagButton(ariaLabel).get(1).click();
     }
 }

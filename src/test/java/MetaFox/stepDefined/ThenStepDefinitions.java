@@ -303,7 +303,7 @@ public class ThenStepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see \"([^\"]*)\" displayed success")
+    @Then("^the user see \"([^\"]*)\" displayed success$")
     public void isStatusVisible(String statusContent){
         isComponentVisible.waitElement( By.xpath( "//p[text() = '" + statusContent + "']" ) );
         assertTrue( components.componentPText( statusContent ).isDisplayed() );
@@ -510,6 +510,20 @@ public class ThenStepDefinitions {
     public void isThreadDisplayedOnDetail(String linkText){
         isComponentVisible.waitElement(By.xpath("//a[text()='" + linkText +"']"));
         assertTrue(components.componentTextLink(linkText).isDisplayed());
+    }
+
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param textValue is value want to verify
+     * @purpose see topic of h4 element is displayed
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user see h4 \"([^\"]*)\" is displayed$")
+    public void isH4TextDisplayed(String textValue){
+        isComponentVisible.waitElement(By.xpath("//h4[text()='" + textValue + "']"));
+        assertTrue(components.componentH4Text(textValue).isDisplayed());
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------

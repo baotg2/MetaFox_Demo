@@ -243,7 +243,6 @@ public class WhenStepDefinitions {
     @When("^the user tag first friend on list tag$")
     public void tagFirstFriendOnList() throws InterruptedException {
         Thread.sleep(6000);
-        isComponentVisible.waitElement(By.xpath("//h5[@data-testid='itemTitle']"));
         if( components.componentsListH5DataTestID("itemTitle").isDisplayed()){
            components.componentsListH5DataTestID("itemTitle").click();
            components.componentsListH5DataTestID("itemTitle").click();
