@@ -7,7 +7,6 @@ Feature:  Brian process on blogs app
     When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/add"
     Then the user action on input field "inputTitle" with value "BlogName"
-    Then the user want to add photo
     And the user add value on div "textbox"
     And the user want to add attach files
     And the user want add categories is "Education"
