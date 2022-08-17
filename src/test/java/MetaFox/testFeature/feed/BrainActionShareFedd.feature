@@ -1,4 +1,4 @@
-@MetaFox @forum  @BrainActionShareFedd
+@MetaFox @feed  @BrainActionShareFeed
 Feature:  Brain Action Share Feed
 
   @BrainShareNow

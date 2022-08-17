@@ -197,7 +197,7 @@ public class ThenStepDefinitions {
      * @since 04-05-2022
      */
     @Then( "^the user add comment \"([^\"]*)\" on blog$" )
-    public void addComment( String comment ) {
+    public void addComment( String comment ) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//div[@role='combobox']"));
         if(components.componentListDivDataTestID("fieldStatus").size()!=0){
             Index.getDriver().findElement(By.xpath("//div[@data-testid='fieldStatus']//div[@role ='combobox']")).sendKeys(comment);
@@ -206,6 +206,7 @@ public class ThenStepDefinitions {
             components.componentDivRole("combobox").sendKeys(comment);
             components.componentDivRole("combobox").sendKeys(Keys.ENTER);
         }
+        Thread.sleep(2000);
 //        isComponentVisible.waitElement( By.xpath( "//p[text() = '" + comment + "']" ) );
 //        assertTrue( components.componentPText( comment ).isDisplayed() );
     }

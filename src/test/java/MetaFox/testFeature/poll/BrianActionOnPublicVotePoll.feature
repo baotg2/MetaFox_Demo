@@ -5,7 +5,7 @@ Feature:  Brian process on public vote polls
   Scenario: Brian See Pop Up When Remove Answers
     Given the user logged in as "brian"
     When the user action on "More"
-    When the browser opened at item "polls" and tab "/poll/add"
+    When the browser opened at item "poll" and tab "/poll/add"
     And the user want to "Remove"
     Then the user see "You must have a minimum of 2 answers." displayed success
     And the user want to "OK"
@@ -16,11 +16,11 @@ Feature:  Brian process on public vote polls
     When the user action on "More"
     When the browser opened at item "poll" and tab "/poll/add"
     And the user action on input field "inputQuestion" with value "Polls"
-    And the user add value on id "mui-51" is "Yes"
-    And the user add value on id "mui-52" is "No"
+    And the user add value "Yes" on element "1"
+    And the user add value "No" on element "2"
     And the user add value on div "textbox"
     And the user want to add attach files
-    When the user select type "Public Votes"
+    When the user select type "Public votes"
     And the user click on button "buttonSubmit"
     Then the user see title "IsThisAutoPoll" is displayed
 
@@ -52,5 +52,6 @@ Feature:  Brian process on public vote polls
     And the user want to click on title "itemTitle" and process
     When the user want to click on button label "actionMenu" and process
     And the user click on div "Delete" and process
-    Then the user see "Are you sure you want to delete this item permanently?" displayed success
+    Then the user see "Are you sure you want to permanently delete this poll?" displayed success
     And the user click on button "buttonSubmit"
+    #Then the user see message "No polls found" displayed
