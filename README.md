@@ -116,11 +116,13 @@ mvn test -Dcucumber.options="--plugin json:target/MetaFox_V5/Cucumber_reports/Me
 ```
 Generate Report
 ```sh
+cd /path/ProjectName/target
+
 allure serve allure-results
 ```
 View report
 ```sh
-http://192.168.12.72:53780/index.html
+http://192.168.12.72:53780/
 ```
 ## License
 
