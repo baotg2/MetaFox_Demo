@@ -275,7 +275,8 @@ public class ThenStepDefinitions {
      * @since 04-05-2022
      */
     @Then( "^the user want to access \"([^\"]*)\"$" )
-    public void accessUserProfile( String spanValue){
+    public void accessUserProfile( String spanValue) throws InterruptedException {
+        Thread.sleep(2000);
         isComponentVisible.waitElement(By.xpath("//span[@data-testid='" + spanValue + "']"));
         components.componentSpanDataTestID(spanValue).click();
     }

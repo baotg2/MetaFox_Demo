@@ -12,7 +12,7 @@ Feature: Brian process on album item
   @BrainAddNewAlbumWithPhoto
   Scenario: Brian Add New Album With Photo
     Given the user logged in as "brian"
-    Then the browser opened at item "photo" and tab "/photo/my-albums"
+    Then the browser opened at item "photo" and tab "/photo/albums"
     And the user verify "itemMedia" before upload
     And the user back to "linkLogo" page
     Then the browser opened at item "photo" and tab "/photo/add"
@@ -97,3 +97,15 @@ Feature: Brian process on album item
     And the user want to refresh page before handle the action
     When the browser opened at item "/photo/albums" and tab ""
     Then the user see title "itemTitle" with value "IsEmptyAlbum"
+
+  @BrianDeleteEmptyAlbum
+  Scenario: Brian Delete Empty Album
+    Given the user logged in as "brian"
+    Then the browser opened at item "photo" and tab "/photo/albums"
+    And the user see search field "Search albums" and typing keys "IsEmptyAlbum"
+    And the user access first condition "inputSort"
+    And the user access first condition "inputWhen"
+    And the user click on "actionMenuButton" to access blog
+    Then the user "Delete" this item
+    And the user click on button "buttonSubmit"
+    Then the user see message "Photo album deleted successfully." displayed
