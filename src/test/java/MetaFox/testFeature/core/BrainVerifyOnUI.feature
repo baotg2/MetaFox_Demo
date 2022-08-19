@@ -62,6 +62,7 @@ Feature: Brain Verify on the UI
   Scenario: Brian verify UI from side menu
     Given the user logged in as "brian"
     And the user see h5 text "Shortcuts" displayed
+    When the user action on "More"
     Then the user see div element "Home" displayed
     And the user see div element "Friends" displayed
     And the user see div element "Members" displayed
@@ -70,7 +71,6 @@ Feature: Brain Verify on the UI
     And the user see div element "Videos" displayed
     And the user see div element "Photos" displayed
     And the user see div element "Polls" displayed
-    When the user action on "More"
     And the user see div element "subscription" displayed
     And the user see div element "Quizzes" displayed
     And the user see div element "Events" displayed
@@ -90,3 +90,24 @@ Feature: Brain Verify on the UI
     Then the user see "Pin Post" on left menu
     Then the user see "Save" on left menu
     Then the user see "Delete" on left menu
+
+  @BrainAccessAppFromMoreMenu
+  Scenario: Brain Access App From More Menu
+    Given the user logged in as "brian"
+    Then the user "more_menu" this item
+    And the user action on "Forum"
+    Then the user see title "Forum" is displayed
+    When the user "more_menu" this item
+    And the user action on "Friends"
+    Then the user see title "Friend Requests" is displayed
+    When the user "more_menu" this item
+    And the user action on "Members"
+    When the user "more_menu" this item
+    And the user action on "Blogs"
+    Then the user see title "Blogs" is displayed
+    When the user "more_menu" this item
+    And the user action on "Videos"
+    Then the user see title "Videos" is displayed
+    When the user "more_menu" this item
+    And the user action on "Activity Points"
+    Then the user see title "Activity Point" is displayed

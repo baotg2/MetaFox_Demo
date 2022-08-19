@@ -1,7 +1,7 @@
 @MetaFox @core @brianProcessOnAccountSettingsIsFriendOnly
 Feature: Brain Process On Account Settings Is Friend Only
 
-  @BrainAddFriend_1
+  @BrainAddFriend
   Scenario: Brain Add Friend
     Given the user logged in as "brian"
     Then the user see search field "Search ..." and typing keys "admin"
@@ -16,12 +16,12 @@ Feature: Brain Process On Account Settings Is Friend Only
 
   @BrainVerifyViewProfilePageIsFriendOnly
   Scenario: Brian Verify View Profile Page Is Friend Only
-    Given the user logged in as "brian"
-    Then I want to click on "Account Settings"
-    And the user back to "Your Profile" page
-    And the user select privacy at field "Who can view your profile page?" and change to "Friends Only"
-    Then the user see message "Updated successfully" displayed
-    And I want to click on "Logout"
+#    Given the user logged in as "brian"
+#    Then I want to click on "Account Settings"
+#    And the user back to "Your Profile" page
+#    And the user select privacy at field "Who can view your profile page?" and change to "Friends Only"
+#    Then the user see message "Updated successfully" displayed
+#    And I want to click on "Logout"
     Then the user logged in as "terry"
     And the user see search field "Search ..." and typing keys "brian"
     And the user want to click on "/brian"

@@ -555,5 +555,4 @@ public class ThenStepDefinitions {
         isComponentVisible.waitElement(By.xpath("//img[@data-testid='imgLogo']"));
         assertTrue(components.componentImg("imgLogo").getAttribute("src").contains(imgSrc));
     }
-
 }

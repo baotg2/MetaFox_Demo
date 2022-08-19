@@ -266,13 +266,8 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("^the user don't see tab \"([^\"]*)\" on user profile")
-    public boolean dontSeeItemONProFile(String itemProfile) {
-        boolean isItemDisplay = false;
-        isComponentVisible.waitElement(By.xpath("//*[@id='"+itemProfile+"']"));
-        if(components.componentsListElementByID(itemProfile).size() == 0){
-            isItemDisplay = true;
-        }
-        return isItemDisplay;
+    public void dontSeeItemONProFile(String itemProfile) {
+        assertEquals(0, components.componentsListElementByID(itemProfile).size());
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------

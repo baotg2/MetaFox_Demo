@@ -6,7 +6,7 @@ Feature: Brain Process On Account Settings Is No One
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
-    And the user select privacy at field "Who can send me a friend request?" and change to "No One"
+    And the user select privacy at field "Who can send you a friend request?" and change to "No One"
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
@@ -17,7 +17,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
-    And the user select privacy at field "Who can send me a friend request?" and change to "Anyone"
+    And the user select privacy at field "Who can send you a friend request?" and change to "Anyone"
     Then the user see message "Updated successfully" displayed
 
   @BrainVerifyViewHisFriendsListIsNoOne
@@ -31,8 +31,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user logged in as "terry"
     And the user see search field "Search ..." and typing keys "brian"
     And the user want to click on "/brian"
-    And the user want to access items "friend" on user profile
-    Then the user see message "No Friends" displayed
+    Then the user don't see tab "friend" on user profile
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
@@ -45,7 +44,7 @@ Feature: Brain Process On Account Settings Is No One
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
-    And the user select privacy at field "Who can share a post on your wall?" and change to "No One"
+    And the user select privacy at field "Who can post on your wall?" and change to "No One"
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
@@ -56,7 +55,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
-    And the user select privacy at field "Who can share a post on your wall?" and change to "Friends Only"
+    And the user select privacy at field "Who can post on your wall?" and change to "Friends Only"
     Then the user see message "Updated successfully" displayed
 
   @BrianVerifyViewBasicInformationIsNoOne
@@ -114,7 +113,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
-    And the user select privacy at field "Who can view photos on your profile page?" and change to "Anyone"
+    And the user select privacy at field "Who can view your profile page?" and change to "Anyone"
     Then the user see message "Updated successfully" displayed
 
   @BrainVerifyViewInfoTabOnProfilePageIsNoOne
@@ -141,7 +140,7 @@ Feature: Brain Process On Account Settings Is No One
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
-    And the user select privacy at field "Who can tag me in written contexts?" and change to "No One"
+    And the user select privacy at field "Who can tag you in written context?" and change to "No One"
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "admin"

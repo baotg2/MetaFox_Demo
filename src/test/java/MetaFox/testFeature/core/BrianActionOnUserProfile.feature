@@ -20,13 +20,12 @@ Feature: Brain Process On User Profile
     And the user want to "Edit Profile"
     Then the user see title "Edit profile" is displayed
     And the user add value on "selectCountryState" is "<country_state>"
-    And the user action on input field "inputPostalCode" with value "<postalCode>"
     Then the user click on button "buttonSubmit"
     Then the user see message "Information updated successfully" displayed
     Examples:
-      |country_state|postalCode|
-      |Vietnam     |7000000    |
-      |United States|1         |
+      |country_state|
+      |Vietnam     |
+      |United States|
 
   @BrianAddBio
   Scenario: Brian Add Bio
