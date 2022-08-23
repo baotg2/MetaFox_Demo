@@ -26,7 +26,7 @@ public class Hook{
      -----------------------------------------------------------------------------------------------------------------------------------------*/
     @Before
     public void beforeTest() throws MalformedURLException {
-        index.openBrowser( EnumDataValue.FIREFOX, EnumDataValue.BROWSERSTACK);
+        index.openBrowser( EnumDataValue.CHROME, EnumDataValue.BROWSERSTACK);
     }
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
