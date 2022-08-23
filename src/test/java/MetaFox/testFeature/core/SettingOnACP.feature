@@ -43,7 +43,8 @@ Feature: Config Settings On ACP
   @BrianVerifySettingsBlogOnACP
   Scenario: Brian Verify Settings Blog On ACP
     Given the user logged in as "brian"
-    When the browser opened at item "blog" and tab "/blog/add"
+    When the user action on "More"
+    And the browser opened at item "blog" and tab "/blog/add"
     Then the user see "Maximum 255 of characters" displayed success
     And the user action on input field "inputTitle" with value "a"
     And the user click on button "buttonSubmit"
