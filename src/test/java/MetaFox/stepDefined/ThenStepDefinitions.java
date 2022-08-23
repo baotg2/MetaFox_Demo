@@ -380,8 +380,12 @@ public class ThenStepDefinitions {
      */
     @Then("^the user see \"([^\"]*)\" is displayed on user profile")
     public void isBio(String bioValue){
-        isComponentVisible.waitElement(By.xpath("//div[text()='" + bioValue +"']"));
-        components.componentsDivMsg(bioValue).getText().contains(bioValue);
+        if(components.componentsListDivMsg(bioValue).size() !=0){
+            components.componentsDivMsg(bioValue).getText().contains(bioValue);
+        }
+        else{
+            assertEquals(components.componentsListDivMsg(bioValue).size(), 0);
+        }
     }
 
     /**------------------------------------------------------------------------------------------------------------------------------------------------
