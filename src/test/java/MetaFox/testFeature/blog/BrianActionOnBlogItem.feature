@@ -146,6 +146,48 @@ Feature:  Brian process on blogs app
     And the user click on button "buttonSubmit"
     And the user see message "Blog published successfully" displayed
 
+  @BrianReportBlog
+  Scenario: Brian Report Blog
+    Given the user logged in as "admin"
+    Then the user see search field "Search ..." and typing keys "brian"
+    And the user want to click on "/brian"
+    And the user see item of "More"
+    And the user want access tool tip "Blogs" from More
+    And the user want to click on button label "actionMenu" and process
+    And the user "Report" this item
+    Then the user see main form "form" is displayed
+    And the user click on button "buttonSubmit"
+    Then the user see message "Reported successfully!" displayed
+
+  @BrianSearchEmptyKeyWord
+  Scenario: Brian Search Empty KeyWord
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "blog" and tab ""
+    And the user see search field "Search blogs" and typing keys "SearchSomethings"
+    And the user access first condition "inputSort"
+    And the user access first condition "inputWhen"
+    Then the user see "No Results Found" is displayed on result table
+
+  @BrianFeatureBlogs
+  Scenario: Brain Feature Blogs
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "blog" and tab "/blog/all"
+    And the user click on "actionMenuButton" to access blog
+    And the user "Feature" this item
+    Then the user see message "Blog featured successfully" displayed
+    Then the user see label of action "featured" is displayed
+
+  @BrianUnFeatureBlogs
+  Scenario: Brain UnFeature Blogs
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "blog" and tab "/blog/all"
+    And the user click on "actionMenuButton" to access blog
+    And the user "Un-Feature" this item
+    Then the user see message "Blog unfeatured successfully" displayed
+
   @BrainDeleteDraftBlog
   Scenario: Brain Delete Draft Blog
     Given the user logged in as "brian"
@@ -158,29 +200,6 @@ Feature:  Brian process on blogs app
     Then the user "Delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully" displayed
-    Then the user see "No Results Found" is displayed on result table
-
-  @BrianReportBlog
-  Scenario: Brian Report Blog
-    Given the user logged in as "brian"
-    Then the user see search field "Search ..." and typing keys "admin"
-    And the user want to click on "/admin"
-    And the user see item of "More"
-    And the user want access tool tip "Blogs" from More
-    And the user want to click on button label "actionMenu" and process
-    And the user "Report" this item
-    Then the user see main form "form" is displayed
-    And the user click on button "buttonSubmit"
-    #Then the user see message "Reported successfully!" displayed
-
-  @BrianSearchEmptyKeyWord
-  Scenario: Brian Search Empty KeyWord
-    Given the user logged in as "brian"
-    When the user action on "More"
-    Then the browser opened at item "blog" and tab ""
-    And the user see search field "Search blogs" and typing keys "SearchSomethings"
-    And the user access first condition "inputSort"
-    And the user access first condition "inputWhen"
     Then the user see "No Results Found" is displayed on result table
 
   @BrianDeleteBlogOnUserProfile
@@ -206,22 +225,3 @@ Feature:  Brian process on blogs app
     And the user "Delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully" displayed
-
-  @BrianFeatureBlogs
-  Scenario: Brain Feature Blogs
-    Given the user logged in as "brian"
-    When the user action on "More"
-    Then the browser opened at item "blog" and tab "/blog/all"
-    And the user click on "actionMenuButton" to access blog
-    And the user "Feature" this item
-    Then the user see message "Blog featured successfully" displayed
-    Then the user see label of action "featured" is displayed
-
-  @BrianUnFeatureBlogs
-  Scenario: Brain UnFeature Blogs
-    Given the user logged in as "brian"
-    When the user action on "More"
-    Then the browser opened at item "blog" and tab "/blog/all"
-    And the user click on "actionMenuButton" to access blog
-    And the user "Un-Feature" this item
-    Then the user see message "Blog unfeatured successfully" displayed
