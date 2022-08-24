@@ -39,8 +39,8 @@ Feature: Brain Process On Account Settings Is No One
     And the user select privacy at field "list?" and change to "Anyone"
     Then the user see message "Updated successfully" displayed
 
-  @BrianVerifyViewPostOnHisWallIsNoOne
-  Scenario: Brian Verify View Post On His Wall Is NoOne
+  @BrianVerifyPostOnHisWallIsNoOne
+  Scenario: Brian Verify Post On His Wall Is NoOne
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
@@ -56,6 +56,25 @@ Feature: Brain Process On Account Settings Is No One
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
     And the user select privacy at field "Who can post on your wall?" and change to "Friends Only"
+    Then the user see message "Updated successfully" displayed
+
+  @BrianVerifyViewOnHisWallIsNoOne
+  Scenario: Brian Verify View On His Wall Is NoOne
+    Given the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "Your Profile" page
+    And the user select privacy at field "Who can view on your wall?" and change to "No One"
+    Then the user see message "Updated successfully" displayed
+    And I want to click on "Logout"
+    Then the user logged in as "terry"
+    And the user see search field "Search ..." and typing keys "brian"
+    And the user want to click on "/brian"
+    Then the user see "No Content Found" on left menu
+    And I want to click on "Logout"
+    Then the user logged in as "brian"
+    Then I want to click on "Account Settings"
+    And the user back to "Your Profile" page
+    And the user select privacy at field "Who can view on your wall?" and change to "Friends Only"
     Then the user see message "Updated successfully" displayed
 
   @BrianVerifyViewBasicInformationIsNoOne

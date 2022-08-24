@@ -80,6 +80,7 @@ Feature: Brain Process On Account Settings Is Friend Only
     And the user see search field "Search ..." and typing keys "brian"
     And the user want to click on "/brian"
     Then the user want to access items "photo" on user profile
+    Then the user see div element "itemMedia" displayed
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
