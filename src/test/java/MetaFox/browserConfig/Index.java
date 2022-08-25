@@ -85,9 +85,6 @@ public class Index {
                     case FIREFOX:
                         driver = new FirefoxDriver();
                         break;
-                    case SAFARI:
-                        driver = new SafariDriver();
-                        break;
                 }
                 break;
             default:
