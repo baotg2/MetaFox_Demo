@@ -84,7 +84,7 @@ Feature: Brian process on album item
     Then the user see title "itemTitle" with value "IsEmptyAlbum"
 
   @BrianAddPhotoToEmptyAlbum
-  Scenario: Brian Search Empty Album
+  Scenario: Brian Add Photo To Empty Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my-albums"
     Then the user see title "itemTitle" with value "IsEmptyAlbum"

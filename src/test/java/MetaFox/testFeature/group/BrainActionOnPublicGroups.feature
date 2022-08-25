@@ -28,8 +28,8 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "admin"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "Groups"
-    And the user access this blog by "itemMedia" and process
+    And the user see search field "Search groups" and typing keys "Groups"
+    And the user want to click on title "itemTitle" and process
     Then the user see title h2 "GroupTestAuto" is displayed
 
   @AnotherUserJoinGroupOnGroupDetail
@@ -37,7 +37,7 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "admin"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "Groups"
+    And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
     When the user want to "Join Group"
     Then the user see message "Joined successfully." displayed
@@ -48,12 +48,11 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "admin"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "Groups"
+    And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
     Then the user "whatsHappening" this item
     And the user add comment "AutoPostStatus1" on blog
     And the user click on button "submit"
-    Then the user see message "Shared successfully" displayed
     Then the user see "AutoPostStatus1" displayed success
 
   @AnotherUserReactionOnGroups
@@ -61,7 +60,7 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "Groups"
+    And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
     And the user click on button "reactionButton"
 
@@ -70,7 +69,7 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "admin"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "Groups"
+    And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
     When the user want to click on button label "ActionMenu" and process
     And the user click on div "Leave group" and process
@@ -78,21 +77,21 @@ Feature:  Brain Process On Public Groups
     And the user click on button "buttonSubmit"
     Then the user see button "Join Group" is displayed
 
-  @AnotherUserJoinGroupOnSlotMain
-  Scenario: Another User Join Group
-    Given the user logged in as "admin"
-    When the user action on "More"
-    Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "Groups"
-    When the user want to click on list button label "Join Group" and process
-    Then the user see message "Joined successfully." displayed
+#  @AnotherUserJoinGroupOnSlotMain
+#  Scenario: Another User Join Group
+#    Given the user logged in as "admin"
+#    When the user action on "More"
+#    Then the browser opened at item "group" and tab ""
+#    And the user see search field "Search groups" and typing keys "Groups"
+#    When the user want to click on list button label "Join Group" and process
+#    Then the user see message "Joined successfully." displayed
 
   @BrianAddMemberShipQuestion
   Scenario: Brain Add MemberShip Question
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "Groups"
+    And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
     When the user see "actionMenu" and click on
     And the user "Manage" this item
@@ -108,7 +107,7 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "admin"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "Groups"
+    And the user see search field "Search groups" and typing keys "Groups"
     When the user want to click on list button label "Join Group" and process
     Then the user see "Answer the Question" is displayed on user profile
     And the user action on input field "inputQuestionQuestion7" with value "TestAnwser"
@@ -120,7 +119,7 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "Groups"
+    And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
     When the user see "actionMenu" and click on
     And the user "Manage" this item
@@ -131,7 +130,7 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "terry"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "Groups"
+    And the user see search field "Search groups" and typing keys "Groups"
     And the user access this blog by "itemMedia" and process
     Then the user "whatsHappening" this item
     And the user add comment "AutoPostStatus" on blog

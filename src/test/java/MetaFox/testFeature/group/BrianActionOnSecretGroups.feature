@@ -18,7 +18,7 @@ Feature:  Brain Process On Secret Groups
     Given the user logged in as "test"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "TestAutoSecretGroup"
+    And the user see search field "Search groups" and typing keys "TestAutoSecretGroup"
     Then the user see "No groups found" on left menu
 
   @BrianInviteAnotherUserJoinSecretGroup
@@ -26,8 +26,8 @@ Feature:  Brain Process On Secret Groups
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "TestAutoSecretGroup"
-    And the user access this blog by "itemMedia" and process
+    And the user see search field "Search groups" and typing keys "TestAutoSecretGroup"
+    And the user want to click on title "itemTitle" and process
     When the user see "actionMenu" and click on
     And the user "Invite Friends" this item
     #Then the user add value on "searchBox" is "test"
@@ -47,7 +47,7 @@ Feature:  Brain Process On Secret Groups
     Given the user logged in as "test"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "TestAutoSecretGroup"
+    And the user see search field "Search groups" and typing keys "TestAutoSecretGroup"
     And the user want to click on title "itemTitle" and process
     When the user want to click on button label "ActionMenu" and process
     And the user click on div "Leave group" and process
@@ -59,7 +59,7 @@ Feature:  Brain Process On Secret Groups
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search group" and typing keys "TestAutoSecretGroup"
+    And the user see search field "Search groups" and typing keys "TestAutoSecretGroup"
     And the user want to click on title "itemTitle" and process
     When the user want to click on button label "ActionMenu" and process
     And the user click on div "Delete" and process

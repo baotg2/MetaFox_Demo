@@ -19,6 +19,7 @@ Feature:  Brain Process On Public Events
     And the user action on input field "inputName" with value "IsOfflineEvents"
     And the user add value on "select-categories" is "Music"
     And the user want to add new date is "31"
+    When the user want to scroll to the end of page
     Then the user action on input field "fieldLocation" with value "Ho Chi Minh City"
     And the user click on the "tooltip" on screen
     And the user click on button "buttonSubmit"

@@ -9,12 +9,15 @@ Feature: Verify Visitor Process on Sign Up
     And the user click on div "Members" and process
     And the user see title "Members" is displayed
     And the user back to "linkLogo" page
-#    And the user click on div "blogs" and process
-#    And the user see "Popular Blogs" on left menu
-#    And the user back to "linkLogo" page
+    When the user action on "More"
+    And the user click on div "Blogs" and process
+    And the user see title h2 "Popular Blogs" is displayed
+    And the user back to "linkLogo" page
+    When the user action on "More"
     And the user click on div "Photos" and process
     And the user see title "Popular Photos" is displayed
     And the user back to "linkLogo" page
+    When the user action on "More"
     And the user click on div "Polls" and process
     And the user see title "Popular Polls" is displayed
 
@@ -41,7 +44,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user action on input field "inputFullName" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example.com"
     And the user input info sign up "Choose an Username" with value "TestAutoExistEmail"
-    And the user input info password sign up "mui-16" with value "123456"
+    And the user add value "123456" on element "7"
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"
     Then the user see error message "The email has already been taken." is displayed
@@ -73,8 +76,8 @@ Feature: Verify Visitor Process on Sign Up
     And the user action on input field "inputLastName" with value "L"
     And the user action on input field "inputFullName" with value "V"
     And the user input info sign up "Email Address" with value "nlv@phpfox.com"
-    And the user input info sign up "Choose an Username" with value "Ivan1"
-    And the user input info password sign up "mui-16" with value "123456"
+    And the user input info sign up "Choose an Username" with value "admin"
+    And the user add value "123456" on element "7"
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"
     Then the user see error message "The user name has already been taken." is displayed
@@ -88,7 +91,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user action on input field "inputFullName" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example123.com"
     And the user input info sign up "Choose an Username" with value "TestAuto1"
-    And the user input info password sign up "mui-16" with value "cv"
+    And the user add value "cv" on element "7"
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"
     Then the user see error message "Your password must be at least 6 characters long. Please try another." is displayed
@@ -102,7 +105,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user action on input field "inputFullName" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example123.com"
     And the user input info sign up "Choose an Username" with value "TestAuto1"
-    And the user input info password sign up "mui-16" with value " "
+    And the user add value " " on element "7"
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"
     Then the user see error message "The password is required." is displayed

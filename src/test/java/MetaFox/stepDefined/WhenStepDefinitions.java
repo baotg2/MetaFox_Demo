@@ -150,8 +150,9 @@ public class WhenStepDefinitions {
      * @since 06-15-2022
      */
     @When("^the user upload media$")
-    public void uploadMedia(){
-        dataExecutor.uploadFile(dataExecutor.getRandomPathDocuments().replace( "\\\\" , "\\" ));
+    public void uploadMedia() throws InterruptedException {
+        Thread.sleep(6000);
+        dataExecutor.uploadFile("/Users/qctest/IdeaProjects/MetaFox_Demo/src/test/java/MetaFox/testdata/imageTest5.jpg");
     }
 
     /**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -224,11 +225,8 @@ public class WhenStepDefinitions {
     public void findAndSelectNotifications(String notification) throws InterruptedException {
         Thread.sleep(3000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemSummary']"));
-        int temp = components.componentListDivDataTestID("itemSummary").size();
-        for(int i = 0; i < temp; i ++){
-            if (components.componentListDivDataTestID("itemSummary").get(i).getText().contains(notification)){
-                components.componentListDivDataTestID("itemSummary").get(i).click();
-            }
+        if (components.componentListDivDataTestID("itemSummary").get(0).getText().contains(notification)){
+            components.componentListDivDataTestID("itemSummary").get(0).click();
         }
     }
 
@@ -425,7 +423,8 @@ public class WhenStepDefinitions {
      * @since 08-03-2022
      */
     @When("^the user want to scroll to the end of page")
-    public void toScrollToEndOfPage() {
+    public void toScrollToEndOfPage() throws InterruptedException {
         stepDefinition.scrollToEndPage();
+        Thread.sleep(2000);
     }
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -83,6 +84,9 @@ public class Index {
                         break;
                     case FIREFOX:
                         driver = new FirefoxDriver();
+                        break;
+                    case SAFARI:
+                        driver = new SafariDriver();
                         break;
                 }
                 break;

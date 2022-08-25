@@ -150,7 +150,7 @@ public class AndStepDefinitions {
      */
     @And("^the user click on div \"([^\"]*)\" and process")
     public void accessBlogOnSearchResult(String itemName) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + itemName + "']"));
         Index.getDriver().findElement(By.xpath("//div[@data-testid='" + itemName + "']")).click();
     }
@@ -185,6 +185,22 @@ public class AndStepDefinitions {
         components.componentsDivMsg(buttonName).click();
     }
 
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param buttonName is id of div element
+     * @Author baotg2
+     * @purpose: the user see photo of who want to delete photo
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @And("the user see element div item of \"([^\"]*)\"$")
+    public void isSeeDivElement(String buttonName) throws InterruptedException {
+        isComponentVisible.waitElement(By.xpath("//div[text()='" + buttonName + "']"));
+        Thread.sleep(2000);
+        components.componentsListDivMsg(buttonName).get(1).click();
+    }
+//*[@id="root"]/div[3]/div/div/div/div/div/div[3]/div[1]/div[2]/div/div/button[3]
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
