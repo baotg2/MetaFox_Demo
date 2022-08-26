@@ -1,19 +1,6 @@
 @MetaFox @polls  @multiplePollFunctionIsFriend_Brian
 Feature:  Brian process on multiple choice polls is friend
 
-  @BrainAddFriendWithTest
-  Scenario: Brain Add Friend
-    Given the user logged in as "brian"
-    Then the user see search field "Search" and typing keys "test"
-    And the user want to click on "/test"
-    And the user want to "Add Friend"
-    Then I want to click on "Logout"
-    And the user logged in as "test"
-    Then the user see search field "Search" and typing keys "brian"
-    And the user want to click on "/brian"
-    And the user want to "Accept"
-    Then the user see button "Un Friend" is displayed
-
   @BrianAddNewPollMultipleChoiceIsFriend
   Scenario: Brian Add New Poll Public Vote Is Friend
     Given the user logged in as "brian"

@@ -1,19 +1,6 @@
 @MetaFox @core @brianProcessOnAccountSettingsIsFriendOnly
 Feature: Brain Process On Account Settings Is Friend Only
 
-  @BrainAddFriendWithAdmin
-  Scenario: Brain Add Friend
-    Given the user logged in as "brian"
-    Then the user see search field "Search" and typing keys "admin"
-    And the user want to click on "/admin"
-    And the user want to "Add Friend"
-    Then I want to click on "Logout"
-    And the user logged in as "admin"
-    Then the user see search field "Search" and typing keys "brian"
-    And the user want to click on "/brian"
-    And the user want to "Accept"
-    Then the user see button "Un Friend" is displayed
-
   @BrainVerifyViewProfilePageIsFriendOnly
   Scenario: Brian Verify View Profile Page Is Friend Only
     Given the user logged in as "brian"
