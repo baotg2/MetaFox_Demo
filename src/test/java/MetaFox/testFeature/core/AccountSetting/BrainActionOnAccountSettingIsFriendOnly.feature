@@ -1,15 +1,15 @@
 @MetaFox @core @brianProcessOnAccountSettingsIsFriendOnly
 Feature: Brain Process On Account Settings Is Friend Only
 
-  @BrainAddFriend
+  @BrainAddFriendWithAdmin
   Scenario: Brain Add Friend
     Given the user logged in as "brian"
-    Then the user see search field "Search ..." and typing keys "admin"
+    Then the user see search field "Search" and typing keys "admin"
     And the user want to click on "/admin"
     And the user want to "Add Friend"
     Then I want to click on "Logout"
     And the user logged in as "admin"
-    Then the user see search field "Search ..." and typing keys "brian"
+    Then the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     And the user want to "Accept"
     Then the user see button "Un Friend" is displayed
@@ -23,12 +23,12 @@ Feature: Brain Process On Account Settings Is Friend Only
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see "Profile is private" on left menu
     And I want to click on "Logout"
     Then the user logged in as "admin"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see div element "whatsHappening" displayed
     And I want to click on "Logout"
@@ -47,12 +47,12 @@ Feature: Brain Process On Account Settings Is Friend Only
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see "No Content" is displayed on user profile
     And I want to click on "Logout"
     Then the user logged in as "admin"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see "No Content" is displayed on user profile
     And I want to click on "Logout"
@@ -71,13 +71,13 @@ Feature: Brain Process On Account Settings Is Friend Only
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     And the user want to access items "photo" on user profile
     Then the user see "No Photos" is displayed on user profile
     And I want to click on "Logout"
     Then the user logged in as "admin"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user want to access items "photo" on user profile
     Then the user see div element "itemMedia" displayed

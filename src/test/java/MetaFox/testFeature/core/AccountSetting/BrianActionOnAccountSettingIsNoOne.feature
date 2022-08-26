@@ -10,7 +10,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see button "Message" is displayed
     And I want to click on "Logout"
@@ -29,7 +29,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user don't see tab "friend" on user profile
     And I want to click on "Logout"
@@ -48,7 +48,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user don't see "whatsHappening" is displayed
     And I want to click on "Logout"
@@ -67,7 +67,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see "No Content Found" on left menu
     And I want to click on "Logout"
@@ -86,7 +86,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see "No Content" is displayed on user profile
     And I want to click on "Logout"
@@ -105,7 +105,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     And the user want to access items "photo" on user profile
     Then the user see "No Photos" is displayed on user profile
@@ -125,7 +125,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see "Profile is private" on left menu
     And I want to click on "Logout"
@@ -144,7 +144,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search ..." and typing keys "brian"
+    And the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user don't see tab "about" on user profile
     And I want to click on "Logout"
