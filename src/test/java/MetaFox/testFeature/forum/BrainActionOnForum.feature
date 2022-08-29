@@ -55,7 +55,6 @@ Feature:  Brian process on Forum
    Then the browser opened at item "forum" and tab ""
    And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
    When the user want to select category at 1 on dropdown list "select-item_type"
-   Then the user see "Parent Thread: IsThreadAutotest" displayed on search results
 
  @AnotherUserCreationOnThread
  Scenario: Brain Reaction On Thread
@@ -109,13 +108,28 @@ Feature:  Brian process on Forum
     And the user want to "Copy"
     Then the user see message "Your thread copying progress is being processed. Please wait a few minutes." displayed
     When the user "new_notification" this item
-    And the user click on notification "Your thread copying process has been success. Review now" and process
+    And the user click on notification "Your thread copying process has been completed. Review now" and process
     Then the user see title "Copy - IsThreadAutotest" is displayed
     And the user click on button "actionMenuButton"
     And the user click on div "delete" and process
     Then the user see "Are you sure you want to delete this thread permanently?" displayed success
     And the user want to "OK"
     Then the user see message "Thread deleted successfully." displayed
+
+  @AdminStickThread
+  Scenario: Admin Stick Thread
+    Given the user logged in as "admin"
+    When the user action on "More"
+    When the browser opened at item "forum" and tab ""
+    And the user see search field "Search Discussions" and typing keys "IsThreadAutotest"
+    And the user access first condition "inputSort"
+    And the user access first condition "inputWhen"
+    When the user want to click on button label "actionMenu" and process
+    And the user click on div "stick" and process
+    Then the user see message "Thread successfully sticked." displayed
+    When the user want to click on button label "actionMenu" and process
+    And the user click on div "unstick" and process
+    Then the user see message "Thread successfully unsticked." displayed
 
   @BrainVerifyOnHistory
   Scenario: Brian verify on history

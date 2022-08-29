@@ -1,26 +1,6 @@
 @MetaFox @Author @VisitorProcessSignUp
 Feature: Verify Visitor Process on Sign Up
 
-  @VisitorProcessOnMenuSide
-  Scenario: Verify Visitor Process on Menu Side
-    Given the user click on div "Friends" and process
-    And the user see "Welcome Back" is displayed
-    And back to previous page
-    And the user click on div "Members" and process
-    And the user see title "Members" is displayed
-    And the user back to "linkLogo" page
-    When the user action on "More"
-    And the user click on div "Blogs" and process
-    And the user see title h2 "Popular Blogs" is displayed
-    And the user back to "linkLogo" page
-    When the user action on "More"
-    And the user click on div "Photos" and process
-    And the user see title "Popular Photos" is displayed
-    And the user back to "linkLogo" page
-    When the user action on "More"
-    And the user click on div "Polls" and process
-    And the user see title "Popular Polls" is displayed
-
   @VisitorRegisterNewAccountWithErrorMsgInvalidEmail
   Scenario Outline: Visitor Process register new account With Error Msg Invalid Email
     Given the user click on div "fieldRegister" and process
