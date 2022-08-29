@@ -559,4 +559,17 @@ public class ThenStepDefinitions {
         isComponentVisible.waitElement(By.xpath("//img[@data-testid='imgLogo']"));
         assertTrue(components.componentImg("imgLogo").getAttribute("src").contains(imgSrc));
     }
+
+    /**-------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param buttonTestDataID is id of button
+     * @purpose verify button is displayed
+     * @Author baotg2
+     *--------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user verify button test data id \"([^\"]*)\" is displayed$")
+    public void isButtonTestDataIdDisplayed(String buttonTestDataID) {
+        assertEquals(components.componentListButtonDataTestID(buttonTestDataID).size(), 0);
+    }
 }
