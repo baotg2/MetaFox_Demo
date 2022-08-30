@@ -9,6 +9,7 @@ import MetaFox.support.IsComponentVisible;
 
 import java.io.IOException;
 
+import static MetaFox.browserConfig.Index.currentUrlValue;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -59,5 +60,15 @@ public class GivenStepDefinitions {
     @Given("the browser will get Administrator URL")
     public void getAddressACP(){
         Index.getDriver().get(dataExecutor.readConstants("URLACP"));
+    }
+
+    @Given("the user get current URL")
+    public void getCurrentUrl(){
+        currentUrlValue = Index.getDriver().getCurrentUrl();
+    }
+
+    @Given("the user open URL detail")
+    public void openUrlDetail(){
+        Index.getDriver().get(currentUrlValue);
     }
 }

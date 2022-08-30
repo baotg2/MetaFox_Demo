@@ -25,6 +25,8 @@ public class Index {
 
     public static WebDriver driver;
     public static String selectPlatform;
+
+    public static String currentUrlValue;
     public String AUTOMATE_USERNAME = dataExecutor.readConstants("BROWSERSTACK_USERNAME");
     public String AUTOMATE_ACCESS_KEY = dataExecutor.readConstants("BROWSERSTACK_ACCESS_KEY");
     public String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";

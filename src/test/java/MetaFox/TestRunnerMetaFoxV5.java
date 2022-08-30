@@ -17,7 +17,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/MetaFox/testFeature"},
         glue = "MetaFox",
-        tags = "@BrainAddNewAlbumFriendWithPhoto",
+        tags = "@photoFriendFunction_Brain",
         plugin = {
                 "html:target/result/",
                 "pretty",
