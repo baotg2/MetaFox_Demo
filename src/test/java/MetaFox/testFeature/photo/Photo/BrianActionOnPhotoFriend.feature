@@ -47,3 +47,22 @@ Feature: Brian process on photos friend item
     Then the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see "shared a post to newsfeed" on left menu
+
+  @BrianFeaturePhotosFriends
+  Scenario: Brain Feature Photos Friends
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "photo" and tab "/photo/my"
+    And the user click on "actionMenuButton" to access blog
+    And the user "Feature" this item
+    Then the user see message "Photo featured successfully." displayed
+    Then the user see label of action "featured" is displayed
+
+  @BrianUnFeaturePhotosFriends
+  Scenario: Brain UnFeature Photos Friends
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "photo" and tab "/photo/my"
+    And the user click on "actionMenuButton" to access blog
+    And the user "Un-Feature" this item
+    Then the user see message "Photo unfeatured successfully." displayed
