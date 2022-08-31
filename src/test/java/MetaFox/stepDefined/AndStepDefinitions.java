@@ -180,9 +180,10 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("the user see item of \"([^\"]*)\"$")
-    public void isSeePhoto(String buttonName) {
+    public void isSeePhoto(String buttonName) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//div[text()='" + buttonName + "']"));
         components.componentsDivMsg(buttonName).click();
+        Thread.sleep(3000);
     }
 
     /**
@@ -667,5 +668,19 @@ public class AndStepDefinitions {
         if(!components.componentInputName(inputName).isSelected()){
             components.componentInputName(inputName).click();
         }
+    }
+
+    /**---------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param subItemsName is items want to access
+     * @Author baotg2
+     * --------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     *
+     */
+    @And("^the user access on sub items \"([^\"]*)\" more option$")
+    public void accessSubItems(String subItemsName) {
+        isComponentVisible.waitElement(By.xpath("//a[text()='" + subItemsName +"']"));
+        components.componentListTextLink(subItemsName).get(1).click();
     }
 }
