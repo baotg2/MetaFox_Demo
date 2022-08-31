@@ -149,7 +149,7 @@ Feature:  Brian process on blogs app
   @BrianReportBlog
   Scenario: Brian Report Blog
     Given the user logged in as "admin"
-    Then the user see search field "Search ..." and typing keys "brian"
+    Then the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     And the user see item of "More"
     And the user want access tool tip "Blogs" from More
