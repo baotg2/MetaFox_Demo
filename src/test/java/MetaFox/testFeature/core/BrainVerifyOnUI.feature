@@ -12,14 +12,14 @@ Feature: Brain Verify on the UI
     And the user see "Videos" on left menu
     And the user see "Photos" on left menu
     And the user see "Polls" on left menu
-    And the user see "Quizzes" on left menu
+    #And the user see "Quizzes" on left menu
     And the user see "Events" on left menu
-    And the user see "Music" on left menu
-    And the user see "Marketplace" on left menu
+#    And the user see "Music" on left menu
+#    And the user see "Marketplace" on left menu
     And the user see "Pages" on left menu
     And the user see "Groups" on left menu
     And the user see "Saved Items" on left menu
-    And the user see img "/logo.png" is displayed
+    #And the user see img "/logo.png" is displayed
 
 
   @BrianChangeToDarkMode
@@ -33,7 +33,6 @@ Feature: Brain Verify on the UI
     When the user see item of "Off"
     Then the user see img "/logo.png" is displayed
     When the user see item of "Auto"
-    Then the user see img "/logo.png" is displayed
 
   @BrianViewAllNotification
   Scenario: Brian View all notifications
@@ -71,32 +70,22 @@ Feature: Brain Verify on the UI
     And the user see div element "Videos" displayed
     And the user see div element "Photos" displayed
     And the user see div element "Polls" displayed
-    And the user see div element "subscription" displayed
-    And the user see div element "Quizzes" displayed
+    #And the user see div element "subscription" displayed
+    #And the user see div element "Quizzes" displayed
     And the user see div element "Events" displayed
-    And the user see div element "Music" displayed
-    And the user see div element "Marketplace" displayed
+    #And the user see div element "Music" displayed
+    #And the user see div element "Marketplace" displayed
     And the user see div element "Pages" displayed
     And the user see div element "Groups" displayed
     And the user see div element "Saved Items" displayed
     Then the user see div element "less" displayed
-
-  @BrianVerifyActionOnFeed
-  Scenario: Brian Verify Action On Feed
-    Given the user logged in as "brian"
-    Then the user want to access "userAvatar"
-    And the user want to click on button label "actionMenu" and process
-    Then the user see "Edit" on left menu
-    Then the user see "Pin Post" on left menu
-    Then the user see "Save" on left menu
-    Then the user see "Delete" on left menu
 
   @BrainAccessAppFromMoreMenu
   Scenario: Brain Access App From More Menu
     Given the user logged in as "brian"
     Then the user "more_menu" this item
     And the user action on "Forum"
-    Then the user see title "Forum" is displayed
+    Then the user see title "Forums" is displayed
     When the user "more_menu" this item
     And the user action on "Friends"
     Then the user see title "Friend Requests" is displayed
