@@ -54,8 +54,8 @@ Feature: Brian process on album item
 
   @AnotherUserAccessOnBrianProfileAndSeeBlog
   Scenario: Another user access Brian profile and see blog
-    Given the user logged in as "terry"
-    Then the user see search field "Search" and typing keys "brian"
+    Given the user logged in as "test"
+    Then the user see search field "Search" and typing keys "brain"
     And the user want to click on "/brian"
     Then the user see "shared a post to newsfeed" on left menu
 
