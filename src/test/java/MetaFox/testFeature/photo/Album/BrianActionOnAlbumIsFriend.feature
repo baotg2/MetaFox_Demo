@@ -52,10 +52,10 @@ Feature: Brian process on album item
     Then the user see "shared a post to newsfeed" on left menu
     Then the user see a element "NewAlbum" is displayed on detail
 
-  @AnotherUserAccessOnBrianProfileAndSeeBlog
-  Scenario: Another user access Brian profile and see blog
+  @AnotherUserAccessOnBrianProfileAndSeeAlbum
+  Scenario: Another user access Brian profile and see Album
     Given the user logged in as "test"
-    Then the user see search field "Search" and typing keys "brain"
+    Then the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see "shared a post to newsfeed" on left menu
 
