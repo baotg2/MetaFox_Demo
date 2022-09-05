@@ -4,7 +4,7 @@ Feature:  Brain Process On Add Friend UnFriend
   @BrianBlockUser
   Scenario: Brian Block User
     Given the user logged in as "brian"
-    Then the user see search field "Search ..." and typing keys "test"
+    Then the user see search field "Search" and typing keys "test"
     And the user want to click on "/test"
     Then the user click on button "actionMenuButton"
     And the user action on "Block this user"
