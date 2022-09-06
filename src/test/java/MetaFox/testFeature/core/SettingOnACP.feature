@@ -7,11 +7,11 @@ Feature: Config Settings On ACP
     When the browser will get Administrator URL
     And the user action on "App Settings"
     And the user action on "Feed"
-#    Then the user see title "Activity Settings" is displayed
-    And the user click on input type check box "feed.enable_check_in"
-    And the user click on input type check box "feed.enable_tag_friends"
-    And the user click on input type check box "feed.enable_hide_feed"
-    And the user action on input field "inputFeedSpamCheckStatusUpdates" with value "1"
+    And the user click on input type check box "activity.feed.enable_check_in"
+    And the user click on input type check box "activity.feed.enable_tag_friends"
+    And the user click on input type check box "activity.feed.enable_hide_feed"
+    When the user want to scroll to the end of page
+    And the user action on input field "inputActivityFeedSpamCheckStatusUpdates" with value "1"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
 
@@ -34,9 +34,9 @@ Feature: Config Settings On ACP
     When the browser will get Administrator URL
     And the user action on "App Settings"
     And the user action on "Blog"
-#    Then the user see title "Site Settings" is displayed
-    And the user action on input field "inputMinimumNameLength" with value "5"
-    And the user action on input field "inputMaximumNameLength" with value "255"
+    When the user want to scroll to the end of page
+    And the user action on input field "inputBlogMinimumNameLength" with value "5"
+    And the user action on input field "inputBlogMaximumNameLength" with value "255"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
 
@@ -57,15 +57,21 @@ Feature: Config Settings On ACP
     And the user action on "Members"
     And the user action on "Permissions"
     When the user click on element link text a "Registration Settings"
-#    Then the user see title "Registration Settings" is displayed
-    And the user want to access "inputAllowUserRegistration"
-    And the user action on input field "inputOnRegisterUserGroup" with value "Registered User"
+    And the user want to access "inputUserAllowUserRegistration"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
 
   @BrainVerifyFromSignUp
   Scenario: Brain Verify From Sign Up
     Then the user see link text element "buttonRegister" is not displayed on screen
+    Given the user logged in as "admin"
+    When the browser will get Administrator URL
+    And the user action on "Members"
+    And the user action on "Permissions"
+    When the user click on element link text a "Registration Settings"
+    And the user want to access "inputUserAllowUserRegistration"
+    When the user click on button "buttonSubmit"
+    Then the user see message "Save Changed Successfully" displayed
 
   @AdminConfigRe-enterPassword
   Scenario: Admin Config Re-enter Password
@@ -74,8 +80,7 @@ Feature: Config Settings On ACP
     And the user action on "Members"
     And the user action on "Permissions"
     When the user click on element link text a "Registration Settings"
-    And the user click on input type check box "allow_user_registration"
-    And the user click on input type check box "signup_repeat_password"
+    And the user click on input type check box "user.signup_repeat_password"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
 
@@ -91,9 +96,8 @@ Feature: Config Settings On ACP
     And the user action on "Members"
     And the user action on "Permissions"
     When the user click on element link text a "Registration Settings"
-    #Then the user see title "Registration Settings" is displayed
     When the user want to scroll to the end of page
-    And the user want to access "inputNewUserTermsConfirmation"
+    And the user want to access "inputUserNewUserTermsConfirmation"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
 
@@ -101,3 +105,13 @@ Feature: Config Settings On ACP
   Scenario: Verify the TermConfirmation is displayed
     Given the user want to click on "register"
     Then the user don't see "fieldAgree" is displayed
+    And the user back to "buttonUndefined" page
+    Given the user logged in as "admin"
+    When the browser will get Administrator URL
+    And the user action on "Members"
+    And the user action on "Permissions"
+    When the user click on element link text a "Registration Settings"
+    When the user want to scroll to the end of page
+    And the user want to access "inputUserNewUserTermsConfirmation"
+    When the user click on button "buttonSubmit"
+    Then the user see message "Save Changed Successfully" displayed
