@@ -138,7 +138,7 @@ public class ThenStepDefinitions {
     @Then( "^the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$" )
     public void inputValueOnField(String fieldName , @NotNull String value ) {
         isComponentVisible.waitElement( By.xpath( "//input[@data-testid='" + fieldName + "']" ) );
-        if ( value.equals( "BlogName" ) || ( value.equals( "Album" ) || (value.equals( "Groups")) || (value.equals( "Polls")) ) ) {
+        if ( value.equals( "BlogName" ) || ( value.equals( "Album" ) || (value.equals( "Groups")) || (value.equals( "Polls")) || (value.equals( "URLEvent")) ) ) {
             components.componentInputDataTestID( fieldName ).clear();
             components.componentInputDataTestID( fieldName).sendKeys( dataExecutor.readConstants( value ) );
         } else {
@@ -571,5 +571,18 @@ public class ThenStepDefinitions {
     @Then("^the user verify button test data id \"([^\"]*)\" is displayed$")
     public void isButtonTestDataIdDisplayed(String buttonTestDataID) {
         assertEquals(components.componentListButtonDataTestID(buttonTestDataID).size(), 0);
+    }
+
+    /**----------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param tab is tab want to verify
+     * @purpose verify tab opened successfully
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user want to verify tab \"([^\"]*)\" open successfully")
+    public void isTabOpenSuccess(String tab){
+        supportStepDefinition.switchTab(tab);
     }
 }

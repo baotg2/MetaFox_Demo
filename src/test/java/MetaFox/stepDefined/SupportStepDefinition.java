@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import static MetaFox.browserConfig.Index.driver;
+import static java.awt.SystemColor.window;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -53,5 +54,14 @@ public class SupportStepDefinition {
         JavascriptExecutor js = (JavascriptExecutor) Index.getDriver();
         //Scroll down till the bottom of the page
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+    }
+
+    public void switchTab(String tab) {
+        for (String window :Index.getDriver().getWindowHandles()){
+            Index.getDriver().switchTo().window(window);
+            if (Index.getDriver().getTitle().equals(tab)){
+                System.out.println(Index.getDriver().getTitle());
+            }
+        }
     }
 }
