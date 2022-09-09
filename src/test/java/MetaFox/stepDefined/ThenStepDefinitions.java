@@ -1,5 +1,6 @@
 package MetaFox.stepDefined;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
@@ -584,5 +585,19 @@ public class ThenStepDefinitions {
     @Then("^the user want to verify tab \"([^\"]*)\" open successfully")
     public void isTabOpenSuccess(String tab){
         supportStepDefinition.switchTab(tab);
+    }
+
+    /**---------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param subItemsName is items want to access
+     * @purpose not see a elements displayed on pages
+     * @Author baotg2
+     * --------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     *
+     */
+    @And("^the user not see a text \"([^\"]*)\" displayed on page$")
+    public void accessSubItems(String subItemsName) {
+        assertEquals(components.componentListTextLink(subItemsName).size(), 0);
     }
 }

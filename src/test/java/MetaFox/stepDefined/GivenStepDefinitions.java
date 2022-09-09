@@ -58,8 +58,9 @@ public class GivenStepDefinitions {
     }
 
     @Given("the browser will get Administrator URL")
-    public void getAddressACP(){
+    public void getAddressACP() throws InterruptedException {
         Index.getDriver().get(dataExecutor.readConstants("URLACP"));
+        Thread.sleep(6000);
     }
 
     @Given("the user get current URL")
