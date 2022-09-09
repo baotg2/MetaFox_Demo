@@ -18,7 +18,7 @@ Feature:  Brain Process On Public Events
     Then the browser opened at item "event" and tab "/event/add"
     And the user action on input field "inputName" with value "IsOfflineEvents"
     And the user add value on "select-categories" is "Music"
-    And the user want to add new date is "31"
+    And the user want to add new date is "29"
     When the user want to scroll to the end of page
     Then the user action on input field "fieldLocation" with value "Ho Chi Minh City"
     And the user click on the "tooltip" on screen
@@ -60,7 +60,7 @@ Feature:  Brain Process On Public Events
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "event" and tab "/event/hosted"
-    When the user want to click on button label "ONGOING" and process
+    When the user want to click on list button label "ONGOING" and process
     Then the user see title "itemTitle" with value "IsOfflineEvents"
     Then the user see "Your event" displayed success
 
@@ -75,10 +75,6 @@ Feature:  Brain Process On Public Events
     And the user want to click on title "itemTitle" and process
     Then the user see title "IsOfflineEvents" is displayed
     Then the user see "Your event" displayed success
-    And the user see button "DISCUSSIONS" is displayed
-    And the user see button "MANAGE" is displayed
-    #Then the user see button "PENDING POSTS" is displayed
-    And the user see button "EVENT INFO" is displayed
 
   @BrianVerifyHostListOnEvents
   Scenario: Brain Verify HostList On Events

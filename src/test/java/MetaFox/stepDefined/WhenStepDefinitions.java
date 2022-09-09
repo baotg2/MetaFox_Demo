@@ -363,8 +363,7 @@ public class WhenStepDefinitions {
      * @since 04-05-2022
      */
     @When("^the user click on the \"([^\"]*)\" on screen$")
-    public void clickOnDiv(String divText){
-        isComponentVisible.waitElement(By.xpath("//div[@role='"+divText+"']"));
+    public void clickOnDiv(String divText) {
         components.componentDivRole(divText).click();
     }
 

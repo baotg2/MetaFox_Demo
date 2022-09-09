@@ -41,7 +41,7 @@
     And the user want to click on button label "Not Interested" and process
     When the user "Interested" this item
     Then the user see message "Updated response successfully" displayed
-    And the user want to refresh page before handle the action
+    #And the user want to refresh page before handle the action
     Then the user see button "DISCUSSIONS" is displayed
     And the user see button "EVENT INFO" is displayed
 
