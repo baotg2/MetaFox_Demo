@@ -137,13 +137,14 @@ public class ThenStepDefinitions {
      * @since 04-05-2022
      */
     @Then( "^the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$" )
-    public void inputValueOnField(String fieldName , @NotNull String value ) {
+    public void inputValueOnField(String fieldName , @NotNull String value ) throws InterruptedException {
         isComponentVisible.waitElement( By.xpath( "//input[@data-testid='" + fieldName + "']" ) );
         if ( value.equals( "BlogName" ) || ( value.equals( "Album" ) || (value.equals( "Groups")) || (value.equals( "Polls")) || (value.equals( "URLEvent")) ) ) {
             components.componentInputDataTestID( fieldName ).clear();
             components.componentInputDataTestID( fieldName).sendKeys( dataExecutor.readConstants( value ) );
         } else {
             components.componentInputDataTestID( fieldName ).clear();
+            Thread.sleep(2000);
             components.componentInputDataTestID( fieldName ).sendKeys( value );
         }
     }

@@ -426,4 +426,16 @@ public class WhenStepDefinitions {
         stepDefinition.scrollToEndPage();
         Thread.sleep(2000);
     }
+
+    /**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     * @purpose scroll to up page
+     * @Author baotg2
+     * --------------------------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 08-03-2022
+     */
+    @When("^the user want to scroll to the up of page")
+    public void toScrollToUpOfPage() throws InterruptedException {
+        stepDefinition.scrollUpPage();
+        Thread.sleep(2000);
+    }
 }

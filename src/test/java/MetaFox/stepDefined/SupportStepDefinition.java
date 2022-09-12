@@ -52,10 +52,27 @@ public class SupportStepDefinition {
      */
     public void scrollToEndPage(){
         JavascriptExecutor js = (JavascriptExecutor) Index.getDriver();
-        //Scroll down till the bottom of the page
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     * @purpose scroll to up page
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 0-05-2022
+     */
+    public void scrollUpPage() {
+        JavascriptExecutor js = (JavascriptExecutor) Index.getDriver();
+        js.executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+    }
+    /**--------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param tab is tab want to verify
+     * @purpose verify open new tab param successfully
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
     public void switchTab(String tab) {
         for (String window :Index.getDriver().getWindowHandles()){
             Index.getDriver().switchTo().window(window);
