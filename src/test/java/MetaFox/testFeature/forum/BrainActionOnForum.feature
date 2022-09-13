@@ -146,6 +146,7 @@ Feature:  Brian process on Forum
     And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
     When the user want to click on button label "actionMenu" and process
     And the user click on div "close" and process
+    And the user want to "OK"
     Then the user see message "Thread closed successfully." displayed
     And the user see "Closed" on tab
     When the user want to click on button label "actionMenu" and process
