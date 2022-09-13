@@ -409,6 +409,19 @@ public class Components {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
+     * @param areaName is is attributes find elements
+     * @return element <textarea></textarea>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public WebElement componentTextAreaPlaceholder(String areaName) {
+        return Index.getDriver().findElement(By.xpath("//textarea[@placeholder ='" + areaName + "']"));
+    }
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param formIdName is is attributes find elements
      * @return element <form></form>
      * ------------------------------------------------------------------------------------------------------------------------------------------

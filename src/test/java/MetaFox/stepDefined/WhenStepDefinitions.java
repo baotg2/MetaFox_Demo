@@ -131,6 +131,22 @@ public class WhenStepDefinitions {
         components.componentTextAreaDataTestID(element).sendKeys(value);
     }
 
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param value is value want to input
+     * @param element is element on web page
+     * @purpose add value on TextArea
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 06-02-2022
+     */
+    @When("^the user add value \"([^\"]*)\" on textArea place holder \"([^\"]*)\"$")
+    public void addContentAnswer(String value, String element){
+        isComponentVisible.waitElement(By.xpath("extarea[@placeholder ='" + element + "']"));
+        components.componentTextAreaPlaceholder(element).sendKeys(value);
+    }
+
+
     /**------------------------------------------------------------------------------------------------------------------------------------
      * @purpose the user want to change cover image
      * @Author baotg2
@@ -225,8 +241,10 @@ public class WhenStepDefinitions {
     public void findAndSelectNotifications(String notification) throws InterruptedException {
         Thread.sleep(3000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemSummary']"));
-        if (components.componentListDivDataTestID("itemSummary").get(0).getText().contains(notification)){
-            components.componentListDivDataTestID("itemSummary").get(0).click();
+        for (int i =0; i<components.componentListDivDataTestID("itemSummary").size(); i++) {
+            if (components.componentListDivDataTestID("itemSummary").get(i).getText().contains(notification)){
+                components.componentListDivDataTestID("itemSummary").get(i).click();
+            }
         }
     }
 

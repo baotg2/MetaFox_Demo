@@ -40,7 +40,7 @@ public class IsComponentVisible {
      * @since 04-05-2022
      */
     public void waitElement(By webElement) {
-        WebDriverWait wait = new WebDriverWait(Index.getDriver(), 30);
+        WebDriverWait wait = new WebDriverWait(Index.getDriver(), 15);
         wait.until(ExpectedConditions.presenceOfElementLocated(webElement)).isDisplayed();
     }
 
