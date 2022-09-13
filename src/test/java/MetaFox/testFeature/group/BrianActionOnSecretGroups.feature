@@ -28,10 +28,10 @@ Feature:  Brain Process On Secret Groups
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "TestAutoSecretGroup"
     And the user want to click on title "itemTitle" and process
-    When the user see "actionMenu" and click on
-    And the user "Invite Friends" this item
+    When the user action on "Invite"
+    And the user action on "Invite Friends"
     #Then the user add value on "searchBox" is "test"
-    And the user tag first friend on list tag
+    Then the user "itemUndefined" this item
     Then the user click on button "buttonDone"
     Then the user see message "Invitation(s) successfully sent." displayed
     And I want to click on "Logout"
@@ -63,6 +63,6 @@ Feature:  Brain Process On Secret Groups
     And the user want to click on title "itemTitle" and process
     When the user want to click on button label "ActionMenu" and process
     And the user click on div "Delete" and process
-    Then the user see "Are you sure you want to permanently delete this group?" displayed success
+    Then the user see "Are you sure you want to delete this group permanently?" displayed success
     And the user click on button "buttonSubmit"
     Then the user see message "Successfully deleted the group" displayed

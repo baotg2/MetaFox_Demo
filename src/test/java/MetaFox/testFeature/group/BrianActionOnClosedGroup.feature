@@ -35,13 +35,13 @@ Feature:  Brain Process On Closed Groups
     Given the user logged in as "brian"
     When the user "new_notification" this item
     Then the user click on notification "requested to join TestAutoClosedGroup" and process
-    And the user want to click on button label "PENDING REQUESTS" and process
+    And the user want to click on list button label "PENDING REQUESTS" and process
     When the user want to edit "itemview group_request"
-    Then the user see message "Add group member successfully." displayed
+    Then the user see message "Terry has been accepted." displayed
     Then I want to click on "Logout"
     Given the user logged in as "terry"
     Then the user "new_notification" this item
-    And the user click on notification "Welcome to " and process
+    And the user click on notification "An admin has approved your request to join the group." and process
     Then the user see button "Joined" is displayed
 
   @BrianDeleteClosedGroup
@@ -53,6 +53,6 @@ Feature:  Brain Process On Closed Groups
     And the user want to click on title "itemTitle" and process
     When the user want to click on button label "ActionMenu" and process
     And the user click on div "Delete" and process
-    Then the user see "Are you sure you want to permanently delete this group?" displayed success
+    Then the user see "Are you sure you want to delete this group permanently?" displayed success
     And the user click on button "buttonSubmit"
     Then the user see message "Successfully deleted the group" displayed

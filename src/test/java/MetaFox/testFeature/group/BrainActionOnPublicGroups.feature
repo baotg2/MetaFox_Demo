@@ -8,8 +8,8 @@ Feature:  Brain Process On Public Groups
     Then the browser opened at item "group" and tab "/group/add"
     And the user action on input field "inputName" with value "Groups"
     And the user click on button "buttonSubmit"
-    Then the user see "Category is a required field" displayed success
-    Then the user see "Choose group privacy" displayed success
+    Then the user see "Category is a required field." displayed success
+    Then the user see "Group Privacy is a required field." displayed success
     
   @BrianAddNewGroups
   Scenario: Brian Add New Group
@@ -56,7 +56,7 @@ Feature:  Brain Process On Public Groups
     Then the user see "AutoPostStatus1" displayed success
 
   @AnotherUserReactionOnGroups
-  Scenario: Brain Add Pending Post
+  Scenario: Brain Reaction Group
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
@@ -77,14 +77,14 @@ Feature:  Brain Process On Public Groups
     And the user click on button "buttonSubmit"
     Then the user see button "Join Group" is displayed
 
-#  @AnotherUserJoinGroupOnSlotMain
-#  Scenario: Another User Join Group
-#    Given the user logged in as "admin"
-#    When the user action on "More"
-#    Then the browser opened at item "group" and tab ""
-#    And the user see search field "Search groups" and typing keys "Groups"
-#    When the user want to click on list button label "Join Group" and process
-#    Then the user see message "Joined successfully." displayed
+  @AnotherUserJoinGroupOnSlotMain
+  Scenario: Another User Join Group
+    Given the user logged in as "terry"
+    When the user action on "More"
+    Then the browser opened at item "group" and tab ""
+    And the user see search field "Search groups" and typing keys "Groups"
+    When the user want to click on list button label "Join Group" and process
+    Then the user see message "Joined successfully." displayed
 
   @BrianAddMemberShipQuestion
   Scenario: Brain Add MemberShip Question
@@ -109,10 +109,8 @@ Feature:  Brain Process On Public Groups
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
     When the user want to click on list button label "Join Group" and process
-    Then the user see "Answer the Question" is displayed on user profile
-    And the user action on input field "inputQuestionQuestion7" with value "TestAnwser"
+    And the user want to access "inputIsConfirmed"
     Then the user click on button "buttonSubmit"
-    Then the user see message "Joined successfully." displayed
 
   @BrianAddPendingPost
   Scenario: Brain Add Pending Post
@@ -126,18 +124,34 @@ Feature:  Brain Process On Public Groups
     And the user action on "Pending Posts"
     Then the user see "Enable Pending Mode" is displayed on user profile
     When the user click on check box "checkbox"
+    And the user action on "Membership Questions"
+    When the user want to "Delete"
+    Then the user see "Are you sure you want to permanently delete this question?" displayed success
+    And the user want to "OK"
     And I want to click on "Logout"
     Given the user logged in as "terry"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
-    And the user access this blog by "itemMedia" and process
+    And the user want to click on title "itemTitle" and process
     Then the user "whatsHappening" this item
     And the user add comment "AutoPostStatus" on blog
     And the user click on button "submit"
-    Then the user see message "Successfully posted. Please waiting for approve" displayed
     And I want to click on "Logout"
     Given the user logged in as "brian"
     Then the user "new_notification" this item
     Then the user click on notification " is waiting for your approval." and process
-    Then the user see button "Joined" is displayed
+    Then the user "Approve" on invite
+
+  @BrianDeletePublicGroups
+  Scenario: Brain Delete Public Groups
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "group" and tab ""
+    And the user see search field "Search groups" and typing keys "Groups"
+    And the user want to click on title "itemTitle" and process
+    When the user want to click on button label "ActionMenu" and process
+    And the user click on div "Delete" and process
+    Then the user see "Are you sure you want to delete this group permanently?" displayed success
+    And the user click on button "buttonSubmit"
+    Then the user see message "Successfully deleted the group" displayed
