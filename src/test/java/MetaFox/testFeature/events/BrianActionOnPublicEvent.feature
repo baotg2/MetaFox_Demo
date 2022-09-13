@@ -27,7 +27,7 @@ Feature:  Brain Process On Public Events
     Then the user see title "IsOfflineEvents" is displayed
 
   @BrianReactionOnEventJustAdd
-  Scenario: Brain Reaction On This Blog
+  Scenario: Brain Reaction On This Event
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "event" and tab ""
@@ -115,7 +115,7 @@ Feature:  Brain Process On Public Events
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
-    When the user want to "MANAGE"
+    When the user want to click on list button label "MANAGE" and process
     Then the user see title "Event Settings" is displayed
 
   @BrainAddNewHost
@@ -138,9 +138,9 @@ Feature:  Brain Process On Public Events
     When the user click on button "buttonClose"
     And I want to click on "Logout"
     Given the user logged in as "test"
-    When the user "new_notification" this item
-    Then the user click on notification "Brian invited you to host the event IsOfflineEvents" and process
-    And the user see " invited you to be co-host for this event" on left menu
+    When the user action on "More"
+    Then the browser opened at item "event" and tab "/event/friend"
+    And the user want to click on title "itemTitle" and process
     And the user "Accept" on invite
     Then the user see message "Host invitation accepted." displayed
     And the user want to refresh page before handle the action
@@ -148,10 +148,10 @@ Feature:  Brain Process On Public Events
     And the user want to "Invited"
     Then the user see "test" on invited tab
     When the user click on button "buttonClose"
-    And the user see button "DISCUSSIONS" is displayed
-    And the user see button "MANAGE" is displayed
-    #Then the user see button "PENDING POSTS" is displayed
-    And the user see button "EVENT INFO" is displayed
+    And the user want to click on list button label "EVENT INFO" and process
+    And the user want to click on list button label "DISCUSSIONS" and process
+    Then the user want to click on list button label "MANAGE" and process
+    And the user want to click on list button label "PENDING POSTS" and process
 
   @BrianRemoveHost
   Scenario: Brain Remove Hosts
@@ -169,11 +169,11 @@ Feature:  Brain Process On Public Events
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Given the user logged in as "test"
+    When the user action on "More"
     Then the browser opened at item "event" and tab ""
     And the user see search field "Search events" and typing keys "IsOfflineEvents"
     And the user want to click on title "itemTitle" and process
     Then the user see "Going" displayed success
-    And the user see button "DISCUSSIONS" is displayed
 
   @BrainInviteAnotherUserJoinEvent
   Scenario: Brain Invite Another User Join Event

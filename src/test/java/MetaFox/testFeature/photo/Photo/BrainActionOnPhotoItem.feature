@@ -108,3 +108,14 @@ Feature: Brian process on photos item
     When the user want to click on button label "Close" and process
     And the user back to "linkLogo" page
     Then the user see "shared a post to newsfeed" on left menu
+
+  @BrianAddCoverImage
+  Scenario: Brian Add Cover Image
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "photo" and tab "/photo/my"
+    And the user want to click on button label "actionMenu" and process
+    And the user "Make cover photo" this item
+    Then the user see message "Cover picture updated successfully" displayed
+    And the user want to access "userAvatar"
+    Then the user see "updated his cover photo" on left menu

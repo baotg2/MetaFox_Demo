@@ -182,28 +182,14 @@ public class DataExecutor {
 //            robot.keyRelease(KeyEvent.VK_ESCAPE);
             // Cmd + Tab is needed since it launches a Java app and the browser looses focus
             robot.delay(500);
-
             robot.keyPress(KeyEvent.VK_META);
-
-
-
-            robot.keyPress(KeyEvent.VK_TAB);
-
-            robot.keyPress(KeyEvent.VK_META);
-
             robot.keyPress(KeyEvent.VK_SHIFT);
-
             robot.keyPress(KeyEvent.VK_G);
             robot.delay(500);
-
             robot.keyPress(KeyEvent.VK_META);
-
             robot.keyPress(KeyEvent.VK_V);
-
             robot.keyRelease(KeyEvent.VK_ENTER);
-
             robot.delay(500);
-
             robot.keyRelease(KeyEvent.VK_ENTER);
 
         }

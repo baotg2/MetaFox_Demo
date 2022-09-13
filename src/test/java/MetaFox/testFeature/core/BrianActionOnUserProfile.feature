@@ -87,14 +87,3 @@ Feature: Brain Process On User Profile
     And the user add value "" on element "0"
     And the user click on button "buttonSubmit"
     Then the user see message "Information updated successfully" displayed
-
-  @BrianAddCoverImage
-  Scenario: Brian Add Cover Image
-    Given the user logged in as "brian"
-    Then the user want to access "userAvatar"
-    And the user want to click on button label "Edit Cover" and process
-    When the user want to changed cover image
-    And the user upload media
-    Then the user want to "Save"
-    And the user want to refresh page before handle the action
-    Then the user see the post "cover photo" after upload

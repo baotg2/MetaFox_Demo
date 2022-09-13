@@ -241,11 +241,14 @@ public class WhenStepDefinitions {
     public void findAndSelectNotifications(String notification) throws InterruptedException {
         Thread.sleep(3000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemSummary']"));
-        for (int i =0; i<components.componentListDivDataTestID("itemSummary").size(); i++) {
-            if (components.componentListDivDataTestID("itemSummary").get(i).getText().contains(notification)){
-                components.componentListDivDataTestID("itemSummary").get(i).click();
+            for (int i =0; i<components.componentListDivDataTestID("itemSummary").size(); i++) {
+                if (components.componentListDivDataTestID("itemSummary").get(i).getText().contains(notification)){
+                    components.componentListDivDataTestID("itemSummary").get(i).click();
+                }
+                else{
+                    components.componentListDivDataTestID("itemSummary").get(0).click();
+                }
             }
-        }
     }
 
     /**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
