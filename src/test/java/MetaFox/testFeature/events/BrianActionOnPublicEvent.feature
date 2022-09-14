@@ -229,7 +229,7 @@ Feature:  Brain Process On Public Events
     And the user click on button "menuShareButton"
     When the user action on "Share to News Feed"
     And the user want to "Share"
-#    Then the user see message "Shared successfully" displayed
+    Then the user see message "Shared to feed" displayed
     And the user back to "linkLogo" page
     Then the user see "shared a post to newsfeed" on left menu
     Then the user see h4 "IsOfflineEvents" is displayed

@@ -42,8 +42,8 @@
     When the user "Interested" this item
     Then the user see message "Updated response successfully" displayed
     #And the user want to refresh page before handle the action
-    Then the user see button "DISCUSSIONS" is displayed
-    And the user see button "EVENT INFO" is displayed
+    And the user want to click on list button label "DISCUSSIONS" and process
+    And the user want to click on list button label "EVENT INFO" and process
 
   @GuestChangeStatusOnMuiGridView
   Scenario: Guest Change Status On Multiple Grid Views
@@ -104,6 +104,6 @@
     And the user access first condition "inputWhen"
     When the user want to click on button label "actionMenu" and process
     And the user click on div "Delete" and process
-    Then the user see "Are you sure you want to delete this item permanently?" displayed success
+    Then the user see "Are you sure you want to permanently delete this item?" displayed success
     And the user click on button "buttonSubmit"
     Then the user see message "Event successfully deleted." displayed
