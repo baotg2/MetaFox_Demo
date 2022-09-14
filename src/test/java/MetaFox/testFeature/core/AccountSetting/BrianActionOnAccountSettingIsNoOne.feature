@@ -63,7 +63,7 @@ Feature: Brain Process On Account Settings Is No One
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
-    And the user select privacy at field "Who can view on your wall?" and change to "No One"
+    And the user select privacy at field "Who can view your wall?" and change to "No One"
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
@@ -74,7 +74,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
-    And the user select privacy at field "Who can view on your wall?" and change to "Friends Only"
+    And the user select privacy at field "Who can view your wall?" and change to "Friends Only"
     Then the user see message "Updated successfully" displayed
 
   @BrianVerifyViewBasicInformationIsNoOne
@@ -159,7 +159,7 @@ Feature: Brain Process On Account Settings Is No One
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
-    And the user select privacy at field "Who can tag you in written context?" and change to "No One"
+    And the user select privacy at field "Who can tag you in a written context?" and change to "No One"
     Then the user see message "Updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "admin"
@@ -172,5 +172,5 @@ Feature: Brain Process On Account Settings Is No One
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
     And the user back to "Your Profile" page
-    And the user select privacy at field "Who can tag me in written contexts?" and change to "Anyone"
+    And the user select privacy at field "Who can tag you in a written context?" and change to "Anyone"
     Then the user see message "Updated successfully" displayed

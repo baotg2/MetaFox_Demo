@@ -431,7 +431,6 @@ public class ThenStepDefinitions {
      */
     @Then("^the user don't see user \"([^\"]*)\" on tag list \"([^\"]*)\"$")
     public void seeUserOnTagList(String userName, String tagList){
-        isComponentVisible.waitElement(By.xpath("//h5[@data-testid='"+tagList+"']"));
         assertFalse(components.componentsListH5DataTestID(tagList).toString().contains(userName));
     }
 
