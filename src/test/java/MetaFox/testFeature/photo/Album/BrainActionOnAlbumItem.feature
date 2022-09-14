@@ -86,15 +86,13 @@ Feature: Brian process on album item
   @BrianAddPhotoToEmptyAlbum
   Scenario: Brian Add Photo To Empty Album
     Given the user logged in as "brian"
-    Then the browser opened at item "photo" and tab "/photo/my-albums"
-    Then the user see title "itemTitle" with value "IsEmptyAlbum"
-    When the user click on element link text a "IsEmptyAlbum"
-    And the user want to "Add Photos/Videos"
-    When the user want to "Select Files"
-    And the user upload media
-    When the user click on button "buttonSubmit"
-    And the user want to refresh page before handle the action
-    When the browser opened at item "/photo/albums" and tab ""
+    Then the browser opened at item "photo" and tab "/photo/add"
+    And the user add value on "select-album" is "IsEmptyAlbum"
+    And the user want upload 1 photo
+    And the user want add categories is "Comedy"
+    And the user click on button "buttonSubmit"
+    And the user see message "Media item successfully uploaded." displayed
+    Then the browser opened at item "photo" and tab "/photo/albums"
     Then the user see title "itemTitle" with value "IsEmptyAlbum"
 
   @BrianDeleteEmptyAlbum
