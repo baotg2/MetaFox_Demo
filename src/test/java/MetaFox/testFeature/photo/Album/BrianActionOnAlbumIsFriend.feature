@@ -1,5 +1,5 @@
 @MetaFox @photo  @albumFriendFunction_Brain
-Feature: Brian process on album item
+Feature: Brian process on album item friends
 
   @BrainAddNewAlbumFriendWithPhoto
   Scenario: Brian Add New Album Friend With Photo
@@ -66,6 +66,7 @@ Feature: Brian process on album item
     And the user see search field "Search albums" and typing keys "Album"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
+    And the user want to click on title "itemTitle" and process
     And the user click on "actionMenuButton" to access blog
     Then the user "Delete" this item
     And the user click on button "buttonSubmit"
