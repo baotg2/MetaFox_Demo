@@ -93,7 +93,6 @@ Feature:  Brian process on Forum
     And the user click on button "buttonSubmit"
     Then the user see message "Thread moved successfully." displayed
     And the user see title "IsThreadAutotest" is displayed
-    Then the user see a element "Music" is displayed on detail
 
   @BrainCopyThreadWithDefaultTitle
   Scenario: Brain copy thread with default title
