@@ -37,7 +37,7 @@ Feature: Verify Visitor Process on Sign Up
     Then the user see error message "Last Name is a required field" is displayed
     Then the user see error message "First Name is a required field" is displayed
     Then the user see error message "Full Name is a required field" is displayed
-    Then the user see error message "Choose an Username" is displayed
+    Then the user see error message "Choose a Username" is displayed
     Then the user see error message "Email is a required field" is displayed
     Then the user see error message "Enter Password" is displayed
 

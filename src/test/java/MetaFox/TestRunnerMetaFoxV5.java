@@ -17,8 +17,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/MetaFox/testFeature"},
         glue = "MetaFox",
-        tags = "@BrianAddNewAlbumWithoutImage",
-        plugin = {
+        tags = "@VisitorSignUpWithEmptyValue",
+        plugin ={
                 "html:target/result/",
                 "pretty",
                 "json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json",
