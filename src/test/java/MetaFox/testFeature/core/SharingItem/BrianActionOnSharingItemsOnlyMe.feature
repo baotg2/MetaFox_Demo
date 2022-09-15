@@ -30,7 +30,7 @@ Feature: Brain Process On Sharing Items Only Me
     And the user click on button "buttonClose"
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
-    And the user select privacy at field "Blogs" and change to "Everyone"
+    And the user select privacy at field "Feed default privacy" and change to "Everyone"
 
   @BrainVerifyPrivacySharingEvents
   Scenario: Brain Verify Privacy Sharing Events
@@ -93,20 +93,20 @@ Feature: Brain Process On Sharing Items Only Me
     And the user back to "Sharing Items" page
     And the user select privacy at field "Polls" and change to "Everyone"
 
-  @BrainVerifyPrivacySharingQuizzes
-  Scenario: Brain Verify Privacy Sharing Quizzes
-    Given the user logged in as "brian"
-    Then I want to click on "Account Settings"
-    And the user back to "Sharing Items" page
-    And the user select privacy at field "Quizzes" and change to "Only Me"
-    Then the user see message "Updated successfully" displayed
-    And the user back to "linkLogo" page
-    When the user action on "More"
-    And the browser opened at item "quiz" and tab "/quiz/add"
-    Then the user see "Only Me" is displayed on user profile
-    Then I want to click on "Account Settings"
-    And the user back to "Sharing Items" page
-    And the user select privacy at field "Quizzes" and change to "Everyone"
+#  @BrainVerifyPrivacySharingQuizzes
+#  Scenario: Brain Verify Privacy Sharing Quizzes
+#    Given the user logged in as "brian"
+#    Then I want to click on "Account Settings"
+#    And the user back to "Sharing Items" page
+#    And the user select privacy at field "Quizzes" and change to "Only Me"
+#    Then the user see message "Updated successfully" displayed
+#    And the user back to "linkLogo" page
+#    When the user action on "More"
+#    And the browser opened at item "quiz" and tab "/quiz/add"
+#    Then the user see "Only Me" is displayed on user profile
+#    Then I want to click on "Account Settings"
+#    And the user back to "Sharing Items" page
+#    And the user select privacy at field "Quizzes" and change to "Everyone"
 
   @BrainVerifyPrivacySharingVideos
   Scenario: Brain Verify Privacy Sharing Videos

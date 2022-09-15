@@ -15,7 +15,7 @@ Feature: Brain Process On Sharing Items Friends of Friends
     And the user click on button "buttonClose"
     Then I want to click on "Account Settings"
     And the user back to "Sharing Items" page
-    And the user select privacy at field "Blogs" and change to "Everyone"
+    And the user select privacy at field "Feed default privacy" and change to "Everyone"
 
   @BrainVerifyPrivacySharingBlogsIsFriendsOfFriends
   Scenario: Brain Verify Privacy Sharing Blogs Is Friends of Friends
