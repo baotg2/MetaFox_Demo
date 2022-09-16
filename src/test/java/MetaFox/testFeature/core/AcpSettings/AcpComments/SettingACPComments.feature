@@ -1,5 +1,5 @@
 @MetaFox  @configOnACP @configOnACPComments
-Feature: Config Settings On Comments
+Feature: Config Settings On ACP Comments
 
   @AdminConfigOnCommentsPhoto
   Scenario: Admin Config Comment Photo OnACP
