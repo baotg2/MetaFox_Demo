@@ -461,6 +461,18 @@ public class Components {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
+     * @param acceptValue is is attributes find elements
+     * @return element <input></input>
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public WebElement componentInputAccept(String acceptValue) {
+        return Index.getDriver().findElement(By.xpath("//input[contains(@accept, '"+acceptValue+"')]"));
+    }
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @param dataTestID is is attributes find elements
      * @return element <span></span>/img
      * ------------------------------------------------------------------------------------------------------------------------------------------

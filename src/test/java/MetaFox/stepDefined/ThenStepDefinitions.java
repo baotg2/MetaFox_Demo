@@ -596,8 +596,15 @@ public class ThenStepDefinitions {
      * @since 04-05-2022
      *
      */
-    @And("^the user not see a text \"([^\"]*)\" displayed on page$")
+    @Then("^the user not see a text \"([^\"]*)\" displayed on page$")
     public void accessSubItems(String subItemsName) {
         assertEquals(components.componentListTextLink(subItemsName).size(), 0);
     }
+
+    @Then("^the user verify input accept \"([^\"]*)\" displayed on page$")
+    public void isInputAccepted(String inputAcceptValue){
+        isComponentVisible.waitElement(By.xpath("//input[contains(@accept, '"+inputAcceptValue+"')]"));
+    }
+
+
 }
