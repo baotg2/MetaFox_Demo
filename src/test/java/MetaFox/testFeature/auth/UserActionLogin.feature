@@ -1,5 +1,6 @@
 @MetaFox @Author  @Login
 Feature: Verify login pHpFox success
+
   @ScenarioLogin1
   Scenario: Verify login success with all users
     Given the user logged in as "admin"
@@ -41,7 +42,6 @@ Feature: Verify login pHpFox success
   Scenario: Brain Add Friend
     Given the user logged in as "brian"
     Then the user see search field "Search" and typing keys "test"
-    And I want to click on "People"
     And the user want to click on "/test"
     And the user want to "Add Friend"
     Then I want to click on "Logout"

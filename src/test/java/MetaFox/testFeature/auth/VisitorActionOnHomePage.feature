@@ -24,7 +24,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user action on input field "inputFullName" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example.com"
     And the user input info sign up "Choose a Username" with value "TestAutoExistEmail"
-    And the user add value "123456" on element "7"
+    And the user action on input field "inputPassword" with value "123456"
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"
     Then the user see error message "The email has already been taken." is displayed
@@ -45,7 +45,7 @@ Feature: Verify Visitor Process on Sign Up
   Scenario: Visitor Break SignUp Action
     Given the user click on div "fieldRegister" and process
     Then the user see title "Create account" is displayed
-    And the user back to "buttonUndefined" page
+    And the user click on element link text a "Already Had an Account?"
     Then the user see "Welcome Back" is displayed
 
   @VisitorRegisterNewAccountWithExistUserName
@@ -57,7 +57,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user action on input field "inputFullName" with value "V"
     And the user input info sign up "Email Address" with value "nlv@phpfox.com"
     And the user input info sign up "Choose a Username" with value "admin"
-    And the user add value "123456" on element "7"
+    And the user action on input field "inputPassword" with value "123456"
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"
     Then the user see error message "The user name has already been taken." is displayed
@@ -71,7 +71,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user action on input field "inputFullName" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example123.com"
     And the user input info sign up "Choose a Username" with value "TestAuto1"
-    And the user add value "cv" on element "7"
+    And the user action on input field "inputPassword" with value "cv"
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"
     Then the user see error message "Your password must be at least 6 characters long. Please try another." is displayed
@@ -85,7 +85,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user action on input field "inputFullName" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example123.com"
     And the user input info sign up "Choose a Username" with value "TestAuto1"
-    And the user add value " " on element "7"
+    And the user action on input field "inputPassword" with value " "
     And the user click on check box "checkbox"
     And the user click on button "buttonSubmit"
     Then the user see error message "The password is required." is displayed
