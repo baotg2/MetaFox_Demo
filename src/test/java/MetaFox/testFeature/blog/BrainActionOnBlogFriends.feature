@@ -32,7 +32,7 @@ Feature:  Brian process on blogs is Friend
     When the user action on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "BlogName"
-    Then the user see  tab "No Results Found" displayed success
+    Then the user see "No Blogs Found" on left menu
 
   @BrianShareNowOnBlogFriendJustAdd
   Scenario: Brain Share Now On Blog Friend Just Add
@@ -71,4 +71,4 @@ Feature:  Brian process on blogs is Friend
     Then the user "Delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully" displayed
-    Then the user see "No Results Found" is displayed on result table
+    Then the user see "No Blogs Found" on left menu
