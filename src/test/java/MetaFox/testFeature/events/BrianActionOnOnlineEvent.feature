@@ -51,6 +51,6 @@ Feature:  Brain Process On Online Events
     And the user access first condition "inputWhen"
     When the user want to click on button label "actionMenu" and process
     And the user click on div "Delete" and process
-    Then the user see "Are you sure you want to permanently delete this item?" displayed success
+    Then the user see "Are you sure you want to permanently delete this event?" displayed success
     And the user click on button "buttonSubmit"
     Then the user see message "Event successfully deleted." displayed
