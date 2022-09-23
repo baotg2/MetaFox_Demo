@@ -17,7 +17,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/MetaFox/testFeature"},
         glue = "MetaFox",
-        tags = "@AdminConfigDownloadOnPhoto",
+        tags = "@BrianVerifySettingsPollOnACP",
         plugin ={
                 "html:target/result/",
                 "pretty",
