@@ -21,7 +21,7 @@ Feature: Config Settings On ACP Blogs
     Then the user see "Maximum 255 of characters" displayed success
     And the user action on input field "inputTitle" with value "a"
     And the user click on button "buttonSubmit"
-    Then the user see "Title must be at least 5 characters" displayed success
+    Then the user see "Title must contain at least 5 characters." displayed success
 
   @AdminSettingsAllowCreateFeed
   Scenario: Admin Settings Allow Create Feed

@@ -6,7 +6,7 @@ Feature: Config Settings On ACP Sign Up
     Given the user logged in as "admin"
     When the browser will get Administrator URL
     And the user action on "Members"
-    And the user action on "Permissions"
+    And the user action on "Browse"
     When the user click on element link text a "Registration Settings"
     And the user want to access "inputUserAllowUserRegistration"
     When the user click on button "buttonSubmit"
@@ -18,7 +18,7 @@ Feature: Config Settings On ACP Sign Up
     Given the user logged in as "admin"
     When the browser will get Administrator URL
     And the user action on "Members"
-    And the user action on "Permissions"
+    And the user action on "Browse"
     When the user click on element link text a "Registration Settings"
     And the user want to access "inputUserAllowUserRegistration"
     When the user click on button "buttonSubmit"
@@ -29,7 +29,7 @@ Feature: Config Settings On ACP Sign Up
     Given the user logged in as "admin"
     When the browser will get Administrator URL
     And the user action on "Members"
-    And the user action on "Permissions"
+    And the user action on "Browse"
     When the user click on element link text a "Registration Settings"
     And the user click on input type check box "user.signup_repeat_password"
     When the user click on button "buttonSubmit"
@@ -45,7 +45,7 @@ Feature: Config Settings On ACP Sign Up
     Given the user logged in as "admin"
     When the browser will get Administrator URL
     And the user action on "Members"
-    And the user action on "Permissions"
+    And the user action on "Browse"
     When the user click on element link text a "Registration Settings"
     When the user want to scroll to the end of page
     And the user want to access "inputUserNewUserTermsConfirmation"
@@ -56,11 +56,11 @@ Feature: Config Settings On ACP Sign Up
   Scenario: Verify the TermConfirmation is displayed
     Given the user want to click on "register"
     Then the user don't see "fieldAgree" is displayed
-    And the user back to "buttonUndefined" page
+    And the user click on element link text a "Already Had an Account?"
     Given the user logged in as "admin"
     When the browser will get Administrator URL
     And the user action on "Members"
-    And the user action on "Permissions"
+    And the user action on "Browse"
     When the user click on element link text a "Registration Settings"
     When the user want to scroll to the end of page
     And the user want to access "inputUserNewUserTermsConfirmation"

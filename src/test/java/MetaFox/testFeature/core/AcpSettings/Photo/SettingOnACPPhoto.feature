@@ -1,5 +1,5 @@
-@MetaFox  @configOnACP @configOnACPPhoto
-Feature: Config Settings On ACP Comments
+@MetaFox  @configOnACP @configOnACPPhotoApp
+Feature: Config Settings On ACP Photo
 
   @AdminConfigDownloadOnPhoto
   Scenario: Admin Config Download Photo OnACP
