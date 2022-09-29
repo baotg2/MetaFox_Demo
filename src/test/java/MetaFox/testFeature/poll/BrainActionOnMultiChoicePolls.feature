@@ -42,7 +42,7 @@ Feature:  Brian process on multiple choice polls
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     When the user want to click on button label "actionMenu" and process
-    And the user click on div "Edit poll" and process
+    And the user click on div "edit" and process
     Then the user see title "Edit poll" is displayed
     And the user see item of "Remove"
     And the user want to "OK"
@@ -55,7 +55,7 @@ Feature:  Brian process on multiple choice polls
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     When the user want to click on button label "actionMenu" and process
-    And the user click on div "Delete" and process
+    And the user click on div "delete" and process
     Then the user see "Are you sure you want to permanently delete this poll?" displayed success
     And the user click on button "buttonSubmit"
     #Then the user see "No polls found" on left menu

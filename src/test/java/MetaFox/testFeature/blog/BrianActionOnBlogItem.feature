@@ -102,7 +102,7 @@ Feature:  Brian process on blogs app
     Then the browser opened at item "blog" and tab "/blog/my"
     And the user see "My Blogs" is displayed
     And the user click on "actionMenuButton" to access blog
-    And the user "Edit blog" this item
+    And the user "edit" this item
     Then the user see main form "form" is displayed
     And the user action on input field "inputTitle" with value "Auto Test New Blogs Name"
     And the user click on button "buttonSubmit"
@@ -117,7 +117,7 @@ Feature:  Brian process on blogs app
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user click on "actionMenuButton" to access blog
-    Then the user "Delete" this item
+    Then the user "delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully" displayed
     Then the user see "No Blogs Found" on left menu
@@ -142,7 +142,7 @@ Feature:  Brian process on blogs app
     When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/draft"
     And the user click on "actionMenuButton" to access blog
-    And the user "Publish" this item
+    And the user "publish" this item
     And the user click on button "buttonSubmit"
     And the user see message "Blog published successfully" displayed
 
@@ -154,7 +154,7 @@ Feature:  Brian process on blogs app
     And the user see item of "More"
     And the user want access tool tip "Blogs" from More
     And the user want to click on button label "actionMenu" and process
-    And the user "Report" this item
+    And the user "report" this item
     Then the user see main form "form" is displayed
     And the user click on button "buttonSubmit"
     Then the user see message "Reported successfully!" displayed
@@ -175,7 +175,7 @@ Feature:  Brian process on blogs app
     When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/all"
     And the user click on "actionMenuButton" to access blog
-    And the user "Feature" this item
+    And the user "feature" this item
     Then the user see message "Blog featured successfully" displayed
     Then the user see label of action "featured" is displayed
 
@@ -185,7 +185,7 @@ Feature:  Brian process on blogs app
     When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/all"
     And the user click on "actionMenuButton" to access blog
-    And the user "Un-Feature" this item
+    And the user "removeFeature" this item
     Then the user see message "Blog unfeatured successfully" displayed
 
   @BrainDeleteDraftBlog
@@ -197,7 +197,7 @@ Feature:  Brian process on blogs app
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user click on "actionMenuButton" to access blog
-    Then the user "Delete" this item
+    Then the user "delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully" displayed
     Then the user see "No Blogs Found" on left menu
@@ -222,6 +222,6 @@ Feature:  Brian process on blogs app
     And the user see item of "More"
     And the user want access tool tip "Blogs" from More
     And the user "buttonActionMenu" this item
-    And the user "Delete" this item
+    And the user "delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully" displayed

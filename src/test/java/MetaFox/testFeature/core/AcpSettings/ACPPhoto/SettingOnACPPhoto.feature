@@ -15,11 +15,11 @@ Feature: Config Settings On ACP Photo
   @BrianVerifySettingDownloadPhoto
   Scenario: Brian Verify settings Downloading Photos
     Given the user logged in as "brian"
-    Then the browser opened at item "photo" and tab "/photo/all"
-    And the user see title "All Photos" is displayed
-    And the user see item of "admin"
+    Then the browser opened at item "photo" and tab "/photo/my"
+    And the user see title "My Photos" is displayed
+    And the user see item of "Brian"
     And the user click on button "actionMenuButton" to action
-    Then the user don't see "Download" is displayed
+    Then the user don't see "download-photo" is displayed
 
   @AdminResetConfigDownloadOnPhoto
   Scenario: Admin Reset Config Download Photo OnACP
@@ -76,7 +76,6 @@ Feature: Config Settings On ACP Photo
     When the user action on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user want to click on button label "actionMenu" and process
-    And the user "Make cover photo" this item
+    And the user "make-cover" this item
     Then the user see message "Cover picture updated successfully" displayed
     And the user want to access "userAvatar"
-    Then the user see "updated his cover photo" on left menu

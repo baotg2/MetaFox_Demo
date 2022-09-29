@@ -67,7 +67,7 @@ Feature:  Brian process on multiple choice polls is friend
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user click on "actionMenuButton" to access blog
-    Then the user "Delete" this item
+    Then the user "delete" this item
     Then the user see "Are you sure you want to permanently delete this poll?" displayed success
     And the user click on button "buttonSubmit"
     Then the user see message "Poll deleted successfully" displayed

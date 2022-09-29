@@ -54,7 +54,7 @@ Feature: Brian process on photos friend item
     When the user action on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user click on "actionMenuButton" to access blog
-    And the user "Feature" this item
+    And the user "feature" this item
     Then the user see message "Photo featured successfully." displayed
     Then the user see label of action "featured" is displayed
 
@@ -64,5 +64,5 @@ Feature: Brian process on photos friend item
     When the user action on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user click on "actionMenuButton" to access blog
-    And the user "Un-Feature" this item
+    And the user "unfeature" this item
     Then the user see message "Photo unfeatured successfully." displayed

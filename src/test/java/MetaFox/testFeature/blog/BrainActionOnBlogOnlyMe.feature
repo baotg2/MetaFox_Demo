@@ -44,7 +44,7 @@ Feature:  Brian process on blogs is OnlyMe
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user click on "actionMenuButton" to access blog
-    Then the user "Delete" this item
+    Then the user "delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully" displayed
     Then the user see "No Blogs Found" on left menu

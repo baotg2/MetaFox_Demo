@@ -5,9 +5,9 @@ Feature: Brain Process On Account Settings Is Friend Only
   Scenario: Brian Verify View Profile Page Is Friend Only
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
-    And the user back to "Your Profile" page
+    And the user action on "Your Profile"
     And the user select privacy at field "Who can view your profile page?" and change to "Friends Only"
-    Then the user see message "Updated successfully" displayed
+    Then the user see message "Setting updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
     And the user see search field "Search" and typing keys "brian"
@@ -21,17 +21,17 @@ Feature: Brain Process On Account Settings Is Friend Only
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
-    And the user back to "Your Profile" page
+    And the user action on "Your Profile"
     And the user select privacy at field "Who can view your profile page?" and change to "Anyone"
-    Then the user see message "Updated successfully" displayed
+    Then the user see message "Setting updated successfully" displayed
 
   @BrianVerifyViewBasicInformationIsFriendOnly
   Scenario: Brian Verify View Basic Information Is Friend Only
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
-    And the user back to "Your Profile" page
+    And the user action on "Your Profile"
     And the user select privacy at field "Who can view your basic info?" and change to "Friends Only"
-    Then the user see message "Updated successfully" displayed
+    Then the user see message "Setting updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
     And the user see search field "Search" and typing keys "brian"
@@ -45,17 +45,17 @@ Feature: Brain Process On Account Settings Is Friend Only
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
-    And the user back to "Your Profile" page
+    And the user action on "Your Profile"
     And the user select privacy at field "Who can view your basic info?" and change to "Anyone"
-    Then the user see message "Updated successfully" displayed
+    Then the user see message "Setting updated successfully" displayed
 
   @BrainVerifyViewPhotoIsFriendOnly
   Scenario: Brian Verify View Photo Is Friends Only
     Given the user logged in as "brian"
     Then I want to click on "Account Settings"
-    And the user back to "Your Profile" page
+    And the user action on "Your Profile"
     And the user select privacy at field "Who can view photos on your profile page?" and change to "Friends Only"
-    Then the user see message "Updated successfully" displayed
+    Then the user see message "Setting updated successfully" displayed
     And I want to click on "Logout"
     Then the user logged in as "terry"
     And the user see search field "Search" and typing keys "brian"
@@ -71,6 +71,6 @@ Feature: Brain Process On Account Settings Is Friend Only
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
-    And the user back to "Your Profile" page
+    And the user action on "Your Profile"
     And the user select privacy at field "Who can view photos on your profile page?" and change to "Anyone"
-    Then the user see message "Updated successfully" displayed
+    Then the user see message "Setting updated successfully" displayed

@@ -77,7 +77,7 @@ Feature:  Brain Process On Public Events Is Friends
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     When the user want to click on button label "actionMenu" and process
-    And the user click on div "Delete" and process
+    And the user click on div "delete" and process
     Then the user see "Are you sure you want to permanently delete this event?" displayed success
     And the user click on button "buttonSubmit"
     Then the user see message "Event successfully deleted." displayed

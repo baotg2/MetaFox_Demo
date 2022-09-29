@@ -38,16 +38,16 @@ public class GivenStepDefinitions {
      */
     @Given("^the user logged in as \"([^\"]*)\"$")
     public void login(String username) throws IOException, InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//input[@data-testid ='inputEmail']"));
+        isComponentVisible.waitElement(By.xpath("//input[@placeholder='Enter your email address']"));
         dataExecutor.setExcelFile(dataExecutor.excelPathFile, "users");
         for ( int i = 1; i <= dataExecutor.getRowCountInSheet(); i++ ) {
             if ( dataExecutor.getCellData(i, 3).toLowerCase().equals(username) ) {
-                components.componentInputDataTestID("inputEmail").sendKeys(dataExecutor.getCellData(i, 4));
+                components.componentSearchAttributes("Enter your email address").sendKeys(dataExecutor.getCellData(i, 4));
                 if ( !dataExecutor.getCellData(i, 3).toLowerCase().equals("admin") ) {
-                    components.componentInputDataTestID("inputPassword").sendKeys("123456");
+                    components.componentSearchAttributes("Enter your password").sendKeys("123456");
                 }
                 else {
-                    components.componentInputDataTestID("inputPassword").sendKeys(dataExecutor.getCellData(i, 5));
+                    components.componentSearchAttributes("Enter your password").sendKeys(dataExecutor.getCellData(i, 5));
                 }
                 break;
             }
