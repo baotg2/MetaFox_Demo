@@ -6,7 +6,7 @@ Feature:  Brian process on blogs app
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/add"
-    Then the user action on input field "inputTitle" with value "BlogName"
+    Then the user action on input field "title" with value "BlogName"
     And the user add value on div "textbox"
     And the user want to add attach files
     And the user want add categories is "Education"
@@ -127,7 +127,7 @@ Feature:  Brian process on blogs app
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/add"
-    Then the user action on input field "inputTitle" with value "BlogName"
+    Then the user action on input field "title" with value "BlogName"
     And the user add value on div "textbox"
     And the user want to add attach files
     And the user want add categories is "Education"
@@ -209,7 +209,7 @@ Feature:  Brian process on blogs app
     And the user see item of "More"
     And the user want access tool tip "Blogs" from More
     And the user want to click on "/blog/add"
-    Then the user action on input field "inputTitle" with value "BlogName"
+    Then the user action on input field "title" with value "BlogName"
     Then the user want to add photo
     And the user add value on div "textbox"
     And the user want to add attach files

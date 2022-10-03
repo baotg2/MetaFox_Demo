@@ -19,7 +19,7 @@ Feature: Config Settings On ACP Blogs
     When the user action on "More"
     And the browser opened at item "blog" and tab "/blog/add"
     Then the user see "Maximum 255 of characters" displayed success
-    And the user action on input field "inputTitle" with value "a"
+    And the user action on input field "title" with value "a"
     And the user click on button "buttonSubmit"
     Then the user see "Title must contain at least 5 characters." displayed success
 
@@ -39,7 +39,7 @@ Feature: Config Settings On ACP Blogs
     Given the user logged in as "brian"
     When the user action on "More"
     And the browser opened at item "blog" and tab "/blog/add"
-    Then the user action on input field "inputTitle" with value "BlogName"
+    Then the user action on input field "title" with value "BlogName"
     And the user add value on div "textbox"
     And the user click on button "buttonSubmit"
     And the user see message "Blog published successfully" displayed

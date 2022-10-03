@@ -92,8 +92,8 @@ public class ThenStepDefinitions {
     public void addAlbum() {
         isComponentVisible.waitElement( By.xpath( "//form[@data-testid ='form']" ) );
         components.componentButtonDataTestID( "add_new_album" ).click();
-        isComponentVisible.waitElement( By.xpath( "//input[@data-testid ='inputNewAlbumName']" ) );
-        components.componentInputDataTestID( "inputNewAlbumName" ).sendKeys( dataExecutor.readConstants( "Album" ) );
+        isComponentVisible.waitElement( By.xpath( "//input[@name ='new_album.name']" ) );
+        components.componentInputName( "new_album.name" ).sendKeys( dataExecutor.readConstants( "Album" ) );
         components.componentTextAreaDataTestID( "inputNewAlbumDescription" ).sendKeys( dataExecutor.readConstants( "Description" ) );
     }
 
@@ -138,14 +138,14 @@ public class ThenStepDefinitions {
      */
     @Then( "^the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$" )
     public void inputValueOnField(String fieldName , @NotNull String value ) throws InterruptedException {
-        isComponentVisible.waitElement( By.xpath( "//input[@data-testid='" + fieldName + "']" ) );
+        isComponentVisible.waitElement( By.xpath( "//input[@name='" + fieldName + "']" ) );
         if ( value.equals( "BlogName" ) || ( value.equals( "Album" ) || (value.equals( "Groups")) || (value.equals( "Polls")) || (value.equals( "URLEvent")) ) ) {
-            components.componentInputDataTestID( fieldName ).clear();
-            components.componentInputDataTestID( fieldName).sendKeys( dataExecutor.readConstants( value ) );
+            components.componentInputName( fieldName ).clear();
+            components.componentInputName( fieldName).sendKeys( dataExecutor.readConstants( value ) );
         } else {
-            components.componentInputDataTestID( fieldName ).clear();
+            components.componentInputName( fieldName ).clear();
             Thread.sleep(2000);
-            components.componentInputDataTestID( fieldName ).sendKeys( value );
+            components.componentInputName( fieldName ).sendKeys( value );
         }
     }
 

@@ -6,7 +6,7 @@ Feature:  Brian process on blogs is Friend
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/add"
-    Then the user action on input field "inputTitle" with value "BlogName"
+    Then the user action on input field "title" with value "BlogName"
     And the user add value on div "textbox"
     And the user want to add attach files
     And the user want add categories is "Education"

@@ -6,7 +6,7 @@ Feature:  Brain Process On Closed Groups
     Given the user logged in as "brian"
     Then the user action on "More"
     Then the browser opened at item "group" and tab "/group/add"
-    And the user action on input field "inputName" with value "TestAutoClosedGroup"
+    And the user action on input field "name" with value "TestAutoClosedGroup"
     And the user add value on "select-type_id" is "Song"
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Closed"
