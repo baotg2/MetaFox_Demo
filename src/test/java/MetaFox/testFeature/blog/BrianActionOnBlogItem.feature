@@ -19,6 +19,7 @@ Feature:  Brian process on blogs app
   Scenario: Brian see post of blog on feed
     Given the user logged in as "brian"
     When the user want to access "userAvatar"
+    And the user want to refresh page before handle the action
     Then the user see "added a blog" on left menu
     Then the user see a element "TestAuto" is displayed on detail
 
@@ -120,7 +121,7 @@ Feature:  Brian process on blogs app
     Then the user "delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully" displayed
-    Then the user see "No Blogs Found" on left menu
+    Then the user see "No blogs found" on left menu
 
   @BrianAddNewBlogAndSaveDraft
   Scenario: Brian Add New Blog And Save As Draft
@@ -167,7 +168,7 @@ Feature:  Brian process on blogs app
     And the user see search field "Search blogs" and typing keys "SearchSomethings"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    Then the user see "No Blogs Found" on left menu
+    Then the user see "No blogs found" on left menu
 
   @BrianFeatureBlogs
   Scenario: Brain Feature Blogs
@@ -200,7 +201,7 @@ Feature:  Brian process on blogs app
     Then the user "delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully" displayed
-    Then the user see "No Blogs Found" on left menu
+    Then the user see "No blogs found" on left menu
 
   @BrianDeleteBlogOnUserProfile
   Scenario: Brian Delete Blog On User Profile

@@ -32,7 +32,7 @@ Feature:  Brian process on blogs is Friend
     When the user action on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "BlogName"
-    Then the user see "No Blogs Found" on left menu
+    Then the user see "No blogs found" on left menu
 
   @BrianShareNowOnBlogFriendJustAdd
   Scenario: Brain Share Now On Blog Friend Just Add

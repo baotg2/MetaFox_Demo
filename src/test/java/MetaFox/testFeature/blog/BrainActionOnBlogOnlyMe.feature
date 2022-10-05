@@ -22,7 +22,7 @@ Feature:  Brian process on blogs is OnlyMe
     When the user action on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "BlogOnlyMe"
-    Then the user see "No Blogs Found" on left menu
+    Then the user see "No blogs found" on left menu
 
   @BrianShareNowOnBlogOnlyMeJustAdd
   Scenario: Brain Share Now On Blog OnlyMe Just Add
@@ -47,4 +47,4 @@ Feature:  Brian process on blogs is OnlyMe
     Then the user "delete" this item
     And the user click on button "buttonSubmit"
     Then the user see message "Blog deleted successfully" displayed
-    Then the user see "No Blogs Found" on left menu
+    Then the user see "No blogs found" on left menu
