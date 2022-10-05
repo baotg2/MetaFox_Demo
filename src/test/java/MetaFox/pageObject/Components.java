@@ -672,4 +672,16 @@ public class Components {
     public WebElement componentImg(String imgID){
         return Index.getDriver().findElement(By.xpath("//img[@data-testid='"+imgID+"']"));
     }
+
+    /**--------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param liTestID is id of the li element
+     * @return element <li></li>
+     * ---------------------------------------------------------------------------------------------------------------------------
+     * @Author baotg2
+     * @since 04-05-2022
+     */
+    public WebElement componentLi(String liTestID){
+        return Index.getDriver().findElement(By.xpath("//li[@data-testid='"+liTestID+"']"));
+    }
 }

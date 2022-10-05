@@ -652,13 +652,17 @@ public class AndStepDefinitions {
     /**------------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param valueVerify is true to verify
-     * @purpose
+     * @purpose verify message on search result
+     * ----------------------------------------------------------------------------------------------------------------------------
+     * @Author baotg2
+     * @see 04-05-2022
      */
     @And("^the user see \"([^\"]*)\" displayed on search results$")
     public void theUserWantToDisplayDisplayedOnSearchResults(String valueVerify){
         isComponentVisible.waitElement(By.className("ltr-1h3jlzl"));
         assertEquals(components.componentsListByClassName("ltr-1h3jlzl").get(0).getText(), valueVerify);
     }
+
 
     @And("^the user click on input type check box \"([^\"]*)\"$")
     public void theUserClickOnInputTypeCheckBox(String inputName) {
@@ -680,5 +684,19 @@ public class AndStepDefinitions {
     public void accessSubItems(String subItemsName) {
         isComponentVisible.waitElement(By.xpath("//a[text()='" + subItemsName +"']"));
         components.componentListTextLink(subItemsName).get(1).click();
+    }
+
+    /**--------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param commentType is type of element want to put on comment
+     * @purpose select random sticker on comment
+     * @Author baotg2
+     * --------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @And("^the user put a \"([^\"]*)\" sticker on comments$")
+    public void putStickerOnComments(String commentType) {
+        isComponentVisible.waitElement( By.xpath( "//li[@data-testid='"+ commentType + "']"));
+        components.componentLi(commentType).click();
     }
 }

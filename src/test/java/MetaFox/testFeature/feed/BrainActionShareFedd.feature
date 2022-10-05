@@ -49,3 +49,23 @@ Feature:  Brain Action Share Feed
     Given the user logged in as "brian"
     When the user see search field "Search" and typing keys "#test"
     Then the user see title "#Hashtag" is displayed
+
+  @BrianCommentStickerOnFeed
+  Scenario: Brian Comments Sticker On Feed
+    Given the user logged in as "brian"
+    When the user click on button "commentButton"
+    And the user click on button "buttonAttachSticker"
+    And the user put a "sticker" sticker on comments
+
+  @BrianCommentEmojiOnFeed
+  Scenario: Brian Comments Emoji On Feed
+    Given the user logged in as "brian"
+    When the user click on button "commentButton"
+    And the user click on button "buttonAttachEmoji"
+    And the user put a "emoji" sticker on comments
+
+  @BrianReplyRandomComment
+  Scenario: Brian reply random comment
+    Given the user logged in as "brian"
+    When the user want to access "replyButton"
+    Then the user see "Write a reply..." is displayed on user profile

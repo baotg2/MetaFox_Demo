@@ -46,8 +46,8 @@ public class ThenStepDefinitions {
     @Then( "I want to verified error message with user {string}, {string}" )
     public void invalidUserCredentials( String userName , String passWord ) {
         isComponentVisible.waitElement( By.id( "mui-1" ) );
-        components.componentInputDataTestID( "inputEmail" ).sendKeys( userName );
-        components.componentInputDataTestID( "inputPassword" ).sendKeys( passWord );
+        components.componentSearchAttributes("Enter your email address").sendKeys( userName );
+        components.componentSearchAttributes("Enter your password").sendKeys( passWord );
         components.componentButtonDataTestID( "buttonLogin" ).click();
         isComponentVisible.waitElement( By.id( "dialogDescription" ) );
 

@@ -17,7 +17,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/MetaFox/testFeature"},
         glue = "MetaFox",
-        tags = "@BrianAddNewBlogWithImageIsFriend",
+        tags = "@BrainActionShareFeed",
         plugin ={
                 "html:target/result/",
                 "pretty",
@@ -28,5 +28,5 @@ import io.cucumber.testng.CucumberOptions;
 )
 
 public class TestRunnerMetaFoxV5 extends AbstractTestNGCucumberTests {
-        // mvn test -Dcucumber.options="--plugin json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json"  -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="@BrainCopyThreadWithEmptyTitle"
+        // mvn test -Dcucumber.options="--plugin json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json" -Dcucumber.options="--plugin io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"  -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="@AdminAddNewBlogWithoutImage"
 }
