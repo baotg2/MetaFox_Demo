@@ -8,8 +8,8 @@ Feature: Config Settings On ACP Groups
     And the user action on "App Settings"
     And the user action on "Group"
     When the user want to scroll to the end of page
-    And the user action on input field "inputGroupMinimumNameLength" with value "5"
-    And the user action on input field "inputGroupMaximumNameLength" with value "255"
+    And the user action on input field "group.minimum_name_length" with value "5"
+    And the user action on input field "group.maximum_name_length" with value "255"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
 
@@ -18,7 +18,7 @@ Feature: Config Settings On ACP Groups
     Given the user logged in as "brian"
     When the user action on "More"
     And the browser opened at item "group" and tab "/group/add"
-    And the user action on input field "inputName" with value "a"
+    And the user action on input field "name" with value "a"
     And the user click on button "buttonSubmit"
     When the user want to scroll to the up of page
     Then the user see "Group Name must be at least 5 characters" displayed success

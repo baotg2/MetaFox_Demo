@@ -8,8 +8,8 @@ Feature: Config Settings On ACP Blogs
     And the user action on "App Settings"
     And the user action on "Blog"
     When the user want to scroll to the end of page
-    And the user action on input field "inputBlogMinimumNameLength" with value "5"
-    And the user action on input field "inputBlogMaximumNameLength" with value "255"
+    And the user action on input field "blog.minimum_name_length" with value "5"
+    And the user action on input field "blog.maximum_name_length" with value "255"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
 

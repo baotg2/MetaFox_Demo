@@ -7,7 +7,7 @@ Feature: Config Settings On ACP Sign Up
     When the browser will get Administrator URL
     And the user action on "Members"
     And the user action on "Browse"
-    When the user click on element link text a "Registration Settings"
+    When the user want to "Registration Settings"
     And the user want to access "inputUserAllowUserRegistration"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
@@ -19,7 +19,7 @@ Feature: Config Settings On ACP Sign Up
     When the browser will get Administrator URL
     And the user action on "Members"
     And the user action on "Browse"
-    When the user click on element link text a "Registration Settings"
+    When the user want to "Registration Settings"
     And the user want to access "inputUserAllowUserRegistration"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
@@ -30,7 +30,7 @@ Feature: Config Settings On ACP Sign Up
     When the browser will get Administrator URL
     And the user action on "Members"
     And the user action on "Browse"
-    When the user click on element link text a "Registration Settings"
+    When the user want to "Registration Settings"
     And the user click on input type check box "user.signup_repeat_password"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
@@ -38,7 +38,7 @@ Feature: Config Settings On ACP Sign Up
   @BrainVerifyRe-enterPassword
   Scenario: Verify the re-enter password is displayed
     Given the user want to click on "register"
-    Then the user action on input field "inputPasswordConfirmation" with value "abc"
+    Then the user action on input field "password_confirmation" with value "abc"
 
   @AdminConfigTermsPrivacyConfirmation
   Scenario: Admin Config Terms Privacy On ACP
@@ -46,7 +46,7 @@ Feature: Config Settings On ACP Sign Up
     When the browser will get Administrator URL
     And the user action on "Members"
     And the user action on "Browse"
-    When the user click on element link text a "Registration Settings"
+    When the user want to "Registration Settings"
     When the user want to scroll to the end of page
     And the user want to access "inputUserNewUserTermsConfirmation"
     When the user click on button "buttonSubmit"
@@ -61,7 +61,7 @@ Feature: Config Settings On ACP Sign Up
     When the browser will get Administrator URL
     And the user action on "Members"
     And the user action on "Browse"
-    When the user click on element link text a "Registration Settings"
+    When the user want to "Registration Settings"
     When the user want to scroll to the end of page
     And the user want to access "inputUserNewUserTermsConfirmation"
     When the user click on button "buttonSubmit"

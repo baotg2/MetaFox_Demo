@@ -8,8 +8,8 @@ Feature: Config Settings On ACP Poll
     And the user action on "App Settings"
     And the user action on "Poll"
     When the user want to scroll to the end of page
-    And the user action on input field "inputPollMinimumNameLength" with value "5"
-    And the user action on input field "inputPollMaximumNameLength" with value "255"
+    And the user action on input field "poll.minimum_name_length" with value "5"
+    And the user action on input field "poll.maximum_name_length" with value "255"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
 
@@ -18,7 +18,7 @@ Feature: Config Settings On ACP Poll
     Given the user logged in as "brian"
     When the user action on "More"
     And the browser opened at item "poll" and tab "/poll/add"
-    And the user action on input field "inputQuestion" with value "a"
+    And the user action on input field "question" with value "a"
     And the user click on button "buttonSubmit"
     When the user want to scroll to the up of page
     Then the user see "Title must contain at least 5 characters." displayed success
@@ -38,7 +38,7 @@ Feature: Config Settings On ACP Poll
     Given the user logged in as "admin"
     When the user action on "More"
     When the browser opened at item "poll" and tab "/poll/add"
-    And the user action on input field "inputQuestion" with value "Polls"
+    And the user action on input field "question" with value "Polls"
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user add value on div "textbox"
@@ -74,7 +74,7 @@ Feature: Config Settings On ACP Poll
     Given the user logged in as "admin"
     When the user action on "More"
     When the browser opened at item "poll" and tab "/poll/add"
-    And the user action on input field "inputQuestion" with value "Polls"
+    And the user action on input field "question" with value "Polls"
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user click on button "buttonSubmit"

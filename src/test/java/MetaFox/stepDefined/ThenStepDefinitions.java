@@ -543,7 +543,6 @@ public class ThenStepDefinitions {
      */
     @Then("^the user see link text element \"([^\"]*)\" is not displayed on screen$")
     public void isLinkTextDisplayedOnDetail(String linkText){
-        isComponentVisible.waitElement(By.xpath("//input[@data-testid ='inputEmail']"));
         assertEquals(components.componentListTestId(linkText).size(), 0);
     }
 

@@ -11,7 +11,7 @@ Feature: Config Settings On ACP Feed
     And the user click on input type check box "activity.feed.enable_tag_friends"
     And the user click on input type check box "activity.feed.enable_hide_feed"
     When the user want to scroll to the end of page
-    And the user action on input field "inputActivityFeedSpamCheckStatusUpdates" with value "1"
+    And the user action on input field "activity.feed.spam_check_status_updates" with value "1"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
 
