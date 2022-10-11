@@ -1,4 +1,4 @@
-@MetaFox @events @guestActionOnPublicEvent
+ @events @guestActionOnPublicEvent
   Feature: Guest Action On Public Events
 
   @GuestVerifyOnEventDetail

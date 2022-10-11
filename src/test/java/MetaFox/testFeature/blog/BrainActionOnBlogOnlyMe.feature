@@ -1,6 +1,7 @@
 @MetaFox @blogs  @blogOnlyMeFunction_Brian
 Feature:  Brian process on blogs is OnlyMe
 
+
   @BrianAddNewBlogWithImageIsOnlyMe
   Scenario: Brian Add New Blog With Image With Privacy Is Only Me
     Given the user logged in as "brian"
@@ -16,6 +17,7 @@ Feature:  Brian process on blogs is OnlyMe
     And the user click on button "buttonSubmit"
     And the user see message "Blog published successfully" displayed
 
+
   @AnotherUserSearchBlogOnlyMe
   Scenario: Another User Search Blog Only Me
     Given the user logged in as "terry"
@@ -23,6 +25,7 @@ Feature:  Brian process on blogs is OnlyMe
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "BlogOnlyMe"
     Then the user see "No blogs found" on left menu
+
 
   @BrianShareNowOnBlogOnlyMeJustAdd
   Scenario: Brain Share Now On Blog OnlyMe Just Add
@@ -34,6 +37,7 @@ Feature:  Brian process on blogs is OnlyMe
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
     Then the user verify button test data id "menuShareButton" is displayed
+
 
   @BrainDeleteBlogsOnlyMeJustAdded
   Scenario: Brain Delete Blog OnlyMe Just Added

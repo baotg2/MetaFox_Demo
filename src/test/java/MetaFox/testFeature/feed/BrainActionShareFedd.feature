@@ -64,6 +64,13 @@ Feature:  Brain Action Share Feed
     And the user click on button "buttonAttachEmoji"
     And the user put a "emoji" sticker on comments
 
+  @BrianCopyLinkOnFeed
+  Scenario: Brian Copy Link On Feed
+    Given the user logged in as "brian"
+    When the user click on button "menuShareButton"
+    And the user action on "Copy link"
+    Then the user see message "Copied to clipboard" displayed
+
   @BrianReplyRandomComment
   Scenario: Brian reply random comment
     Given the user logged in as "brian"

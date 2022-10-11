@@ -107,7 +107,8 @@ public class Index {
             default:
                 driver = new ChromeDriver();
         }
-        driver.get(dataExecutor.readConstants("URL"));
+        driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
+        driver.get(dataExecutor.readConstants("URL"));
     }
 }

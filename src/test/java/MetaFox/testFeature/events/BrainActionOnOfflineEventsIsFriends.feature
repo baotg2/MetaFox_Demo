@@ -1,6 +1,7 @@
-@MetaFox @events @brianActionOnPublicEventsIsFriends
+@events @brianActionOnPublicEventsIsFriends
 
-Feature:  Brain Process On Public Events Is Friends
+Feature: Brain Process On Public Events Is Friends
+
 
   @BrianAddNewEventsIsFriendWithEmptyValue
   Scenario: Brian Add New Events Is Friend With Empty Value
@@ -10,6 +11,7 @@ Feature:  Brain Process On Public Events Is Friends
     And the user action on input field "name" with value "Groups"
     And the user click on button "buttonSubmit"
     Then the user see "The location field is required for offline event." displayed success
+
 
   @BrianAddNewEventsOfflineIsFriends
   Scenario: Brian Add New Events Offline Is Friends
@@ -28,6 +30,7 @@ Feature:  Brain Process On Public Events Is Friends
     Then the user see message "Event created successfully" displayed
     Then the user see title "IsOfflineEvents" is displayed
 
+
   @AnotherUserSearchOfflineEventsIsFriends
   Scenario: Another User Search OfflineEvents Is Friends
     Given the user logged in as "test"
@@ -37,6 +40,7 @@ Feature:  Brain Process On Public Events Is Friends
     And the user want to click on title "itemTitle" and process
     Then the user see title "IsOfflineEvents" is displayed
 
+
   @AnotherUserSearchEventsIsNotFriend
   Scenario: Another User Search Events is not friend
     Given the user logged in as "terry"
@@ -44,6 +48,7 @@ Feature:  Brain Process On Public Events Is Friends
     Then the browser opened at item "event" and tab ""
     And the user see search field "Search events" and typing keys "IsOfflineEvents"
     Then the user see "No events found" on left menu
+
 
   @BrianShareNowOnEventsIsFriendJustAdd
   Scenario: Brain Share Now On Events Is Friend Just Add
@@ -61,12 +66,14 @@ Feature:  Brain Process On Public Events Is Friends
     Then the user see "shared a post to newsfeed" on left menu
     Then the user see h4 "IsOfflineEvents" is displayed
 
+
   @AnotherUserAccessOnBrianProfileAndSeeEvents
   Scenario: Another user access Brian profile and see Events
     Given the user logged in as "test"
     Then the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     Then the user see "shared a post to newsfeed" on left menu
+
 
   @BrainDeleteOfflineEventsIsFriends
   Scenario: Brain delete offline events is friends

@@ -1,4 +1,4 @@
-@MetaFox @events @brianActionOnPublicEvents
+@events @brianActionOnPublicEvents
 
 Feature:  Brain Process On Public Events
 
