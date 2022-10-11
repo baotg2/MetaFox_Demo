@@ -8,7 +8,7 @@ Feature:  Brian process on Forum
     When the browser opened at item "forum" and tab "/forum/thread/add"
     And the user add value on id "select-forum_id" is "General"
     When the user want to select category at 1 on dropdown list "select-forum_id"
-    And the user action on input field "inputTitle" with value "IsThreadDisplayedOnWiki"
+    And the user action on input field "title" with value "IsThreadDisplayedOnWiki"
     And the user add value on div "textbox"
     And the user want to add attach files
     And the user add value on "tags-tags" is "tag-tag"
