@@ -1,13 +1,24 @@
 package MetaFox.stepDefined;
 
 import io.cucumber.java.en.Given;
+import io.qameta.allure.Allure;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
 import MetaFox.browserConfig.Index;
 import MetaFox.pageObject.Components;
 import MetaFox.support.DataExecutor;
 import MetaFox.support.IsComponentVisible;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
+import java.io.ByteArrayInputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import static MetaFox.browserConfig.Index.currentUrlValue;
 import static org.junit.Assert.assertTrue;
@@ -71,5 +82,26 @@ public class GivenStepDefinitions {
     @Given("the user open URL detail")
     public void openUrlDetail(){
         Index.getDriver().get(currentUrlValue);
+    }
+
+    @Given("^the user verify URL detail on \"([^\"]*)\"$")
+    public void verifyUrlDetail(String site) throws Exception {
+        Object obj = null;
+        if (site.equals("site")){
+            obj = new JSONParser().parse(new FileReader("src/test/java/MetaFox/testdata/page_urls.json"));
+        }
+        else {
+            obj = new JSONParser().parse(new FileReader("src/test/java/MetaFox/testdata/admin_urls.json"));
+        }
+        JSONObject jo = (JSONObject) obj;
+        JSONArray temp =(JSONArray) jo.get(site);
+        Iterator<String> iterator = temp.iterator();
+        List<String> list = new ArrayList<>();
+        iterator.forEachRemaining(list::add);
+        for (String tempURL : list) {
+            Index.getDriver().get("https://staging-foxsocial.phpfox.us/"+tempURL.substring(1));
+            Thread.sleep(4000);
+            Allure.addAttachment(tempURL.substring(1), new ByteArrayInputStream(((TakesScreenshot) Index.getDriver()).getScreenshotAs(OutputType.BYTES)));
+        }
     }
 }

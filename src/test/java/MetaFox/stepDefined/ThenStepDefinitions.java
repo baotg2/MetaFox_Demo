@@ -157,12 +157,12 @@ public class ThenStepDefinitions {
      * @Author baotg2
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      */
-    @Then( "I want to access {string}" )
+    @Then( "^I want to access \"([^\"]*)\"$" )
     public void iWantToAccessMenu( String module ) throws IOException {
         dataExecutor.setExcelFile( dataExecutor.excelPathFile , "pages" );
         for ( int i = 1 ; i <= dataExecutor.getRowCountInSheet() ; i++ ) {
             if ( dataExecutor.getCellData( i , 2 ).toLowerCase().equals( module ) ) {
-                components.componentDivDataTestID( module ).click();
+                components.componentLinkText( module ).click();
                 assertTrue( components.componentLinkText( dataExecutor.getCellData( i , 3 ) ).isDisplayed() );
                 supportStepDefinition.isBackToHomePage();
             }

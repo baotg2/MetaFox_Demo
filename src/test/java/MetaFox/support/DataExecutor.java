@@ -15,10 +15,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
+
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -31,6 +30,7 @@ import java.util.*;
  */
 public class DataExecutor {
 
+    private static Iterator<String> iterator;
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
 
@@ -211,7 +211,5 @@ public class DataExecutor {
         // TODO Auto-generated method stub
         StringSelection stringSelection = new StringSelection(string);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-
     }
-
 }
