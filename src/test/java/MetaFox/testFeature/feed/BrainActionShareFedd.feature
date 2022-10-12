@@ -76,3 +76,11 @@ Feature:  Brain Action Share Feed
     Given the user logged in as "brian"
     When the user want to access "replyButton"
     Then the user see "Write a reply..." is displayed on user profile
+
+  @BrianUploadPhotoOnFeed
+  Scenario: Brian Upload Photo on feed
+    Given the user logged in as "brian"
+    Then the user "whatsHappening" this item
+    When the user click on button "menuAddPhoto"
+    And the user want to add attach files
+    Then the user see "shared a post to newsfeed" on left menu

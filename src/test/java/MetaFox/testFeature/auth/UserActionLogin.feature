@@ -30,23 +30,23 @@ Feature: Verify login pHpFox success
     Given the user logged in as "brian"
     Then the user see search field "Search" and typing keys "admin"
     And the user want to click on "/admin"
-    And the user want to "Add friend"
+    And the user want to "Add Friend"
     Then I want to click on "Logout"
     And the user logged in as "admin"
     Then the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     And the user want to "Accept"
-    Then the user see button "Un Friend" is displayed
+    Then the user see button "Unfriend" is displayed
 
   @BrainAddFriendWithTest
   Scenario: Brain Add Friend
     Given the user logged in as "brian"
     Then the user see search field "Search" and typing keys "test"
     And the user want to click on "/test"
-    And the user want to "Add friend"
+    And the user want to "Add Friend"
     Then I want to click on "Logout"
     And the user logged in as "test"
     Then the user see search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
     And the user want to "Accept"
-    Then the user see button "Un Friend" is displayed
+    Then the user see button "Unfriend" is displayed

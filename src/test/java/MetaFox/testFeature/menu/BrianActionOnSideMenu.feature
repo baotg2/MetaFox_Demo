@@ -4,7 +4,7 @@ Feature: Verify access side menu success
   @ScenarioAccessSideMenu1
   Scenario: verify access child side menu
     Given the user logged in as "brian"
-    And I want to access "Blogs"
+    And I want to access "blogs"
     And I want to access "Photos"
     And I want to access "Polls"
     And I want to access "Members"

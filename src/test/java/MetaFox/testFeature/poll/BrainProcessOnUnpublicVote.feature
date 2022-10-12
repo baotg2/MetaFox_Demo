@@ -6,7 +6,7 @@ Feature:  Brian process on multiple choice polls
     Given the user logged in as "brian"
     When the user action on "More"
     When the browser opened at item "poll" and tab "/poll/add"
-    And the user action on input field "inputQuestion" with value "Polls"
+    And the user action on input field "question" with value "Polls"
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user add value on div "textbox"
@@ -55,7 +55,7 @@ Feature:  Brian process on multiple choice polls
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     When the user want to click on button label "actionMenu" and process
-    And the user click on div "delete" and process
+    And the user click on div "Delete" and process
     Then the user see "Are you sure you want to permanently delete this poll?" displayed success
     And the user click on button "buttonSubmit"
     #Then the user see "No polls found" on left menu

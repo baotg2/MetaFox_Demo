@@ -6,7 +6,7 @@ Feature:  Brian process polls on feed
     Given the user logged in as "brian"
     When the user click on button "buttonAttachPoll"
     And the user see "New poll" is displayed on user profile
-    And the user action on input field "inputPollQuestion" with value "Polls"
+    And the user action on input field "question" with value "Polls"
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user want to "Done"
@@ -31,7 +31,7 @@ Feature:  Brian process polls on feed
     And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
     When the user want to click on button label "actionMenu" and process
-    And the user click on div "delete" and process
+    And the user click on div "Delete" and process
     Then the user see "Are you sure you want to permanently delete this poll?" displayed success
     And the user click on button "buttonSubmit"
     #Then the user see message "No polls found" displayed

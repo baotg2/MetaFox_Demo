@@ -1,12 +1,16 @@
 package MetaFox.support;
 
 import MetaFox.browserConfig.Index;
+import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
+import java.io.ByteArrayInputStream;
 import java.util.Random;
+
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -39,9 +43,14 @@ public class IsComponentVisible {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    public void waitElement(By webElement) {
-        WebDriverWait wait = new WebDriverWait(Index.getDriver(), 15);
-        wait.until(ExpectedConditions.presenceOfElementLocated(webElement)).isDisplayed();
+    public void waitElement(By webElement){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Allure.addAttachment(webElement.toString(), new ByteArrayInputStream(((TakesScreenshot) Index.getDriver()).getScreenshotAs(OutputType.BYTES)));
+        Assert.assertTrue(Index.getDriver().findElements(webElement).size() >0 );
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
