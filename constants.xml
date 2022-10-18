@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <constants>
-    <URL>https://preview-foxsocial.phpfox.us/</URL>
-    <URLACP>https://preview-foxsocial.phpfox.us/admincp/</URLACP>
+    <URL>https://staging-foxsocial.phpfox.us/</URL>
+    <URLACP>https://staging-foxsocial.phpfox.us/admincp/</URLACP>
     <URLEvent>https://zoom.us/</URLEvent>
     <TestDataFolder>src/test/java/MetaFox/testdata/</TestDataFolder>
     <DataFile>v5DataProvider.xlsx</DataFile>
