@@ -70,7 +70,7 @@ Feature: Brian process on album item
   Scenario: Brian Add Empty Album
     Given the user logged in as "brian"
     When the browser opened at item "photo" and tab "/photo/album/add"
-    And the user action on input field "inputName" with value "IsEmptyAlbum"
+    And the user action on input field "name" with value "IsEmptyAlbum"
     And the user add value "TestAtoDescription" on textArea "inputText"
     When the user click on button "buttonSubmit"
     Then the user see message "Photo Album created successfully" displayed
