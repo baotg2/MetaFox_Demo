@@ -15,7 +15,7 @@ Feature:  Brian process on blogs is OnlyMe
     And the user see item of "Everyone"
     When the user see item of "Only Me"
     And the user click on button "buttonSubmit"
-    And the user see message "Blog published successfully" displayed
+    And the user see message "blogCreate" displayed
 
 
   @AnotherUserSearchBlogOnlyMe
@@ -24,7 +24,7 @@ Feature:  Brian process on blogs is OnlyMe
     When the user action on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "BlogOnlyMe"
-    Then the user see "No blogs found" on left menu
+    Then the user see "No blogs are found." on left menu
 
 
   @BrianShareNowOnBlogOnlyMeJustAdd
@@ -48,7 +48,7 @@ Feature:  Brian process on blogs is OnlyMe
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user click on "actionMenuButton" to access blog
-    Then the user "Delete" this item
+    And the user action on "Delete"
     And the user click on button "buttonSubmit"
-    Then the user see message "Blog deleted successfully" displayed
-    Then the user see "No blogs found" on left menu
+    Then the user see message "blogDelete" displayed
+    Then the user see "No blogs are found." on left menu

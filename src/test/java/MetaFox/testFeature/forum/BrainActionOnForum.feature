@@ -7,8 +7,8 @@ Feature:  Brian process on Forum
     When the user action on "More"
     When the browser opened at item "forum" and tab "/forum/thread/add"
     And the user click on button "buttonSubmit"
-    Then the user see "Title is a required field." displayed success
-    Then the user see "Content is a required field." is displayed on user profile
+    Then the user see "Title is required." displayed success
+    Then the user see "Content is required." is displayed on user profile
 
   @BrainAddNewForum
   Scenario: Brian Add New Forum
@@ -73,9 +73,8 @@ Feature:  Brian process on Forum
     When the user action on "More"
     When the browser opened at item "forum" and tab ""
     And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
-    When the user want to click on button label "actionMenu" and process
-    And the user click on div "Edit Thread" and process
-    Then the user see title "Edit Thread" is displayed
+    When the user want to click on button label "Action Menu" and process
+    And the user action on "Edit Thread"
     And the user see item of "Remove"
     Then the user see "Are you sure you want to delete this attachment file?" displayed success
     And the user want to "OK"
@@ -87,8 +86,8 @@ Feature:  Brian process on Forum
     When the user action on "More"
     When the browser opened at item "forum" and tab ""
     And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
-    When the user want to click on button label "actionMenu" and process
-    And the user click on div "Move Thread" and process
+    When the user want to click on button label "Action Menu" and process
+    And the user action on "Move Thread"
     When the user want to select category at 4 on dropdown list "select-forum_id"
     And the user click on button "buttonSubmit"
     Then the user see message "Thread moved successfully." displayed
@@ -100,8 +99,8 @@ Feature:  Brian process on Forum
     When the user action on "More"
     When the browser opened at item "forum" and tab ""
     And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
-    When the user want to click on button label "actionMenu" and process
-    And the user click on div "Copy Thread" and process
+    When the user want to click on button label "Action Menu" and process
+    And the user action on "Copy Thread"
     Then the user see "Copy Thread" is displayed on user profile
     #When the user action on input field "inputTitle" with value ""
     And the user want to "Copy"
@@ -110,7 +109,7 @@ Feature:  Brian process on Forum
     And the user click on notification "Your thread copying process has been completed. Review now" and process
     Then the user see title "Copy - IsThreadAutotest" is displayed
     And the user click on button "actionMenuButton"
-    And the user click on div "Delete Thread" and process
+    And the user action on "Delete Thread"
     Then the user see "Are you sure you want to delete this thread permanently?" displayed success
     And the user want to "OK"
     Then the user see message "Thread deleted successfully." displayed
@@ -123,11 +122,11 @@ Feature:  Brian process on Forum
     And the user see search field "Search Discussions" and typing keys "IsThreadAutotest"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    When the user want to click on button label "actionMenu" and process
-    And the user click on div "Stick Thread" and process
+    When the user want to click on button label "Action Menu" and process
+    And the user action on "Stick Thread"
     Then the user see message "Thread successfully sticked." displayed
     When the user want to click on button label "actionMenu" and process
-    And the user click on div "Unstick Thread" and process
+    And the user action on "Unstick Thread"
     Then the user see message "Thread successfully unsticked." displayed
 
   @BrainVerifyOnHistory
@@ -143,11 +142,11 @@ Feature:  Brian process on Forum
     When the user action on "More"
     When the browser opened at item "forum" and tab ""
     And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
-    When the user want to click on button label "actionMenu" and process
-    And the user click on div "Close Thread" and process
+    When the user want to click on button label "Action Menu" and process
+    And the user action on "Close Thread"
     And the user want to "OK"
     Then the user see message "Thread closed successfully." displayed
     And the user see "Closed" on tab
     When the user want to click on button label "actionMenu" and process
-    And the user click on div "Reopen Thread" and process
+    And the user action on "Reopen Thread"
     Then the user see message "Thread successfully reopened." displayed

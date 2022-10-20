@@ -16,6 +16,8 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 
@@ -36,7 +38,11 @@ public class DataExecutor {
 
     private final String testDataFolder = "src/test/java/MetaFox/testdata/";
     private final String testDataFile = "v5DataProvider.xlsx";
+    private final String testDescriptionFile  = "blogDescription.txt";
+
     public String excelPathFile = testDataFolder + testDataFile;
+
+    public String blogDescriptionFile = testDataFolder + testDescriptionFile;
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -149,7 +155,7 @@ public class DataExecutor {
         for ( File file : fList ) {
             if ( file.isFile() ) {
                 list.add( file.getAbsolutePath() );
-                if ( file.getAbsolutePath().contains( "xlsx" ) || ( file.getAbsolutePath().contains( "gif" ) ) ) {
+                if ( file.getAbsolutePath().contains( "xlsx" ) || ( file.getAbsolutePath().contains( "gif" ) || ( file.getAbsolutePath().contains( "json" )) || ( file.getAbsolutePath().contains( "txt" )))) {
                     list.remove( file.getAbsolutePath() );
                 }
             }
@@ -170,16 +176,6 @@ public class DataExecutor {
         {
             setClipboardData(fileLocation);
             Robot robot = new Robot();
-//            robot.keyPress(KeyEvent.VK_CONTROL);
-//            robot.keyPress(KeyEvent.VK_V);
-//            robot.keyRelease(KeyEvent.VK_V);
-//            robot.keyRelease(KeyEvent.VK_CONTROL);
-//            robot.keyPress(KeyEvent.VK_ENTER);
-//            robot.keyRelease(KeyEvent.VK_ENTER);
-//            robot.delay(2000);
-//            robot.keyPress(KeyEvent.VK_ENTER);
-//            robot.keyPress(KeyEvent.VK_ESCAPE);
-//            robot.keyRelease(KeyEvent.VK_ESCAPE);
             // Cmd + Tab is needed since it launches a Java app and the browser looses focus
             robot.delay(500);
             robot.keyPress(KeyEvent.VK_META);
@@ -211,5 +207,12 @@ public class DataExecutor {
         // TODO Auto-generated method stub
         StringSelection stringSelection = new StringSelection(string);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+    }
+
+    public String readFileAsString(String fileName, int intLine)throws Exception
+    {
+        String data;
+        data = Files.readAllLines(Paths.get(fileName)).get(intLine);
+        return data;
     }
 }

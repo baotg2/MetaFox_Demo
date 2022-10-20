@@ -68,6 +68,6 @@ Feature: Brian process on album item friends
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
     And the user click on "actionMenuButton" to access blog
-    Then the user "delete" this item
+    When the user action on "Delete"
     And the user click on button "buttonSubmit"
     Then the user see message "Photo album deleted successfully." displayed

@@ -11,10 +11,10 @@ Feature:  Brain Process On Online Events
     And the user add value on "select-categories" is "Music"
     And the user want to access "inputIsOnline"
     And the user click on button "buttonSubmit"
-    Then the user see "Online Link is a required field." displayed success
+    Then the user see "Online Link is required." displayed success
 
   @BrianAddNewEventsOnline
-  Scenario: Brian Add New Events Events Online With empty value
+  Scenario: Brian Add New Events Events Online
     Given the user logged in as "brian"
     Then the user action on "More"
     Then the browser opened at item "event" and tab "/event/add"
@@ -49,8 +49,7 @@ Feature:  Brain Process On Online Events
     And the user see search field "Search events" and typing keys "IsOnlineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    When the user want to click on button label "actionMenu" and process
-    And the user click on div "Delete" and process
-    Then the user see "Are you sure you want to permanently delete this event?" displayed success
+    When the user want to click on button label "Action Menu" and process
+    And the user action on "Delete"
     And the user click on button "buttonSubmit"
     Then the user see message "Event successfully deleted." displayed

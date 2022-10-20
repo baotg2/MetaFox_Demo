@@ -200,7 +200,7 @@ public class ThenStepDefinitions {
      */
     @Then( "^the user add comment \"([^\"]*)\" on blog$" )
     public void addComment( String comment ) throws InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//div[@role='combobox']"));
+        //isComponentVisible.waitElement(By.xpath("//div[@role='combobox']"));
         if(components.componentListDivDataTestID("fieldStatus").size()!=0){
             Index.getDriver().findElement(By.xpath("//div[@data-testid='fieldStatus']//div[@role ='combobox']")).sendKeys(comment);
         }

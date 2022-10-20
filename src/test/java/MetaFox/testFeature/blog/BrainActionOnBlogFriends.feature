@@ -15,7 +15,7 @@ Feature:  Brian process on blogs is Friend
     And the user see item of "Everyone"
     When the user see item of "Friends"
     And the user click on button "buttonSubmit"
-    And the user see message "Blog published successfully" displayed
+    And the user see message "blogCreate" displayed
     Then the user verify title of blog is displayed
 
 
@@ -35,7 +35,7 @@ Feature:  Brian process on blogs is Friend
     When the user action on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "BlogName"
-    Then the user see "No blogs found" on left menu
+    Then the user see "No blogs are found." on left menu
 
 
   @BrianShareNowOnBlogFriendJustAdd
@@ -49,7 +49,7 @@ Feature:  Brian process on blogs is Friend
     And the user want to click on title "itemTitle" and process
     And the user click on button "menuShareButton"
     When the user action on "Share now"
-    Then the user see message "Shared successfully" displayed
+    And the user see message "blogShareNow" displayed
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
     Then the user see "shared a post to newsfeed" on left menu
@@ -60,7 +60,7 @@ Feature:  Brian process on blogs is Friend
   Scenario: Another user access Brian profile and see blog
     Given the user logged in as "terry"
     Then the user see search field "Search" and typing keys "brian"
-    And the user want to click on "/brian"
+    And the user click on element link text a "Brian"
     Then the user see "shared a post to newsfeed" on left menu
     Then the user see "Owner of this post has limited who can view this post." is displayed on user profile
 
@@ -74,7 +74,7 @@ Feature:  Brian process on blogs is Friend
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user click on "actionMenuButton" to access blog
-    Then the user "Delete" this item
+    And the user action on "Delete"
     And the user click on button "buttonSubmit"
-    Then the user see message "Blog deleted successfully" displayed
-    Then the user see "No blogs found" on left menu
+    And the user see message "blogDelete" displayed
+    Then the user see "No blogs are found." on left menu

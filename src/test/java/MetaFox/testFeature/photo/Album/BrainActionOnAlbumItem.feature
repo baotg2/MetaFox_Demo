@@ -7,7 +7,7 @@ Feature: Brian process on album item
     Then the browser opened at item "photo" and tab "/photo/add"
     And the user want to add new album
     And the user click on button "buttonSubmit"
-    Then the user see message "Media files are required." displayed
+    Then the user see div element "error" displayed
 
   @BrainAddNewAlbumWithPhoto
   Scenario: Brian Add New Album With Photo
@@ -48,8 +48,8 @@ Feature: Brian process on album item
     Then the browser opened at item "photo" and tab "/photo/albums"
     And the user see search field "Search albums" and typing keys "Album"
     And the user click on "actionMenuButton" to access blog
-    Then the user "edit" this item
-    And the user action on input field "inputName" with value "Auto Test New AlbumName"
+    When the user action on "Edit Photo Album"
+    And the user action on input field "name" with value "Auto Test New AlbumName"
     And the user click on button "buttonSubmit"
     Then the user see message "Photo album updated successfully." displayed
 
@@ -62,7 +62,7 @@ Feature: Brian process on album item
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
     And the user click on "actionMenuButton" to access blog
-    Then the user "delete" this item
+    When the user action on "Delete"
     And the user click on button "buttonSubmit"
     Then the user see message "Photo album deleted successfully." displayed
 
@@ -70,7 +70,6 @@ Feature: Brian process on album item
   Scenario: Brian Add Empty Album
     Given the user logged in as "brian"
     When the browser opened at item "photo" and tab "/photo/album/add"
-    Then the user see title "Create New Album" is displayed
     And the user action on input field "inputName" with value "IsEmptyAlbum"
     And the user add value "TestAtoDescription" on textArea "inputText"
     When the user click on button "buttonSubmit"
@@ -105,6 +104,6 @@ Feature: Brian process on album item
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
     And the user click on "actionMenuButton" to access blog
-    Then the user "delete" this item
+    When the user action on "Delete"
     And the user click on button "buttonSubmit"
     Then the user see message "Photo album deleted successfully." displayed

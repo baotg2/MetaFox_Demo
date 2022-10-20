@@ -27,7 +27,7 @@ Feature: Brian process on photos item
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user click on "actionMenuButton" to access blog
-    Then the user "Delete" this item
+    Then the user action on "Delete"
     And the user click on button "buttonSubmit"
     Then the user see message "Photo deleted successfully" displayed
 
@@ -38,7 +38,7 @@ Feature: Brian process on photos item
     And the user see title "All Photos" is displayed
     And the user see item of "admin"
     And the user click on button "actionMenuButton" to action
-    And the user "report" this item
+    And the user action on "Report"
     Then the user see main form "form" is displayed
 
   @BrianAttachPhotoFromFeed
@@ -71,7 +71,7 @@ Feature: Brian process on photos item
     When the user action on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user click on "actionMenuButton" to access blog
-    And the user "feature" this item
+    And the user action on "Feature"
     Then the user see message "Photo featured successfully." displayed
     Then the user see label of action "featured" is displayed
 
@@ -81,7 +81,7 @@ Feature: Brian process on photos item
     When the user action on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user click on "actionMenuButton" to access blog
-    And the user "unfeature" this item
+    And the user action on "Unfeature"
     Then the user see message "Photo unfeatured successfully." displayed
 
   @BrainShareNowPhotos
@@ -115,7 +115,7 @@ Feature: Brian process on photos item
     When the user action on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user want to click on button label "actionMenu" and process
-    And the user "make-cover" this item
+    And the user action on "Make Cover Photo"
     Then the user see message "Cover picture updated successfully" displayed
     And the user want to access "userAvatar"
     Then the user see "updated his cover photo" on left menu

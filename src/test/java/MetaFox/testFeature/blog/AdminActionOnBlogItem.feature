@@ -13,7 +13,7 @@ Feature:  Admin process on blogs app
     And the user want add categories is "Education"
     And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonSubmit"
-    And the user see message "Blog published successfully" displayed
+    And the user see message "blogCreate" displayed
     Then the user verify title of blog is displayed
 
   @AdminSeePendingBlog
@@ -30,11 +30,11 @@ Feature:  Admin process on blogs app
     When the user action on "More"
     And the browser opened at item "blog" and tab "/blog/my"
     And the user click on "actionMenuButton" to access blog
-    And the user "Edit blog" this item
+    And the user action on "Edit blog"
     Then the user see main form "form" is displayed
     And the user action on input field "title" with value "Modify Admin Blog"
     And the user click on button "buttonSubmit"
-    Then the user see message "Blog updated successfully" displayed
+    Then the user see message "blogUpdate" displayed
 
   @AdminDeleteRanDomBlog
   Scenario: Admin Delete Ran Dom Blog
@@ -42,6 +42,6 @@ Feature:  Admin process on blogs app
     When the user action on "More"
     And the browser opened at item "blog" and tab "/blog/all"
     And the user click on "actionMenuButton" to access blog
-    And the user "Delete" this item
+    And the user action on "Delete"
     Then the user see id button "buttonSubmit" is displayed
     Then the user see id button "buttonCancel" is displayed

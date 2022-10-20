@@ -161,7 +161,7 @@ Feature:  Brain Process On Public Events
     And the user see search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    When the user want to click on button label "actionMenu" and process
+    When the user want to click on button label "Action Menu" and process
     And the user click on div "Edit Event" and process
     And the user add value on "host" is ""
     Then the user want to click on list button label "Clear" and process

@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
 
+import java.sql.Blob;
 import java.util.List;
 
 import static MetaFox.browserConfig.Index.driver;
@@ -308,6 +309,7 @@ public class AndStepDefinitions {
      */
     @And("^I want to click on \"([^\"]*)\"$")
     public void logout(String spanText) throws InterruptedException {
+        Thread.sleep(3000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid ='menuAppBar']/div[5]/div"));
         driver.findElement(By.xpath("//div[@data-testid ='menuAppBar']/div[5]/div")).click();
         isComponentVisible.waitElement(By.xpath("//span[text()='" + spanText + "']"));
@@ -362,6 +364,27 @@ public class AndStepDefinitions {
         components.componentDivRole(fieldName).sendKeys(dataExecutor.readConstants("Description"));
     }
 
+    @And("^the user add description on items \"([^\"]*)\"$")
+    public void inputValueOnDivNonTearDown (@NotNull String itemName) throws Exception {
+        switch (itemName) {
+            case "Blog":
+                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 0));
+                break;
+            case "Group":
+                components.componentTextAreaDataTestID("inputText").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 1));
+                break;
+            case "Polls":
+                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile,2));
+                break;
+            case "Album":
+                components.componentTextAreaDataTestID("inputNewAlbumDescription").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 3));
+                break;
+            case "Forum":
+                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile,4));
+                break;
+        }
+    }
+
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param buttonName is name of button
@@ -387,7 +410,7 @@ public class AndStepDefinitions {
      */
     @And("the user see message \"([^\"]*)\" displayed$")
     public void isMsgCreateSuccessDisplayed(String msg) {
-        isComponentVisible.waitElement(By.xpath("//div[text()='" + msg + "']"));
+       assertTrue(components.componentsListByClassName("MuiAlert-message").size() > 0);
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
@@ -410,6 +433,7 @@ public class AndStepDefinitions {
             }
         }
     }
+
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      *

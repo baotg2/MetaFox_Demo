@@ -10,6 +10,9 @@ import org.testng.Assert;
 
 import java.io.ByteArrayInputStream;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
+import static MetaFox.browserConfig.Index.driver;
 
 
 /**
@@ -44,11 +47,7 @@ public class IsComponentVisible {
      * @since 04-05-2022
      */
     public void waitElement(By webElement){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Allure.addAttachment(webElement.toString(), new ByteArrayInputStream(((TakesScreenshot) Index.getDriver()).getScreenshotAs(OutputType.BYTES)));
         Assert.assertTrue(Index.getDriver().findElements(webElement).size() >0 );
     }

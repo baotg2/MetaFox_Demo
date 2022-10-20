@@ -52,7 +52,7 @@ Feature:  Brain Process On Closed Groups
     And the user see search field "Search groups" and typing keys "TestAutoClosedGroup"
     And the user want to click on title "itemTitle" and process
     When the user want to click on button label "ActionMenu" and process
-    And the user click on div "Delete" and process
+    When the user action on "Delete"
     Then the user see "Are you sure you want to delete this group permanently?" displayed success
     And the user click on button "buttonSubmit"
     Then the user see message "Successfully deleted the group" displayed

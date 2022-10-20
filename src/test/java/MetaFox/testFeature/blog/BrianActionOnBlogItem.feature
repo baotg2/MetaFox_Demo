@@ -12,8 +12,9 @@ Feature:  Brian process on blogs app
     And the user want add categories is "Education"
     And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonSubmit"
-    And the user see message "Blog published successfully" displayed
+    And the user see message "blogCreate" displayed
     Then the user verify title of blog is displayed
+
 
   @BrainSeePostOfBlogOnFeed
   Scenario: Brian see post of blog on feed
@@ -22,6 +23,7 @@ Feature:  Brian process on blogs app
     And the user want to refresh page before handle the action
     Then the user see "added a blog" on left menu
     Then the user see a element "TestAuto" is displayed on detail
+
 
   @BrianCommentOnBlog
   Scenario: Brian comment on blog
@@ -46,6 +48,7 @@ Feature:  Brian process on blogs app
     And the user want to click on title "itemTitle" and process
     And the user click on button "reactionButton"
 
+
   @BrianShareNowOnBlogJustAdd
   Scenario: Brain Share Now On Blog Just Add
     Given the user logged in as "brian"
@@ -57,11 +60,12 @@ Feature:  Brian process on blogs app
     And the user want to click on title "itemTitle" and process
     And the user click on button "menuShareButton"
     When the user action on "Share now"
-    Then the user see message "Shared successfully" displayed
+    Then the user see message "shareNow" displayed
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
     Then the user see "shared a post to newsfeed" on left menu
     Then the user see a element "TestAuto" is displayed on detail
+
 
   @BrianShareOnFeedOnBlogJustAdd
   Scenario: Brain Share On Feed Blog Just Add
@@ -78,6 +82,7 @@ Feature:  Brian process on blogs app
     And the user want to refresh page before handle the action
     Then the user see "shared a post to newsfeed" on left menu
     Then the user see a element "TestAuto" is displayed on detail
+
 
   @BrianShareOnFriendOnBlogJustAdd
   Scenario: Brain Share On Friend Blog Just Add
@@ -96,6 +101,7 @@ Feature:  Brian process on blogs app
     And the user want to refresh page before handle the action
     Then the user see a element "TestAuto" is displayed on detail
     
+
   @BrianEditHisBlog
   Scenario: Brian Edit His Blog
     Given the user logged in as "brian"
@@ -103,11 +109,12 @@ Feature:  Brian process on blogs app
     Then the browser opened at item "blog" and tab "/blog/my"
     And the user see "My Blogs" is displayed
     And the user click on "actionMenuButton" to access blog
-    And the user "Edit blog" this item
+    And the user action on "Edit blog"
     Then the user see main form "form" is displayed
     And the user action on input field "title" with value "Auto Test New Blogs Name"
     And the user click on button "buttonSubmit"
-    Then the user see message "Blog updated successfully" displayed
+    Then the user see message "blogUpdate" displayed
+
 
   @BrainDeleteBlogsJustAdded
   Scenario: Brain Delete Blog Just Added
@@ -118,10 +125,11 @@ Feature:  Brian process on blogs app
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user click on "actionMenuButton" to access blog
-    Then the user "Delete" this item
+    And the user action on "Delete"
     And the user click on button "buttonSubmit"
-    Then the user see message "Blog deleted successfully" displayed
-    Then the user see "No blogs found" on left menu
+    Then the user see message "blogDelete" displayed
+    Then the user see "No blogs are found." on left menu
+
 
   @BrianAddNewBlogAndSaveDraft
   Scenario: Brian Add New Blog And Save As Draft
@@ -134,8 +142,9 @@ Feature:  Brian process on blogs app
     And the user want add categories is "Education"
     And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonDraft"
-    Then the user see message "Already saved blog as draft" displayed
+    Then the user see message "blogSaveDraft" displayed
     Then the user verify title of blog is displayed
+
 
   @BrianPublishDraftBlog
   Scenario: Brian Publish Draft Blog
@@ -143,22 +152,24 @@ Feature:  Brian process on blogs app
     When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/draft"
     And the user click on "actionMenuButton" to access blog
-    And the user "Publish" this item
+    And the user action on "Publish"
     And the user click on button "buttonSubmit"
-    And the user see message "Blog published successfully" displayed
+    And the user see message "blogPublish" displayed
+
 
   @BrianReportBlog
   Scenario: Brian Report Blog
     Given the user logged in as "admin"
     Then the user see search field "Search" and typing keys "brian"
-    And the user want to click on "/brian"
+    And the user click on element link text a "Brian"
     And the user see item of "More"
     And the user want access tool tip "Blogs" from More
-    And the user want to click on button label "actionMenu" and process
-    And the user "Report" this item
+    And the user want to click on button label "Action Menu" and process
+    And the user action on "Report"
     Then the user see main form "form" is displayed
     And the user click on button "buttonSubmit"
-    Then the user see message "Reported successfully!" displayed
+    Then the user see message "report" displayed
+
 
   @BrianSearchEmptyKeyWord
   Scenario: Brian Search Empty KeyWord
@@ -168,7 +179,8 @@ Feature:  Brian process on blogs app
     And the user see search field "Search blogs" and typing keys "SearchSomethings"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    Then the user see "No blogs found" on left menu
+    Then the user see "No blogs are found." on left menu
+
 
   @BrianFeatureBlogs
   Scenario: Brain Feature Blogs
@@ -176,9 +188,10 @@ Feature:  Brian process on blogs app
     When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/all"
     And the user click on "actionMenuButton" to access blog
-    And the user "Feature" this item
-    Then the user see message "Blog featured successfully" displayed
+    And the user action on "Feature"
+    Then the user see message "blogFeatured" displayed
     Then the user see label of action "featured" is displayed
+
 
   @BrianUnFeatureBlogs
   Scenario: Brain UnFeature Blogs
@@ -186,8 +199,9 @@ Feature:  Brian process on blogs app
     When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/all"
     And the user click on "actionMenuButton" to access blog
-    And the user "Un-Feature" this item
-    Then the user see message "Blog unfeatured successfully" displayed
+    And the user action on "Un-Feature"
+    Then the user see message "blogUnFeatured" displayed
+
 
   @BrainDeleteDraftBlog
   Scenario: Brain Delete Draft Blog
@@ -198,10 +212,11 @@ Feature:  Brian process on blogs app
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user click on "actionMenuButton" to access blog
-    Then the user "Delete" this item
+    And the user action on "Delete"
     And the user click on button "buttonSubmit"
-    Then the user see message "Blog deleted successfully" displayed
-    Then the user see "No blogs found" on left menu
+    Then the user see message "blogDelete" displayed
+    Then the user see "No blogs are found." on left menu
+
 
   @BrianDeleteBlogOnUserProfile
   Scenario: Brian Delete Blog On User Profile
@@ -217,12 +232,12 @@ Feature:  Brian process on blogs app
     And the user want add categories is "Education"
     And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonSubmit"
-    And the user see message "Blog published successfully" displayed
+    And the user see message "blogCreate" displayed
     Then the user verify title of blog is displayed
     Then the user want to access "userAvatar"
     And the user see item of "More"
     And the user want access tool tip "Blogs" from More
     And the user "buttonActionMenu" this item
-    And the user "Delete" this item
+    And the user action on "Delete"
     And the user click on button "buttonSubmit"
-    Then the user see message "Blog deleted successfully" displayed
+    Then the user see message "blogDelete" displayed

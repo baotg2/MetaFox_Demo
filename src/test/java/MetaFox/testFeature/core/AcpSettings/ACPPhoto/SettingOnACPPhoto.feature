@@ -39,7 +39,7 @@ Feature: Config Settings On ACP Photo
     And the user action on "App Settings"
     And the user action on "Photo"
     When the user want to scroll to the end of page
-    When the user want to access "inputPhotoPhotoAllowCreateFeedWhenAddNewItem"
+    When the user want to access "inputPhotoPhotoAllowPostingUserPhotoFeed"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
 
@@ -55,7 +55,7 @@ Feature: Config Settings On ACP Photo
     And the user action on "App Settings"
     And the user action on "Photo"
     When the user want to scroll to the end of page
-    When the user want to access "inputPhotoPhotoAllowCreateFeedWhenAddNewItem"
+    When the user want to access "inputPhotoPhotoAllowPostingUserPhotoFeed"
     When the user click on button "buttonSubmit"
     Then the user see message "Save Changed Successfully" displayed
 
@@ -75,7 +75,8 @@ Feature: Config Settings On ACP Photo
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user want to click on button label "actionMenu" and process
-    And the user "make-cover" this item
+    And the user see item of "Brian"
+    And the user click on button "actionMenuButton" to action
+    And the user "Make Cover Photo" this item
     Then the user see message "Cover picture updated successfully" displayed
     And the user want to access "userAvatar"

@@ -58,7 +58,8 @@ public class WhenStepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------------
      */
     @When ( "^the user want to click on \"([^\"]*)\"$" )
-    public void accessNewPage( String item ) {
+    public void accessNewPage( String item ) throws InterruptedException {
+        Thread.sleep(3000);
         isComponentVisible.waitElement( By.xpath( "//a[contains(@href, '" + item + "')]" ) );
         components.componentLinkText( item ).click();
     }
