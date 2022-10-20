@@ -17,7 +17,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/MetaFox/testFeature"},
         glue = "MetaFox",
-        tags = "@albumFunction_Brain",
+        tags = "@ScenarioLogin1",
         plugin ={
                 "html:target/result/",
                 "pretty",

@@ -192,6 +192,7 @@
                         <allure.results.directory>allure-results</allure.results.directory>
                         <allure.link.issue.pattern>https://example.org/browse/{}</allure.link.issue.pattern>
                         <allure.link.tms.pattern>https://example.org/browse/{}</allure.link.tms.pattern>
+
                     </systemPropertyVariables>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"

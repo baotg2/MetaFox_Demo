@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  allure:
+    image: "frankescobar/allure-docker-service"
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 1
+      KEEP_HISTORY: 1
+    volumes:
+      - ${PWD}/allure-results:/app/allure-results
+
+  allure-ui:
+    image: "frankescobar/allure-docker-service-ui"
+    environment:
+      ALLURE_DOCKER_PUBLIC_API_URL: "https://cloudcall-s01.phpfox.com/allure-docker-service/"
+      ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: "projects/metafox-e2e-testing/reports/1/"
