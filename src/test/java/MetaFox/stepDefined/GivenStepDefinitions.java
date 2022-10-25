@@ -48,7 +48,7 @@ public class GivenStepDefinitions {
      * @since 04-05-2022
      */
     @Given("^the user logged in as \"([^\"]*)\"$")
-    public void login(String username) throws IOException, InterruptedException {
+    public void login(String username) throws IOException{
         isComponentVisible.waitElement(By.xpath("//input[@placeholder='Enter your email address']"));
         dataExecutor.setExcelFile(dataExecutor.excelPathFile, "users");
         for ( int i = 1; i <= dataExecutor.getRowCountInSheet(); i++ ) {
@@ -64,8 +64,8 @@ public class GivenStepDefinitions {
             }
         }
         components.componentButtonDataTestID("buttonLogin").click();
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='formSearch']"));
         Thread.sleep(6000);
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='formSearch']"));
         assertTrue(components.componentDivDataTestID("formSearch").isDisplayed());
     }
 
