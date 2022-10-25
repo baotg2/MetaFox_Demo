@@ -19,7 +19,7 @@ Feature:  Brain Process On Secret Groups
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "TestAutoSecretGroup"
-    Then the user see "No groups found" on left menu
+    Then the user see "No groups are found." on left menu
 
   @BrianInviteAnotherUserJoinSecretGroup
   Scenario: Brian Invite Another User Join Secret Group
@@ -49,8 +49,8 @@ Feature:  Brain Process On Secret Groups
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "TestAutoSecretGroup"
     And the user want to click on title "itemTitle" and process
-    When the user want to click on button label "Action Menu" and process
-    And the user click on div "Leave group" and process
+    When the user see "actionMenu" and click on
+    And the user click on div "leave_group" and process
     Then the user see "Are you sure you want to leave this group?" displayed success
     And the user click on button "buttonSubmit"
 

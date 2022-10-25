@@ -6,10 +6,9 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "brian"
     Then the user action on "More"
     Then the browser opened at item "group" and tab "/group/add"
-    And the user action on input field "name" with value "Groups"
     And the user click on button "buttonSubmit"
-    Then the user see "Category is a required field." displayed success
-    Then the user see "Group Privacy is a required field." displayed success
+    Then the user see "Group Name is required." displayed success
+    Then the user see "Group Privacy is required." displayed success
     
   @BrianAddNewGroups
   Scenario: Brian Add New Group
@@ -71,8 +70,8 @@ Feature:  Brain Process On Public Groups
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
-    When the user want to click on button label "Action Menu" and process
-    And the user click on div "Leave group" and process
+    When the user see "actionMenu" and click on
+    And the user click on div "leave_group" and process
     Then the user see "Are you sure you want to leave this group?" displayed success
     And the user click on button "buttonSubmit"
     Then the user see button "Join Group" is displayed
@@ -83,7 +82,7 @@ Feature:  Brain Process On Public Groups
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
-    When the user want to click on list button label "Join Group" and process
+    When the user click on the "Join Group" on page
     Then the user see message "Joined successfully." displayed
 
   @BrianAddMemberShipQuestion
@@ -93,10 +92,9 @@ Feature:  Brain Process On Public Groups
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
-    When the user want to click on button label "Action Menu" and process
-    And the user "Manage" this item
+    When the user see "actionMenu" and click on
+    And the user "manage" this item
     And the user action on "Membership Questions"
-    Then the user see "Answer the questions" is displayed on user profile
     When the user click on check box "checkbox"
     And the user want to "Add"
     And the user see "Add Question" is displayed on user profile
@@ -104,12 +102,11 @@ Feature:  Brain Process On Public Groups
     And the user select type "Written Answer" on "type_id"
     Then the user click on button "buttonSubmit"
     And I want to click on "Logout"
-    Given the user logged in as "admin"
+    Given the user logged in as "test"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
-    When the user want to click on list button label "Join Group" and process
-    And the user want to access "inputIsConfirmed"
+    When the user click on the "Join Group" on page
     Then the user click on button "buttonSubmit"
 
   @BrianAddPendingPost
@@ -119,8 +116,8 @@ Feature:  Brain Process On Public Groups
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
-    When the user want to click on button label "Action Menu" and process
-    And the user "Manage" this item
+    When the user see "actionMenu" and click on
+    And the user "manage" this item
     And the user action on "Pending Posts"
     Then the user see "Enable Pending Mode" is displayed on user profile
     When the user click on check box "checkbox"
@@ -150,7 +147,7 @@ Feature:  Brain Process On Public Groups
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
-    When the user want to click on button label "Action Menu" and process
+    When the user see "actionMenu" and click on
     And the user action on "Delete"
     Then the user see "Are you sure you want to delete this group permanently?" displayed success
     And the user click on button "buttonSubmit"

@@ -47,3 +47,12 @@ Feature:  Brain Action On Activity Point
     And the user see item of "Edit"
     Then the user see "Edit Package" is displayed on user profile
     When the user click on button "buttonCancel"
+
+  @AdminChangePointSettingOnBlog
+  Scenario: Admin Change Point Settings On Blog
+    Given the user logged in as "admin"
+    When the browser will get Administrator URL
+    And the user action on "App Settings"
+    And the user action on "Activity Point"
+    When the user want to "Point Settings"
+    And the user add value on "" is "<string>"
