@@ -17,7 +17,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/MetaFox/testFeature"},
         glue = "MetaFox",
-        tags = "@VisitorRegisterNewAccountWithErrorMsgInvalidEmail",
+        tags = "@OwnerAddNewGroups",
         plugin ={
                 "html:target/result/",
                 "pretty",

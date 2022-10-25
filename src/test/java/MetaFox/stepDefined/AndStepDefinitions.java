@@ -232,8 +232,8 @@ public class AndStepDefinitions {
         isComponentVisible.waitElement(By.xpath("//div[@role ='button']"));
         for ( int i = 0 ; i < components.componentsSpanList().size(); i++) {
             if (components.componentsSpanList().get(i).getText().contains(fieldSetting)) {
-                if (!components.componentsListDivRole("button").get(i-7).getText().equals(valueChanged)) {
-                    components.componentsListDivRole("button").get(i-7).click();
+                if (!components.componentsListDivRole("button").get(i-8).getText().equals(valueChanged)) {
+                    components.componentsListDivRole("button").get(i-8).click();
                     isComponentVisible.waitElement(By.xpath("//ul[@role = 'listbox']"));
                     switch(valueChanged){
                         case "Anyone":
@@ -251,6 +251,8 @@ public class AndStepDefinitions {
                         case "Friends of Friends":
                             components.componentsDivDataValue("3").click();
                             break;
+                        case "Community":
+                            components.componentsDivDataValue("1").click();
                     }
                 }
                 break;
@@ -295,7 +297,8 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("^the user don't see \"([^\"]*)\" is displayed")
-    public void isSearchFormDisplayed(String whatsHappening) {
+    public void isSearchFormDisplayed(String whatsHappening) throws InterruptedException {
+        Thread.sleep(5000);
         assertEquals(components.componentListDivDataTestID(whatsHappening).size(), 0);
     }
 
@@ -381,6 +384,9 @@ public class AndStepDefinitions {
                 break;
             case "Forum":
                 components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile,4));
+                break;
+            case "Page":
+                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile,5));
                 break;
         }
     }

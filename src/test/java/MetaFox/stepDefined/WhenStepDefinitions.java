@@ -143,7 +143,7 @@ public class WhenStepDefinitions {
      */
     @When("^the user add value \"([^\"]*)\" on textArea place holder \"([^\"]*)\"$")
     public void addContentAnswer(String value, String element){
-        isComponentVisible.waitElement(By.xpath("extarea[@placeholder ='" + element + "']"));
+        isComponentVisible.waitElement(By.xpath("textarea[@placeholder ='" + element + "']"));
         components.componentTextAreaPlaceholder(element).sendKeys(value);
     }
 
@@ -387,6 +387,11 @@ public class WhenStepDefinitions {
     @When("^the user click on the \"([^\"]*)\" on screen$")
     public void clickOnDiv(String divText) {
         components.componentDivRole(divText).click();
+    }
+
+    @When("^the user click on the \"([^\"]*)\" on page$")
+    public void clickOnPText(String divText) {
+        components.componentPText(divText).click();
     }
 
     /**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

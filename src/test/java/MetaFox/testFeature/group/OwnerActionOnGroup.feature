@@ -23,9 +23,7 @@ Feature:  Owner Action On Public Groups
     And the user want upload 1 photo
     And the user want to "Save"
     And the user want to refresh page before handle the action
-    When the user want to access items "home" on user profile
-    And the user back to "embeditem" page
-    Then the user see a element "admin" is displayed on detail
+    Then the user see "updated the group cover photo" on left menu
 
   @OwnerAddBlogs
   Scenario: OwnersAddBlogOnGroup
@@ -38,7 +36,7 @@ Feature:  Owner Action On Public Groups
     Then the user access on sub items "Blogs" more option
     When the user click on element link text a "Add New Blog"
     Then the user see title "Add New Blog" is displayed
-    Then the user action on input field "inputTitle" with value "BlogName"
+    Then the user action on input field "title" with value "BlogName"
     And the user add value on div "textbox"
     And the user want to add attach files
     And the user want add categories is "Education"
@@ -46,3 +44,12 @@ Feature:  Owner Action On Public Groups
     And the user click on button "buttonSubmit"
     And the user see message "Blog published successfully" displayed
     Then the user verify title of blog is displayed
+    
+  @OwnerAddPhotoToGroup
+  Scenario: OwnersAddPhotoToGroup
+    Given the user logged in as "admin"
+    When the user action on "More"
+    Then the browser opened at item "group" and tab ""
+    And the user see search field "Search groups" and typing keys "Groups"
+    And the user want to click on title "itemTitle" and process
+    When the user want to access items "photo" on user profile
