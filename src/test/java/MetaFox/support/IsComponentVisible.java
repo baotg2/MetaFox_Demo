@@ -47,7 +47,7 @@ public class IsComponentVisible {
      * @since 04-05-2022
      */
     public void waitElement(By webElement){
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         Allure.addAttachment(webElement.toString(), new ByteArrayInputStream(((TakesScreenshot) Index.getDriver()).getScreenshotAs(OutputType.BYTES)));
         Assert.assertTrue(Index.getDriver().findElements(webElement).size() >0 );
     }
