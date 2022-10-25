@@ -83,7 +83,6 @@ Feature:  Brian process on blogs app
     Then the user see "shared a post to newsfeed" on left menu
     Then the user see a element "TestAuto" is displayed on detail
 
-
   @BrianShareOnFriendOnBlogJustAdd
   Scenario: Brain Share On Friend Blog Just Add
     Given the user logged in as "brian"
@@ -100,7 +99,7 @@ Feature:  Brian process on blogs app
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
     Then the user see a element "TestAuto" is displayed on detail
-    
+
 
   @BrianEditHisBlog
   Scenario: Brian Edit His Blog
@@ -199,7 +198,7 @@ Feature:  Brian process on blogs app
     When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/all"
     And the user click on "actionMenuButton" to access blog
-    And the user action on "Un-Feature"
+    And the user action on "Unfeature"
     Then the user see message "blogUnFeatured" displayed
 
 
