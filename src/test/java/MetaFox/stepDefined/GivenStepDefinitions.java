@@ -48,7 +48,7 @@ public class GivenStepDefinitions {
      * @since 04-05-2022
      */
     @Given("^the user logged in as \"([^\"]*)\"$")
-    public void login(String username) throws IOException{
+    public void login(String username) throws IOException, InterruptedException{
         isComponentVisible.waitElement(By.xpath("//input[@placeholder='Enter your email address']"));
         dataExecutor.setExcelFile(dataExecutor.excelPathFile, "users");
         for ( int i = 1; i <= dataExecutor.getRowCountInSheet(); i++ ) {
