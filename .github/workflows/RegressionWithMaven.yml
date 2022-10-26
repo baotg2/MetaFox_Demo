@@ -6,7 +6,10 @@ name: Java CI with Maven
 on:
  schedule:
   - cron: "00 12 * * *"
-
+  
+ repository_dispatch:
+    types: [ test-preview ]
+    
 jobs:
   build:
 
