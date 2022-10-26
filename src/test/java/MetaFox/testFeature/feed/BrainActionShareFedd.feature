@@ -15,8 +15,6 @@ Feature:  Brain Action Share Feed
     Given the user logged in as "admin"
     When the user click on button "menuShareButton"
     And the user action on "Share to News Feed"
-    Then the user click on button "statusTagFriendsButton"
-    And the user click on button "buttonDone"
     And the user click on button "submit"
     #Then the user see message "Post has been created successfully" displayed
     When the user want to refresh page before handle the action
@@ -61,7 +59,7 @@ Feature:  Brain Action Share Feed
   Scenario: Brian Comments Emoji On Feed
     Given the user logged in as "admin"
     When the user click on button "commentButton"
-    And the user click on button "buttonAttachEmoji"
+    And the user want to click on button label "Insert an emoji" and process
     And the user put a "emoji" sticker on comments
 
   @BrianCopyLinkOnFeed
@@ -80,7 +78,7 @@ Feature:  Brain Action Share Feed
   @BrianUploadPhotoOnFeed
   Scenario: Brian Upload Photo on feed
     Given the user logged in as "admin"
-    Then the user "whatsHappening" this item
-    When the user click on button "attachPhoto"
-    And the user want to add attach files
-    Then the user see message "photoUpload" displayed
+    When the user "whatsHappening" this item
+    And the user want upload 1 photo
+    And the user click on button "submit"
+    Then the user see message "Post has been created successfully." displayed

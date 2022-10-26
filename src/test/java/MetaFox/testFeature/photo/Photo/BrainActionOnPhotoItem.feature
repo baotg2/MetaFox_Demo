@@ -33,10 +33,10 @@ Feature: Brian process on photos item
 
   @BrianReportPhoto
   Scenario: Brian Report Photo
-    Given the user logged in as "brian"
+    Given the user logged in as "admin"
     Then the browser opened at item "photo" and tab "/photo/all"
     And the user see title "All Photos" is displayed
-    And the user see item of "admin"
+    And the user see item of "Brian"
     And the user click on button "actionMenuButton" to action
     And the user action on "Report"
     Then the user see main form "form" is displayed
@@ -114,8 +114,8 @@ Feature: Brian process on photos item
     Given the user logged in as "brian"
     When the user action on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user want to click on button label "actionMenu" and process
+    And the user want to click on button label "Action Menu" and process
     And the user action on "Make Cover Photo"
     Then the user see message "Cover picture updated successfully" displayed
     And the user want to access "userAvatar"
-    Then the user see "updated his cover photo" on left menu
+    Then the user see "updated her cover photo" on left menu

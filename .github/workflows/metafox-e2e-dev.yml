@@ -15,6 +15,7 @@ env:
   ALLURE_SERVER: https://cloudcall-s01.phpfox.com/allure-docker-service
   ALLURE_PROJECT: metafox-e2e-dev
   BASE_URL: https://dev-foxsocial.phpfox.us/
+  TEST_TAGS: '@MetaFox'
 
 jobs:
   build:
@@ -28,10 +29,9 @@ jobs:
           java-version: "11"
           distribution: "temurin"
           cache: maven
-      - name: Daily Build on Preview
-        run: | 
-          mvn -B package --file pom.xml  
-          mvn test -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="@MetaFox"
+      - name: Test
+          run: |
+            mvn test -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="${{env.TEST_TAGS}}"
 
       - name: Send allure results
         if: always()

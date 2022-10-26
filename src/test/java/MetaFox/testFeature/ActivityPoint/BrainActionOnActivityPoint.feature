@@ -55,4 +55,36 @@ Feature:  Brain Action On Activity Point
     And the user action on "App Settings"
     And the user action on "Activity Point"
     When the user want to "Point Settings"
-    And the user add value on "" is "<string>"
+    And the user add value on "select-module_id" is "Blog"
+    And the user click on button "buttonSubmit"
+    And the user want to click on button label "Options" and process
+    And the user see item of "Edit"
+    When the user action on input field "points" with value "1"
+    And the user action on input field "max_earned" with value "10"
+    And the user want to "Save Changes"
+
+  @BrianActionOnActivityPoint
+  Scenario: Brian Action On Activity Point
+    Given the user logged in as "brian"
+    When I want to click on "Activity Points"
+    And the user action on "Transaction History"
+    Then the user see h5 text "App" displayed
+    When the user back to "linkLogo" page
+    When the user action on "More"
+    Then the browser opened at item "blog" and tab "/blog/add"
+    Then the user action on input field "title" with value "Brian Blogs"
+    Then the user don't add photo
+    And the user add value on div "textbox"
+    And the user want to add attach files
+    And the user want add categories is "Education"
+    And the user add value on "tags-tags" is "tag-tag"
+    And the user click on button "buttonSubmit"
+    And the user see message "blogCreate" displayed
+    Then the user verify title of blog is displayed
+    When I want to click on "Activity Points"
+    And the user action on "Transaction History"
+    Then the user see "Blogs" is displayed on user profile
+    Then the user see "1" is displayed on user profile
+    Then the user see "Publish a new blog" is displayed on user profile
+    Then the user see "Earned" is displayed on user profile
+

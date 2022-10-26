@@ -1,0 +1,1 @@
+./dispatch.sh test-staging metafox_e2e_testing

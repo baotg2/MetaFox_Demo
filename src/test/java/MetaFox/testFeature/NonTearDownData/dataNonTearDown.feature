@@ -1,4 +1,4 @@
-@MetaFox @NonTearDownData
+@NonTearDownData
 Feature:  Non TearDown Data On Site
 
   @AdminAddNewBlogEveryOne
