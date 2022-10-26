@@ -110,7 +110,6 @@ public class Index {
         }
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        //driver.get(System.getenv("BASE_URL"));
-        driver.get("https://preview-foxsocial.phpfox.us/");
+        driver.get(System.getenv("BASE_URL"));
     }
 }
