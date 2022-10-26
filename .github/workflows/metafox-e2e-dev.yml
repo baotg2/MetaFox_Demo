@@ -31,8 +31,8 @@ jobs:
           cache: maven
 
       - name: Test
-          run: |
-            mvn test -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="${{env.TEST_TAGS}}"
+        run: |
+          mvn test -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="${{env.TEST_TAGS}}"
 
       - name: Send allure results
         if: always()
