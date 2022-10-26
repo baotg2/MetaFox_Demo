@@ -13,8 +13,8 @@ on:
     types: [test-preview]
 
 env:
-  BROWSERSTACK_USERNAME: ${{secret.BROWSERSTACK_USERNAME}}
-  BROWSERSTACK_ACCESS_KEY: ${{secret.BROWSERSTACK_ACCESS_KEY}}
+  BROWSERSTACK_USERNAME: ${{secrets.BROWSERSTACK_USERNAME}}
+  BROWSERSTACK_ACCESS_KEY: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
   ALLURE_SERVER: https://cloudcall-s01.phpfox.com/allure-docker-service
   ALLURE_PROJECT: metafox-e2e-preview
   BASE_URL: https://dev-foxsocial.phpfox.us/
