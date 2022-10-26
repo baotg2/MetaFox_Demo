@@ -17,7 +17,7 @@ env:
   BROWSERSTACK_ACCESS_KEY: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
   ALLURE_SERVER: https://cloudcall-s01.phpfox.com/allure-docker-service
   ALLURE_PROJECT: metafox-e2e-preview
-  BASE_URL: https://dev-foxsocial.phpfox.us/
+  BASE_URL: https://preview-foxsocial.phpfox.us/
 
 jobs:
   build:
