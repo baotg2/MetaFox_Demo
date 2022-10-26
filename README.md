@@ -105,7 +105,7 @@ Build Tools > Maven
 For the report
 
 ```sh
-<allure.results.directory>target/allure-results</allure.results.directory>
+<allure.results.directory>allure-results</allure.results.directory>
 ```
 #### Execute test case
 

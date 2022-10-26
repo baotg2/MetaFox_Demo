@@ -10,8 +10,11 @@ on:
     types: [test-staging]
 
 env:
+  BROWSERSTACK_USERNAME: ${{secret.BROWSERSTACK_USERNAME}}
+  BROWSERSTACK_ACCESS_KEY: ${{secret.BROWSERSTACK_ACCESS_KEY}}
   ALLURE_SERVER: https://cloudcall-s01.phpfox.com/allure-docker-service
-  ALLURE_PROJECT: metafox-e2e-preview
+  ALLURE_PROJECT: metafox-e2e-dev
+  BASE_URL: https://dev-foxsocial.phpfox.us/
 
 jobs:
   build:
@@ -29,4 +32,4 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Send allure results
-        run: bash ./send_results.sh ${{env.ALLURE_SERVER}} ${{env.ALLURE_PROJECT}}
+        run: bash ./send_results.sh

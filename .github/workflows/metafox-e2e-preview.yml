@@ -13,8 +13,11 @@ on:
     types: [test-preview]
 
 env:
+  BROWSERSTACK_USERNAME: ${{secret.BROWSERSTACK_USERNAME}}
+  BROWSERSTACK_ACCESS_KEY: ${{secret.BROWSERSTACK_ACCESS_KEY}}
   ALLURE_SERVER: https://cloudcall-s01.phpfox.com/allure-docker-service
   ALLURE_PROJECT: metafox-e2e-preview
+  BASE_URL: https://dev-foxsocial.phpfox.us/
 
 jobs:
   build:
@@ -28,8 +31,8 @@ jobs:
           java-version: "11"
           distribution: "temurin"
           cache: maven
-      - name: Daily Build on Preview
+      - name: Test Running
         run: mvn -B package --file pom.xml
 
-      - name: Send allure results
-        run: bash ./send_results.sh ${{env.ALLURE_SERVER}} ${{env.ALLURE_PROJECT}}
+      - name: Send results
+        run: bash ./send_results.sh

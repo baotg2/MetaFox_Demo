@@ -1,0 +1,4 @@
+.env.sh
+.env
+allure-results
+target/allure-results

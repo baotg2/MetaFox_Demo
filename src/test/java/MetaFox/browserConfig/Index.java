@@ -31,8 +31,9 @@ public class Index {
     public static String selectPlatform;
 
     public static String currentUrlValue;
-    public String AUTOMATE_USERNAME = dataExecutor.readConstants("BROWSERSTACK_USERNAME");
-    public String AUTOMATE_ACCESS_KEY = dataExecutor.readConstants("BROWSERSTACK_ACCESS_KEY");
+    public String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+
+    public String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
     public String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
     public Index (WebDriver driver){
@@ -109,6 +110,6 @@ public class Index {
         }
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        driver.get(dataExecutor.readConstants("URL"));
+        driver.get(System.getenv("BASE_URL"));
     }
 }

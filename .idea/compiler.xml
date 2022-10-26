@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="MetaFox_Demo" />
         <module name="pHpDemo" />
+        <module name="metafox_e2e_testing" />
       </profile>
     </annotationProcessing>
   </component>

@@ -74,7 +74,7 @@ public class WhenStepDefinitions {
      */
     @When ( "^the move to page \"([^\"]*)\"$" )
     public void openNewPage( String item ) {
-        Index.getDriver().get( dataExecutor.readConstants("URL") + item);
+        Index.getDriver().get( System.getenv("BASE_URL") + item);
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------------
