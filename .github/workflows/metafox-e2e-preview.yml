@@ -34,7 +34,7 @@ jobs:
       - name: Test Running
         run: |
           mvn -B package --file pom.xml
-          mvn test -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="@NonTearDownData"
+          mvn test -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="@MetaFox"
 
       - name: Send allure results
         if: always()
