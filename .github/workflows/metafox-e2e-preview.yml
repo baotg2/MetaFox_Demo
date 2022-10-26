@@ -32,7 +32,10 @@ jobs:
           distribution: "temurin"
           cache: maven
       - name: Test Running
-        run: mvn -B package --file pom.xml
+        run: |
+          mvn -B package --file pom.xml
+          mvn test -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="@MetaFox"
 
-      - name: Send results
+      - name: Send allure results
+        if: always()
         run: bash ./send_results.sh
