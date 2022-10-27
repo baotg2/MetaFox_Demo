@@ -1,4 +1,4 @@
-@MetaFox @group @OwnerActionOnPublicGroups
+@group @OwnerActionOnPublicGroups
 Feature:  Owner Action On Public Groups
 
   @OwnerAddNewGroups

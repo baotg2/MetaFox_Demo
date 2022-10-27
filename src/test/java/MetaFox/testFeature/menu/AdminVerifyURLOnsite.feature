@@ -1,4 +1,4 @@
-@MetaFox @AdminVerifyUrlMetaFox
+@AdminVerifyUrlMetaFox
 
 Feature: Admin verify url on site
 

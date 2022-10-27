@@ -1,4 +1,4 @@
-@MetaFox @core @brianProcessOnSharingItemsOnlyMe
+@MetaFox @core @brianProcessOnSharingItemsOnlyMe @previewSite
 Feature: Brain Process On Sharing Items Only Me
 
   @BrainVerifyPrivacySharingBlogs

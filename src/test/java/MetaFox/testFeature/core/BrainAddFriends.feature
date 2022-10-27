@@ -1,4 +1,4 @@
-@MetaFox @core  @brianActionAdd_UnFriend
+@MetaFox @core  @brianActionAdd_UnFriend @previewSite
 Feature:  Brain Process On Add Friend UnFriend
 
   @BrianBlockUser

@@ -1,4 +1,4 @@
-@MetaFox @photo @photoOnlyMeFunction_Brain
+@photo @photoOnlyMeFunction_Brain
 Feature: Brian process on photos only me item
 
   @BrainAddNewPhotoOnlyMe

@@ -1,4 +1,4 @@
-@MetaFox @core @brianProcessOnSharingItemsFriendsOfFriends
+@MetaFox @core @brianProcessOnSharingItemsFriendsOfFriends @previewSite
 Feature: Brain Process On Sharing Items Friends of Friends
 
   @BrianVerifyPrivacyFeedDefaultPrivacyIsFriendsOfFriends

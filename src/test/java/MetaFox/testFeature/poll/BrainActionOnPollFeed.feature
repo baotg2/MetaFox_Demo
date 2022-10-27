@@ -1,4 +1,4 @@
-@MetaFox @polls  @PollsOnFeed
+@polls  @PollsOnFeed
 Feature:  Brian process polls on feed
 
   @BrianAddNewPollOnFeed

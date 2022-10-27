@@ -1,4 +1,4 @@
-@MetaFox @core @brianProcessOnUserProfile
+@core @brianProcessOnUserProfile
 Feature: Brain Process On User Profile
 
   @BrianAccessUserProfile

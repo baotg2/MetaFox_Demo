@@ -1,4 +1,4 @@
-@MetaFox @blogs  @blogOnlyMeFunction_Brian
+@blogs  @blogOnlyMeFunction_Brian
 Feature:  Brian process on blogs is OnlyMe
 
 

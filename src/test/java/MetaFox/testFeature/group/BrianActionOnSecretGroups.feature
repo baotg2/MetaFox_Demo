@@ -1,4 +1,4 @@
-@MetaFox @group @brianActionOnSecretGroups
+@group @brianActionOnSecretGroups
 Feature:  Brain Process On Secret Groups
 
   @BrianAddNewSecretGroups

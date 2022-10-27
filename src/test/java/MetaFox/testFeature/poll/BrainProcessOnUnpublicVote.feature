@@ -1,4 +1,4 @@
-@MetaFox @polls  @unPublicVotePollFunction_Brian
+@polls  @unPublicVotePollFunction_Brian
 Feature:  Brian process on multiple choice polls
 
   @BrianAddNewUnPublicVotePoll

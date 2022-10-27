@@ -1,4 +1,4 @@
-@MetaFox @polls  @multiplePollFunctionIsFriend_Brian
+@polls  @multiplePollFunctionIsFriend_Brian
 Feature:  Brian process on multiple choice polls is friend
 
   @BrianAddNewPollMultipleChoiceIsFriend

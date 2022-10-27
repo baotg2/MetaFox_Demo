@@ -1,4 +1,4 @@
-@MetaFox @photo @photoFriendFunction_Brain
+@photo @photoFriendFunction_Brain
 Feature: Brian process on photos friend item
 
   @BrainAddNewPhotoFriend

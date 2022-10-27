@@ -1,4 +1,4 @@
-@MetaFox  @sideMenu
+ @sideMenu
 Feature: Verify access side menu success
 
   @ScenarioAccessSideMenu1

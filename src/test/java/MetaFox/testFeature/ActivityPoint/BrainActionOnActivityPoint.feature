@@ -83,6 +83,7 @@ Feature:  Brain Action On Activity Point
     Then the user verify title of blog is displayed
     When I want to click on "Activity Points"
     And the user action on "Transaction History"
+    When the user want to refresh page before handle the action
     Then the user see "Blogs" is displayed on user profile
     Then the user see "1" is displayed on user profile
     Then the user see "Publish a new blog" is displayed on user profile

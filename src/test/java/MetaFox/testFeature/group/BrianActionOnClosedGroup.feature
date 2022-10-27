@@ -1,4 +1,4 @@
-@MetaFox @group @brianActionOnClosedGroup
+ @group @brianActionOnClosedGroup
 Feature:  Brain Process On Closed Groups
 
   @BrianAddNewClosedGroups

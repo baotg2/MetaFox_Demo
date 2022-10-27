@@ -1,4 +1,4 @@
-@MetaFox @events @brianActionOnOnlineEvents
+ @events @brianActionOnOnlineEvents
 
 Feature:  Brain Process On Online Events
 

@@ -1,9 +1,9 @@
-@MetaFox @Author @VisitorProcessSignUp @previewSite
+@MetaFox @Author @VisitorProcessSignUp
 Feature: Verify Visitor Process on Sign Up
 
   @VisitorRegisterNewAccountWithErrorMsgInvalidEmail
   Scenario Outline: Visitor Process register new account With Error Msg Invalid Email
-    Given the user click on div "fieldRegister" and process
+    Given the user want to click on "register"
     And the user action on input field "first_name" with value "<firstName>"
     And the user action on input field "last_name" with value "<lastName>"
     And the user action on input field "full_name" with value "<fullName>"
@@ -12,7 +12,6 @@ Feature: Verify Visitor Process on Sign Up
     Examples:
     |firstName |lastName|fullName|emailValue
     |testAuto1 | testAuto1|testAuto1|adv@abc
-    |testAuto2 | testAuto2|testAuto2 |adv@abc
 
   @VisitorRegisterNewAccountWithErrorMsgExistEmail
   Scenario: Visitor Process register new account With Error Msg Exist Email

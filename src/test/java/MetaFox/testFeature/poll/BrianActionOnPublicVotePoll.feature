@@ -1,4 +1,4 @@
-@MetaFox @polls  @publicPollFunction_Brian
+@polls  @publicPollFunction_Brian
 Feature:  Brian process on public vote polls
 
   @BrianSeePopUpWhenRemoveAnswers
