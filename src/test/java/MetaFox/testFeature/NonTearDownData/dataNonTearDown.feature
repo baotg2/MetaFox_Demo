@@ -1,8 +1,8 @@
-@NonTearDownData
+@previewSite @NonTearDownData
 Feature:  Non TearDown Data On Site
 
   @AdminAddNewBlogEveryOne
-  Scenario: Admin Add New Blog Everyone
+  Scenario: Admin Add New Blog Non Tear Down
     Given the user logged in as "admin"
     When the user action on "More"
     Then the browser opened at item "blog" and tab "/blog/add"
@@ -82,3 +82,47 @@ Feature:  Non TearDown Data On Site
     When the user click on button "buttonSubmit"
     Then the user see message "Thread created successfully" displayed
     And the user see title "AngryBirdsNest" is displayed
+
+  @BrainActionOnBlogDetailNonTearDown
+  Scenario: Brian action on the blog detail non-tear down
+    Given the user logged in as "brian"
+    When the user action on "More"
+    Then the browser opened at item "blog" and tab ""
+    And the user see search field "Search blogs" and typing keys "Brit + Co"
+    And the user want to click on title "itemTitle" and process
+    And the user add comment "Amazing write-ups" on blog
+    Then the user see "Amazing write-ups" displayed success
+    And the user click on button "reactionButton"
+
+  @AdminAddFeedToGroupNonTearDownData
+  Scenario: Admin add feed to group non-tear down data
+    Given the user logged in as "admin"
+    When the user action on "More"
+    Then the browser opened at item "group" and tab ""
+    And the user see search field "Search groups" and typing keys "IMPROVING EDUCATION AND LIVES"
+    And the user want to click on title "itemTitle" and process
+    Then the user "whatsHappening" this item
+    And the user add comment "I no longer depend on my parents and I am financially independent" on blog
+    And the user click on button "submit"
+    Then the user see message "Post has been created successfully" displayed
+
+  @UserVoteMultipleChoiceNonTearDownData
+  Scenario: Another User Vote Poll Non Tear Down Data
+    Given the user logged in as "brian"
+    When the user action on "More"
+    When the browser opened at item "poll" and tab ""
+    And the user see search field "Search polls" and typing keys "Welcome!What are you looking for today?"
+    And the user want to click on title "itemTitle" and process
+    And the user "brian" action vote on random options
+
+  @BrianActionOnAlbumDetailNonTearDownData
+  Scenario: Brian Action On Album Detail Non Tear Down Data
+    Given the user logged in as "brian"
+    Then the browser opened at item "photo" and tab "/photo/albums"
+    And the user see search field "Search albums" and typing keys "Notebook Mini Album"
+    And the user want to click on title "itemTitle" and process
+    And the user click on button "reactionButton"
+    Then the user see result of "reactionResult" displayed
+    When the user click on button "commentButton"
+    And the user add comment "Amazing write-ups" on blog
+    Then the user see "Amazing write-ups" displayed success

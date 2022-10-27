@@ -1,4 +1,4 @@
-@MetaFox @feed  @BrainActionShareFeed
+@MetaFox @feed  @BrainActionShareFeed @previewSite
 Feature:  Brain Action Share Feed
 
   @BrainShareNow
@@ -6,26 +6,18 @@ Feature:  Brain Action Share Feed
     Given the user logged in as "admin"
     When the user click on button "menuShareButton"
     And the user action on "Share now"
-    Then the user see message "Shared successfully" displayed
-    When the user want to refresh page before handle the action
-    Then the user see "shared a post to newsfeed" on left menu
 
   @BrainShareToNewFeed
   Scenario: Brian Share To New Feed
     Given the user logged in as "admin"
     When the user click on button "menuShareButton"
     And the user action on "Share to News Feed"
-    And the user click on button "submit"
-    #Then the user see message "Post has been created successfully" displayed
-    When the user want to refresh page before handle the action
-    Then the user see "shared a post to newsfeed" on left menu
 
   @BrainShareOnFriendWall
   Scenario: Brian Share On Friend Wall
     Given the user logged in as "admin"
     When the user click on button "menuShareButton"
     When the user "share_on_friends" this item
-    Then the user see "Select friend" is displayed on user profile
 
   @BrainShareOnGroup
   Scenario: Brian Share On Group
@@ -80,5 +72,3 @@ Feature:  Brain Action Share Feed
     Given the user logged in as "admin"
     When the user "whatsHappening" this item
     And the user want upload 1 photo
-    And the user click on button "submit"
-    Then the user see message "Post has been created successfully." displayed

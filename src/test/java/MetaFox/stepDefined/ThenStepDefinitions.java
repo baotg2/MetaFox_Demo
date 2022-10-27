@@ -401,9 +401,9 @@ public class ThenStepDefinitions {
     @Then("^the user want to click on title \"([^\"]*)\" and process$")
     public void clickOnTitle(String title) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//h4[@data-testid='"+title+"']"));
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         components.componentH4DataTestID(title).click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
     }
 
     /**------------------------------------------------------------------------------------------------------------------------------------------------

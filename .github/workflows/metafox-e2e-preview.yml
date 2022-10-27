@@ -18,7 +18,7 @@ env:
   ALLURE_SERVER: https://cloudcall-s01.phpfox.com/allure-docker-service
   ALLURE_PROJECT: metafox-e2e-preview
   BASE_URL: https://preview-foxsocial.phpfox.us/
-  TEST_TAGS: '@MetaFox'
+  TEST_TAGS: '@previewSite'
 
 jobs:
   build:

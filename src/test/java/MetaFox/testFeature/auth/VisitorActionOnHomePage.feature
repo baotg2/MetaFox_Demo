@@ -1,4 +1,4 @@
-@MetaFox @Author @VisitorProcessSignUp
+@MetaFox @Author @VisitorProcessSignUp @previewSite
 Feature: Verify Visitor Process on Sign Up
 
   @VisitorRegisterNewAccountWithErrorMsgInvalidEmail

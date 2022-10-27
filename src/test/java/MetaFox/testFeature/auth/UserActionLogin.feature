@@ -1,4 +1,4 @@
-@MetaFox @Author @Login
+@MetaFox @Author @Login @previewSite
 Feature: Verify login pHpFox success
 
   @ScenarioLogin1

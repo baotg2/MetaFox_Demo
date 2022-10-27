@@ -5,7 +5,6 @@ import MetaFox.pageObject.Components;
 import MetaFox.support.DataExecutor;
 import MetaFox.support.IsComponentVisible;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -13,7 +12,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
 
-import java.sql.Blob;
 import java.util.List;
 
 import static MetaFox.browserConfig.Index.driver;
