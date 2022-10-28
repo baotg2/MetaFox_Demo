@@ -1,22 +1,21 @@
-@MetaFox @blogs  @blogFunction_Admin
+@app_blog @user_admin
 Feature:  Admin process on blogs app
 
-  @AdminAddNewBlogWithoutImage
+  @focus
   Scenario: Admin Add New Blog Without Image
     Given the user logged in as "admin"
-    When the user action on "More"
-    Then the browser opened at item "blog" and tab "/blog/add"
-    Then the user action on input field "title" with value "Admin Blogs"
-    Then the user don't add photo
-    And the user add value on div "textbox"
-    And the user want to add attach files
-    And the user want add categories is "Education"
-    And the user add value on "tags-tags" is "tag-tag"
-    And the user click on button "buttonSubmit"
-    And the user see message "blogCreate" displayed
-    Then the user verify title of blog is displayed
+#    When the user action on "More"
+#    Then the browser opened at item "blog" and tab "/blog/add"
+#    Then the user action on input field "title" with value "Admin Blogs"
+#    Then the user don't add photo
+#    And the user add value on div "textbox"
+#    And the user want to add attach files
+#    And the user want add categories is "Education"
+#    And the user add value on "tags-tags" is "tag-tag"
+#    And the user click on button "buttonSubmit"
+#    And the user see message "blogCreate" displayed
+#    Then the user verify title of blog is displayed
 
-  @AdminSeePendingBlog
   Scenario: Admin See Pending Blog
     Given the user logged in as "admin"
     When the user action on "More"

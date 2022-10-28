@@ -1,7 +1,7 @@
-@MetaFox @core  @brianActionOnActivityPoint
+@app_activitypoint
 Feature:  Brain Action On Activity Point
 
-  @BrainVerifyUIActivityPoint
+  @focus
   Scenario: Brain Verify Ui Activity Point
     Given the user logged in as "brian"
     When I want to click on "Activity Points"
@@ -18,7 +18,7 @@ Feature:  Brain Action On Activity Point
     And the user click on element link text a "View All Transactions"
     Then the user see title h2 "Transactions History" is displayed
 
-  @AdminAddNewPackage
+  @admincp
   Scenario: Admin Add New Package
     Given the user logged in as "admin"
     When the browser will get Administrator URL

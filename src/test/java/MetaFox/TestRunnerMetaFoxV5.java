@@ -17,16 +17,13 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/MetaFox/testFeature"},
         glue = "MetaFox",
-        tags = "@BrianSearchEmptyKeyWord",
         plugin ={
-                "html:target/result/",
-                "pretty",
-                "json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json",
-                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+                "MetaFox.TestCaseParameter"
         },
         monochrome = true
 )
 
 public class TestRunnerMetaFoxV5 extends AbstractTestNGCucumberTests {
-        // mvn test -Dcucumber.options="--plugin json:target/MetaFox_V5/Cucumber_reports/MetaFox_Report.json" -Dcucumber.options="--plugin io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"  -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="@AdminAddNewBlogWithoutImage"
+        // mvn -Dcucumber.filter.tags="@admin and @app_blog"
 }
