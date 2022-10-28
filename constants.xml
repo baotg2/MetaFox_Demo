@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <constants>
     <URLEvent>https://zoom.us/</URLEvent>
-    <TestDataFolder>src/test/java/MetaFox/testdata/</TestDataFolder>
+    <TestDataFolder>src/test/java/metafox/testdata/</TestDataFolder>
     <DataFile>v5DataProvider.xlsx</DataFile>
     <BlogName>TestAuto</BlogName>
     <NewBlogName>NewTestAuto</NewBlogName>
@@ -12,6 +12,6 @@
     <Groups>GroupTestAuto</Groups>
     <NewGroupName>NewGroupName</NewGroupName>
     <Polls>IsThisAutoPoll</Polls>
-    <TestBuilder>MetaFox regression Test</TestBuilder>
+    <TestBuilder>metafox regression Test</TestBuilder>
     <TestCaseRunner>Builder_Features</TestCaseRunner>
 </constants>

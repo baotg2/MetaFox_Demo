@@ -1,7 +1,7 @@
-package MetaFox.browserConfig;
+package metafox.browserConfig;
 
-import MetaFox.support.DataExecutor;
-import MetaFox.support.EnumDataValue;
+import metafox.support.DataExecutor;
+import metafox.support.EnumDataValue;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;

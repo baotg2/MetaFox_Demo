@@ -6,9 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="MetaFox_Demo" />
-        <module name="pHpDemo" />
-        <module name="metafox_e2e_testing" />
+        <module name="metafox" />
       </profile>
     </annotationProcessing>
   </component>

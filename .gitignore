@@ -2,3 +2,4 @@
 .env
 allure-results
 target/allure-results
+target/*

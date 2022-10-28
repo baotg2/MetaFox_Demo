@@ -1,9 +1,9 @@
-package MetaFox.stepDefined;
+package metafox.stepDefined;
 
-import MetaFox.browserConfig.Index;
-import MetaFox.pageObject.Components;
-import MetaFox.support.DataExecutor;
-import MetaFox.support.IsComponentVisible;
+import metafox.browserConfig.Index;
+import metafox.pageObject.Components;
+import metafox.support.DataExecutor;
+import metafox.support.IsComponentVisible;
 import io.cucumber.java.en.When;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;

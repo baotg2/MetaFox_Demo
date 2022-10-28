@@ -1,4 +1,4 @@
-package MetaFox.stepDefined;
+package metafox.stepDefined;
 
 import io.cucumber.java.en.Given;
 import io.qameta.allure.Allure;
@@ -6,10 +6,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
-import MetaFox.browserConfig.Index;
-import MetaFox.pageObject.Components;
-import MetaFox.support.DataExecutor;
-import MetaFox.support.IsComponentVisible;
+import metafox.browserConfig.Index;
+import metafox.pageObject.Components;
+import metafox.support.DataExecutor;
+import metafox.support.IsComponentVisible;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static MetaFox.browserConfig.Index.currentUrlValue;
+import static metafox.browserConfig.Index.currentUrlValue;
 import static org.junit.Assert.assertTrue;
 
 /**

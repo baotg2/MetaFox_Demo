@@ -1,4 +1,4 @@
-package MetaFox;
+package metafox.plugin;
 
 import io.cucumber.plugin.EventListener;
 import io.cucumber.plugin.event.EventHandler;

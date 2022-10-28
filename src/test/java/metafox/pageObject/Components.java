@@ -1,9 +1,9 @@
-package MetaFox.pageObject;
+package metafox.pageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import MetaFox.browserConfig.Index;
+import metafox.browserConfig.Index;
 
 import java.util.List;
 

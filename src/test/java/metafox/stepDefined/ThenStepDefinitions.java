@@ -1,6 +1,5 @@
-package MetaFox.stepDefined;
+package metafox.stepDefined;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
@@ -8,15 +7,15 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
-import MetaFox.browserConfig.Index;
-import MetaFox.pageObject.Components;
-import MetaFox.support.DataExecutor;
-import MetaFox.support.IsComponentVisible;
+import metafox.browserConfig.Index;
+import metafox.pageObject.Components;
+import metafox.support.DataExecutor;
+import metafox.support.IsComponentVisible;
 
 import java.io.IOException;
 
-import static MetaFox.browserConfig.Index.driver;
-import static MetaFox.browserConfig.Index.selectPlatform;
+import static metafox.browserConfig.Index.driver;
+import static metafox.browserConfig.Index.selectPlatform;
 import static org.junit.Assert.*;
 
 /**

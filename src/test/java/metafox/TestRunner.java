@@ -1,4 +1,4 @@
-package MetaFox;
+package metafox;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -15,15 +15,14 @@ import io.cucumber.testng.CucumberOptions;
 
 
 @CucumberOptions(
-        features = {"src/test/java/MetaFox/testFeature"},
-        glue = "MetaFox",
+        features = {"src/test/java/metafox/testFeature"},
+        glue = "metafox",
         plugin ={
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
-                "MetaFox.TestCaseParameter"
+                "metafox.plugin.TestCaseParameter"
         },
         monochrome = true
 )
-
-public class TestRunnerMetaFoxV5 extends AbstractTestNGCucumberTests {
+public class TestRunner extends AbstractTestNGCucumberTests {
         // mvn -Dcucumber.filter.tags="@admin and @app_blog"
 }

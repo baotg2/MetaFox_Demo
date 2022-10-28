@@ -1,12 +1,11 @@
-package MetaFox.stepDefined;
+package metafox.stepDefined;
 
-import MetaFox.browserConfig.Index;
-import MetaFox.pageObject.Components;
+import metafox.browserConfig.Index;
+import metafox.pageObject.Components;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
-import static MetaFox.browserConfig.Index.driver;
-import static java.awt.SystemColor.window;
+import static metafox.browserConfig.Index.driver;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------

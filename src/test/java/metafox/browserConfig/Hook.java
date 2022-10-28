@@ -1,6 +1,6 @@
-package MetaFox.browserConfig;
+package metafox.browserConfig;
 
-import MetaFox.support.EnumDataValue;
+import metafox.support.EnumDataValue;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -26,7 +26,7 @@ public class Hook{
      -----------------------------------------------------------------------------------------------------------------------------------------*/
     @Before
     public void beforeTest() throws MalformedURLException {
-        index.openBrowser( EnumDataValue.SAFARI, EnumDataValue.BROWSERSTACK);
+        index.openBrowser( EnumDataValue.CHROME, EnumDataValue.LOCAL);
     }
     /**-----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022

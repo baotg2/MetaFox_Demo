@@ -1,9 +1,9 @@
-package MetaFox.stepDefined;
+package metafox.stepDefined;
 
-import MetaFox.browserConfig.Index;
-import MetaFox.pageObject.Components;
-import MetaFox.support.DataExecutor;
-import MetaFox.support.IsComponentVisible;
+import metafox.browserConfig.Index;
+import metafox.pageObject.Components;
+import metafox.support.DataExecutor;
+import metafox.support.IsComponentVisible;
 import io.cucumber.java.en.And;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
@@ -14,8 +14,8 @@ import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.util.List;
 
-import static MetaFox.browserConfig.Index.driver;
-import static MetaFox.browserConfig.Index.selectPlatform;
+import static metafox.browserConfig.Index.driver;
+import static metafox.browserConfig.Index.selectPlatform;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 

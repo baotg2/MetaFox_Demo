@@ -1,6 +1,6 @@
-package MetaFox.support;
+package metafox.support;
 
-import MetaFox.browserConfig.Index;
+import metafox.browserConfig.Index;
 import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -12,7 +12,7 @@ import java.io.ByteArrayInputStream;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import static MetaFox.browserConfig.Index.driver;
+import static metafox.browserConfig.Index.driver;
 
 
 /**
