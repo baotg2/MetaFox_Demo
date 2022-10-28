@@ -62,7 +62,9 @@ public class WhenStepDefinitions {
         Thread.sleep(3000);
         isComponentVisible.waitElement( By.xpath( "//a[contains(@href, '" + item + "')]" ) );
         components.componentLinkText( item ).click();
-        Thread.sleep(2000);
+        if(components.componentListHref(item).size() !=0){
+            components.componentLinkText( item ).click();
+        }
     }
 
     /**-----------------------------------------------------------------------------------------------------------------------------------------------

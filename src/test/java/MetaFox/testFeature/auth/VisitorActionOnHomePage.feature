@@ -15,7 +15,7 @@ Feature: Verify Visitor Process on Sign Up
 
   @VisitorRegisterNewAccountWithErrorMsgExistEmail
   Scenario: Visitor Process register new account With Error Msg Exist Email
-    Given the user click on div "fieldRegister" and process
+    Given the user want to click on "register"
     And the user action on input field "first_name" with value "Test exist email"
     And the user action on input field "last_name" with value "Test exist email"
     And the user action on input field "full_name" with value "Test exist email"
@@ -28,7 +28,7 @@ Feature: Verify Visitor Process on Sign Up
 
   @VisitorSignUpWithEmptyValue
   Scenario: Visitor SignUp With Empty Value
-    Given the user click on div "fieldRegister" and process
+    Given the user want to click on "register"
     And the user click on button "buttonSubmit"
     Then the user see error message "First Name is required." is displayed
     Then the user see error message "Last Name is required." is displayed
@@ -39,13 +39,13 @@ Feature: Verify Visitor Process on Sign Up
 
   @VisitorBreakSignUpAction
   Scenario: Visitor Break SignUp Action
-    Given the user click on div "fieldRegister" and process
+    Given the user want to click on "register"
     And the user click on element link text a "Already Had an Account?"
     Then the user see "Welcome Back" is displayed
 
   @VisitorRegisterNewAccountWithExistUserName
   Scenario: Visitor Process register new account With Exist User Name
-    Given the user click on div "fieldRegister" and process
+    Given the user want to click on "register"
     And the user action on input field "first_name" with value "N"
     And the user action on input field "last_name" with value "L"
     And the user action on input field "full_name" with value "V"
@@ -58,7 +58,7 @@ Feature: Verify Visitor Process on Sign Up
 
   @VisitorRegisterNewAccountWithShortPassword
   Scenario: Visitor Process register new account With Short Password
-    Given the user click on div "fieldRegister" and process
+    Given the user want to click on "register"
     And the user action on input field "first_name" with value "Test exist email"
     And the user action on input field "last_name" with value "Test exist email"
     And the user action on input field "full_name" with value "Test exist email"
@@ -71,7 +71,7 @@ Feature: Verify Visitor Process on Sign Up
 
   @VisitorRegisterNewAccountWithSpaceOnPasswordField
   Scenario: Visitor Process register new account With Space On Password Field
-    Given the user click on div "fieldRegister" and process
+    Given the user want to click on "register"
     And the user action on input field "first_name" with value "Test exist email"
     And the user action on input field "last_name" with value "Test exist email"
     And the user action on input field "full_name" with value "Test exist email"

@@ -163,6 +163,18 @@ public class Components {
     }
 
     /**
+     * ----------------------------------------------------------------------------------------------------------------------------
+     * @param href is attributes find elements
+     * @return list element <a></a>
+     * -------------------------------------------------------------------------------------------------------------------------------------
+     * @Author BaoTG
+     * @since 04-05-2022
+     */
+    public List<WebElement> componentListHref(String href) {
+        return Index.getDriver().findElements(By.xpath("//a[contains(@href, '" + href + "')]"));
+    }
+
+    /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param spanName is attributes find elements
