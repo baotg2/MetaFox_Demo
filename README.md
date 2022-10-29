@@ -19,7 +19,7 @@ Technical used:
 - src/test/java/metafox/pageObject: contain elements on web pages
 - src/test/java/metafox/stepDefined: defined test step using JAVA
 - src/test/java/pHpFox/support: include files handle function related to test data
-- src/test/java/pHpFox/testdata: include data files (excel, image, videos)
+- src/test/resources/fixtures: include data files (excel, image, videos)
 
 When deploy test case, need focus on pageObject and stepDefined. 
 [The project structure be designed base on Page Object Model](https://www.guru99.com/page-object-model-pom-page-factory-in-selenium-ultimate-guide.html)

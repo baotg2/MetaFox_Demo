@@ -1,0 +1,28 @@
+{
+  "server": "hub.browserstack.com",
+  "user": "BROWSERSTACK_USERNAME",
+  "key": "BROWSERSTACK_ACCESS_KEY",
+
+  "capabilities": {
+    "bstack:options": {
+      "buildName": "browserstack-build-1",
+      "sessionName": "BStack local cucumber-java",
+      "debug": true,
+      "local": true
+    }
+  },
+
+  "localOptions": {
+    "forceLocal": true
+  },
+
+  "environments": [
+    {
+      "localChrome": true,
+      "bstack:options": {
+        "os": "OS X"
+      },
+      "browserName": "chrome"
+    }
+  ]
+}

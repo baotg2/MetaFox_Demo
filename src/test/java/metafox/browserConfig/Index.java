@@ -1,5 +1,6 @@
 package metafox.browserConfig;
 
+import metafox.CucumberTestRunner;
 import metafox.support.DataExecutor;
 import metafox.support.EnumDataValue;
 import org.openqa.selenium.WebDriver;
@@ -16,19 +17,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-/**------------------------------------------------------------------------------------------------------------------------------------------------
- * @since 04-05-2022
- * @Author  baotg2
+/**
+ * ------------------------------------------------------------------------------------------------------------------------------------------------
+ *
+ * @version 1.0.1
+ * ------------------------------------------------------------------------------------------------------------------------------------------------
+ * @Author baotg2
  * @purpose: Index is class set up browser
  * @package browserConfig
- * @version 1.0.1
- ------------------------------------------------------------------------------------------------------------------------------------------------*/
+ * @since 04-05-2022
+ */
 public class Index {
 
     DataExecutor dataExecutor = new DataExecutor();
 
     public static WebDriver driver;
-    public static String selectPlatform;
+    public static String selectPlatform = "local";
 
     public static String currentUrlValue;
     public String AUTOMATE_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
@@ -36,31 +40,37 @@ public class Index {
     public String AUTOMATE_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
     public String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
-    public Index (WebDriver driver){
-        Index.driver = driver;
+    public Index(WebDriver driver) {
+        driver = CucumberTestRunner.getWebDriver();
     }
 
-    /**-------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     * @Author  baotg2
+    /**
+     * -------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @Author baotg2
      * @purpose getDriver is function to call the driver from another class
-     -------------------------------------------------------------------------------------------------------------------------------------------*/
-    public static WebDriver getDriver(){
-       return driver;
+     * -------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    public static WebDriver getDriver() {
+        return driver;
     }
 
-    /**------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     * @param enumDataValue is param to set open browser
+    /**
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param enumDataValue  is param to set open browser
      * @param selectFlatForm is param to get test cases run on Platform
      * @throws MalformedURLException thrown when the built-in URL class encounters an invalid URL
      * @purpose openBrowser is a function to set up test cases run on local or cloud
-     ------------------------------------------------------------------------------------------------------------------------------------------*/
-    public void openBrowser(EnumDataValue enumDataValue, EnumDataValue selectFlatForm) throws MalformedURLException{
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    public void openBrowser(EnumDataValue enumDataValue, EnumDataValue selectFlatForm) throws MalformedURLException {
         Index.selectPlatform = String.valueOf(selectFlatForm);
         switch (selectFlatForm) {
             case BROWSERSTACK:
-                switch (enumDataValue){
+                switch (enumDataValue) {
                     case FIREFOX:
                         DesiredCapabilities caps = new DesiredCapabilities();
                         caps.setCapability("os_version", "10");
@@ -85,7 +95,7 @@ public class Index {
                         break;
                 }
             case LOCAL:
-                switch (enumDataValue){
+                switch (enumDataValue) {
                     case CHROME:
                         ChromeOptions options = new ChromeOptions();
                         options.addArguments("use-fake-device-for-media-stream");
@@ -108,8 +118,9 @@ public class Index {
             default:
                 driver = new ChromeDriver();
         }
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
-        driver.get(System.getenv("BASE_URL"));
+
+//        driver.manage().deleteAllCookies();
+//        driver.manage().window().maximize();
+//        driver.get(System.getenv("BASE_URL"));
     }
 }

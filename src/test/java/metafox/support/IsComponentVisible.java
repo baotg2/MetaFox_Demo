@@ -1,7 +1,7 @@
 package metafox.support;
 
-import metafox.browserConfig.Index;
 import io.qameta.allure.Allure;
+import metafox.CucumberTestRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -9,10 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import java.io.ByteArrayInputStream;
+import java.time.Duration;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
-import static metafox.browserConfig.Index.driver;
 
 
 /**
@@ -26,19 +25,20 @@ import static metafox.browserConfig.Index.driver;
  */
 public class IsComponentVisible {
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    private final WebDriver driver = CucumberTestRunner.getWebDriver();
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param driver is param
      * @purpose constructor of IsComponentVisible
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    public IsComponentVisible(WebDriver driver) {
-        Index.driver = driver;
-    }
+    public IsComponentVisible() {}
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param webElement is element want to wait
      * @purpose wait element displayed about 2min
@@ -46,13 +46,14 @@ public class IsComponentVisible {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    public void waitElement(By webElement){
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        Allure.addAttachment(webElement.toString(), new ByteArrayInputStream(((TakesScreenshot) Index.getDriver()).getScreenshotAs(OutputType.BYTES)));
-        Assert.assertTrue(Index.getDriver().findElements(webElement).size() >0 );
+    public void waitElement(By webElement) {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        Allure.addAttachment(webElement.toString(), new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+        Assert.assertTrue(driver.findElements(webElement).size() > 0);
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param number is max length random
      * @return value random
@@ -60,10 +61,10 @@ public class IsComponentVisible {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 06-29-2022
      */
-    public int randomNumber(int number){
+    public int randomNumber(int number) {
         Random random = new Random();
         int result;
-        result  = random.nextInt(number);
+        result = random.nextInt(number);
         return result;
     }
 }

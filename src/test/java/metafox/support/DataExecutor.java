@@ -15,10 +15,13 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 
 /**
@@ -36,7 +39,7 @@ public class DataExecutor {
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
 
-    private final String testDataFolder = "src/test/java/MetaFox/testdata/";
+    private final String testDataFolder = "src/test/resources/fixtures/";
     private final String testDataFile = "v5DataProvider.xlsx";
     private final String testDescriptionFile  = "blogDescription.txt";
 
@@ -148,7 +151,7 @@ public class DataExecutor {
      * @since 04-05-2022
      */
     private ArrayList<String> getPathDocument() {
-        File directory = new File( "src/test/java/MetaFox/testdata" );
+        File directory = new File( "src/test/resources/fixtures" );
         ArrayList<String> list = new ArrayList<>();
         File[] fList = directory.listFiles();
         assert fList != null;
