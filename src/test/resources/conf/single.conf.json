@@ -1,20 +1,19 @@
 {
   "server": "hub.browserstack.com",
-  "user": "BROWSERSTACK_USERNAME",
-  "key": "BROWSERSTACK_ACCESS_KEY",
-
   "capabilities": {
     "bstack:options": {
-      "buildName": "browserstack-build-1",
-      "sessionName": "BStack single cucumber-java",
+      "buildName": "metafox-e2e",
+      "sessionName": "Safari Single",
       "browserVersion": "latest",
       "debug": true
     }
   },
-
   "environments": [
     {
-      "browserName": "chrome"
+      "bstack:options": {
+        "os": "OS X"
+      },
+      "browserName": "safari"
     }
   ]
 }

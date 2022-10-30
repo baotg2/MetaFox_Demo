@@ -1,17 +1,13 @@
 {
   "server": "hub.browserstack.com",
-  "user": "BROWSERSTACK_USERNAME",
-  "key": "BROWSERSTACK_ACCESS_KEY",
-
   "capabilities": {
     "bstack:options": {
-      "buildName": "browserstack-build-1",
+      "buildName": "metafox-e2e",
       "sessionName": "BStack parallel cucumber-java",
       "browserVersion": "latest",
       "debug": true
     }
   },
-
   "environments": [
     {
       "browserName": "chrome"

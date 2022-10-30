@@ -1,14 +1,12 @@
 package metafox;
 
 import com.browserstack.local.Local;
-import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.FeatureWrapper;
 import io.cucumber.testng.PickleWrapper;
 import io.cucumber.testng.TestNGCucumberRunner;
-import metafox.util.Utility;
+import metafox.support.Utility;
 import metafox.webdriver.LazyInitWebDriverIterator;
 import metafox.webdriver.ManagedWebDriver;
-import org.json.simple.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -40,8 +38,8 @@ public class CucumberTestRunner {
         return getManagedWebDriver().getWebDriver();
     }
 
-    public synchronized static JSONObject getPlatform() {
-        return getManagedWebDriver().getPlatform();
+    public synchronized static boolean isLocal() {
+        return Utility.isLocal(getManagedWebDriver());
     }
 
     @Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "scenarios")

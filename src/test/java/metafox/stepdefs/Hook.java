@@ -8,7 +8,8 @@ import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -39,7 +40,7 @@ public class Hook {
             Allure.addByteAttachmentAsync("Failure Screenshot", "image/png", () -> screenshot);
         }
 
-        if (!(driver instanceof RemoteWebDriver)) {
+        if (driver instanceof ChromeDriver || driver instanceof FirefoxDriver) {
             driver.quit();
         }
     }

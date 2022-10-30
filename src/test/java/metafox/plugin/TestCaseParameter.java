@@ -91,8 +91,8 @@ public class TestCaseParameter implements ConcurrentEventListener {
 
             result.getLinks().add(hostLink());
 
-            result.getParameters().forEach(label -> {
-                LOGGER.info("labels {} {}", label.getName(), label.getValue());
+            result.getParameters().forEach(parameter -> {
+                LOGGER.info("parameter {} {}", parameter.getName(), parameter.getValue());
             });
         });
 

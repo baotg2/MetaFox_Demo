@@ -1,6 +1,6 @@
 package metafox.webdriver;
 
-import metafox.util.Utility;
+import metafox.support.Utility;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,7 +48,10 @@ public class WebDriverFactory {
 
     private JSONObject parseWebDriverConfig() {
         JSONParser parser = new JSONParser();
-        String capabilitiesConfigFile = System.getProperty("caps", "src/test/resources/conf/single.conf.json");
+        String conf = System.getProperty("conf", "single");
+        String file = String.format("src/test/resources/conf/%s.conf.json", conf);
+        String capabilitiesConfigFile = System.getProperty("caps", file);
+        LOGGER.info("Build browser config from {}", file);
         try {
             return (JSONObject) parser.parse(new FileReader(capabilitiesConfigFile));
         } catch (IOException | ParseException var6) {
@@ -69,15 +72,18 @@ public class WebDriverFactory {
     public WebDriver createWebDriverForPlatform(JSONObject platform, String testName) {
         try {
 
-            LOGGER.error("createWebDriverForPlatform {}",platform.get("localChrome") );
+            String browser;
+            String conf = System.getProperty("conf", "single");
 
+            if (conf.equals("local") && platform.containsKey("browserName")) {
+                browser = platform.get("browserName").toString();
+                if (browser.equals("chrome")) {
+                    return createLocalChromeDriver();
+                }
 
-            if (platform.get("localFirefox") != null) {
-                return createLocalFireFox();
-            }
-
-            if (platform.get("localChrome") != null) {
-                return createLocalChromeDriver();
+                if (browser.equals("firefox")) {
+                    return createLocalFireFox();
+                }
             }
 
             String URL = String.format("https://%s/wd/hub", testConfig.get("server"));
@@ -95,6 +101,10 @@ public class WebDriverFactory {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("use-fake-device-for-media-stream");
         options.addArguments("use-fake-ui-for-media-stream");
+        options.addArguments("use-fake-ui-for-media-stream");
+        options.addArguments("--window-size=1920,1080");
+        options.setHeadless(isHeadless());
+
         Map<String, Object> prefs = new HashMap<String, Object>();
         prefs.put("profile.default_content_setting_values.media_stream_mic", 1);
         prefs.put("profile.default_content_setting_values.media_stream_camera", 1);
@@ -105,9 +115,15 @@ public class WebDriverFactory {
         return new ChromeDriver(options);
     }
 
+    public boolean isHeadless() {
+        return System.getProperty("headless", "false").equals("true");
+    }
+
     public WebDriver createLocalFireFox() {
-        FirefoxProfile ffprofile = new FirefoxProfile();
-        ffprofile.setPreference("dom.webnotifications.enabled", true);
-        return new FirefoxDriver();
+        FirefoxOptions options = new FirefoxOptions();
+        options.setHeadless(isHeadless());
+        options.addPreference("dom.webnotifications.enabled", true);
+
+        return new FirefoxDriver(options);
     }
 }

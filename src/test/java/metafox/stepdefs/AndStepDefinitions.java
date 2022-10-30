@@ -5,6 +5,7 @@ import metafox.CucumberTestRunner;
 import metafox.pageobjects.Components;
 import metafox.support.DataExecutor;
 import metafox.support.IsComponentVisible;
+import metafox.support.Utility;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -15,7 +16,6 @@ import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.util.List;
 
-import static metafox.browserConfig.Index.selectPlatform;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -34,9 +34,10 @@ public class AndStepDefinitions {
     DataExecutor dataExecutor = new DataExecutor();
     Integer idOfLastImageBeforeUpload;
 
-    private final WebDriver driver =  CucumberTestRunner.getWebDriver();
+    private final WebDriver driver = CucumberTestRunner.getWebDriver();
 
-    public AndStepDefinitions() {}
+    public AndStepDefinitions() {
+    }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -205,6 +206,7 @@ public class AndStepDefinitions {
         components.componentsListDivMsg(buttonName).get(1).click();
     }
 //*[@id="root"]/div[3]/div/div/div/div/div/div[3]/div[1]/div[2]/div/div/button[3]
+
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -220,7 +222,8 @@ public class AndStepDefinitions {
         components.componentButtonAction(buttonName).click();
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param fieldSetting get attribute on profile setting
      * @param valueChanged the new privacy on this attribute
@@ -232,12 +235,12 @@ public class AndStepDefinitions {
     @And("the user select privacy at field \"([^\"]*)\" and change to \"([^\"]*)\"$")
     public void selectPrivacy(String fieldSetting, String valueChanged) {
         isComponentVisible.waitElement(By.xpath("//div[@role ='button']"));
-        for ( int i = 0 ; i < components.componentsSpanList().size(); i++) {
+        for (int i = 0; i < components.componentsSpanList().size(); i++) {
             if (components.componentsSpanList().get(i).getText().contains(fieldSetting)) {
-                if (!components.componentsListDivRole("button").get(i-8).getText().equals(valueChanged)) {
-                    components.componentsListDivRole("button").get(i-8).click();
+                if (!components.componentsListDivRole("button").get(i - 8).getText().equals(valueChanged)) {
+                    components.componentsListDivRole("button").get(i - 8).click();
                     isComponentVisible.waitElement(By.xpath("//ul[@role = 'listbox']"));
-                    switch(valueChanged){
+                    switch (valueChanged) {
                         case "Anyone":
                         case "Everyone":
                             components.componentsDivDataValue("0").click();
@@ -262,7 +265,8 @@ public class AndStepDefinitions {
         }
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param itemProfile name's user
      * @purpose access the user profile has itemProfile
@@ -272,12 +276,13 @@ public class AndStepDefinitions {
      */
     @And("^the user want to access items \"([^\"]*)\" on user profile")
     public void accessItemONProFile(String itemProfile) {
-        isComponentVisible.waitElement(By.xpath("//*[@id='"+itemProfile+"']"));
+        isComponentVisible.waitElement(By.xpath("//*[@id='" + itemProfile + "']"));
         components.componentsListElementByID(itemProfile).get(1).click();
 
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param itemProfile name's user
      * @purpose access the user profile has itemProfile
@@ -290,7 +295,8 @@ public class AndStepDefinitions {
         assertEquals(0, components.componentsListElementByID(itemProfile).size());
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param whatsHappening this is name of element poss on wall
      * @purpose don't see field poss on wall when this setting is "No One"
@@ -304,7 +310,8 @@ public class AndStepDefinitions {
         assertEquals(components.componentListDivDataTestID(whatsHappening).size(), 0);
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param spanText this is value of span
      * @purpose access all items on menuAccount
@@ -321,7 +328,8 @@ public class AndStepDefinitions {
         components.componentSpanName(spanText).click();
     }
 
-    /**-------------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param actionName is action name on user profile
      * @purpose click action on user profile
@@ -334,7 +342,8 @@ public class AndStepDefinitions {
         components.componentSpanName(actionName).click();
     }
 
-    /**-------------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param status has 2 type want | don't
      * @purpose handle upload document on test case want to
@@ -343,10 +352,10 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("^the user (want to|don't) add photo$")
-    public void actionAttachImage(String status) {
+    public void the_user_want_to_add_photos(String status) {
         if (status.equals("want to")) {
-            // should be move dto driver instanceof RemoteWebDriver
-            if (selectPlatform.equals("BROWSERSTACK")) {
+            if (Utility.isLocal(driver)) {
+                // should be move dto driver instanceof RemoteWebDriver
                 WebElement upload = components.componentInputDataTestID("inputFile");
                 ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
                 upload.sendKeys(dataExecutor.getRandomPathDocuments());
@@ -356,7 +365,8 @@ public class AndStepDefinitions {
         }
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param fieldName is value of field input
      * @purpose handle input value
@@ -371,7 +381,7 @@ public class AndStepDefinitions {
     }
 
     @And("^the user add description on items \"([^\"]*)\"$")
-    public void inputValueOnDivNonTearDown (@NotNull String itemName) throws Exception {
+    public void inputValueOnDivNonTearDown(@NotNull String itemName) throws Exception {
         switch (itemName) {
             case "Blog":
                 components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 0));
@@ -380,21 +390,22 @@ public class AndStepDefinitions {
                 components.componentTextAreaDataTestID("inputText").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 1));
                 break;
             case "Polls":
-                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile,2));
+                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 2));
                 break;
             case "Album":
                 components.componentTextAreaDataTestID("inputNewAlbumDescription").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 3));
                 break;
             case "Forum":
-                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile,4));
+                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 4));
                 break;
             case "Page":
-                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile,5));
+                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 5));
                 break;
         }
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param buttonName is name of button
      * @purpose handle click on button
@@ -409,7 +420,8 @@ public class AndStepDefinitions {
         Thread.sleep(3000);
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param msg is content of message
      * @purpose verify message displayed success
@@ -419,10 +431,11 @@ public class AndStepDefinitions {
      */
     @And("the user see message \"([^\"]*)\" displayed$")
     public void isMsgCreateSuccessDisplayed(String msg) {
-       assertTrue(components.componentsListByClassName("MuiAlert-message").size() > 0);
+        assertTrue(components.componentsListByClassName("MuiAlert-message").size() > 0);
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param status has 2 option want|don't
      * @purpose handle on case upload attachment
@@ -433,7 +446,7 @@ public class AndStepDefinitions {
     @And("^the user (want to|don't) add attach files$")
     public void actionAttachFile(@NotNull String status) {
         if (status.equals("want to")) {
-            if (selectPlatform.equals("BROWSERSTACK")) {
+            if (Utility.isLocal(driver)) {
                 WebElement upload = components.componentInputDataTestID("inputAttachments");
                 ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
                 upload.sendKeys(dataExecutor.getRandomPathDocuments());
@@ -443,8 +456,8 @@ public class AndStepDefinitions {
         }
     }
 
-
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param value value of Categories
      * @purpose add categories when create/edit item
@@ -458,10 +471,11 @@ public class AndStepDefinitions {
         components.componentInputDataTestID("inputCategories").sendKeys(Keys.ENTER);
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param value is value of tag
-     * @param id is id of element
+     * @param id    is id of element
      * @purpose input tag when create/edit item
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -476,9 +490,10 @@ public class AndStepDefinitions {
         components.componentInputID(id).sendKeys(Keys.ENTER);
     }
 
-    /**--------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * --------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param id is id of element
+     * @param id    is id of element
      * @param value is value input from keyboard
      * @purpose input value on element has id
      * @Author baotg2
@@ -492,7 +507,8 @@ public class AndStepDefinitions {
         components.componentsListElementByID(id).get(0).sendKeys(value);
     }
 
-    /**--------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * --------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param index is id of element
      * @param value is value input from keyboard
@@ -508,7 +524,8 @@ public class AndStepDefinitions {
         components.componentInputContainsID("mui-").get(index).sendKeys(value);
     }
 
-    /**-------------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param myBlogs title on main contain
      * @purpose see title like Feature, Popular on main contain
@@ -522,12 +539,13 @@ public class AndStepDefinitions {
         assertEquals(driver.findElement(By.xpath("//h2[text()='" + myBlogs + "']")).getText(), myBlogs);
     }
 
-    /**-------------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param buttonTestDataID is id of button
      * @purpose access first blog on My Blog or All Blog
      * @Author baotg2
-     *--------------------------------------------------------------------------------------------------------------------------------------------
+     * --------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
     @And("^the user click on \"([^\"]*)\" to access blog$")
@@ -536,7 +554,8 @@ public class AndStepDefinitions {
         components.componentListButtonDataTestID(buttonTestDataID).get(0).click();
     }
 
-    /**------------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * ------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param action action's name
      * @purpose access action at main form like 'edit, delete, report'
@@ -551,7 +570,8 @@ public class AndStepDefinitions {
         components.componentDivDataTestID(action).click();
     }
 
-    /**------------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * ------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param divID is data-testid of div
      * @param value is value input
@@ -566,9 +586,10 @@ public class AndStepDefinitions {
         driver.findElements(By.xpath("//div[contains(text(),'happening')]")).get(1).sendKeys(value);
     }
 
-    /**------------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * ------------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param status is status of message want to verify
+     * @param status  is status of message want to verify
      * @param msgText content of mesage
      * @purpose verify message display, if not > noResultFound is displayed
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -585,7 +606,8 @@ public class AndStepDefinitions {
         }
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param conditionName condition name on search filter
      * @purpose access first condition on search filter
@@ -601,7 +623,6 @@ public class AndStepDefinitions {
     }
 
     /**
-     *
      * @param itemName is blog item
      */
     @And("^the user access this blog by \"([^\"]*)\" and process")
@@ -610,9 +631,10 @@ public class AndStepDefinitions {
         components.componentDivDataTestID(itemName).click();
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param idPassWord is id of passWordField
+     * @param idPassWord    is id of passWordField
      * @param passWordInput value of PassWord
      * @purpose find field password and input value on Sign Up form
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -625,7 +647,8 @@ public class AndStepDefinitions {
         components.componentInputID(idPassWord).sendKeys(Keys.ENTER);
     }
 
-    /**-----------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param typeName is "Check Box" type
      * @purpose click on check box on sign up form
@@ -635,12 +658,13 @@ public class AndStepDefinitions {
      */
     @And("the user click on check box {string}")
     public void theUserClickOnCheckOn(String typeName) {
-        if(!components.componentInputType(typeName).isSelected()) {
+        if (!components.componentInputType(typeName).isSelected()) {
             components.componentInputType(typeName).click();
         }
     }
 
-    /**-------------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param actionName is action name
      * @purpose click on action on action menu
@@ -654,7 +678,8 @@ public class AndStepDefinitions {
         components.componentButtonText(actionName).click();
     }
 
-    /**-------------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * -------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param date is date of the user input
      * @purpose input on date input mm/dd/yyyy
@@ -663,13 +688,15 @@ public class AndStepDefinitions {
      * @since 07-05-2022
      */
     @And("^the user want to add new date is \"([^\"]*)\"$")
-    public void addNewDate(String date){
+    public void addNewDate(String date) {
         isComponentVisible.waitElement(By.xpath("//button[contains(@aria-label,'Choose date')]"));
         components.componentsListTagButton("Choose date").get(1).click();
         components.componentButtonText(date).click();
     }
 
-    /**------------------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
+     *
      * @purpose refers page before handle another action
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------------
@@ -681,7 +708,8 @@ public class AndStepDefinitions {
         driver.navigate().refresh();
     }
 
-    /**------------------------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param valueVerify is true to verify
      * @purpose verify message on search result
@@ -690,7 +718,7 @@ public class AndStepDefinitions {
      * @see 04-05-2022
      */
     @And("^the user see \"([^\"]*)\" displayed on search results$")
-    public void theUserWantToDisplayDisplayedOnSearchResults(String valueVerify){
+    public void theUserWantToDisplayDisplayedOnSearchResults(String valueVerify) {
         isComponentVisible.waitElement(By.className("ltr-1h3jlzl"));
         assertEquals(components.componentsListByClassName("ltr-1h3jlzl").get(0).getText(), valueVerify);
     }
@@ -699,26 +727,27 @@ public class AndStepDefinitions {
     @And("^the user click on input type check box \"([^\"]*)\"$")
     public void theUserClickOnInputTypeCheckBox(String inputName) {
         isComponentVisible.waitElement(By.xpath("//input[@name='" + inputName + "']"));
-        if(!components.componentInputName(inputName).isSelected()){
+        if (!components.componentInputName(inputName).isSelected()) {
             components.componentInputName(inputName).click();
         }
     }
 
-    /**---------------------------------------------------------------------------------------------------------------------------
+    /**
+     * ---------------------------------------------------------------------------------------------------------------------------
      *
      * @param subItemsName is items want to access
      * @Author baotg2
      * --------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
-     *
      */
     @And("^the user access on sub items \"([^\"]*)\" more option$")
     public void accessSubItems(String subItemsName) {
-        isComponentVisible.waitElement(By.xpath("//a[text()='" + subItemsName +"']"));
+        isComponentVisible.waitElement(By.xpath("//a[text()='" + subItemsName + "']"));
         components.componentListTextLink(subItemsName).get(1).click();
     }
 
-    /**--------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * --------------------------------------------------------------------------------------------------------------------------------
      *
      * @param commentType is type of element want to put on comment
      * @purpose select random sticker on comment
@@ -728,7 +757,7 @@ public class AndStepDefinitions {
      */
     @And("^the user put a \"([^\"]*)\" sticker on comments$")
     public void putStickerOnComments(String commentType) {
-        isComponentVisible.waitElement( By.xpath( "//li[@data-testid='"+ commentType + "']"));
+        isComponentVisible.waitElement(By.xpath("//li[@data-testid='" + commentType + "']"));
         components.componentLi(commentType).click();
     }
 }

@@ -18,9 +18,7 @@ import org.openqa.selenium.WebDriver;
 import java.io.ByteArrayInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 import static metafox.browserConfig.Index.currentUrlValue;
 import static org.junit.Assert.assertTrue;
@@ -40,13 +38,15 @@ public class GivenStepDefinitions {
     IsComponentVisible isComponentVisible = new IsComponentVisible();
     DataExecutor dataExecutor = new DataExecutor();
 
-    private final WebDriver driver =  CucumberTestRunner.getWebDriver();
+    private final WebDriver driver = CucumberTestRunner.getWebDriver();
 
     public GivenStepDefinitions() {
 
     }
 
-    /**------------------------------------------------------------------------------------------------------------------------------------------
+
+    /**
+     * ------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param username is user's name login success to MetaFox
      * @throws IOException occurs when an IO operation fails
@@ -56,21 +56,19 @@ public class GivenStepDefinitions {
      * @since 04-05-2022
      */
     @Given("^the user logged in as \"([^\"]*)\"$")
-    public void the_user_logged_in_as(String username) throws IOException, InterruptedException{
+    public void the_user_logged_in_as(String username) throws IOException, InterruptedException {
         isComponentVisible.waitElement(By.xpath("//input[@placeholder='Enter your email address']"));
-        dataExecutor.setExcelFile(dataExecutor.excelPathFile, "users");
-        for ( int i = 1; i <= dataExecutor.getRowCountInSheet(); i++ ) {
-            if ( dataExecutor.getCellData(i, 3).toLowerCase().equals(username) ) {
-                components.componentSearchAttributes("Enter your email address").sendKeys(dataExecutor.getCellData(i, 4));
-                if ( !dataExecutor.getCellData(i, 3).toLowerCase().equals("admin") ) {
-                    components.componentSearchAttributes("Enter your password").sendKeys("123456");
-                }
-                else {
-                    components.componentSearchAttributes("Enter your password").sendKeys(dataExecutor.getCellData(i, 5));
-                }
-                break;
-            }
-        }
+
+        Optional<Map<String, String>> user = dataExecutor.readExcelSheet("users")
+                .stream()
+                .filter(row -> row.get("username").equalsIgnoreCase(username)).findFirst();
+
+        if (!user.isPresent()) throw new InterruptedException("Failed logged in as " + username);
+
+
+        components.componentSearchAttributes("Enter your email address").sendKeys(user.get().get("email"));
+        components.componentSearchAttributes("Enter your password").sendKeys(user.get().get("password"));
+
         components.componentButtonDataTestID("buttonLogin").click();
         Thread.sleep(6000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid ='formSearch']"));
@@ -84,31 +82,30 @@ public class GivenStepDefinitions {
     }
 
     @Given("the user get current URL")
-    public void getCurrentUrl(){
+    public void getCurrentUrl() {
         currentUrlValue = driver.getCurrentUrl();
     }
 
     @Given("the user open URL detail")
-    public void openUrlDetail(){
+    public void openUrlDetail() {
         driver.get(currentUrlValue);
     }
 
     @Given("^the user verify URL detail on \"([^\"]*)\"$")
     public void verifyUrlDetail(String site) throws Exception {
         Object obj = null;
-        if (site.equals("site")){
+        if (site.equals("site")) {
             obj = new JSONParser().parse(new FileReader("src/test/resources/fixtures/page_urls.json"));
-        }
-        else {
+        } else {
             obj = new JSONParser().parse(new FileReader("src/test/resources/fixtures/admin_urls.json"));
         }
         JSONObject jo = (JSONObject) obj;
-        JSONArray temp =(JSONArray) jo.get(site);
+        JSONArray temp = (JSONArray) jo.get(site);
         Iterator<String> iterator = temp.iterator();
         List<String> list = new ArrayList<>();
         iterator.forEachRemaining(list::add);
         for (String tempURL : list) {
-            driver.get("https://staging-foxsocial.phpfox.us/"+tempURL.substring(1));
+            driver.get("https://staging-foxsocial.phpfox.us/" + tempURL.substring(1));
             Thread.sleep(4000);
             Allure.addAttachment(tempURL.substring(1), new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
         }

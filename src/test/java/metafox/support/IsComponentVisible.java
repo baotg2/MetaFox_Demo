@@ -1,17 +1,12 @@
 package metafox.support;
 
-import io.qameta.allure.Allure;
 import metafox.CucumberTestRunner;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import java.io.ByteArrayInputStream;
 import java.time.Duration;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -35,7 +30,8 @@ public class IsComponentVisible {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    public IsComponentVisible() {}
+    public IsComponentVisible() {
+    }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -48,7 +44,6 @@ public class IsComponentVisible {
      */
     public void waitElement(By webElement) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        Allure.addAttachment(webElement.toString(), new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
         Assert.assertTrue(driver.findElements(webElement).size() > 0);
     }
 

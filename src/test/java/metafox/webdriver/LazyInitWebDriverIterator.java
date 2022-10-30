@@ -40,7 +40,7 @@ public class LazyInitWebDriverIterator implements Iterator<Object[]> {
             }
 
             ++index;
-        } while(index < testParams.size());
+        } while (index < testParams.size());
 
         return tempTestParams;
     }
@@ -55,7 +55,7 @@ public class LazyInitWebDriverIterator implements Iterator<Object[]> {
         } else {
             Object[] methodTestParams = this.testParams.get(this.paramIndex++);
             if (methodTestParams[methodTestParams.length - 1] instanceof JSONObject) {
-                JSONObject platform = (JSONObject)methodTestParams[methodTestParams.length - 1];
+                JSONObject platform = (JSONObject) methodTestParams[methodTestParams.length - 1];
                 ManagedWebDriver managedWebDriver = new ManagedWebDriver(this.testMethodName, platform);
                 methodTestParams[methodTestParams.length - 1] = managedWebDriver;
             }

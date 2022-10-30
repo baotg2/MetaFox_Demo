@@ -23,7 +23,7 @@ public class ManagedWebDriver {
         return this.platform;
     }
 
-    public  WebDriver getWebDriver() {
+    public WebDriver getWebDriver() {
         if (this.webDriver == null) {
             this.webDriver = this.webDriverFactory.createWebDriverForPlatform(this.platform, this.testName);
         }

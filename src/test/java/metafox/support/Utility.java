@@ -1,4 +1,4 @@
-package metafox.util;
+package metafox.support;
 
 import com.browserstack.local.Local;
 import metafox.webdriver.ManagedWebDriver;
@@ -7,6 +7,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.FileReader;
 import java.util.HashMap;
@@ -65,6 +67,10 @@ public class Utility {
     public static boolean isLocal(ManagedWebDriver managedWebDriver) {
         JSONObject platform = (JSONObject) managedWebDriver.getPlatform().get("bstack:options");
         return platform.get("local") != null && platform.get("local").toString().equalsIgnoreCase("true");
+    }
+
+    public static boolean isLocal(WebDriver driver) {
+        return driver instanceof ChromeDriver || driver instanceof FirefoxDriver;
     }
 
     public static void startLocal(Local local, ManagedWebDriver managedWebDriver) {
