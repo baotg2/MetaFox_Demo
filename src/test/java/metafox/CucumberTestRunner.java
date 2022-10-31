@@ -4,7 +4,6 @@ import com.browserstack.local.Local;
 import io.cucumber.testng.FeatureWrapper;
 import io.cucumber.testng.PickleWrapper;
 import io.cucumber.testng.TestNGCucumberRunner;
-import kong.unirest.Unirest;
 import metafox.support.Utility;
 import metafox.webdriver.LazyInitWebDriverIterator;
 import metafox.webdriver.ManagedWebDriver;
@@ -38,10 +37,6 @@ public class CucumberTestRunner {
 
     public synchronized static WebDriver getWebDriver() {
         return getManagedWebDriver().getWebDriver();
-    }
-
-    public synchronized static boolean isLocal() {
-        return Utility.isLocal(getManagedWebDriver());
     }
 
     @Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "scenarios")

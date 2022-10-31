@@ -2,7 +2,6 @@ package metafox.support;
 
 import com.browserstack.local.Local;
 import metafox.webdriver.ManagedWebDriver;
-import org.jetbrains.annotations.NotNull;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import javax.annotation.Nonnull;
 import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -32,7 +32,7 @@ public class Utility {
             accessKey = (String) config.get("key");
         }
 
-        @NotNull JSONObject bstackOptions = commonCapabilities.get("bstack:options") != null ?
+        @Nonnull JSONObject bstackOptions = commonCapabilities.get("bstack:options") != null ?
                 (JSONObject) commonCapabilities.get("bstack:options") : new JSONObject();
 
         bstackOptions.putIfAbsent("userName", username);

@@ -2,27 +2,30 @@ package metafox.stepdefs;
 
 import metafox.CucumberTestRunner;
 import metafox.pageobjects.Components;
+import metafox.support.DataProvider;
+import metafox.support.IsComponentVisible;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
-/**
- * ---------------------------------------------------------------------------------------------------------------------------------------------
- *
- * @version 1.0.1
- * ---------------------------------------------------------------------------------------------------------------------------------------------
- * @Author baotg2
- * @purpose: SupportStepDefinition is class defined all steps use anywhere in test step
- * @since 04-05-2022
- */
-public class SupportStepDefinition {
+public class StepDefinitions {
 
-    Components components = new Components();
+    protected Integer idOfLastImageBeforeUpload;
 
-    private final WebDriver driver = CucumberTestRunner.getWebDriver();
+    public final WebDriver driver = CucumberTestRunner.getWebDriver();
 
-    public SupportStepDefinition() {
-    }
+    protected Components components = new Components();
+
+    protected IsComponentVisible isComponentVisible = new IsComponentVisible();
+
+
+    protected DataProvider dataExecutor = new DataProvider();
+
+    protected String currentUrlValue;
+
+    protected static final Logger LOGGER = LoggerFactory.getLogger(StepDefinitions.class);
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------
@@ -33,6 +36,7 @@ public class SupportStepDefinition {
      * @since 04-05-2022
      */
     public void isBackToHomePage() {
+
         components.componentLinkDataTestID("linkLogo").click();
     }
 
@@ -79,4 +83,5 @@ public class SupportStepDefinition {
             }
         }
     }
+
 }

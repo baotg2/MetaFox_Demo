@@ -2,13 +2,13 @@ package metafox.support;
 
 import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
+import net.datafaker.Faker;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -19,8 +19,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import net.datafaker.Faker;
-
 
 import javax.annotation.Nonnull;
 import javax.xml.XMLConstants;
@@ -34,8 +32,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
@@ -239,7 +237,7 @@ public class DataProvider {
      * @param folder name of folder in ./fixtures
      * @param limit  max file limit
      */
-    public static List<String> getFiles(@NotNull String folder, int limit) {
+    public static List<String> getFiles(@Nonnull String folder, int limit) {
         folder = pluralize(folder);
         File[] allFiles = new File(String.format("%s/%s", pathToFixtures, folder)).listFiles();
 
@@ -296,7 +294,7 @@ public class DataProvider {
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
     }
 
-    private static String pluralize(@NotNull String name) {
+    private static String pluralize(@Nonnull String name) {
         switch (name) {
             case "photo":
                 return "photos";

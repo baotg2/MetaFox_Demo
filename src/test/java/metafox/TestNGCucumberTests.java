@@ -20,7 +20,12 @@ import io.cucumber.testng.CucumberOptions;
         tags = "@focus",
         plugin = {
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
-                "metafox.plugin.TestCaseParameter"
+                "metafox.plugin.TestCaseParameter",
+                "html:reports/tests/cucumber/html",
+                "timeline:reports/tests/cucumber/timeline",
+                "junit:reports/tests/cucumber/junit/cucumber.xml",
+                "testng:reports/tests/cucumber/testng/cucumber.xml",
+                "json:reports/tests/cucumber/json/cucumber.json"
         },
         monochrome = true
 )

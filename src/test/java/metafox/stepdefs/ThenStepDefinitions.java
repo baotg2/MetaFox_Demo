@@ -1,15 +1,10 @@
 package metafox.stepdefs;
 
 import io.cucumber.java.en.Then;
-import metafox.CucumberTestRunner;
-import metafox.pageobjects.Components;
 import metafox.support.DataProvider;
-import metafox.support.IsComponentVisible;
 import metafox.support.Utility;
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -28,18 +23,7 @@ import static org.junit.Assert.*;
  * @purpose: ThenStepDefinitions is class defined all steps use Method @Then
  * @since 04-05-2022
  */
-public class ThenStepDefinitions {
-    Components components = new Components();
-    IsComponentVisible isComponentVisible = new IsComponentVisible();
-    DataProvider dataExecutor = new DataProvider();
-    SupportStepDefinition supportStepDefinition = new SupportStepDefinition();
-
-
-    private final WebDriver driver = CucumberTestRunner.getWebDriver();
-
-    public ThenStepDefinitions() {
-
-    }
+public class ThenStepDefinitions extends StepDefinitions {
 
 
     /**
@@ -60,6 +44,20 @@ public class ThenStepDefinitions {
         components.componentButtonDataTestID("buttonLogin").click();
         isComponentVisible.waitElement(By.id("dialogDescription"));
 
+    }
+
+    /**
+     * ---------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param subItemsName is items want to access
+     * @Author baotg2
+     * --------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user access on sub items \"([^\"]*)\" more option$")
+    public void the_user_access_sub_items(String subItemsName) {
+        isComponentVisible.waitElement(By.xpath("//a[text()='" + subItemsName + "']"));
+        components.componentListTextLink(subItemsName).get(1).click();
     }
 
     /**
@@ -155,6 +153,8 @@ public class ThenStepDefinitions {
     @Then("^the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$")
     public void inputValueOnField(String fieldName, @Nonnull String value) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//input[@name='" + fieldName + "']"));
+
+
         if (value.equals("BlogName") || (value.equals("Album") || (value.equals("Groups")) || (value.equals("Polls")) || (value.equals("URLEvent")))) {
             components.componentInputName(fieldName).clear();
             components.componentInputName(fieldName).sendKeys(DataProvider.readConstants(value));
@@ -181,7 +181,7 @@ public class ThenStepDefinitions {
             if (dataExecutor.getCellData(i, 2).toLowerCase().equals(module)) {
                 components.componentLinkText(module).click();
                 assertTrue(components.componentLinkText(dataExecutor.getCellData(i, 3)).isDisplayed());
-                supportStepDefinition.isBackToHomePage();
+                isBackToHomePage();
             }
         }
     }
@@ -621,7 +621,7 @@ public class ThenStepDefinitions {
      */
     @Then("^the user want to verify tab \"([^\"]*)\" open successfully")
     public void isTabOpenSuccess(String tab) {
-        supportStepDefinition.switchTab(tab);
+        switchTab(tab);
     }
 
     /**

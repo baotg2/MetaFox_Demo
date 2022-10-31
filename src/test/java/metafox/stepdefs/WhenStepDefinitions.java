@@ -1,15 +1,11 @@
 package metafox.stepdefs;
 
 import io.cucumber.java.en.When;
-import metafox.CucumberTestRunner;
-import metafox.pageobjects.Components;
 import metafox.support.DataProvider;
-import metafox.support.IsComponentVisible;
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 
+import javax.annotation.Nonnull;
 import java.util.Objects;
 
 import static org.junit.Assert.assertEquals;
@@ -24,16 +20,7 @@ import static org.junit.Assert.assertTrue;
  * @purpose: WhenStepDefinitions is class defined all steps use Method @When
  * @since 04-05-2022
  */
-public class WhenStepDefinitions {
-    Components components = new Components();
-    IsComponentVisible isComponentVisible = new IsComponentVisible();
-
-    SupportStepDefinition stepDefinition = new SupportStepDefinition();
-
-    private final WebDriver driver = CucumberTestRunner.getWebDriver();
-
-    public WhenStepDefinitions() {
-    }
+public class WhenStepDefinitions extends StepDefinitions {
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -237,7 +224,7 @@ public class WhenStepDefinitions {
      * @since 06-15-2022
      */
     @When("^the user select type \"([^\"]*)\" on \"([^\"]*)\"$")
-    public void selectTypeOnField(@NotNull String type, String id) {
+    public void selectTypeOnField(@Nonnull String type, String id) {
         isComponentVisible.waitElement(By.id(id));
         components.componentsListDivRole("button").get(0).click();
         switch (type) {
@@ -484,7 +471,7 @@ public class WhenStepDefinitions {
      */
     @When("^the user want to scroll to the end of page")
     public void toScrollToEndOfPage() throws InterruptedException {
-        stepDefinition.scrollToEndPage();
+        scrollToEndPage();
         Thread.sleep(2000);
     }
 
@@ -498,7 +485,7 @@ public class WhenStepDefinitions {
      */
     @When("^the user want to scroll to the up of page")
     public void toScrollToUpOfPage() throws InterruptedException {
-        stepDefinition.scrollUpPage();
+        scrollUpPage();
         Thread.sleep(2000);
     }
 }

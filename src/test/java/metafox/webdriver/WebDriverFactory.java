@@ -29,7 +29,7 @@ public class WebDriverFactory {
     private static volatile WebDriverFactory instance;
     private final JSONObject testConfig = this.parseWebDriverConfig();
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WebDriverFactory.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(WebDriverFactory.class);
 
     private WebDriverFactory() {
     }
