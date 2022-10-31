@@ -16,7 +16,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
+import net.datafaker.Faker;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -54,10 +54,12 @@ public class DataProvider {
 
     private static final String pathToFixtures = "src/test/resources/fixtures";
     private static final String testDataFile = "v5DataProvider.xlsx";
-    private final String testDescriptionFile = "blogDescription.txt";
+    private static final String testDescriptionFile = "blogDescription.txt";
 
 
-    public String blogDescriptionFile = pathToFixtures + testDescriptionFile;
+    public static final Faker faker = new Faker();
+
+    public static String blogDescriptionFile = pathToFixtures + testDescriptionFile;
 
     private static Map<String, String> rowToMap(XSSFRow row, List<String> header, DataFormatter formatter) {
         Map<String, String> data = new HashMap<String, String>();
@@ -179,7 +181,7 @@ public class DataProvider {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    public String readConstants(String stabName) {
+    public static String readConstants(String stabName) {
         String attributeName = null;
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
@@ -210,7 +212,7 @@ public class DataProvider {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    public String getRandomPathDocuments() {
+    public static String getRandomPathDocuments() {
         String sb = null;
         for (int i = 0; i < getPathDocument().size(); i++) {
             int index = (int) (getPathDocument().size() * Math.random());
@@ -228,8 +230,8 @@ public class DataProvider {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    private ArrayList<String> getPathDocument() {
-        File directory = new File("src/test/resources/fixtures");
+    private static ArrayList<String> getPathDocument() {
+        File directory = new File(pathToFixtures);
         ArrayList<String> list = new ArrayList<>();
         File[] fList = directory.listFiles();
         assert fList != null;
@@ -252,7 +254,7 @@ public class DataProvider {
      * -------------------------------------------------------------------------------------------------------------------------------------
      * @since 06-14-2022
      */
-    public void uploadFile(String fileLocation) {
+    public static void uploadFile(String fileLocation) {
         try {
             setClipboardData(fileLocation);
             Robot robot = new Robot();
@@ -281,15 +283,16 @@ public class DataProvider {
      * -------------------------------------------------------------------------------------------------------------------------------------
      * @since 06-14-2022
      */
-    private void setClipboardData(String string) {
+    private static void setClipboardData(String string) {
         // TODO Auto-generated method stub
         StringSelection stringSelection = new StringSelection(string);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
     }
 
-    public String readFileAsString(String fileName, int intLine) throws Exception {
+    public static String readFileAsString(String fileName, int intLine) throws Exception {
         String data;
         data = Files.readAllLines(Paths.get(fileName)).get(intLine);
         return data;
     }
+
 }

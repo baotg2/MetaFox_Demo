@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -358,9 +359,9 @@ public class AndStepDefinitions {
                 // should be move dto driver instanceof RemoteWebDriver
                 WebElement upload = components.componentInputDataTestID("inputFile");
                 ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
-                upload.sendKeys(dataExecutor.getRandomPathDocuments());
+                upload.sendKeys(DataProvider.getRandomPathDocuments());
             } else {
-                components.componentInputDataTestID("inputFile").sendKeys(dataExecutor.getRandomPathDocuments());
+                components.componentInputDataTestID("inputFile").sendKeys(DataProvider.getRandomPathDocuments());
             }
         }
     }
@@ -377,29 +378,29 @@ public class AndStepDefinitions {
     @And("the user add value on div \"([^\"]*)\"$")
     public void inputValueOnDiv(String fieldName) throws InterruptedException {
         Thread.sleep(2000);
-        components.componentDivRole(fieldName).sendKeys(dataExecutor.readConstants("Description"));
+        components.componentDivRole(fieldName).sendKeys(DataProvider.readConstants("Description"));
     }
 
     @And("^the user add description on items \"([^\"]*)\"$")
     public void inputValueOnDivNonTearDown(@NotNull String itemName) throws Exception {
         switch (itemName) {
             case "Blog":
-                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 0));
+                components.componentDivRole("textbox").sendKeys(DataProvider.readFileAsString(DataProvider.blogDescriptionFile, 0));
                 break;
             case "Group":
-                components.componentTextAreaDataTestID("inputText").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 1));
+                components.componentTextAreaDataTestID("inputText").sendKeys(DataProvider.readFileAsString(DataProvider.blogDescriptionFile, 1));
                 break;
             case "Polls":
-                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 2));
+                components.componentDivRole("textbox").sendKeys(DataProvider.readFileAsString(DataProvider.blogDescriptionFile, 2));
                 break;
             case "Album":
-                components.componentTextAreaDataTestID("inputNewAlbumDescription").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 3));
+                components.componentTextAreaDataTestID("inputNewAlbumDescription").sendKeys(DataProvider.readFileAsString(DataProvider.blogDescriptionFile, 3));
                 break;
             case "Forum":
-                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 4));
+                components.componentDivRole("textbox").sendKeys(DataProvider.readFileAsString(DataProvider.blogDescriptionFile, 4));
                 break;
             case "Page":
-                components.componentDivRole("textbox").sendKeys(dataExecutor.readFileAsString(dataExecutor.blogDescriptionFile, 5));
+                components.componentDivRole("textbox").sendKeys(DataProvider.readFileAsString(DataProvider.blogDescriptionFile, 5));
                 break;
         }
     }
@@ -449,9 +450,9 @@ public class AndStepDefinitions {
             if (Utility.isLocal(driver)) {
                 WebElement upload = components.componentInputDataTestID("inputAttachments");
                 ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
-                upload.sendKeys(dataExecutor.getRandomPathDocuments());
+                upload.sendKeys(DataProvider.getRandomPathDocuments());
             } else {
-                components.componentInputDataTestID("inputAttachments").sendKeys(dataExecutor.getRandomPathDocuments());
+                components.componentInputDataTestID("inputAttachments").sendKeys(DataProvider.getRandomPathDocuments());
             }
         }
     }
