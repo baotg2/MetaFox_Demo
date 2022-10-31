@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import javax.annotation.Nonnull;
 import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -32,7 +33,7 @@ public class Utility {
             accessKey = (String) config.get("key");
         }
 
-        @NotNull JSONObject bstackOptions = commonCapabilities.get("bstack:options") != null ?
+        @Nonnull JSONObject bstackOptions = commonCapabilities.get("bstack:options") != null ?
                 (JSONObject) commonCapabilities.get("bstack:options") : new JSONObject();
 
         bstackOptions.putIfAbsent("userName", username);

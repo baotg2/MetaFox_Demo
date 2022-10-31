@@ -3,12 +3,10 @@ Feature:  Admin process on blogs app
 
   @focus
   Scenario: Admin Add New Blog Without Image
-    Given the user logged in as "admin"
-    And the browser opened at "/"
-    When the user action on "More"
-#    Then the browser opened at item "blog" and tab "/blog/add"
-#    Then the user action on input field "title" with value "Admin Blogs"
-#    Then the user don't add photo
+    Given the user logged in as "brian"
+    And the browser opened at "/blog/add"
+    And within the content
+    Then the user action on input field "title" with value "Admin Blogs"
 #    And the user add value on div "textbox"
 #    And the user want to add attach a photo
 #    And the user want add categories is "Education"

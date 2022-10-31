@@ -1,13 +1,8 @@
 package metafox.support;
 
-import kong.unirest.JsonNode;
-import kong.unirest.Unirest;
-import org.json.simple.JSONObject;
-
 import javax.annotation.Nonnull;
-import java.io.IOException;
-import java.sql.Time;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
 
 public class UserToken {
     public String access_token;

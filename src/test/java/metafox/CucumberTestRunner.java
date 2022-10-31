@@ -4,7 +4,6 @@ import com.browserstack.local.Local;
 import io.cucumber.testng.FeatureWrapper;
 import io.cucumber.testng.PickleWrapper;
 import io.cucumber.testng.TestNGCucumberRunner;
-import kong.unirest.Unirest;
 import metafox.support.Utility;
 import metafox.webdriver.LazyInitWebDriverIterator;
 import metafox.webdriver.ManagedWebDriver;

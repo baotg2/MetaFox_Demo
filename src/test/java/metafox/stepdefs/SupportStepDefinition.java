@@ -15,14 +15,7 @@ import org.openqa.selenium.WebDriver;
  * @purpose: SupportStepDefinition is class defined all steps use anywhere in test step
  * @since 04-05-2022
  */
-public class SupportStepDefinition {
-
-    Components components = new Components();
-
-    private final WebDriver driver = CucumberTestRunner.getWebDriver();
-
-    public SupportStepDefinition() {
-    }
+public class SupportStepDefinition extends StepDefinitions{
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------

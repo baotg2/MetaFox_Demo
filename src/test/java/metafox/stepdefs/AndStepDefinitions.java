@@ -15,7 +15,6 @@ import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
 
 import javax.annotation.Nonnull;
-import javax.xml.crypto.Data;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -30,15 +29,7 @@ import static org.junit.Assert.assertTrue;
  * @purpose: AndStepDefinitions is class defined all steps use Method @And
  * @since 04-05-2022
  */
-public class AndStepDefinitions {
-    IsComponentVisible isComponentVisible = new IsComponentVisible();
-    Components components = new Components();
-    Integer idOfLastImageBeforeUpload;
-
-    private final WebDriver driver = CucumberTestRunner.getWebDriver();
-
-    public AndStepDefinitions() {
-    }
+public class AndStepDefinitions extends StepDefinitions {
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -426,12 +417,12 @@ public class AndStepDefinitions {
      * @since 04-05-2022
      */
     @And("^the user (want to|don't) add attach a (photo|video)")
-    public void actionAttachFile(@NotNull String status, @NotNull String type) {
+    public void actionAttachFile(@Nonnull String status, @Nonnull String folder) {
         if (status.equals("want to")) {
             if (Utility.isLocal(driver)) {
                 WebElement upload = components.componentInputDataTestID("inputAttachments");
                 ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
-                upload.sendKeys(DataProvider.getFile("photo"));
+                upload.sendKeys(DataProvider.getFile(folder));
             } else {
                 components.componentInputDataTestID("inputAttachments").sendKeys(DataProvider.getSinglePhoto());
             }
@@ -712,20 +703,6 @@ public class AndStepDefinitions {
         if (!components.componentInputName(inputName).isSelected()) {
             components.componentInputName(inputName).click();
         }
-    }
-
-    /**
-     * ---------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param subItemsName is items want to access
-     * @Author baotg2
-     * --------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @And("^the user access on sub items \"([^\"]*)\" more option$")
-    public void accessSubItems(String subItemsName) {
-        isComponentVisible.waitElement(By.xpath("//a[text()='" + subItemsName + "']"));
-        components.componentListTextLink(subItemsName).get(1).click();
     }
 
     /**
