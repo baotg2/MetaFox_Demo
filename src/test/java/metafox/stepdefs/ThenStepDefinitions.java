@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
 
+import javax.annotation.Nonnull;
 import java.io.IOException;
 
 import static org.junit.Assert.*;
@@ -124,19 +125,19 @@ public class ThenStepDefinitions {
         if (Utility.isLocal(driver)) {
             WebElement upload = components.componentInputType("file");
             ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
-            upload.sendKeys(DataProvider.getRandomPathDocuments());
+            upload.sendKeys(DataProvider.getSinglePhoto());
             if (numberOfImage > 1) {
                 for (int i = 0; i < numberOfImage; i++) {
                     isComponentVisible.waitElement(By.xpath("//button[text() ='Add Photos']"));
-                    upload.sendKeys(DataProvider.getRandomPathDocuments());
+                    upload.sendKeys(DataProvider.getSinglePhoto());
                 }
             }
         } else {
-            components.componentInputType("file").sendKeys(DataProvider.getRandomPathDocuments());
+            components.componentInputType("file").sendKeys(DataProvider.getSinglePhoto());
             if (numberOfImage > 1) {
                 for (int i = 0; i < numberOfImage; i++) {
                     isComponentVisible.waitElement(By.xpath("//button[text() ='Add Photos']"));
-                    components.componentInputType("file").sendKeys(DataProvider.getRandomPathDocuments());
+                    components.componentInputType("file").sendKeys(DataProvider.getSinglePhoto());
                 }
             }
         }
@@ -152,7 +153,7 @@ public class ThenStepDefinitions {
      * @since 04-05-2022
      */
     @Then("^the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$")
-    public void inputValueOnField(String fieldName, @NotNull String value) throws InterruptedException {
+    public void inputValueOnField(String fieldName, @Nonnull String value) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//input[@name='" + fieldName + "']"));
         if (value.equals("BlogName") || (value.equals("Album") || (value.equals("Groups")) || (value.equals("Polls")) || (value.equals("URLEvent")))) {
             components.componentInputName(fieldName).clear();
@@ -196,7 +197,7 @@ public class ThenStepDefinitions {
      * @since 04-05-2022
      */
     @Then("^the user see search field \"([^\"]*)\" and typing keys \"([^\"]*)\"$")
-    public void typingKeySearch(String attributes, @NotNull String keySearch) {
+    public void typingKeySearch(String attributes, @Nonnull String keySearch) {
         isComponentVisible.waitElement(By.xpath("//input[@placeholder='" + attributes + "']"));
         if (keySearch.equals("BlogName") || keySearch.equals("Album") || (keySearch.equals("Groups")) || (keySearch.equals("Polls"))) {
             components.componentSearchAttributes(attributes).sendKeys(DataProvider.readConstants(keySearch));

@@ -10,7 +10,7 @@ Feature:  Brian process on Forum
     When the user want to select category at 1 on dropdown list "select-forum_id"
     And the user action on input field "title" with value "IsThreadDisplayedOnWiki"
     And the user add value on div "textbox"
-    And the user want to add attach files
+    And the user want to add attach a photo
     And the user add value on "tags-tags" is "tag-tag"
     And the user click on input type check box "is_wiki"
     When the user click on button "buttonSubmit"

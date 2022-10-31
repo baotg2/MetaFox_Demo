@@ -10,10 +10,7 @@ import metafox.support.IsComponentVisible;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileReader;
@@ -56,6 +53,38 @@ public class GivenStepDefinitions {
      */
     @Given("^the user logged in as \"([^\"]*)\"$")
     public void the_user_logged_in_as(String username) throws IOException, InterruptedException {
+        String accessToken = DataProvider.getUserAccessToken(username);
+        String cookieName = DataProvider.getAuthCookieName();
+        driver.manage().addCookie(new Cookie(cookieName, accessToken));
+    }
+
+
+    /**
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @purpose Login with username success to Meta Fox
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Given("^As a guest user$")
+    public void as_guest() {
+        String cookieName = DataProvider.getAuthCookieName();
+        driver.manage().deleteCookie(new Cookie(cookieName, null));
+    }
+
+    /**
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param username is user's name login success to MetaFox
+     * @throws IOException occurs when an IO operation fails
+     * @purpose Login with username success to Meta Fox
+     * @Author baotg2
+     * ------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+//    @Given("^the user logged in as \"([^\"]*)\"$")
+    public void the_user_logged_in_form(String username) throws IOException, InterruptedException {
         isComponentVisible.waitElement(By.xpath("//input[@placeholder='Enter your email address']"));
 
         Optional<Map<String, String>> user = DataProvider.fromSheet("users")

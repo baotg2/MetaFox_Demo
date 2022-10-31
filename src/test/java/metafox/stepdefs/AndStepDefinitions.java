@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
 
+import javax.annotation.Nonnull;
 import javax.xml.crypto.Data;
 import java.util.List;
 
@@ -32,7 +33,6 @@ import static org.junit.Assert.assertTrue;
 public class AndStepDefinitions {
     IsComponentVisible isComponentVisible = new IsComponentVisible();
     Components components = new Components();
-    DataProvider dataExecutor = new DataProvider();
     Integer idOfLastImageBeforeUpload;
 
     private final WebDriver driver = CucumberTestRunner.getWebDriver();
@@ -359,9 +359,9 @@ public class AndStepDefinitions {
                 // should be move dto driver instanceof RemoteWebDriver
                 WebElement upload = components.componentInputDataTestID("inputFile");
                 ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
-                upload.sendKeys(DataProvider.getRandomPathDocuments());
+                upload.sendKeys(DataProvider.getSinglePhoto());
             } else {
-                components.componentInputDataTestID("inputFile").sendKeys(DataProvider.getRandomPathDocuments());
+                components.componentInputDataTestID("inputFile").sendKeys(DataProvider.getSinglePhoto());
             }
         }
     }
@@ -382,27 +382,8 @@ public class AndStepDefinitions {
     }
 
     @And("^the user add description on items \"([^\"]*)\"$")
-    public void inputValueOnDivNonTearDown(@NotNull String itemName) throws Exception {
-        switch (itemName) {
-            case "Blog":
-                components.componentDivRole("textbox").sendKeys(DataProvider.readFileAsString(DataProvider.blogDescriptionFile, 0));
-                break;
-            case "Group":
-                components.componentTextAreaDataTestID("inputText").sendKeys(DataProvider.readFileAsString(DataProvider.blogDescriptionFile, 1));
-                break;
-            case "Polls":
-                components.componentDivRole("textbox").sendKeys(DataProvider.readFileAsString(DataProvider.blogDescriptionFile, 2));
-                break;
-            case "Album":
-                components.componentTextAreaDataTestID("inputNewAlbumDescription").sendKeys(DataProvider.readFileAsString(DataProvider.blogDescriptionFile, 3));
-                break;
-            case "Forum":
-                components.componentDivRole("textbox").sendKeys(DataProvider.readFileAsString(DataProvider.blogDescriptionFile, 4));
-                break;
-            case "Page":
-                components.componentDivRole("textbox").sendKeys(DataProvider.readFileAsString(DataProvider.blogDescriptionFile, 5));
-                break;
-        }
+    public void inputValueOnDivNonTearDown(@Nonnull String itemName) throws Exception {
+        components.componentDivRole("textbox").sendKeys(DataProvider.faker.lorem().paragraph());
     }
 
     /**
@@ -444,15 +425,15 @@ public class AndStepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("^the user (want to|don't) add attach files$")
-    public void actionAttachFile(@NotNull String status) {
+    @And("^the user (want to|don't) add attach a (photo|video)")
+    public void actionAttachFile(@NotNull String status, @NotNull String type) {
         if (status.equals("want to")) {
             if (Utility.isLocal(driver)) {
                 WebElement upload = components.componentInputDataTestID("inputAttachments");
                 ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
-                upload.sendKeys(DataProvider.getRandomPathDocuments());
+                upload.sendKeys(DataProvider.getFile("photo"));
             } else {
-                components.componentInputDataTestID("inputAttachments").sendKeys(DataProvider.getRandomPathDocuments());
+                components.componentInputDataTestID("inputAttachments").sendKeys(DataProvider.getSinglePhoto());
             }
         }
     }

@@ -10,7 +10,7 @@ Feature:  Brian process on blogs is Friend
     Then the browser opened at item "blog" and tab "/blog/add"
     Then the user action on input field "title" with value "BlogName"
     And the user add value on div "textbox"
-    And the user want to add attach files
+    And the user want to add attach a photo
     And the user want add categories is "Education"
     And the user add value on "tags-tags" is "tag-tag"
     And the user see item of "Everyone"

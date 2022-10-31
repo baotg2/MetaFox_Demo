@@ -27,7 +27,6 @@ import static org.junit.Assert.assertTrue;
 public class WhenStepDefinitions {
     Components components = new Components();
     IsComponentVisible isComponentVisible = new IsComponentVisible();
-    DataProvider dataExecutor = new DataProvider();
 
     SupportStepDefinition stepDefinition = new SupportStepDefinition();
 

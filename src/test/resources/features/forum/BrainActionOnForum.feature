@@ -19,7 +19,7 @@ Feature:  Brian process on Forum
     When the user want to select category at 1 on dropdown list "select-forum_id"
     And the user action on input field "title" with value "IsThreadAutotest"
     And the user add value on div "textbox"
-    And the user want to add attach files
+    And the user want to add attach a photo
     And the user add value on "tags-tags" is "tag-tag"
     When the user click on button "buttonSubmit"
     Then the user see message "Thread created successfully" displayed
@@ -43,7 +43,7 @@ Feature:  Brian process on Forum
     And the user want to click on title "itemTitle" and process
     Then the user see title "IsThreadAutotest" is displayed
     And the user add value on div "textbox"
-    And the user want to add attach files
+    And the user want to add attach a photo
     When the user click on button "buttonSubmit"
     Then the user see message "Post created successfully" displayed
     Then the user see div element "itemForumPost" displayed

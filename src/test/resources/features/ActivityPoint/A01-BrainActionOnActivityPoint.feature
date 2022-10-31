@@ -1,7 +1,6 @@
 @app_activitypoint
 Feature:  Brain Action On Activity Point
 
-  @focus
   Scenario: Brain Verify Ui Activity Point
     Given the user logged in as "brian"
     And the browser opened at "/"
@@ -80,7 +79,7 @@ Feature:  Brain Action On Activity Point
     Then the user action on input field "title" with value "Brian Blogs"
     Then the user don't add photo
     And the user add value on div "textbox"
-    And the user want to add attach files
+    And the user want to add attach a photo
     And the user want add categories is "Education"
     And the user add value on "tags-tags" is "tag-tag"
     And the user click on button "buttonSubmit"
