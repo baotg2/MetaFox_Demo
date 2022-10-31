@@ -1,10 +1,15 @@
 package metafox.support;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.json.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -21,11 +26,14 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.*;
+import java.util.Map;
 
 
 /**
@@ -37,23 +45,21 @@ import java.util.*;
  * @purpose: DataExecutor is class defined all function handle related to test data
  * @since 04-05-2022
  */
-public class DataExecutor {
+public class DataProvider {
 
-    private static Iterator<String> iterator;
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DataExecutor.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataProvider.class);
 
     private static final String pathToFixtures = "src/test/resources/fixtures";
     private static final String testDataFile = "v5DataProvider.xlsx";
     private final String testDescriptionFile = "blogDescription.txt";
 
-    public String excelPathFile = pathToFixtures + testDataFile;
 
     public String blogDescriptionFile = pathToFixtures + testDescriptionFile;
 
-    private Map<String, String> rowToMap(XSSFRow row, List<String> header, DataFormatter formatter) {
+    private static Map<String, String> rowToMap(XSSFRow row, List<String> header, DataFormatter formatter) {
         Map<String, String> data = new HashMap<String, String>();
         row.forEach(cell -> {
             if (cell != null) {
@@ -66,11 +72,23 @@ public class DataExecutor {
         return data;
     }
 
-    public List<Map<String, String>> readExcelSheet(String sheetName) throws IOException {
-        return readExcelSheet(testDataFile, sheetName);
+    public static JSONObject fromJsonObject(String name) throws IOException, ParseException {
+        String filename = String.format("%s/%s.json", pathToFixtures, name);
+        return (JSONObject) new JSONParser().parse(new FileReader(filename));
     }
 
-    public List<Map<String, String>> readExcelSheet(String fileName, String sheetName) throws IOException {
+    public static JSONArray fromJsonArray(String name) throws IOException {
+        String filename = String.format("%s/%s.json", pathToFixtures, name);
+        String source = FileUtils.readFileToString(new File(filename), "utf-8");
+        return new JSONArray(source);
+    }
+
+
+    public static List<Map<String, String>> fromSheet(String sheetName) throws IOException {
+        return fromSheet(testDataFile, sheetName);
+    }
+
+    public static List<Map<String, String>> fromSheet(String fileName, String sheetName) throws IOException {
 
         File file = new File(String.format("%s/%s", pathToFixtures, fileName));
         FileInputStream inputStream = new FileInputStream(file);
@@ -86,9 +104,9 @@ public class DataExecutor {
         }
 
         for (int i = 1; i < sheet.getLastRowNum(); ++i) {
-            XSSFRow row = sheet.getRow(i);
-            if (row != null && row.getLastCellNum() > 1) {
-                Map<String, String> row1 = rowToMap(row, header, formatter);
+            XSSFRow sheetRow = sheet.getRow(i);
+            if (sheetRow != null) {
+                Map<String, String> row1 = rowToMap(sheetRow, header, formatter);
                 if (row1.get("id") != null) {
                     rows.add(row1);
                 }
@@ -104,7 +122,6 @@ public class DataExecutor {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param fileName  name's excel file
      * @param sheetName is sheet want to access/get data
      * @throws IOException occurs when an IO operation fails
      * @purpose get sheet from excel file
@@ -112,7 +129,8 @@ public class DataExecutor {
      * ----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    public void setExcelFile(String fileName, String sheetName) throws IOException {
+    public void setExcelFile(String sheetName) throws IOException {
+        String fileName = String.format("%s/%s", pathToFixtures, testDataFile);
         File file = new File(fileName);
         File sameFileName = new File(fileName);
         if (file.renameTo(sameFileName)) {

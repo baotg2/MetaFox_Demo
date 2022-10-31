@@ -3,7 +3,7 @@ package metafox.stepdefs;
 import io.cucumber.java.en.When;
 import metafox.CucumberTestRunner;
 import metafox.pageobjects.Components;
-import metafox.support.DataExecutor;
+import metafox.support.DataProvider;
 import metafox.support.IsComponentVisible;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
@@ -27,7 +27,7 @@ import static org.junit.Assert.assertTrue;
 public class WhenStepDefinitions {
     Components components = new Components();
     IsComponentVisible isComponentVisible = new IsComponentVisible();
-    DataExecutor dataExecutor = new DataExecutor();
+    DataProvider dataExecutor = new DataProvider();
 
     SupportStepDefinition stepDefinition = new SupportStepDefinition();
 

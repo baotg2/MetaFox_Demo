@@ -3,7 +3,7 @@ package metafox.stepdefs;
 import io.cucumber.java.en.And;
 import metafox.CucumberTestRunner;
 import metafox.pageobjects.Components;
-import metafox.support.DataExecutor;
+import metafox.support.DataProvider;
 import metafox.support.IsComponentVisible;
 import metafox.support.Utility;
 import org.jetbrains.annotations.NotNull;
@@ -31,7 +31,7 @@ import static org.junit.Assert.assertTrue;
 public class AndStepDefinitions {
     IsComponentVisible isComponentVisible = new IsComponentVisible();
     Components components = new Components();
-    DataExecutor dataExecutor = new DataExecutor();
+    DataProvider dataExecutor = new DataProvider();
     Integer idOfLastImageBeforeUpload;
 
     private final WebDriver driver = CucumberTestRunner.getWebDriver();

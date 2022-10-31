@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import io.qameta.allure.Allure;
 import metafox.CucumberTestRunner;
 import metafox.pageobjects.Components;
-import metafox.support.DataExecutor;
+import metafox.support.DataProvider;
 import metafox.support.IsComponentVisible;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -36,7 +36,6 @@ public class GivenStepDefinitions {
 
     Components components = new Components();
     IsComponentVisible isComponentVisible = new IsComponentVisible();
-    DataExecutor dataExecutor = new DataExecutor();
 
     private final WebDriver driver = CucumberTestRunner.getWebDriver();
 
@@ -59,7 +58,7 @@ public class GivenStepDefinitions {
     public void the_user_logged_in_as(String username) throws IOException, InterruptedException {
         isComponentVisible.waitElement(By.xpath("//input[@placeholder='Enter your email address']"));
 
-        Optional<Map<String, String>> user = dataExecutor.readExcelSheet("users")
+        Optional<Map<String, String>> user = DataProvider.fromSheet("users")
                 .stream()
                 .filter(row -> row.get("username").equalsIgnoreCase(username)).findFirst();
 

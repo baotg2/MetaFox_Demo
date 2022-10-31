@@ -3,7 +3,7 @@ package metafox.stepdefs;
 import io.cucumber.java.en.Then;
 import metafox.CucumberTestRunner;
 import metafox.pageobjects.Components;
-import metafox.support.DataExecutor;
+import metafox.support.DataProvider;
 import metafox.support.IsComponentVisible;
 import metafox.support.Utility;
 import org.jetbrains.annotations.NotNull;
@@ -30,7 +30,7 @@ import static org.junit.Assert.*;
 public class ThenStepDefinitions {
     Components components = new Components();
     IsComponentVisible isComponentVisible = new IsComponentVisible();
-    DataExecutor dataExecutor = new DataExecutor();
+    DataProvider dataExecutor = new DataProvider();
     SupportStepDefinition supportStepDefinition = new SupportStepDefinition();
 
 
@@ -175,7 +175,7 @@ public class ThenStepDefinitions {
      */
     @Then("^I want to access \"([^\"]*)\"$")
     public void iWantToAccessMenu(String module) throws IOException {
-        dataExecutor.setExcelFile(dataExecutor.excelPathFile, "pages");
+        dataExecutor.setExcelFile("pages");
         for (int i = 1; i <= dataExecutor.getRowCountInSheet(); i++) {
             if (dataExecutor.getCellData(i, 2).toLowerCase().equals(module)) {
                 components.componentLinkText(module).click();
