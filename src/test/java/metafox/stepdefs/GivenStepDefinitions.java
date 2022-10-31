@@ -67,7 +67,7 @@ public class GivenStepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Given("^the user logged in as \"([^\"]*)\"$")
+    @Given("^As a guest user$")
     public void as_guest() {
         String cookieName = DataProvider.getAuthCookieName();
         driver.manage().deleteCookie(new Cookie(cookieName, null));
