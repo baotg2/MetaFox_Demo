@@ -40,7 +40,7 @@
     And the user want to click on title "itemTitle" and process
     And the user want to click on button label "Not Interested" and process
     When the user "Interested" this item
-    Then the user see message "Updated response successfully" displayed
+    Then the user sees flash message "Updated response successfully" displayed
     #And the user want to refresh page before handle the action
     And the user want to click on list button label "DISCUSSIONS" and process
     And the user want to click on list button label "EVENT INFO" and process
@@ -55,7 +55,7 @@
     And the user access first condition "inputWhen"
     When the user want to click on button label "Interested" and process
     Then the user action on "Not Interested"
-    Then the user see message "Updated response successfully" displayed
+    Then the user sees flash message "Updated response successfully" displayed
     And the user want to click on title "itemTitle" and process
     And the user want to refresh page before handle the action
     Then the user want to see tab "DISCUSSIONS" displayed on detail
@@ -70,9 +70,9 @@
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
-    And the user click on button "menuShareButton"
+    And the user clicks on button "menuShareButton"
     When the user action on "Share now"
-    Then the user see message "Shared successfully" displayed
+    Then the user sees flash message "Shared successfully" displayed
     And the user back to "linkLogo" page
     Then the user see "shared a post to newsfeed" on left menu
     Then the user see h4 "IsOfflineEvents" is displayed
@@ -86,10 +86,10 @@
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
-    And the user click on button "menuShareButton"
+    And the user clicks on button "menuShareButton"
     When the user action on "Share to News Feed"
     And the user want to "Share"
-#    Then the user see message "Shared successfully" displayed
+#    Then the user sees flash message "Shared successfully" displayed
     And the user back to "linkLogo" page
     Then the user see "shared a post to newsfeed" on left menu
     Then the user see h4 "IsOfflineEvents" is displayed
@@ -105,5 +105,5 @@
     When the user want to click on button label "actionMenu" and process
     And the user click on div "delete" and process
     Then the user see "Are you sure you want to permanently delete this event?" displayed success
-    And the user click on button "buttonSubmit"
-    Then the user see message "Event successfully deleted." displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Event successfully deleted." displayed

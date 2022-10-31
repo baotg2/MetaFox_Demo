@@ -10,8 +10,8 @@ Feature: Config Settings On ACP Forums
     When the user want to scroll to the end of page
     And the user action on input field "forum.minimum_name_length" with value "5"
     And the user action on input field "forum.maximum_name_length" with value "255"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @BrianVerifySettingsForumsOnACP
   Scenario: Brian Verify Settings Forums On ACP
@@ -20,6 +20,6 @@ Feature: Config Settings On ACP Forums
     And the browser opened at item "forum" and tab "/forum/thread/add"
     And the user add value on id "select-forum_id" is "General"
     And the user action on input field "title" with value "a"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     When the user want to scroll to the up of page
     Then the user see "Title must contain at least 5 characters." displayed success

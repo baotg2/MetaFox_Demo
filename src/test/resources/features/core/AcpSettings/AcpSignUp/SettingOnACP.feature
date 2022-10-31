@@ -9,8 +9,8 @@ Feature: Config Settings On ACP Sign Up
     And the user action on "Browse"
     When the user want to "Registration Settings"
     And the user want to access "inputUserAllowUserRegistration"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @BrainVerifyFromSignUp
   Scenario: Brain Verify From Sign Up
@@ -21,8 +21,8 @@ Feature: Config Settings On ACP Sign Up
     And the user action on "Browse"
     When the user want to "Registration Settings"
     And the user want to access "inputUserAllowUserRegistration"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @AdminConfigRe-enterPassword
   Scenario: Admin Config Re-enter Password
@@ -32,8 +32,8 @@ Feature: Config Settings On ACP Sign Up
     And the user action on "Browse"
     When the user want to "Registration Settings"
     And the user click on input type check box "user.signup_repeat_password"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @BrainVerifyRe-enterPassword
   Scenario: Verify the re-enter password is displayed
@@ -49,8 +49,8 @@ Feature: Config Settings On ACP Sign Up
     When the user want to "Registration Settings"
     When the user want to scroll to the end of page
     And the user want to access "inputUserNewUserTermsConfirmation"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @BrainVerifyTermConfirmation
   Scenario: Verify the TermConfirmation is displayed
@@ -64,5 +64,5 @@ Feature: Config Settings On ACP Sign Up
     When the user want to "Registration Settings"
     When the user want to scroll to the end of page
     And the user want to access "inputUserNewUserTermsConfirmation"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed

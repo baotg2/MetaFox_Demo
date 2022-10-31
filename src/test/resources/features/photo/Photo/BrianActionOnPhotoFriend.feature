@@ -9,11 +9,11 @@ Feature: Brian process on photos friend item
     And the user back to "linkLogo" page
     Then the browser opened at item "photo" and tab "/photo/add"
     And the user want upload 1 photo
-    And the user want add categories is "Comedy"
+    And the user adds category "Comedy"
     And the user see item of "Everyone"
     When the user see item of "Friends"
-    And the user click on button "buttonSubmit"
-    And the user see message "Media item successfully uploaded." displayed
+    And the user clicks on button "buttonSubmit"
+    And the user sees flash message "Media item successfully uploaded." displayed
     Then the user verify "itemPhoto" after upload
 
   @AnotherUserSearchPhotoIsFriend
@@ -33,9 +33,9 @@ Feature: Brian process on photos friend item
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user see item of "Brian"
-    And the user click on button "menuShareButton"
+    And the user clicks on button "menuShareButton"
     When the user action on "Share now"
-    Then the user see message "Shared successfully" displayed
+    Then the user sees flash message "Shared successfully" displayed
     And the user want to click on button label "Close" and process
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
@@ -55,7 +55,7 @@ Feature: Brian process on photos friend item
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user click on "actionMenuButton" to access blog
     And the user action on "Feature"
-    Then the user see message "Photo featured successfully." displayed
+    Then the user sees flash message "Photo featured successfully." displayed
     Then the user see label of action "featured" is displayed
 
   @BrianUnFeaturePhotosFriends
@@ -65,4 +65,4 @@ Feature: Brian process on photos friend item
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user click on "actionMenuButton" to access blog
     And the user action on "Unfeature"
-    Then the user see message "Photo unfeatured successfully." displayed
+    Then the user sees flash message "Photo unfeatured successfully." displayed

@@ -9,8 +9,8 @@ Feature: Config Settings On ACP Comments
     And the user action on "Comment"
     When the user want to access "inputCommentEnablePhoto"
     When the user want to scroll to the end of page
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @AdminVerifySettingsEnablePhotoOnComments
   Scenario: Admin verify settings enable photo on comments
@@ -25,8 +25,8 @@ Feature: Config Settings On ACP Comments
     And the user action on "Comment"
     When the user want to access "inputCommentEnablePhoto"
     When the user want to scroll to the end of page
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @AdminConfigOnCommentsSticker
   Scenario: Admin Config Comments Sticker OnACP
@@ -36,8 +36,8 @@ Feature: Config Settings On ACP Comments
     And the user action on "Comment"
     When the user want to access "inputCommentEnableSticker"
     When the user want to scroll to the end of page
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @AdminVerifySettingsEnableStickerOnComments
   Scenario: Admin verify settings enable sticker on comments
@@ -52,8 +52,8 @@ Feature: Config Settings On ACP Comments
     And the user action on "Comment"
     When the user want to access "inputCommentEnableSticker"
     When the user want to scroll to the end of page
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @AdminConfigOnCommentsEmojis
   Scenario: Admin Config Comments Emojis OnACP
@@ -63,8 +63,8 @@ Feature: Config Settings On ACP Comments
     And the user action on "Comment"
     When the user want to access "inputCommentEnableEmoticon"
     When the user want to scroll to the end of page
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @AdminVerifySettingsEnableEmojisOnComments
   Scenario: Admin verify settings enable Emojis on comments
@@ -79,5 +79,5 @@ Feature: Config Settings On ACP Comments
     And the user action on "Comment"
     When the user want to access "inputCommentEnableEmoticon"
     When the user want to scroll to the end of page
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed

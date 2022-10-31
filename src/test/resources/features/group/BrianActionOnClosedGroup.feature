@@ -10,7 +10,7 @@ Feature:  Brain Process On Closed Groups
     And the user add value on "select-type_id" is "Song"
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Closed"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see title h2 "TestAutoClosedGroup" is displayed
 
   @AnotherUserSearchClosedGroup
@@ -37,7 +37,7 @@ Feature:  Brain Process On Closed Groups
     Then the user click on notification "requested to join TestAutoClosedGroup" and process
     And the user want to click on list button label "PENDING REQUESTS" and process
     When the user want to edit "itemview group_request"
-    Then the user see message "Terry has been accepted." displayed
+    Then the user sees flash message "Terry has been accepted." displayed
     Then I want to click on "Logout"
     Given the user logged in as "terry"
     Then the user "new_notification" this item
@@ -54,5 +54,5 @@ Feature:  Brain Process On Closed Groups
     When the user see "actionMenu" and click on
     And the user action on "Delete"
     Then the user see "Are you sure you want to delete this group permanently?" displayed success
-    And the user click on button "buttonSubmit"
-    Then the user see message "Successfully deleted the group" displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Successfully deleted the group" displayed

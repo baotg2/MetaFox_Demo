@@ -10,7 +10,7 @@ Feature:  Brain Process On Secret Groups
     And the user add value on "select-type_id" is "Song"
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Secret"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see title h2 "TestAutoSecretGroup" is displayed
 
   @AnotherUserSearchSecretGroup
@@ -32,14 +32,14 @@ Feature:  Brain Process On Secret Groups
     And the user action on "Invite Friends"
     #Then the user add value on "searchBox" is "test"
     Then the user "itemUndefined" this item
-    Then the user click on button "buttonDone"
-    Then the user see message "Invitation(s) successfully sent." displayed
+    Then the user clicks on button "buttonDone"
+    Then the user sees flash message "Invitation(s) successfully sent." displayed
     And I want to click on "Logout"
     Given the user logged in as "test"
     Then the user "new_notification" this item
     Then the user click on notification "TestAutoSecretGroup" and process
     When the user "Accept Invite" on invite
-    Then the user see message "Joined successfully." displayed
+    Then the user sees flash message "Joined successfully." displayed
     Then the user see button "Joined" is displayed
 
   @AnotherUserLeaveSecretGroup
@@ -52,7 +52,7 @@ Feature:  Brain Process On Secret Groups
     When the user see "actionMenu" and click on
     And the user click on div "leave_group" and process
     Then the user see "Are you sure you want to leave this group?" displayed success
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
 
   @BrianDeleteSecretGroup
   Scenario: Brain delete secret group
@@ -64,5 +64,5 @@ Feature:  Brain Process On Secret Groups
     When the user want to click on button label "Action Menu" and process
     When the user action on "Delete"
     Then the user see "Are you sure you want to delete this group permanently?" displayed success
-    And the user click on button "buttonSubmit"
-    Then the user see message "Successfully deleted the group" displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Successfully deleted the group" displayed

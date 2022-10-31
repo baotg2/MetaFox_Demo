@@ -9,10 +9,10 @@ Feature:  Non TearDown Data On Site
     Then the user action on input field "title" with value "Brit + Co"
     Then the user want to add photo
     And the user add description on items "Blog"
-    And the user want add categories is "Education"
+    And the user adds category "Education"
     And the user add value on "tags-tags" is "tag-tag"
-    And the user click on button "buttonSubmit"
-    And the user see message "blogCreate" displayed
+    And the user clicks on button "buttonSubmit"
+    And the user sees flash message "blogCreate" displayed
     Then the user verify title of blog is displayed
 
   @AdminAddNewPublicGroup
@@ -25,11 +25,11 @@ Feature:  Non TearDown Data On Site
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add description on items "Group"
     And the user add value on "select-reg_method" is "Public"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see title h2 "IMPROVING EDUCATION AND LIVES" is displayed
     And the user want upload 1 photo
     And the user want to "Save"
-    Then the user see message "Update cover successfully" displayed
+    Then the user sees flash message "Update cover successfully" displayed
 
   @AdminAddNewPollMultipleChoice
   Scenario: Admin Add New Poll Public Vote
@@ -42,7 +42,7 @@ Feature:  Non TearDown Data On Site
     And the user add description on items "Polls"
     When the user select type "Public votes"
     And the user select type "Allow multiple choices"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see title "Welcome!What are you looking for today?" is displayed
 
   @AdminAddNewAlbumWithPhotoNonTeardown
@@ -50,11 +50,11 @@ Feature:  Non TearDown Data On Site
     Given the user logged in as "admin"
     Then the browser opened at item "photo" and tab "/photo/add"
     And the user want upload 2 photo
-    And the user click on button "add_new_album"
+    And the user clicks on button "add_new_album"
     When the user action on input field "new_album.name" with value "Notebook Mini Album"
     And the user add description on items "Album"
-    And the user click on button "buttonSubmit"
-    And the user see message "Media item successfully uploaded." displayed
+    And the user clicks on button "buttonSubmit"
+    And the user sees flash message "Media item successfully uploaded." displayed
     And the user back to "linkLogo" page
     Then the browser opened at item "photo" and tab "/photo/my-albums"
 
@@ -64,8 +64,8 @@ Feature:  Non TearDown Data On Site
     When the browser opened at item "photo" and tab "/photo/album/add"
     And the user action on input field "name" with value "Which Academia Aesthetic Are You?"
     And the user add value "Find out in what academia aesthetic you fit in: Classic Academia; Dark Academia; Light Academia; Romantic Academia; Art Academia or Chaotic Academia." on textArea "inputText"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Photo Album created successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Photo Album created successfully" displayed
     Then the user see title "Which Academia Aesthetic Are You?" is displayed
     And the user see "This album has no photos/videos uploaded" is displayed on user profile
 
@@ -79,8 +79,8 @@ Feature:  Non TearDown Data On Site
     And the user action on input field "title" with value "AngryBirdsNest"
     And the user add description on items "Forum"
     And the user add value on "tags-tags" is "tag-tag"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Thread created successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Thread created successfully" displayed
     And the user see title "AngryBirdsNest" is displayed
 
   @BrainActionOnBlogDetailNonTearDown
@@ -92,7 +92,7 @@ Feature:  Non TearDown Data On Site
     And the user want to click on title "itemTitle" and process
     And the user add comment "Amazing write-ups" on blog
     Then the user see "Amazing write-ups" displayed success
-    And the user click on button "reactionButton"
+    And the user clicks on button "reactionButton"
 
   @AdminAddFeedToGroupNonTearDownData
   Scenario: Admin add feed to group non-tear down data
@@ -103,8 +103,8 @@ Feature:  Non TearDown Data On Site
     And the user want to click on title "itemTitle" and process
     Then the user "whatsHappening" this item
     And the user add comment "I no longer depend on my parents and I am financially independent" on blog
-    And the user click on button "submit"
-    Then the user see message "Post has been created successfully" displayed
+    And the user clicks on button "submit"
+    Then the user sees flash message "Post has been created successfully" displayed
 
   @UserVoteMultipleChoiceNonTearDownData
   Scenario: Another User Vote Poll Non Tear Down Data
@@ -121,8 +121,8 @@ Feature:  Non TearDown Data On Site
     Then the browser opened at item "photo" and tab "/photo/albums"
     And the user see search field "Search albums" and typing keys "Notebook Mini Album"
     And the user want to click on title "itemTitle" and process
-    And the user click on button "reactionButton"
+    And the user clicks on button "reactionButton"
     Then the user see result of "reactionResult" displayed
-    When the user click on button "commentButton"
+    When the user clicks on button "commentButton"
     And the user add comment "Amazing write-ups" on blog
     Then the user see "Amazing write-ups" displayed success

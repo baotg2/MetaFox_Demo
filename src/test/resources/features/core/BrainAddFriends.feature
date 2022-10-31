@@ -8,7 +8,7 @@ Feature:  Brain Process On Add Friend UnFriend
     And the user want to click on "/terry"
     Then the user want to click on button label "ActionMenu" and process
     And the user action on "Block this user"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     And the user want to "Unblock"
     Then the user see address page is "/settings/blocked"
-    Then the user see message "User successfully unblocked." displayed
+    Then the user sees flash message "User successfully unblocked." displayed

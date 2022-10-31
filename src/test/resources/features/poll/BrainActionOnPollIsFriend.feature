@@ -10,12 +10,12 @@ Feature:  Brian process on multiple choice polls is friend
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user add value on div "textbox"
-    And the user want to add attach a photo
+    And the user attaches a photo
     When the user select type "Public votes"
     And the user select type "Allow multiple choice"
     And the user see item of "Everyone"
     When the user see item of "Friends"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see title "IsThisAutoPoll" is displayed
 
   @AnotherUserSearchPollIsFriend
@@ -42,9 +42,9 @@ Feature:  Brian process on multiple choice polls is friend
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
-    And the user click on button "menuShareButton"
+    And the user clicks on button "menuShareButton"
     When the user action on "Share now"
-    Then the user see message "Shared successfully" displayed
+    Then the user sees flash message "Shared successfully" displayed
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
     Then the user see "shared a post to newsfeed" on left menu
@@ -69,7 +69,7 @@ Feature:  Brian process on multiple choice polls is friend
     When the user want to click on button label "Action Menu" and process
     And the user action on "Delete"
     Then the user see "Are you sure you want to permanently delete this poll?" displayed success
-    And the user click on button "buttonSubmit"
-    Then the user see message "Poll deleted successfully" displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Poll deleted successfully" displayed
 
 

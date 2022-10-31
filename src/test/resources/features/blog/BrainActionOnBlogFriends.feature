@@ -1,4 +1,4 @@
-@MetaFox @blogs  @blogFriendFunction_Brian
+@app_blog  @blogFriendFunction_Brian
 Feature:  Brian process on blogs is Friend
 
 
@@ -10,13 +10,13 @@ Feature:  Brian process on blogs is Friend
     Then the browser opened at item "blog" and tab "/blog/add"
     Then the user action on input field "title" with value "BlogName"
     And the user add value on div "textbox"
-    And the user want to add attach a photo
-    And the user want add categories is "Education"
+    And the user attaches a photo
+    And the user adds category "Education"
     And the user add value on "tags-tags" is "tag-tag"
     And the user see item of "Everyone"
     When the user see item of "Friends"
-    And the user click on button "buttonSubmit"
-    And the user see message "blogCreate" displayed
+    And the user clicks on button "buttonSubmit"
+    And the user sees flash message "blogCreate" displayed
     Then the user verify title of blog is displayed
 
 
@@ -51,9 +51,9 @@ Feature:  Brian process on blogs is Friend
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
-    And the user click on button "menuShareButton"
+    And the user clicks on button "menuShareButton"
     When the user action on "Share now"
-    And the user see message "blogShareNow" displayed
+    And the user sees flash message "blogShareNow" displayed
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
     Then the user see "shared a post to newsfeed" on left menu
@@ -81,6 +81,6 @@ Feature:  Brian process on blogs is Friend
     And the user access first condition "inputWhen"
     And the user click on "actionMenuButton" to access blog
     And the user action on "Delete"
-    And the user click on button "buttonSubmit"
-    And the user see message "blogDelete" displayed
+    And the user clicks on button "buttonSubmit"
+    And the user sees flash message "blogDelete" displayed
     Then the user see "No blogs are found." on left menu

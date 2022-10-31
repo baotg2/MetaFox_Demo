@@ -16,8 +16,8 @@ Feature: Verify access side menu success
     Given the user logged in as "brian"
     Then the user "whatsHappening" this item
     And the user add comment "<autoPost>" on blog
-    And the user click on button "submit"
-    Then the user see message "Post has been created successfully" displayed
+    And the user clicks on button "submit"
+    Then the user sees flash message "Post has been created successfully" displayed
     Then the user see "<autoPost>" displayed success
   Examples:
     |autoPost|
@@ -76,5 +76,5 @@ Feature: Verify access side menu success
   Scenario: Brain Reaction On Post
     Given the user logged in as "brian"
     Then the user want to access "userAvatar"
-    And the user click on button "reactionButton"
+    And the user clicks on button "reactionButton"
     Then the user see result of "reactionResult" displayed

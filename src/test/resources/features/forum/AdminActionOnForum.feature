@@ -10,11 +10,11 @@ Feature:  Brian process on Forum
     When the user want to select category at 1 on dropdown list "select-forum_id"
     And the user action on input field "title" with value "IsThreadDisplayedOnWiki"
     And the user add value on div "textbox"
-    And the user want to add attach a photo
+    And the user attaches a photo
     And the user add value on "tags-tags" is "tag-tag"
     And the user click on input type check box "is_wiki"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Thread created successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Thread created successfully" displayed
     And the user see title "IsThreadDisplayedOnWiki" is displayed
 
   @AdminVerifyWikiTab

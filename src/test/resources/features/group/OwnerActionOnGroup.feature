@@ -10,7 +10,7 @@ Feature:  Owner Action On Public Groups
     And the user add value on "select-type_id" is "Song"
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Public"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see title h2 "GroupTestAuto" is displayed
 
   @OwnerChangeCoverImage
@@ -38,11 +38,11 @@ Feature:  Owner Action On Public Groups
     Then the user see title "Add New Blog" is displayed
     Then the user action on input field "title" with value "BlogName"
     And the user add value on div "textbox"
-    And the user want to add attach a photo
-    And the user want add categories is "Education"
+    And the user attaches a photo
+    And the user adds category "Education"
     And the user add value on "tags-tags" is "tag-tag"
-    And the user click on button "buttonSubmit"
-    And the user see message "Blog published successfully" displayed
+    And the user clicks on button "buttonSubmit"
+    And the user sees flash message "Blog published successfully" displayed
     Then the user verify title of blog is displayed
     
   @OwnerAddPhotoToGroup

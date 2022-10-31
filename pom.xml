@@ -138,7 +138,6 @@
                     </systemPropertyVariables>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        -Ddataproviderthreadcount=1
                     </argLine>
                 </configuration>
             </plugin>

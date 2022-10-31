@@ -6,7 +6,7 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "brian"
     Then the user action on "More"
     Then the browser opened at item "group" and tab "/group/add"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see "Group Name is required." displayed success
     Then the user see "Group Privacy is required." displayed success
     
@@ -19,7 +19,7 @@ Feature:  Brain Process On Public Groups
     And the user add value on "select-type_id" is "Song"
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Public"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see title h2 "GroupTestAuto" is displayed
 
   @AnotherUserSearchGroup
@@ -39,7 +39,7 @@ Feature:  Brain Process On Public Groups
     And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
     When the user want to "Join Group"
-    Then the user see message "Joined successfully." displayed
+    Then the user sees flash message "Joined successfully." displayed
     Then the user see button "Joined" is displayed
 
   @AnotherUserPostOnGroup
@@ -51,7 +51,7 @@ Feature:  Brain Process On Public Groups
     And the user want to click on title "itemTitle" and process
     Then the user "whatsHappening" this item
     And the user add comment "AutoPostStatus1" on blog
-    And the user click on button "submit"
+    And the user clicks on button "submit"
     Then the user see "AutoPostStatus1" displayed success
 
   @AnotherUserReactionOnGroups
@@ -61,7 +61,7 @@ Feature:  Brain Process On Public Groups
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
-    And the user click on button "reactionButton"
+    And the user clicks on button "reactionButton"
 
   @AnotherUserLeaveGroup
   Scenario: Another User Leave Group
@@ -73,7 +73,7 @@ Feature:  Brain Process On Public Groups
     When the user see "actionMenu" and click on
     And the user click on div "leave_group" and process
     Then the user see "Are you sure you want to leave this group?" displayed success
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see button "Join Group" is displayed
 
   @AnotherUserJoinGroupOnSlotMain
@@ -83,7 +83,7 @@ Feature:  Brain Process On Public Groups
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
     When the user click on the "Join Group" on page
-    Then the user see message "Joined successfully." displayed
+    Then the user sees flash message "Joined successfully." displayed
 
   @BrianAddMemberShipQuestion
   Scenario: Brain Add MemberShip Question
@@ -100,14 +100,14 @@ Feature:  Brain Process On Public Groups
     And the user see "Add Question" is displayed on user profile
     And the user add value on "question" is "Question is required"
     And the user select type "Written Answer" on "type_id"
-    Then the user click on button "buttonSubmit"
+    Then the user clicks on button "buttonSubmit"
     And I want to click on "Logout"
     Given the user logged in as "test"
     When the user action on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
     When the user click on the "Join Group" on page
-    Then the user click on button "buttonSubmit"
+    Then the user clicks on button "buttonSubmit"
 
   @BrianAddPendingPost
   Scenario: Brain Add Pending Post
@@ -133,7 +133,7 @@ Feature:  Brain Process On Public Groups
     And the user want to click on title "itemTitle" and process
     Then the user "whatsHappening" this item
     And the user add comment "AutoPostStatus" on blog
-    And the user click on button "submit"
+    And the user clicks on button "submit"
     And I want to click on "Logout"
     Given the user logged in as "brian"
     Then the user "new_notification" this item
@@ -150,5 +150,5 @@ Feature:  Brain Process On Public Groups
     When the user see "actionMenu" and click on
     And the user action on "Delete"
     Then the user see "Are you sure you want to delete this group permanently?" displayed success
-    And the user click on button "buttonSubmit"
-    Then the user see message "Successfully deleted the group" displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Successfully deleted the group" displayed
