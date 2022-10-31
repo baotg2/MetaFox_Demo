@@ -23,6 +23,8 @@ public class StepDefinitions {
 
     protected DataProvider dataExecutor = new DataProvider();
 
+    protected String currentUrlValue;
+
     protected static final Logger LOGGER = LoggerFactory.getLogger(StepDefinitions.class);
 
     /**

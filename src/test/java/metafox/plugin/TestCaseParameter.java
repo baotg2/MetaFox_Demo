@@ -1,6 +1,5 @@
 package metafox.plugin;
 
-import io.cucumber.junit.Cucumber;
 import io.cucumber.plugin.ConcurrentEventListener;
 import io.cucumber.plugin.event.EventHandler;
 import io.cucumber.plugin.event.EventPublisher;
@@ -14,8 +13,6 @@ import io.qameta.allure.model.Parameter;
 import io.qameta.allure.util.ResultsUtils;
 import metafox.CucumberTestRunner;
 import org.json.simple.JSONObject;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -104,8 +101,6 @@ public class TestCaseParameter implements ConcurrentEventListener {
             result.getLinks().add(hostLink());
 
         });
-
-//        lifecycle.getCurrentTestCase().ifPresent(s -> addParameters( "host", "localhost"));
     }
 
     public void setEventPublisher(EventPublisher eventPublisher) {

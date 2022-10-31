@@ -10,8 +10,8 @@ import metafox.support.Locator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -22,7 +22,6 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.*;
 
-import static metafox.browserConfig.Index.currentUrlValue;
 import static org.junit.Assert.assertTrue;
 
 /**
