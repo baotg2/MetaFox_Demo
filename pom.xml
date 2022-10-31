@@ -24,6 +24,11 @@
             <version>${selenium.version}</version>
         </dependency>
         <dependency>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
             <version>${selenium.version}</version>

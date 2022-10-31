@@ -35,9 +35,6 @@ public class TestCaseParameter implements ConcurrentEventListener {
     }
 
     private void handleTestCaseFinished(TestCaseFinished event) {
-        lifecycle.getCurrentTestCase().ifPresent(s -> {
-            LOGGER.info("handleTestCaseFinished " + s);
-        });
     }
 
     public Parameter getHost() {
@@ -91,9 +88,6 @@ public class TestCaseParameter implements ConcurrentEventListener {
 
             result.getLinks().add(hostLink());
 
-            result.getParameters().forEach(parameter -> {
-                LOGGER.info("parameter {} {}", parameter.getName(), parameter.getValue());
-            });
         });
 
 //        lifecycle.getCurrentTestCase().ifPresent(s -> addParameters( "host", "localhost"));

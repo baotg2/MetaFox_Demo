@@ -27,7 +27,6 @@ import static org.junit.Assert.assertTrue;
 public class WhenStepDefinitions {
     Components components = new Components();
     IsComponentVisible isComponentVisible = new IsComponentVisible();
-    DataProvider dataExecutor = new DataProvider();
 
     SupportStepDefinition stepDefinition = new SupportStepDefinition();
 
@@ -191,7 +190,7 @@ public class WhenStepDefinitions {
     @When("^the user upload media$")
     public void uploadMedia() throws InterruptedException {
         Thread.sleep(6000);
-        dataExecutor.uploadFile("./src/test/resources/fixtures/imageTest5.jpg");
+        DataProvider.uploadFile("./src/test/resources/fixtures/imageTest5.jpg");
     }
 
     /**

@@ -1,11 +1,13 @@
 package metafox.support;
 
+import net.xyzsd.plurals.PluralCategory;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -16,6 +18,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import net.datafaker.Faker;
 
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
@@ -28,12 +31,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 
 /**
@@ -54,10 +55,9 @@ public class DataProvider {
 
     private static final String pathToFixtures = "src/test/resources/fixtures";
     private static final String testDataFile = "v5DataProvider.xlsx";
-    private final String testDescriptionFile = "blogDescription.txt";
 
+    public static final Faker faker = new Faker();
 
-    public String blogDescriptionFile = pathToFixtures + testDescriptionFile;
 
     private static Map<String, String> rowToMap(XSSFRow row, List<String> header, DataFormatter formatter) {
         Map<String, String> data = new HashMap<String, String>();
@@ -179,7 +179,7 @@ public class DataProvider {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    public String readConstants(String stabName) {
+    public static String readConstants(String stabName) {
         String attributeName = null;
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
@@ -202,46 +202,53 @@ public class DataProvider {
         return attributeName;
     }
 
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @return random path file in test data folder
-     * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    public String getRandomPathDocuments() {
-        String sb = null;
-        for (int i = 0; i < getPathDocument().size(); i++) {
-            int index = (int) (getPathDocument().size() * Math.random());
-            sb = getPathDocument().get(index);
-            sb = sb.replace("\\", "\\\\");
-        }
-        return sb;
+    public static String getSinglePhoto() {
+        return getFile("photo");
     }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @return get all path file in test data folder
+     * @param folder name of folder in fixtures resources
+     * @return Get a single file in particular photo
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    private ArrayList<String> getPathDocument() {
-        File directory = new File("src/test/resources/fixtures");
-        ArrayList<String> list = new ArrayList<>();
-        File[] fList = directory.listFiles();
-        assert fList != null;
-        for (File file : fList) {
-            if (file.isFile()) {
-                list.add(file.getAbsolutePath());
-                if (file.getAbsolutePath().contains("xlsx") || (file.getAbsolutePath().contains("gif") || (file.getAbsolutePath().contains("json")) || (file.getAbsolutePath().contains("txt")))) {
-                    list.remove(file.getAbsolutePath());
-                }
-            }
-        }
-        return list;
+    public static String getFile(String folder) {
+        folder = pluralize(folder);
+
+        File[] files = new File(String.format("%s/%s", pathToFixtures, folder)).listFiles();
+
+        assert files != null;
+
+        Optional<String> file = Arrays.stream(files)
+                .map(File::getAbsolutePath)
+                .sorted((o1, o2) -> ThreadLocalRandom.current().nextInt(-1, 2))
+                .findAny();
+
+
+        assert file.isPresent();
+
+        return file.get().replace("\\", "\\\\");
+    }
+
+    /**
+     * @param folder name of folder in ./fixtures
+     * @param limit  max file limit
+     */
+    public static List<String> getFiles(@NotNull String folder, int limit) {
+        folder = pluralize(folder);
+        File[] allFiles = new File(String.format("%s/%s", pathToFixtures, folder)).listFiles();
+
+        assert allFiles != null;
+
+        List<String> files = Arrays.stream(allFiles)
+                .map(File::getAbsolutePath)
+                .sorted((o1, o2) -> ThreadLocalRandom.current().nextInt(-1, 2))
+                .collect(Collectors.toList());
+
+        return files.subList(0, Math.min(limit, files.size()));
     }
 
     /**
@@ -252,7 +259,7 @@ public class DataProvider {
      * -------------------------------------------------------------------------------------------------------------------------------------
      * @since 06-14-2022
      */
-    public void uploadFile(String fileLocation) {
+    public static void uploadFile(String fileLocation) {
         try {
             setClipboardData(fileLocation);
             Robot robot = new Robot();
@@ -281,15 +288,22 @@ public class DataProvider {
      * -------------------------------------------------------------------------------------------------------------------------------------
      * @since 06-14-2022
      */
-    private void setClipboardData(String string) {
+    private static void setClipboardData(String string) {
         // TODO Auto-generated method stub
         StringSelection stringSelection = new StringSelection(string);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
     }
 
-    public String readFileAsString(String fileName, int intLine) throws Exception {
-        String data;
-        data = Files.readAllLines(Paths.get(fileName)).get(intLine);
-        return data;
+    private static String pluralize(@NotNull String name) {
+        switch (name) {
+            case "photo":
+                return "photos";
+            case "video":
+                return "videos";
+            case "image":
+                return "images";
+            default:
+                return name;
+        }
     }
 }

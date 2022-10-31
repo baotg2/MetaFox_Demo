@@ -105,8 +105,8 @@ public class ThenStepDefinitions {
         isComponentVisible.waitElement(By.xpath("//form[@data-testid ='form']"));
         components.componentButtonDataTestID("add_new_album").click();
         isComponentVisible.waitElement(By.xpath("//input[@name ='new_album.name']"));
-        components.componentInputName("new_album.name").sendKeys(dataExecutor.readConstants("Album"));
-        components.componentTextAreaDataTestID("inputNewAlbumDescription").sendKeys(dataExecutor.readConstants("Description"));
+        components.componentInputName("new_album.name").sendKeys(DataProvider.readConstants("Album"));
+        components.componentTextAreaDataTestID("inputNewAlbumDescription").sendKeys(DataProvider.readConstants("Description"));
     }
 
     /**
@@ -124,19 +124,19 @@ public class ThenStepDefinitions {
         if (Utility.isLocal(driver)) {
             WebElement upload = components.componentInputType("file");
             ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
-            upload.sendKeys(dataExecutor.getRandomPathDocuments());
+            upload.sendKeys(DataProvider.getSinglePhoto());
             if (numberOfImage > 1) {
                 for (int i = 0; i < numberOfImage; i++) {
                     isComponentVisible.waitElement(By.xpath("//button[text() ='Add Photos']"));
-                    upload.sendKeys(dataExecutor.getRandomPathDocuments());
+                    upload.sendKeys(DataProvider.getSinglePhoto());
                 }
             }
         } else {
-            components.componentInputType("file").sendKeys(dataExecutor.getRandomPathDocuments());
+            components.componentInputType("file").sendKeys(DataProvider.getSinglePhoto());
             if (numberOfImage > 1) {
                 for (int i = 0; i < numberOfImage; i++) {
                     isComponentVisible.waitElement(By.xpath("//button[text() ='Add Photos']"));
-                    components.componentInputType("file").sendKeys(dataExecutor.getRandomPathDocuments());
+                    components.componentInputType("file").sendKeys(DataProvider.getSinglePhoto());
                 }
             }
         }
@@ -156,7 +156,7 @@ public class ThenStepDefinitions {
         isComponentVisible.waitElement(By.xpath("//input[@name='" + fieldName + "']"));
         if (value.equals("BlogName") || (value.equals("Album") || (value.equals("Groups")) || (value.equals("Polls")) || (value.equals("URLEvent")))) {
             components.componentInputName(fieldName).clear();
-            components.componentInputName(fieldName).sendKeys(dataExecutor.readConstants(value));
+            components.componentInputName(fieldName).sendKeys(DataProvider.readConstants(value));
         } else {
             components.componentInputName(fieldName).clear();
             Thread.sleep(2000);
@@ -199,7 +199,7 @@ public class ThenStepDefinitions {
     public void typingKeySearch(String attributes, @NotNull String keySearch) {
         isComponentVisible.waitElement(By.xpath("//input[@placeholder='" + attributes + "']"));
         if (keySearch.equals("BlogName") || keySearch.equals("Album") || (keySearch.equals("Groups")) || (keySearch.equals("Polls"))) {
-            components.componentSearchAttributes(attributes).sendKeys(dataExecutor.readConstants(keySearch));
+            components.componentSearchAttributes(attributes).sendKeys(DataProvider.readConstants(keySearch));
         } else {
             components.componentSearchAttributes(attributes).sendKeys(keySearch);
         }
@@ -271,7 +271,7 @@ public class ThenStepDefinitions {
     @Then("the user verify title of blog is displayed")
     public void compareTitleBlogAdded() {
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemTitle']"));
-        components.componentDivDataTestID("itemTitle").getText().contains(dataExecutor.readConstants("BlogName"));
+        components.componentDivDataTestID("itemTitle").getText().contains(DataProvider.readConstants("BlogName"));
     }
 
     /**

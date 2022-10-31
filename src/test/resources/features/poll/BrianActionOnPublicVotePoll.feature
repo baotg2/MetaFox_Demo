@@ -19,7 +19,7 @@ Feature:  Brian process on public vote polls
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user add value on div "textbox"
-    And the user want to add attach files
+    And the user want to add attach a photo
     When the user select type "Public votes"
     And the user click on button "buttonSubmit"
     Then the user see title "IsThisAutoPoll" is displayed

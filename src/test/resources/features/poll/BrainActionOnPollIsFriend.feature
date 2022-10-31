@@ -10,7 +10,7 @@ Feature:  Brian process on multiple choice polls is friend
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user add value on div "textbox"
-    And the user want to add attach files
+    And the user want to add attach a photo
     When the user select type "Public votes"
     And the user select type "Allow multiple choice"
     And the user see item of "Everyone"

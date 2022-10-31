@@ -10,7 +10,7 @@ Feature:  Brian process on multiple choice polls
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user add value on div "textbox"
-    And the user want to add attach files
+    And the user want to add attach a photo
     When the user want to access "inputPublicVote"
     And the user select type "Allow multiple choice"
     And the user click on button "buttonSubmit"
