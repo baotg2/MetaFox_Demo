@@ -39,10 +39,6 @@ public class CucumberTestRunner {
         return getManagedWebDriver().getWebDriver();
     }
 
-    public synchronized static boolean isLocal() {
-        return Utility.isLocal(getManagedWebDriver());
-    }
-
     @Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "scenarios")
     public void feature(PickleWrapper pickleWrapper, FeatureWrapper featureWrapper, ManagedWebDriver managedWebDriver) {
         if (Utility.isLocal(managedWebDriver) && local == null) {

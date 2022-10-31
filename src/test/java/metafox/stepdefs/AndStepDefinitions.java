@@ -341,8 +341,7 @@ public class AndStepDefinitions extends StepDefinitions {
     @And("^the user (want to|don't) add photo$")
     public void the_user_want_to_add_photos(String status) {
         if (status.equals("want to")) {
-            if (Utility.isLocal(driver)) {
-                // should be move dto driver instanceof RemoteWebDriver
+            if (!Utility.isLocal(driver)) {
                 WebElement upload = components.componentInputDataTestID("inputFile");
                 ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
                 upload.sendKeys(DataProvider.getSinglePhoto());
@@ -414,7 +413,7 @@ public class AndStepDefinitions extends StepDefinitions {
     @And("^the user (want to|don't) add attach a (photo|video)")
     public void actionAttachFile(@Nonnull String status, @Nonnull String folder) {
         if (status.equals("want to")) {
-            if (Utility.isLocal(driver)) {
+            if (!Utility.isLocal(driver)) {
                 WebElement upload = components.componentInputDataTestID("inputAttachments");
                 ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
                 upload.sendKeys(DataProvider.getFile(folder));
