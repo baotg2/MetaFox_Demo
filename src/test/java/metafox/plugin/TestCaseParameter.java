@@ -1,5 +1,6 @@
 package metafox.plugin;
 
+import io.cucumber.junit.Cucumber;
 import io.cucumber.plugin.ConcurrentEventListener;
 import io.cucumber.plugin.event.EventHandler;
 import io.cucumber.plugin.event.EventPublisher;
@@ -11,6 +12,10 @@ import io.qameta.allure.model.Label;
 import io.qameta.allure.model.Link;
 import io.qameta.allure.model.Parameter;
 import io.qameta.allure.util.ResultsUtils;
+import metafox.CucumberTestRunner;
+import org.json.simple.JSONObject;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -82,9 +87,19 @@ public class TestCaseParameter implements ConcurrentEventListener {
                 result.setParameters(parameters);
             }
 
+            JSONObject platform = CucumberTestRunner.getManagedWebDriver().getPlatform();
+            JSONObject options = (JSONObject) platform.get("bstack:options");
+
+
+            String browserName = platform.get("browserName").toString();
             parameters.add(createParameter(".url", baseUrl));
-            parameters.add(createParameter(".browser", "Chrome"));
-            parameters.add(createParameter(".platform", "OS_X"));
+            parameters.add(createParameter(".browser", browserName));
+
+            if (null != options) {
+                parameters.add(createParameter(".buildName", options.get("buildName").toString()));
+                parameters.add(createParameter(".os", options.get("os").toString()));
+            }
+
 
             result.getLinks().add(hostLink());
 
