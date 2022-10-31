@@ -1,7 +1,6 @@
 @app_activitypoint
 Feature:  Brain Action On Activity Point
 
-  @focus
   Scenario: Brain Verify Ui Activity Point
     Given the user logged in as "brian"
     And the browser opened at "/"

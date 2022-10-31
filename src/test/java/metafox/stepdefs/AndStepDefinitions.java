@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
 
+import javax.annotation.Nonnull;
 import javax.xml.crypto.Data;
 import java.util.List;
 
@@ -381,7 +382,7 @@ public class AndStepDefinitions {
     }
 
     @And("^the user add description on items \"([^\"]*)\"$")
-    public void inputValueOnDivNonTearDown(@NotNull String itemName) throws Exception {
+    public void inputValueOnDivNonTearDown(@Nonnull String itemName) throws Exception {
         components.componentDivRole("textbox").sendKeys(DataProvider.faker.lorem().paragraph());
     }
 

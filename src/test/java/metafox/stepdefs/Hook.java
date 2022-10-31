@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import javax.annotation.Nonnull;
+
 /**
  * ---------------------------------------------------------------------------------------------------------------------------------------------
  *
@@ -34,7 +36,7 @@ public class Hook {
      * @since 04-05-2022
      */
     @After
-    public void afterTest(@NotNull Scenario scenario) throws InterruptedException {
+    public void afterTest(@Nonnull Scenario scenario) throws InterruptedException {
         if (scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             Allure.addByteAttachmentAsync("Failure Screenshot", "image/png", () -> screenshot);

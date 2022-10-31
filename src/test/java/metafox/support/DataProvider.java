@@ -1,6 +1,7 @@
 package metafox.support;
 
-import net.xyzsd.plurals.PluralCategory;
+import kong.unirest.JsonNode;
+import kong.unirest.Unirest;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -20,6 +21,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import net.datafaker.Faker;
 
+
+import javax.annotation.Nonnull;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -57,7 +60,6 @@ public class DataProvider {
     private static final String testDataFile = "v5DataProvider.xlsx";
 
     public static final Faker faker = new Faker();
-
 
     private static Map<String, String> rowToMap(XSSFRow row, List<String> header, DataFormatter formatter) {
         Map<String, String> data = new HashMap<String, String>();
@@ -305,5 +307,58 @@ public class DataProvider {
             default:
                 return name;
         }
+    }
+
+    public static String getUserAccessToken(@Nonnull String username) throws IOException, InterruptedException {
+
+        String accessToken = UserToken.getUserToken(username);
+
+        if (accessToken != null) {
+            return accessToken;
+        }
+
+        Optional<Map<String, String>> user = fromSheet("users")
+                .stream()
+                .filter(row -> row.get("username").equalsIgnoreCase(username)).findFirst();
+
+        if (!user.isPresent()) throw new InterruptedException("Failed logged in as " + username);
+
+        JSONObject body = new JSONObject();
+
+        body.put("username", user.get().get("email"));
+        body.put("password", user.get().get("password"));
+        body.put("grant_type", "password");
+
+        String url = apiUrl("/user/login");
+
+        JsonNode response = Unirest.post(url)
+                .header("accept", "application/json")
+                .header("Content-Type", "application/json")
+                .body(body)
+                .asJson()
+                .getBody();
+
+//        LOGGER.warn("RESPONSE {}", response);
+
+        Object token = response.getObject().get("access_token");
+
+        if (token == null) throw new InterruptedException("Failed that user login " + username);
+
+        UserToken.addUserToken(username, token.toString(), (int) response.getObject().get("expires_in"));
+
+        return token.toString();
+    }
+
+    public static String getAuthCookieName() {
+        return String.format("%s%s", getSiteHashed(), "token");
+    }
+
+
+    public static String getSiteHashed() {
+        return System.getProperty("MFOX_SITE_HASHED", "yA0JuFD6n6zkC1");
+    }
+
+    public static String apiUrl(String url) {
+        return String.format("%s/api/v1%s", System.getenv("BASE_URL"), url);
     }
 }

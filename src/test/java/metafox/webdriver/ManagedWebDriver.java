@@ -28,7 +28,7 @@ public class ManagedWebDriver {
             this.webDriver = this.webDriverFactory.createWebDriverForPlatform(this.platform, this.testName);
         }
 
-        this.webDriver.get(System.getenv("BASE_URL"));
+        this.webDriver.get(String.format("%s/_blank.html",System.getenv("BASE_URL")));
 
         return this.webDriver;
     }
