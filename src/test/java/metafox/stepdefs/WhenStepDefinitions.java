@@ -1,14 +1,9 @@
 package metafox.stepdefs;
 
 import io.cucumber.java.en.When;
-import metafox.CucumberTestRunner;
-import metafox.pageobjects.Components;
 import metafox.support.DataProvider;
-import metafox.support.IsComponentVisible;
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
@@ -476,7 +471,7 @@ public class WhenStepDefinitions extends StepDefinitions {
      */
     @When("^the user want to scroll to the end of page")
     public void toScrollToEndOfPage() throws InterruptedException {
-        stepDefinition.scrollToEndPage();
+        scrollToEndPage();
         Thread.sleep(2000);
     }
 
@@ -490,7 +485,7 @@ public class WhenStepDefinitions extends StepDefinitions {
      */
     @When("^the user want to scroll to the up of page")
     public void toScrollToUpOfPage() throws InterruptedException {
-        stepDefinition.scrollUpPage();
+        scrollUpPage();
         Thread.sleep(2000);
     }
 }

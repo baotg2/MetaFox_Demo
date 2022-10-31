@@ -1,15 +1,10 @@
 package metafox.stepdefs;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import metafox.CucumberTestRunner;
-import metafox.pageobjects.Components;
 import metafox.support.DataProvider;
-import metafox.support.IsComponentVisible;
 import metafox.support.Utility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -186,7 +181,7 @@ public class ThenStepDefinitions extends StepDefinitions {
             if (dataExecutor.getCellData(i, 2).toLowerCase().equals(module)) {
                 components.componentLinkText(module).click();
                 assertTrue(components.componentLinkText(dataExecutor.getCellData(i, 3)).isDisplayed());
-                supportStepDefinition.isBackToHomePage();
+                isBackToHomePage();
             }
         }
     }
@@ -626,7 +621,7 @@ public class ThenStepDefinitions extends StepDefinitions {
      */
     @Then("^the user want to verify tab \"([^\"]*)\" open successfully")
     public void isTabOpenSuccess(String tab) {
-        supportStepDefinition.switchTab(tab);
+        switchTab(tab);
     }
 
     /**

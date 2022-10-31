@@ -3,18 +3,15 @@ package metafox.stepdefs;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.qameta.allure.Allure;
-import metafox.CucumberTestRunner;
 import metafox.pageobjects.Components;
-import metafox.support.Locator;
 import metafox.support.DataProvider;
 import metafox.support.IsComponentVisible;
+import metafox.support.Locator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.annotation.Nonnull;
@@ -23,7 +20,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.*;
-import java.util.NoSuchElementException;
 
 import static metafox.browserConfig.Index.currentUrlValue;
 import static org.junit.Assert.assertTrue;
@@ -37,7 +33,7 @@ import static org.junit.Assert.assertTrue;
  * @purpose: GivenStepDefinitions is class defined all steps use Method @Given
  * @since 04-05-2022
  */
-public class GivenStepDefinitions extends StepDefinitions{
+public class GivenStepDefinitions extends StepDefinitions {
 
     Components components = new Components();
     IsComponentVisible isComponentVisible = new IsComponentVisible();
@@ -141,9 +137,9 @@ public class GivenStepDefinitions extends StepDefinitions{
     }
 
     @Given("the browser opened at {string}")
-    public void theBrowserOpenedAt(String url) throws InterruptedException {
+    public void the_browser_opened_at(String url) {
+        LOGGER.info("the browser opened at {}", url);
         driver.get(String.format("%s%s", System.getenv("BASE_URL"), url));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
     }
 
     @And("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form)$")
@@ -157,4 +153,5 @@ public class GivenStepDefinitions extends StepDefinitions{
 
         assertTrue(element.isDisplayed());
     }
+
 }

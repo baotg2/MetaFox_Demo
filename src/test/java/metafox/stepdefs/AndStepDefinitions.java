@@ -1,15 +1,10 @@
 package metafox.stepdefs;
 
 import io.cucumber.java.en.And;
-import metafox.CucumberTestRunner;
-import metafox.pageobjects.Components;
 import metafox.support.DataProvider;
-import metafox.support.IsComponentVisible;
 import metafox.support.Utility;
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;

@@ -2,7 +2,6 @@ package metafox.support;
 
 import com.browserstack.local.Local;
 import metafox.webdriver.ManagedWebDriver;
-import org.jetbrains.annotations.NotNull;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.JavascriptExecutor;

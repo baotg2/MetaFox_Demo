@@ -19,7 +19,7 @@ public class Locator {
     }};
 
     public static @Nonnull String byTestId(@Nonnull String testId) {
-        return String.format("[data-testid='%s']", testId);
+        return String.format("[data-testid=\"%s\"]", testId);
     }
 
     public static @Nonnull By bySection(@Nonnull String name) {
