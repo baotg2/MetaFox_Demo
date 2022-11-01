@@ -18,7 +18,7 @@ Feature: Verify login pHpFox success
   @ScenarioLogin2
   Scenario Outline: verify errorMsg with wrong user info
     Given I want to verified error message with user "<userName>", "<passWord>"
-    Then the user seeserror message "The user credentials were incorrect." is displayed
+    Then the user sees error message "The user credentials were incorrect."
     Examples:
     |userName |passWord
     |abc@gmail.com|123456
@@ -30,26 +30,26 @@ Feature: Verify login pHpFox success
   Scenario: Brain Add Friend
     Given the user logged in as "brian"
     And the browser opened at "/"
-    Then the user sees search field "Search" and typing keys "admin"
+    Then the user searches with text "admin"
     And the user want to click on "/admin"
     And the user want to "Add Friend"
     Then I want to click on "Logout"
     And the user logged in as "admin"
-    Then the user sees search field "Search" and typing keys "brian"
+    Then the user searches with text "brian"
     And the user clicks on element link text a "Brian"
     And the user want to "Confirm"
-    Then the user seesbutton "Unfriend" is displayed
+    Then the user seesbutton "Unfriend"
 
   @BrainAddFriendWithTest
   Scenario: Brain Add Friend
     Given the user logged in as "brian"
     And the browser opened at "/"
-    Then the user sees search field "Search" and typing keys "test"
+    Then the user searches with text "test"
     And the user clicks on element link text a "test"
     And the user want to "Add Friend"
     Then I want to click on "Logout"
     And the user logged in as "test"
-    Then the user sees search field "Search" and typing keys "brian"
+    Then the user searches with text "brian"
     And the user clicks on element link text a "Brian"
     And the user want to "Confirm"
-    Then the user seesbutton "Unfriend" is displayed
+    Then the user seesbutton "Unfriend"

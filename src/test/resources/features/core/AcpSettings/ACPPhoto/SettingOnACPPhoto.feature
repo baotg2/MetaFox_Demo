@@ -16,10 +16,10 @@ Feature: Config Settings On ACP Photo
   Scenario: Brian Verify settings Downloading Photos
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user seestitle "My Photos" is displayed
+    And the user sees text "My Photos"
     And the user sees item of "Brian"
     And the user clicks on button "actionMenuButton" to action
-    Then the user don't see "download-photo" is displayed
+    Then the user don't see "download-photo"
 
   @AdminResetConfigDownloadOnPhoto
   Scenario: Admin Reset Config Download Photo OnACP

@@ -5,7 +5,7 @@ Feature:  Brain Action On Activity Point
     Given the user logged in as "brian"
     And the browser opened at "/"
     When I want to click on "Activity Points"
-    Then the user seestitle h2 "Point Transactions" is displayed
+    Then Then the user sees text "Point Transactions"
     And the user sees text "Point Packages "
     And the user sees text "How To Earn "
     And the user sees text "Transaction History "
@@ -14,9 +14,9 @@ Feature:  Brain Action On Activity Point
   Scenario: Brian Verify UIView All Transactions History
     Given the user logged in as "brian"
     When I want to click on "Activity Points"
-    Then the user seestitle h2 "Point Transactions" is displayed
+    Then Then the user sees text "Point Transactions"
     And the user clicks on element link text a "View All Transactions"
-    Then the user seestitle h2 "Transactions History" is displayed
+    Then Then the user sees text "Transactions History"
 
   @admincp
   Scenario: Admin Add New Package
@@ -26,7 +26,7 @@ Feature:  Brain Action On Activity Point
     And the user clicks on "App Settings"
     And the user clicks on "Activity Point"
     When the user want to "Add New Package"
-    And the user clicks on input field "title" with value "AutoPackagePoint"
+    And the user adds title with value "AutoPackagePoint"
     And the user clicks on input field "amount" with value "1"
     And the user clicks on input field "price.USD" with value "1"
     And the user clicks on input field "price.EUR" with value "2"
@@ -76,13 +76,13 @@ Feature:  Brain Action On Activity Point
     When the user back to "linkLogo" page
     When the user clicks on "More"
     Then the browser opened at item "blog" and tab "/blog/add"
-    Then the user clicks on input field "title" with value "Brian Blogs"
+    Then the user adds title with value "Brian Blogs"
     Then the user don't add photo
     And the user adds description
     And the user attaches a photo
-    And the user adds category "Education"
-    And the user add value on "tags-tags" is "tag-tag"
-    And the user clicks on button "buttonSubmit"
+    And the user adds a category
+    And the user adds a tag
+    And the user submits the form
     And the user sees successful flash message
     Then the user verify title of blog is displayed
     When I want to click on "Activity Points"

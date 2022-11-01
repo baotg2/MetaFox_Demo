@@ -18,7 +18,7 @@ Feature: Verify access side menu success
     And the user add comment "<autoPost>" on blog
     And the user clicks on button "submit"
     Then the user sees successful flash message
-    Then the user sees text "<autoPost>" displayed success
+    Then the user sees text "<autoPost>"
   Examples:
     |autoPost|
     |AutoPostStatus1|

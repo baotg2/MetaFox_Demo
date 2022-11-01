@@ -29,16 +29,16 @@ Feature:  Brain Action Share Feed
   @BriaActionOnGlobalSearch
   Scenario: Brian Action On Global Search
     Given the user logged in as "admin"
-    When the user sees search field "Search" and typing keys "test"
+    When the user searches with text "test"
     And the user clicks on "Members"
     And the user clicks on element link text a "test"
-    Then the user seesdiv element "whatsHappening" displayed
+    Then the user sees div element "whatsHappening" displayed
 
   @BrianSearchRandomKeywords
   Scenario: Brian Search Random Keywords
     Given the user logged in as "admin"
-    When the user sees search field "Search" and typing keys "#test"
-    Then the user seestitle "#test" is displayed
+    When the user searches with text "#test"
+    Then the user sees text "#test"
 
   @BrianCommentStickerOnFeed
   Scenario: Brian Comments Sticker On Feed

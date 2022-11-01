@@ -23,16 +23,16 @@ Feature: Brian process on album item friends
     Given the user logged in as "test"
     When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/albums"
-    And the user sees search field "Search albums" and typing keys "Album"
+    And the user searches with text "Album"
     And the user want to click on title "itemTitle" and process
-    Then the user seestitle "NewAlbum" is displayed
+    Then the user sees text "NewAlbum"
 
   @AnotherUserSearchAlbumsIsNotFriend
   Scenario: Another User Search Album is not friend
     Given the user logged in as "terry"
     When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/albums"
-    And the user sees search field "Search albums" and typing keys "Album"
+    And the user searches with text "Album"
     Then the user sees text "No albums found "
 
   @BrianShareNowOnAlbumFriendJustAdd
@@ -40,7 +40,7 @@ Feature: Brian process on album item friends
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/albums"
-    And the user sees search field "Search albums" and typing keys "Album"
+    And the user searches with text "Album"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
@@ -50,12 +50,12 @@ Feature: Brian process on album item friends
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
     Then the user sees text "shared a post to newsfeed "
-    Then the user seesa element "NewAlbum" is displayed on detail
+    Then the user sees text "NewAlbum"
 
   @AnotherUserAccessOnBrianProfileAndSeeAlbum
   Scenario: Another user access Brian profile and see Album
     Given the user logged in as "test"
-    Then the user sees search field "Search" and typing keys "brian"
+    Then the user searches with text "brian"
     And the user want to click on "/brian"
     Then the user sees text "shared a post to newsfeed "
 
@@ -63,7 +63,7 @@ Feature: Brian process on album item friends
   Scenario: Brian Delete Album Is Friend
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
-    And the user sees search field "Search albums" and typing keys "Album"
+    And the user searches with text "Album"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process

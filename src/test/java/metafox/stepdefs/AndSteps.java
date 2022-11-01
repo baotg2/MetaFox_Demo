@@ -87,36 +87,6 @@ public class AndSteps extends StepDefinitions {
     }
 
     /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param titleName is title of element
-     * @Author baotg2
-     * @purpose: verify title displayed correct with expected
-     * ------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @And("^the user see title \"([^\"]*)\" is displayed")
-    public void isTitleDisplayed(String titleName) {
-        isComponentVisible.waitElement(By.xpath("//h1[text()='" + titleName + "']"));
-        assertTrue(components.componentH1ItemTitle(titleName).isDisplayed());
-    }
-
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param titleName is title of element
-     * @Author baotg2
-     * @purpose: verify title displayed correct with expected
-     * ------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @And("^the user see title h2 \"([^\"]*)\" is displayed")
-    public void isTitleH2Displayed(String titleName) {
-        isComponentVisible.waitElement(By.xpath("//h2[text()='" + titleName + "']"));
-        assertTrue(components.componentH2ItemTitle(titleName).isDisplayed());
-    }
-
-    /**
      * -------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param itemName is id of div element
@@ -277,7 +247,7 @@ public class AndSteps extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("^the user don't see \"([^\"]*)\" is displayed")
+    @And("^the user don't see \"([^\"]*)\"")
     public void isSearchFormDisplayed(String whatsHappening) throws InterruptedException {
         Thread.sleep(5000);
         assertEquals(components.componentListDivDataTestID(whatsHappening).size(), 0);
@@ -365,23 +335,6 @@ public class AndSteps extends StepDefinitions {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param value value of Categories
-     * @purpose add categories when create/edit item
-     * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @And("the user adds category \"([^\"]*)\"$")
-    public void actionOnCategoriesFiled(String value) {
-        WebElement element = waitUntilDisplayed(Locator.byTestId("inputCategories"));
-
-        element.sendKeys(value);
-        element.sendKeys(Keys.ENTER);
-    }
-
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     *
      * @param value is value of tag
      * @param id    is id of element
      * @purpose input tag when create/edit item
@@ -441,7 +394,7 @@ public class AndSteps extends StepDefinitions {
      * -------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("^the user see \"([^\"]*)\" is displayed$")
+    @And("^the user see \"([^\"]*)\"$")
     public void myBlogIsDisplayed(String myBlogs) {
         isComponentVisible.waitElement(By.xpath("//h2[text()='" + myBlogs + "']"));
         assertEquals(driver.findElement(By.xpath("//h2[text()='" + myBlogs + "']")).getText(), myBlogs);
@@ -489,7 +442,7 @@ public class AndSteps extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("^the user (see|not see) \"([^\"]*)\" is displayed on result table$")
+    @And("^the user (see|not see) \"([^\"]*)\" on result table$")
     public void isSeeMsgText(String status, String msgText) {
         if (status.equals("see")) {
             isComponentVisible.waitElement(By.xpath("//div[@data-testid='noResultFound']"));

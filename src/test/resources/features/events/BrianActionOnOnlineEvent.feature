@@ -11,7 +11,7 @@ Feature:  Brain Process On Online Events
     And the user add value on "select-categories" is "Music"
     And the user want to access "inputIsOnline"
     And the user clicks on button "buttonSubmit"
-    Then the user sees text "Online Link is required." displayed success
+    Then the user sees text "Online Link is required."
 
   @BrianAddNewEventsOnline
   Scenario: Brian Add New Events Events Online
@@ -24,20 +24,20 @@ Feature:  Brain Process On Online Events
     When the user clicks on input field "event_url" with value "URLEvent"
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
-    Then the user seestitle "IsOnlineEvents" is displayed
-    Then the user seesa element "https://zoom.us/" is displayed on detail
+    Then the user sees text "IsOnlineEvents"
+    Then the user sees text "https://zoom.us/"
 
   @BrianOpenLinkOnlineEvents
   Scenario: Brian Open Link Online Events
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user sees search field "Search events" and typing keys "IsOnlineEvents"
+    And the user searches with text "IsOnlineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    Then the user sees text "Your event" displayed success
+    Then the user sees text "Your event"
     And the user want to click on title "itemTitle" and process
-    Then the user seestitle "IsOnlineEvents" is displayed
+    Then the user sees text "IsOnlineEvents"
     When the user clicks on element link text a "https://zoom.us/"
     Then the user want to verify tab "https://zoom.us/" open successfully
 
@@ -46,7 +46,7 @@ Feature:  Brain Process On Online Events
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user sees search field "Search events" and typing keys "IsOnlineEvents"
+    And the user searches with text "IsOnlineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     When the user want to click on button label "Action Menu" and process

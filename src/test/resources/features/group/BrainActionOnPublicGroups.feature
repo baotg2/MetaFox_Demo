@@ -7,8 +7,8 @@ Feature:  Brain Process On Public Groups
     Then the user clicks on "More"
     Then the browser opened at item "group" and tab "/group/add"
     And the user clicks on button "buttonSubmit"
-    Then the user sees text "Group Name is required." displayed success
-    Then the user sees text "Group Privacy is required." displayed success
+    Then the user sees text "Group Name is required."
+    Then the user sees text "Group Privacy is required."
     
   @BrianAddNewGroups
   Scenario: Brian Add New Group
@@ -20,46 +20,46 @@ Feature:  Brain Process On Public Groups
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Public"
     And the user clicks on button "buttonSubmit"
-    Then the user seestitle h2 "GroupTestAuto" is displayed
+    Then Then the user sees text "GroupTestAuto"
 
   @AnotherUserSearchGroup
   Scenario: Another User Search Group
     Given the user logged in as "admin"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user sees search field "Search groups" and typing keys "Groups"
+    And the user searches with text "Groups"
     And the user want to click on title "itemTitle" and process
-    Then the user seestitle h2 "GroupTestAuto" is displayed
+    Then Then the user sees text "GroupTestAuto"
 
   @AnotherUserJoinGroupOnGroupDetail
   Scenario: Another User Join Group
     Given the user logged in as "admin"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user sees search field "Search groups" and typing keys "Groups"
+    And the user searches with text "Groups"
     And the user want to click on title "itemTitle" and process
     When the user want to "Join Group"
     Then the user sees successful flash message
-    Then the user seesbutton "Joined" is displayed
+    Then the user seesbutton "Joined"
 
   @AnotherUserPostOnGroup
   Scenario: Another User Post On Group
     Given the user logged in as "admin"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user sees search field "Search groups" and typing keys "Groups"
+    And the user searches with text "Groups"
     And the user want to click on title "itemTitle" and process
     Then the user "whatsHappening" this item
     And the user add comment "AutoPostStatus1" on blog
     And the user clicks on button "submit"
-    Then the user sees text "AutoPostStatus1" displayed success
+    Then the user sees text "AutoPostStatus1"
 
   @AnotherUserReactionOnGroups
   Scenario: Brain Reaction Group
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user sees search field "Search groups" and typing keys "Groups"
+    And the user searches with text "Groups"
     And the user want to click on title "itemTitle" and process
     And the user clicks on button "reactionButton"
 
@@ -68,20 +68,20 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "admin"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user sees search field "Search groups" and typing keys "Groups"
+    And the user searches with text "Groups"
     And the user want to click on title "itemTitle" and process
     When the user sees text "actionMenu" and click on
     And the user clicks on div "leave_group" and process
-    Then the user sees text "Are you sure you want to leave this group?" displayed success
+    Then the user sees text "Are you sure you want to leave this group?"
     And the user clicks on button "buttonSubmit"
-    Then the user seesbutton "Join Group" is displayed
+    Then the user seesbutton "Join Group"
 
   @AnotherUserJoinGroupOnSlotMain
   Scenario: Another User Join Group
     Given the user logged in as "terry"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user sees search field "Search groups" and typing keys "Groups"
+    And the user searches with text "Groups"
     When the user clicks on the "Join Group" on page
     Then the user sees successful flash message
 
@@ -90,7 +90,7 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user sees search field "Search groups" and typing keys "Groups"
+    And the user searches with text "Groups"
     And the user want to click on title "itemTitle" and process
     When the user sees text "actionMenu" and click on
     And the user "manage" this item
@@ -105,7 +105,7 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "test"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user sees search field "Search groups" and typing keys "Groups"
+    And the user searches with text "Groups"
     When the user clicks on the "Join Group" on page
     Then the user clicks on button "buttonSubmit"
 
@@ -114,7 +114,7 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user sees search field "Search groups" and typing keys "Groups"
+    And the user searches with text "Groups"
     And the user want to click on title "itemTitle" and process
     When the user sees text "actionMenu" and click on
     And the user "manage" this item
@@ -123,13 +123,13 @@ Feature:  Brain Process On Public Groups
     When the user clicks on check box "checkbox"
     And the user clicks on "Membership Questions"
     When the user want to "Delete"
-    Then the user sees text "Are you sure you want to permanently delete this question?" displayed success
+    Then the user sees text "Are you sure you want to permanently delete this question?"
     And the user want to "OK"
     And I want to click on "Logout"
     Given the user logged in as "terry"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user sees search field "Search groups" and typing keys "Groups"
+    And the user searches with text "Groups"
     And the user want to click on title "itemTitle" and process
     Then the user "whatsHappening" this item
     And the user add comment "AutoPostStatus" on blog
@@ -145,10 +145,10 @@ Feature:  Brain Process On Public Groups
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user sees search field "Search groups" and typing keys "Groups"
+    And the user searches with text "Groups"
     And the user want to click on title "itemTitle" and process
     When the user sees text "actionMenu" and click on
     And  the user clicks on menu item "delete"
-    Then the user sees text "Are you sure you want to delete this group permanently?" displayed success
+    Then the user sees text "Are you sure you want to delete this group permanently?"
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message

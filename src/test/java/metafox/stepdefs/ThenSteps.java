@@ -73,7 +73,7 @@ public class ThenSteps extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see error message \"([^\"]*)\" is displayed$")
+    @Then("^the user see error message \"([^\"]*)\"$")
     public boolean isErrMsgDisplayed(String mss) {
         isComponentVisible.waitElement(By.xpath("//p[text() ='" + mss + "']"));
         assertEquals(driver.findElement(By.xpath("//p[text() ='" + mss + "']")).getText(), mss);
@@ -244,7 +244,7 @@ public class ThenSteps extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see page \"([^\"]*)\" is displayed")
+    @Then("^the user see page \"([^\"]*)\"")
     public String getURL(String currentURL) {
         assertTrue(driver.getCurrentUrl().contains(currentURL));
         return currentURL;
@@ -259,7 +259,7 @@ public class ThenSteps extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see button \"([^\"]*)\" is displayed$")
+    @Then("^the user see button \"([^\"]*)\"$")
     public void isButtonDisplayed(String buttonName) {
         isComponentVisible.waitElement(By.xpath("//button[text()='" + buttonName + "']"));
         assertTrue(components.componentButtonText(buttonName).isDisplayed());
@@ -289,7 +289,7 @@ public class ThenSteps extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see main form \"([^\"]*)\" is displayed$")
+    @Then("^the user see main form \"([^\"]*)\"$")
     public void seeMainForm(String formValue) {
         isComponentVisible.waitElement(By.xpath("//form[@data-testid ='form']"));
         assertTrue(components.componentMainFormDataTestID(formValue).isDisplayed());
@@ -320,7 +320,7 @@ public class ThenSteps extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see label of action \"([^\"]*)\" is displayed$")
+    @Then("^the user see label of action \"([^\"]*)\"$")
     public void seeLabelAction(String spanValue) {
         isComponentVisible.waitElement(By.xpath("//span[@data-testid='" + spanValue + "']"));
         components.componentSpanDataTestID(spanValue).isDisplayed();
@@ -336,7 +336,7 @@ public class ThenSteps extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see \"([^\"]*)\" displayed success$")
+    @Then("^the user see \"([^\"]*)\"$")
     public void isStatusVisible(String statusContent) {
         isComponentVisible.waitElement(By.xpath("//p[text() = '" + statusContent + "']"));
         assertTrue(components.componentPText(statusContent).isDisplayed());
@@ -351,7 +351,7 @@ public class ThenSteps extends StepDefinitions {
      * -------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see  tab \"([^\"]*)\" displayed success$")
+    @Then("^the user see  tab \"([^\"]*)\"$")
     public void isTabDisplayedSuccess(String text) {
         isComponentVisible.waitElement(By.xpath("//h3[text()='" + text + "']"));
         assertEquals(components.componentH3ItemTitle(text).getText(), text);
@@ -458,7 +458,7 @@ public class ThenSteps extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------
      * @since 10-06-2022
      */
-    @Then("^the user see id button \"([^\"]*)\" is displayed$")
+    @Then("^the user see id button \"([^\"]*)\"$")
     public void isButtonIdDisplayed(String buttonName) {
         isComponentVisible.waitElement(By.xpath("//button[@data-testid ='" + buttonName + "']"));
         assertTrue(components.componentButtonDataTestID(buttonName).isDisplayed());
@@ -531,16 +531,16 @@ public class ThenSteps extends StepDefinitions {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param linkText is value want to verify
+     * @param text is value want to verify
      * @purpose see topic link text is displayed
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see a element \"([^\"]*)\" is displayed on detail")
-    public void isThreadDisplayedOnDetail(String linkText) {
-        isComponentVisible.waitElement(By.xpath("//a[text()='" + linkText + "']"));
-        assertTrue(components.componentTextLink(linkText).isDisplayed());
+    @Then("the user see an element {string}")
+    public void isThreadDisplayedOnDetail(String text) {
+        isComponentVisible.waitElement(By.xpath("//a[text()='" + text + "']"));
+        assertTrue(components.componentTextLink(text).isDisplayed());
     }
 
     /**
@@ -552,7 +552,7 @@ public class ThenSteps extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see h4 \"([^\"]*)\" is displayed$")
+    @Then("^the user see h4 \"([^\"]*)\"$")
     public void isH4TextDisplayed(String textValue) {
         isComponentVisible.waitElement(By.xpath("//h4[text()='" + textValue + "']"));
         assertTrue(components.componentH4Text(textValue).isDisplayed());
@@ -581,7 +581,7 @@ public class ThenSteps extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see img \"([^\"]*)\" is displayed")
+    @Then("^the user see img \"([^\"]*)\"")
     public void isImageDisplayedOnDetail(String imgSrc) {
         isComponentVisible.waitElement(By.xpath("//img[@data-testid='imgLogo']"));
         assertTrue(components.componentImg("imgLogo").getAttribute("src").contains(imgSrc));
@@ -596,7 +596,7 @@ public class ThenSteps extends StepDefinitions {
      * --------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user verify button test data id \"([^\"]*)\" is displayed$")
+    @Then("^the user verify button test data id \"([^\"]*)\"$")
     public void isButtonTestDataIdDisplayed(String buttonTestDataID) {
         assertEquals(components.componentListButtonDataTestID(buttonTestDataID).size(), 0);
     }
