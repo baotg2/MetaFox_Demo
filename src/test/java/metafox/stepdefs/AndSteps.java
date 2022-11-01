@@ -107,7 +107,7 @@ public class AndSteps extends StepDefinitions {
      *
      * @param reactionName is id of span element
      * @Author baotg2
-     * @purpose: the user seesresult after reaction
+     * @purpose: the user sees result after reaction
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
@@ -122,7 +122,7 @@ public class AndSteps extends StepDefinitions {
      *
      * @param buttonName is id of div element
      * @Author baotg2
-     * @purpose: the user seesphoto of who want to delete photo
+     * @purpose: the user sees photo of who want to delete photo
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
@@ -138,7 +138,7 @@ public class AndSteps extends StepDefinitions {
      *
      * @param buttonName is id of div element
      * @Author baotg2
-     * @purpose: the user seesphoto of who want to delete photo
+     * @purpose: the user sees photo of who want to delete photo
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */

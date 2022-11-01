@@ -20,7 +20,7 @@ Feature: Brian process on photos item
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user sees item of "Brian"
     And the user clicks on button "reactionButton"
-    Then the user seesresult of "reactionResult" displayed
+    Then the user sees result of "reactionResult" displayed
 
   @BrianDeletePhoto
   Scenario: Brian Delete Photo
@@ -73,7 +73,7 @@ Feature: Brian process on photos item
     And the user opens action menu
     And the user clicks on "Feature"
     Then the user sees successful flash message
-    Then the user seeslabel of action "featured"
+    Then the user sees label of action "featured"
 
   @BrianUnFeaturePhotos
   Scenario: Brain UnFeature Photos

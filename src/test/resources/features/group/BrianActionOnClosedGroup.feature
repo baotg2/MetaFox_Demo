@@ -11,7 +11,7 @@ Feature:  Brain Process On Closed Groups
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Closed"
     And the user clicks on button "buttonSubmit"
-    Then Then the user sees text "TestAutoClosedGroup"
+    Then the user sees text "TestAutoClosedGroup"
 
   @AnotherUserSearchClosedGroup
   Scenario: Another User Search Group
@@ -20,7 +20,7 @@ Feature:  Brain Process On Closed Groups
     Then the browser opened at item "group" and tab ""
     And the user searches with text "TestAutoClosedGroup"
     And the user want to click on title "itemTitle" and process
-    Then Then the user sees text "TestAutoClosedGroup"
+    Then the user sees text "TestAutoClosedGroup"
 
   @BrianApproveAnotherUserJoinClosedGroup
   Scenario: Brian Approve Another User Join Closed Group
@@ -30,7 +30,7 @@ Feature:  Brain Process On Closed Groups
     And the user searches with text "TestAutoClosedGroup"
     And the user want to click on title "itemTitle" and process
     When the user want to "Join Group"
-    Then the user seesbutton "Pending Request"
+    Then the user sees button "Pending Request"
     And I want to click on "Logout"
     Given the user logged in as "brian"
     When the user "new_notification" this item
@@ -42,7 +42,7 @@ Feature:  Brain Process On Closed Groups
     Given the user logged in as "terry"
     Then the user "new_notification" this item
     And the user clicks on notification "An admin has approved your request to join the group." and process
-    Then the user seesbutton "Joined"
+    Then the user sees button "Joined"
 
   @BrianDeleteClosedGroup
   Scenario: Brian Delete Closed Group

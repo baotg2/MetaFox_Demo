@@ -19,8 +19,8 @@ Feature: Config Settings On ACP Feed
   Scenario: Brain Verify Settings Feed On ACP
     Given the user logged in as "brian"
     When the user "whatsHappening" this item
-    Then the user seesid button "buttonAttachLocation"
-    Then the user seesid button "statusTagFriendsButton"
+    Then the user sees id button "buttonAttachLocation"
+    Then the user sees id button "statusTagFriendsButton"
     And the user add comment "<autoPost>" on blog
     And the user clicks on button "submit"
     When the user "whatsHappening" this item

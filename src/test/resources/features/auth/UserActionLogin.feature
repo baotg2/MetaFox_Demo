@@ -38,7 +38,7 @@ Feature: Verify login pHpFox success
     Then the user searches with text "brian"
     And the user clicks on element link text a "Brian"
     And the user want to "Confirm"
-    Then the user seesbutton "Unfriend"
+    Then the user sees button "Unfriend"
 
   @BrainAddFriendWithTest
   Scenario: Brain Add Friend
@@ -52,4 +52,4 @@ Feature: Verify login pHpFox success
     Then the user searches with text "brian"
     And the user clicks on element link text a "Brian"
     And the user want to "Confirm"
-    Then the user seesbutton "Unfriend"
+    Then the user sees button "Unfriend"

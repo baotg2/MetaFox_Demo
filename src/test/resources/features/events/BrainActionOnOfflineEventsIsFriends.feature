@@ -64,7 +64,7 @@ Feature: Brain Process On Public Events Is Friends
     Then the user sees successful flash message
     And the user back to "linkLogo" page
     Then the user sees text "shared a post to newsfeed "
-    Then the user seesh4 "IsOfflineEvents"
+    Then the user sees h4 "IsOfflineEvents"
 
 
   @AnotherUserAccessOnBrianProfileAndSeeEvents

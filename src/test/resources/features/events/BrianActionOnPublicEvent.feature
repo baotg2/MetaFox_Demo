@@ -43,7 +43,7 @@ Feature:  Brain Process On Public Events
     When the user want to access "userAvatar"
     Then the user sees text "added an event "
     Then the user sees text "1 person going"
-    And the user seesh4 "IsOfflineEvents"
+    And the user sees h4 "IsOfflineEvents"
 
   @BrainSeeOnGoingOnEventJustCreated
   Scenario: Brain See OnGoing On EventsOffline
@@ -134,7 +134,7 @@ Feature:  Brain Process On Public Events
     And the user want to "All Hosts"
     And the user want to "Invited"
     Then the user sees text "test" on invited tab
-    And the user seesbutton "Cancel Invite"
+    And the user sees button "Cancel Invite"
     When the user clicks on button "buttonClose"
     And I want to click on "Logout"
     Given the user logged in as "test"
@@ -193,7 +193,7 @@ Feature:  Brain Process On Public Events
     Given the user logged in as "admin"
     When the user "new_notification" this item
     Then the user clicks on notification "Brian invited you to the event IsOfflineEvents" and process
-    Then the user seesbutton "Not Interested" is default
+    Then the user sees button "Not Interested" is default
     When the user want to click on button label "Not Interested" and process
     And the user access this blog by "Going" and process
     Then the user sees successful flash message
@@ -215,7 +215,7 @@ Feature:  Brain Process On Public Events
     Then the user sees successful flash message
     And the user back to "linkLogo" page
     Then the user sees text "shared a post to newsfeed "
-    Then the user seesh4 "IsOfflineEvents"
+    Then the user sees h4 "IsOfflineEvents"
 
   @BrianShareOnFeedEvents
   Scenario: Brian Share On Feed Events
@@ -232,7 +232,7 @@ Feature:  Brain Process On Public Events
     Then the user sees successful flash message
     And the user back to "linkLogo" page
     Then the user sees text "shared a post to newsfeed "
-    Then the user seesh4 "IsOfflineEvents"
+    Then the user sees h4 "IsOfflineEvents"
 
   @BrianShareEventsOnFriendProfile
   Scenario: Brian Share On Events On Friend Profile
@@ -249,4 +249,4 @@ Feature:  Brain Process On Public Events
     And the user clicks on button "submit"
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
-    Then the user seesh4 "IsOfflineEvents"
+    Then the user sees h4 "IsOfflineEvents"

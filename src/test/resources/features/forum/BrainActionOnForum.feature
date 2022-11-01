@@ -65,7 +65,7 @@ Feature:  Brian process on Forum
    And the user want to click on title "itemTitle" and process
    Then the user sees text "IsThreadAutotest"
    And the user clicks on button "reactionButton"
-   Then the user seeslabel of action "reactionResult"
+   Then the user sees label of action "reactionResult"
 
   @BrianEditThread
   Scenario: Brain Edit Thread

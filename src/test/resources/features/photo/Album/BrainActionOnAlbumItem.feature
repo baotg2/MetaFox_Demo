@@ -41,7 +41,7 @@ Feature: Brian process on album item
     And the user sees text "All Albums"
     And the user clicks on div "itemMedia" and process
     And the user clicks on button "reactionButton"
-    Then the user seesresult of "reactionResult" displayed
+    Then the user sees result of "reactionResult" displayed
 
   @BrianEditAlbum
   Scenario: Brian Edit On Album

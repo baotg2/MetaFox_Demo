@@ -8,7 +8,7 @@ Feature:  Non TearDown Data On Site
     Then the browser opened at item "blog" and tab "/blog/add"
     Then the user adds title with value "Brit + Co"
     Then the user want to add photo
-    And the user add description on items "Blog"
+    And the user adds description
     And the user adds a category
     And the user adds a tag
     And the user clicks on button "buttonSubmit"
@@ -23,10 +23,10 @@ Feature:  Non TearDown Data On Site
     And the user clicks on input field "name" with value "IMPROVING EDUCATION AND LIVES"
     And the user add value on "select-type_id" is "School"
     When the user want to select category at 1 on dropdown list "select-type_id"
-    And the user add description on items "Group"
+    And the user adds description
     And the user add value on "select-reg_method" is "Public"
     And the user clicks on button "buttonSubmit"
-    Then Then the user sees text "IMPROVING EDUCATION AND LIVES"
+    Then the user sees text "IMPROVING EDUCATION AND LIVES"
     And the user want upload 1 photo
     And the user want to "Save"
     Then the user sees successful flash message
@@ -39,7 +39,7 @@ Feature:  Non TearDown Data On Site
     And the user clicks on input field "question" with value "Welcome!What are you looking for today?"
     And the user add value "Something from the LS Lowry Range" on element "1"
     And the user add value "Nothing just browsing" on element "2"
-    And the user add description on items "Polls"
+    And the user adds description
     When the user select type "Public votes"
     And the user select type "Allow multiple choices"
     And the user clicks on button "buttonSubmit"
@@ -52,7 +52,7 @@ Feature:  Non TearDown Data On Site
     And the user want upload 2 photo
     And the user clicks on button "add_new_album"
     When the user clicks on input field "new_album.name" with value "Notebook Mini Album"
-    And the user add description on items "Album"
+    And the user adds description
     And the user clicks on button "buttonSubmit"
     And the user sees successful flash message
     And the user back to "linkLogo" page
@@ -77,7 +77,7 @@ Feature:  Non TearDown Data On Site
     And the user add value on id "select-forum_id" is "General"
     When the user want to select category at 1 on dropdown list "select-forum_id"
     And the user adds title with value "AngryBirdsNest"
-    And the user add description on items "Forum"
+    And the user adds description
     And the user adds a tag
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
@@ -122,7 +122,7 @@ Feature:  Non TearDown Data On Site
     And the user searches with text "Notebook Mini Album"
     And the user want to click on title "itemTitle" and process
     And the user clicks on button "reactionButton"
-    Then the user seesresult of "reactionResult" displayed
+    Then the user sees result of "reactionResult" displayed
     When the user clicks on button "commentButton"
     And the user add comment "Amazing write-ups" on blog
     Then the user sees text "Amazing write-ups"

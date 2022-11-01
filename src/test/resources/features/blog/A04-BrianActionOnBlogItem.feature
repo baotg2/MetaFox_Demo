@@ -172,7 +172,7 @@ Feature:  Brian process on blogs app
     And the user opens action menu
     And the user clicks on "Feature"
     Then the user sees successful flash message
-    Then the user seeslabel of action "featured"
+    Then the user sees label of action "featured"
 
 
   Scenario: Brain UnFeature Blogs

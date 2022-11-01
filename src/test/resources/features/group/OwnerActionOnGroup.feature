@@ -11,7 +11,7 @@ Feature:  Owner Action On Public Groups
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Public"
     And the user clicks on button "buttonSubmit"
-    Then Then the user sees text "GroupTestAuto"
+    Then the user sees text "GroupTestAuto"
 
   @OwnerChangeCoverImage
   Scenario: Owner Change Cover Image

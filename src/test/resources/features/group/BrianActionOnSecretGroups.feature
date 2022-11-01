@@ -11,7 +11,7 @@ Feature:  Brain Process On Secret Groups
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Secret"
     And the user clicks on button "buttonSubmit"
-    Then Then the user sees text "TestAutoSecretGroup"
+    Then the user sees text "TestAutoSecretGroup"
 
   @AnotherUsersearchesecretGroup
   Scenario: Another User Search Group
@@ -40,7 +40,7 @@ Feature:  Brain Process On Secret Groups
     Then the user clicks on notification "TestAutoSecretGroup" and process
     When the user "Accept Invite" on invite
     Then the user sees successful flash message
-    Then the user seesbutton "Joined"
+    Then the user sees button "Joined"
 
   @AnotherUserLeaveSecretGroup
   Scenario: Another user leave secret group
