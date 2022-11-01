@@ -22,19 +22,29 @@ public class Locator {
         put("action menu", "action menu");
     }};
 
-    public static String selectTestId(String testId) {
-        return String.format("//*[@data-testid='%s']", testId);
+    final private static Pattern pattern = Pattern.compile("^By\\.\\w+:\\s*");
+
+    private static String xpath(String tagName, String testId) {
+        return String.format("//%s[@data-testid='%s']", tagName, testId);
     }
 
     public static String selectTestId(By context, By by) {
-        String selector = String.format("%s%s", transformByToString(context), transformByToString(by));
+        String selector = String.format("%s%s", transform(context), transform(by));
 
         LOGGER.warn("selectTestId {}", selector);
         return selector;
     }
 
     public static String selectTestId(By context, By by, By by2) {
-        String selector = String.format("%s%s%s", transformByToString(context), transformByToString(by), transformByToString(by2));
+        String selector = String.format("%s%s%s", transform(context), transform(by), transform(by2));
+
+        LOGGER.warn("selectTestId {}", selector);
+        return selector;
+    }
+
+
+    public static String selectTestId(By context, By by, By by2, By by3) {
+        String selector = String.format("%s%s%s%s", transform(context), transform(by), transform(by2), transform(by3));
 
         LOGGER.warn("selectTestId {}", selector);
         return selector;
@@ -42,7 +52,11 @@ public class Locator {
 
 
     public static By byTestId(String testId) {
-        return By.xpath(selectTestId(testId));
+        return By.xpath(xpath("*", testId));
+    }
+
+    public static By byTestId(String tagName, String testId) {
+        return By.xpath(xpath(tagName, testId));
     }
 
     public static By byDataValue(int value) {
@@ -52,8 +66,13 @@ public class Locator {
     public static By byTestId(By context, By by1) {
         return By.xpath(selectTestId(context, by1));
     }
+
     public static By byTestId(By context, By by1, By by2) {
         return By.xpath(selectTestId(context, by1, by2));
+    }
+
+    public static By byTestId(By context, By by1, By by2, By by3) {
+        return By.xpath(selectTestId(context, by1, by2, by3));
     }
 
     public static By byRole(String role) {
@@ -61,14 +80,23 @@ public class Locator {
     }
 
     public static By bySection(String name) {
-        return By.xpath(selectTestId(Identity.get(name)));
+        return By.xpath(xpath("div", Identity.get(name)));
     }
 
-    public static String sectionTestId(String name) {
-        return Identity.get(name);
+    public static By byTagName(String tag) {
+        return By.xpath(String.format("//%s", tag));
     }
 
-    private static String transformByToString(By by) {
-        return Pattern.compile("^By\\.\\w+:\\s*").matcher(by.toString()).replaceFirst("");
+
+    private static String transform(By by) {
+        return pattern.matcher(by.toString()).replaceFirst("");
+    }
+
+    public static By byText(String text) {
+        return byText("*", text);
+    }
+
+    public static By byText(String tagName, String text) {
+        return By.xpath(String.format("//%s[contains(text(), '%s')]", tagName, text.trim()));
     }
 }

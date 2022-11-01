@@ -15,7 +15,7 @@ Feature: Verify access side menu success
   Scenario Outline: Brain Post Status On Feed
     Given the user logged in as "brian"
     Then the user "whatsHappening" this item
-    And the user add comment "<autoPost>" on blog
+    And the user add comment "<autoPost>"
     And the user clicks on button "submit"
     Then the user sees successful flash message
     Then the user sees text "<autoPost>"

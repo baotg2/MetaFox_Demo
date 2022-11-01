@@ -35,7 +35,6 @@ Feature:  Brian process on blogs is OnlyMe
     And the user opens action menu
 
 
-  @BrainDeleteBlogsOnlyMeJustAdded
   Scenario: Brain Delete Blog OnlyMe Just Added
     Given the user logged in as "brian"
     And the browser opened at "/blog"
@@ -44,6 +43,8 @@ Feature:  Brian process on blogs is OnlyMe
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user opens action menu
+    # verify
+    Given within the content
     And  the user clicks on menu item "delete"
     And the user accepts the confirm
     Then the user sees successful flash message

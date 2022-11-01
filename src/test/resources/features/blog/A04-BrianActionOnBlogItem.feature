@@ -24,8 +24,13 @@ Feature:  Brian process on blogs app
     When the user searches with text "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
+    # verify
+    Given within the content
     And the user clicks on the item title
-    And the user add comment "test comment" on blog
+    Then the user sees page url matches "/blog/\d+"
+    # verify
+    Given within the content
+    When the user add comment "test comment"
     Then the user sees text "test comment"
 
   Scenario: Brain Reaction On This Blog
@@ -35,6 +40,7 @@ Feature:  Brian process on blogs app
     When the user searches with text "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
+    And within the content
     And the user clicks on the item title
     And the user clicks on button "reactionButton"
 
@@ -90,43 +96,37 @@ Feature:  Brian process on blogs app
 
   Scenario: Brian Edit His Blog
     Given the user logged in as "brian"
-    And the browser opened at "/"
-    When the user clicks on "More"
-    Then the browser opened at item "blog" and tab "/blog/my"
+    And the browser opened at "/blog/my"
+    And within the content
     And the user sees text "My Blogs"
     When the user opens action menu
     And the user clicks on "edit"
-    Then the user sees main form "form"
+    Then the user sees page url matches "/blog/edit/\d+"
+    And within the main form
     And the user adds title with value "Auto Test New Blogs Name"
     And the user submits the form
-    Then the user sees successful flash message
-
+    Then the user sees page url matches "/blog/\d+"
+    And the user sees successful flash message
 
   Scenario: Brain Delete Blog Just Added
     Given the user logged in as "brian"
-    And the browser opened at "/"
-    When the user clicks on "More"
-    Then the browser opened at item "blog" and tab ""
+    And the browser opened at "/blog"
+    And within the sidebar
     And the user searches with text "Auto Test New Blogs Name"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
+    Given within the content
     And the user opens action menu
     And  the user clicks on menu item "delete"
-    And the user clicks on button "buttonSubmit"
+    And the user accepts the confirm
     Then the user sees successful flash message
-    Then the user sees text "No blogs are found. "
 
 
   Scenario: Brian Add New Blog And Save As Draft
     Given the user logged in as "brian"
-    And the browser opened at "/"
-    When the user clicks on "More"
-    Then the browser opened at item "blog" and tab "/blog/add"
+    And the browser opened at "/blog/add"
     Then the user adds title with value "BlogName"
     And the user adds description
-    And the user attaches a photo
-    And the user adds a category
-    And the user adds a tag
     And the user clicks on button "buttonDraft"
     Then the user sees successful flash message
     Then the user verify title of blog is displayed

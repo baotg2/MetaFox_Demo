@@ -43,7 +43,6 @@ public class WebDriverFactory {
                 }
             }
         }
-
         return instance;
     }
 
@@ -102,9 +101,11 @@ public class WebDriverFactory {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("use-fake-device-for-media-stream");
         options.addArguments("use-fake-ui-for-media-stream");
-        options.addArguments("use-fake-ui-for-media-stream");
-        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--window-size=1440,980");
         options.setHeadless(isHeadless());
+        options.setAcceptInsecureCerts(true);
+        // read from system env.
+//        options.setBinary("/usr/local/bin/chromedriver");
 
         Map<String, Object> prefs = new HashMap<String, Object>();
         prefs.put("profile.default_content_setting_values.media_stream_mic", 1);

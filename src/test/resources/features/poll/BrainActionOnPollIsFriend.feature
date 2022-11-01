@@ -56,7 +56,7 @@ Feature:  Brian process on multiple choice polls is friend
     Then the user searches with text "brian"
     And the user want to click on "/brian"
     Then the user sees text "shared a post to newsfeed "
-    Then the user sees text "Owner of this post has limited who can view this post. "
+    Then the user sees text "The post owner has limited who can view this post"
 
   @BrainDeletePollsIsFriendJustAdded
   Scenario: Brain Delete Polls Is Friend Just Added

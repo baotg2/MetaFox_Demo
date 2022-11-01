@@ -1,4 +1,4 @@
-@app_blog @user_admin
+@app_blog @user_admin @focus
 Feature:  Admin process on blogs app
 
   Scenario: Admin can add a new blog
@@ -28,11 +28,12 @@ Feature:  Admin process on blogs app
     And the user sees confirm popup
     And the user rejects the confirm
     # chain accept
+    Given within the content
     When the user opens action menu
     And the user clicks on menu item "delete"
     And the user sees confirm popup
     And the user accepts the confirm
-
+    Then the user sees successful flash message
 
   Scenario: Admin can delete a blog item
     Given the user logged in as "admin"

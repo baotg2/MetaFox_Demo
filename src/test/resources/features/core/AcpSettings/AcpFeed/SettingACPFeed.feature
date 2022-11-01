@@ -21,9 +21,9 @@ Feature: Config Settings On ACP Feed
     When the user "whatsHappening" this item
     Then the user sees id button "buttonAttachLocation"
     Then the user sees id button "statusTagFriendsButton"
-    And the user add comment "<autoPost>" on blog
+    And the user add comment "<autoPost>"
     And the user clicks on button "submit"
     When the user "whatsHappening" this item
-    And the user add comment "<autoPost>" on blog
+    And the user add comment "<autoPost>"
     And the user clicks on button "submit"
     Then the user sees text "You have already added this recently. Try adding something else."

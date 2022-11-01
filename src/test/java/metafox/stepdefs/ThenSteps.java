@@ -1,6 +1,7 @@
 package metafox.stepdefs;
 
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
 import metafox.support.Locator;
 import metafox.support.Utility;
@@ -215,24 +216,27 @@ public class ThenSteps extends StepDefinitions {
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param comment content want to comment
+     * @param text content want to comment
      * @purpose add comment on items
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user add comment \"([^\"]*)\" on blog$")
-    public void addComment(String comment) throws InterruptedException {
-        //isComponentVisible.waitElement(By.xpath("//div[@role='combobox']"));
-        if (components.componentListDivDataTestID("fieldStatus").size() != 0) {
-            driver.findElement(By.xpath("//div[@data-testid='fieldStatus']//div[@role ='combobox']")).sendKeys(comment);
-        } else {
-            components.componentDivRole("combobox").sendKeys(comment);
-            components.componentDivRole("combobox").sendKeys(Keys.ENTER);
-        }
-        Thread.sleep(2000);
-//        isComponentVisible.waitElement( By.xpath( "//p[text() = '" + comment + "']" ) );
-//        assertTrue( components.componentPText( comment ).isDisplayed() );
+    @When("^the user add comment \"([^\"]*)\"$")
+    public void addComment(String text) throws InterruptedException {
+        By section = getSectionContext();
+        WebElement commentBox = waitUntilDisplayed(section, Locator.byRole("combobox"));
+        assertTrue(commentBox.isDisplayed());
+        commentBox.sendKeys(text);
+        commentBox.sendKeys(Keys.ENTER);
+        verifyCommentAdded(text);
+    }
+
+    public void verifyCommentAdded(@Nonnull String text) {
+        By section = getSectionContext();
+        WebElement commentBox = waitUntilDisplayed(section, Locator.byTestId("comment"), Locator.byText("p", text));
+
+        assertTrue(commentBox.isDisplayed());
     }
 
     /**
@@ -627,7 +631,7 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("the user sees text {string}")
     public void theUserSeesTextContains(@Nonnull String text) {
-        WebElement element = waitUntilDisplayed(getSectionContext(), By.linkText(String.format("//*[contains(text(),\"%s\"]",text)));
+        WebElement element = waitUntilDisplayed(getSectionContext(), By.linkText(String.format("//*[contains(text(),'%s')]", text.trim())));
         assertTrue(element.isDisplayed());
     }
 }

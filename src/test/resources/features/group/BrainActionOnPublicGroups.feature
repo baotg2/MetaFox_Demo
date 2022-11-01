@@ -50,7 +50,7 @@ Feature:  Brain Process On Public Groups
     And the user searches with text "Groups"
     And the user clicks on the item title
     Then the user "whatsHappening" this item
-    And the user add comment "AutoPostStatus1" on blog
+    And the user add comment "AutoPostStatus1"
     And the user clicks on button "submit"
     Then the user sees text "AutoPostStatus1"
 
@@ -132,7 +132,7 @@ Feature:  Brain Process On Public Groups
     And the user searches with text "Groups"
     And the user clicks on the item title
     Then the user "whatsHappening" this item
-    And the user add comment "AutoPostStatus" on blog
+    And the user add comment "AutoPostStatus"
     And the user clicks on button "submit"
     And I want to click on "Logout"
     Given the user logged in as "brian"

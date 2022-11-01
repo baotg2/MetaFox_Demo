@@ -5,7 +5,6 @@ import metafox.pageobjects.Components;
 import metafox.support.DataProvider;
 import metafox.support.IsComponentVisible;
 import metafox.support.Locator;
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -34,7 +33,7 @@ public class StepDefinitions {
 
     protected String currentUrlValue;
 
-    protected static final Logger LOGGER = LoggerFactory.getLogger(StepDefinitions.class);
+    protected static final Logger LOGGER = LoggerFactory.getLogger("Steps");
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------
@@ -94,18 +93,20 @@ public class StepDefinitions {
     }
 
     public WebElement waitUntilDisplayed(@Nonnull By by) {
-        return new WebDriverWait(driver, Duration.ofSeconds(15))
+        return new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
-    public WebElement waitUntilDisplayed(@NotNull By context, @Nonnull By by1) {
-        return new WebDriverWait(driver, Duration.ofSeconds(15))
-                .until(ExpectedConditions.visibilityOfElementLocated(Locator.byTestId(context, by1)));
+    public WebElement waitUntilDisplayed(@Nonnull By context, @Nonnull By by1) {
+        return waitUntilDisplayed(Locator.byTestId(context, by1));
     }
 
-    public WebElement waitUntilDisplayed(@NotNull By context, @Nonnull By by1, @Nonnull By by2) {
-        return new WebDriverWait(driver, Duration.ofSeconds(15))
-                .until(ExpectedConditions.visibilityOfElementLocated(Locator.byTestId(context, by1, by2)));
+    public WebElement waitUntilDisplayed(@Nonnull By context, @Nonnull By by1, @Nonnull By by2) {
+        return waitUntilDisplayed(Locator.byTestId(context, by1, by2));
+    }
+
+    public WebElement waitUntilDisplayed(@Nonnull By context, @Nonnull By by1, @Nonnull By by2, @Nonnull By by3) {
+        return waitUntilDisplayed(Locator.byTestId(context, by1, by2, by3));
     }
 
     public void waitUntilInvisible(@Nonnull By testId) {
@@ -114,11 +115,11 @@ public class StepDefinitions {
     }
 
 
-    public By getMenuContext() {
+    public @Nonnull By getMenuContext() {
         return CucumberTestRunner.getManagedWebDriver().getMenuContext();
     }
 
-    public By getSectionContext() {
+    public @Nonnull By getSectionContext() {
         return CucumberTestRunner.getManagedWebDriver().getSectionContext();
     }
 
