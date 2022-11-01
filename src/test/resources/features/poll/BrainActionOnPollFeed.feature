@@ -4,7 +4,7 @@ Feature:  Brian process polls on feed
   @BrianAddNewPollOnFeed
   Scenario: Brian Add New Poll On Feed
     Given the user logged in as "brian"
-    When the user click on button "buttonAttachPoll"
+    When the user clicks on button "buttonAttachPoll"
     And the user see "New poll" is displayed on user profile
     And the user action on input field "question" with value "Polls"
     And the user add value "Yes" on element "1"
@@ -33,5 +33,5 @@ Feature:  Brian process polls on feed
     When the user want to click on button label "Action Menu" and process
     And the user action on "Delete"
     Then the user see "Are you sure you want to permanently delete this poll?" displayed success
-    And the user click on button "buttonSubmit"
-    #Then the user see message "No polls found" displayed
+    And the user clicks on button "buttonSubmit"
+    #Then the user sees flash message "No polls found" displayed

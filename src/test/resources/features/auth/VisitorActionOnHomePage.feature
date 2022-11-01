@@ -25,14 +25,14 @@ Feature: Verify Visitor Process on Sign Up
     And the user input info sign up "Choose a Username" with value "TestAutoExistEmail"
     And the user action on input field "password" with value "123456"
     And the user click on check box "checkbox"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see error message "The email has already been taken." is displayed
 
   @VisitorSignUpWithEmptyValue
   Scenario: Visitor SignUp With Empty Value
     Given the browser opened at "/"
     Given the user want to click on "register"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see error message "First Name is required." is displayed
     Then the user see error message "Last Name is required." is displayed
     Then the user see error message "Full Name is required." is displayed
@@ -58,7 +58,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user input info sign up "Choose a Username" with value "admin"
     And the user action on input field "password" with value "123456"
     And the user click on check box "checkbox"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see error message "The user name has already been taken." is displayed
 
   @VisitorRegisterNewAccountWithShortPassword
@@ -72,7 +72,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user input info sign up "Choose a Username" with value "TestAuto1"
     And the user action on input field "password" with value "cv"
     And the user click on check box "checkbox"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see error message "Your password must be at least 6 characters long. Please try another." is displayed
 
   @VisitorRegisterNewAccountWithSpaceOnPasswordField
@@ -86,5 +86,5 @@ Feature: Verify Visitor Process on Sign Up
     And the user input info sign up "Choose a Username" with value "TestAuto1"
     And the user action on input field "password" with value " "
     And the user click on check box "checkbox"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see error message "The password is required." is displayed

@@ -12,10 +12,9 @@ on:
 env:
   BROWSERSTACK_USERNAME: ${{secrets.BROWSERSTACK_USERNAME}}
   BROWSERSTACK_ACCESS_KEY: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
-  ALLURE_SERVER: https://cloudcall-s01.phpfox.com/allure-docker-service
-  ALLURE_PROJECT: metafox-e2e-dev
+  ALLURE_SERVER: https://cloudcall-s01.phpfox.com
+  ALLURE_PROJECT: default
   BASE_URL: https://dev-foxsocial.phpfox.us/
-  TEST_TAGS: '@MetaFox'
 
 jobs:
   build:
@@ -32,7 +31,7 @@ jobs:
 
       - name: Test
         run: |
-          mvn test -Dcucumber.options="src/test/java/pHpFox/feature" -Dcucumber.filter.tags="${{env.TEST_TAGS}}"
+          mvn test -Dcucumber.filter.tags=""
       - name: Send allure results
         if: always()
         run: bash ./send_results.sh

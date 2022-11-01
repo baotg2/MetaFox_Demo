@@ -2,7 +2,7 @@
   "server": "hub.browserstack.com",
   "capabilities": {
     "bstack:options": {
-      "buildName": "metafox-e2e",
+      "buildName": "e2e",
       "sessionName": "Safari Single",
       "browserVersion": "latest",
       "debug": true

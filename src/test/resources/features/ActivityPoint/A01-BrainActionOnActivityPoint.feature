@@ -31,8 +31,8 @@ Feature:  Brain Action On Activity Point
     And the user action on input field "price.USD" with value "1"
     And the user action on input field "price.EUR" with value "2"
     And the user action on input field "price.GBP" with value "3"
-    And the user click on button "buttonSubmit"
-    Then the user see message "Package has been created successfully." displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Package has been created successfully." displayed
 
   @AdminMangePointPackage
   Scenario: Admin Manage Point Package
@@ -48,7 +48,7 @@ Feature:  Brain Action On Activity Point
     And the user want to click on button label "Options" and process
     And the user see item of "Edit"
     Then the user see "Edit Package" is displayed on user profile
-    When the user click on button "buttonCancel"
+    When the user clicks on button "buttonCancel"
 
   @AdminChangePointSettingOnBlog
   Scenario: Admin Change Point Settings On Blog
@@ -59,7 +59,7 @@ Feature:  Brain Action On Activity Point
     And the user action on "Activity Point"
     When the user want to "Point Settings"
     And the user add value on "select-module_id" is "Blog"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     And the user want to click on button label "Options" and process
     And the user see item of "Edit"
     When the user action on input field "points" with value "1"
@@ -79,11 +79,11 @@ Feature:  Brain Action On Activity Point
     Then the user action on input field "title" with value "Brian Blogs"
     Then the user don't add photo
     And the user add value on div "textbox"
-    And the user want to add attach a photo
-    And the user want add categories is "Education"
+    And the user attaches a photo
+    And the user adds category "Education"
     And the user add value on "tags-tags" is "tag-tag"
-    And the user click on button "buttonSubmit"
-    And the user see message "blogCreate" displayed
+    And the user clicks on button "buttonSubmit"
+    And the user sees flash message "blogCreate" displayed
     Then the user verify title of blog is displayed
     When I want to click on "Activity Points"
     And the user action on "Transaction History"

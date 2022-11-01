@@ -19,9 +19,9 @@ Feature:  Brian process on public vote polls
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user add value on div "textbox"
-    And the user want to add attach a photo
+    And the user attaches a photo
     When the user select type "Public votes"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see title "IsThisAutoPoll" is displayed
 
   @BrainSearchPoll
@@ -54,5 +54,5 @@ Feature:  Brian process on public vote polls
     When the user want to click on button label "Action Menu" and process
     And the user action on "Delete"
     Then the user see "Are you sure you want to permanently delete this poll?" displayed success
-    And the user click on button "buttonSubmit"
-    Then the user see message "No polls found" displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "No polls found" displayed

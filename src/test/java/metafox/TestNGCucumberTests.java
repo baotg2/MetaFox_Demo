@@ -17,7 +17,6 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/resources/features"},
         glue = "metafox",
-        tags = "@focus",
         plugin = {
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "metafox.plugin.TestCaseParameter",

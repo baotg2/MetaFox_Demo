@@ -9,7 +9,7 @@ Feature: Brain Process On Public Events Is Friends
     Then the user action on "More"
     Then the browser opened at item "event" and tab "/event/add"
     And the user action on input field "name" with value "Groups"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see "The location field is required for offline event." displayed success
 
 
@@ -26,8 +26,8 @@ Feature: Brain Process On Public Events Is Friends
     And the user click on the "tooltip" on screen
     And the user see item of "Everyone"
     When the user see item of "Friends"
-    And the user click on button "buttonSubmit"
-    Then the user see message "Event created successfully" displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Event created successfully" displayed
     Then the user see title "IsOfflineEvents" is displayed
 
 
@@ -59,9 +59,9 @@ Feature: Brain Process On Public Events Is Friends
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
-    And the user click on button "menuShareButton"
+    And the user clicks on button "menuShareButton"
     When the user action on "Share now"
-    Then the user see message "Shared successfully" displayed
+    Then the user sees flash message "Shared successfully" displayed
     And the user back to "linkLogo" page
     Then the user see "shared a post to newsfeed" on left menu
     Then the user see h4 "IsOfflineEvents" is displayed
@@ -86,5 +86,5 @@ Feature: Brain Process On Public Events Is Friends
     When the user want to click on button label "actionMenu" and process
     And the user action on "Delete"
     Then the user see "Are you sure you want to permanently delete this event?" displayed success
-    And the user click on button "buttonSubmit"
-    Then the user see message "Event successfully deleted." displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Event successfully deleted." displayed

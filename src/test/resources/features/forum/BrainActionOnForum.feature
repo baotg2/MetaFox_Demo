@@ -6,7 +6,7 @@ Feature:  Brian process on Forum
     Given the user logged in as "brian"
     When the user action on "More"
     When the browser opened at item "forum" and tab "/forum/thread/add"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see "Title is required." displayed success
     Then the user see "Content is required." is displayed on user profile
 
@@ -19,10 +19,10 @@ Feature:  Brian process on Forum
     When the user want to select category at 1 on dropdown list "select-forum_id"
     And the user action on input field "title" with value "IsThreadAutotest"
     And the user add value on div "textbox"
-    And the user want to add attach a photo
+    And the user attaches a photo
     And the user add value on "tags-tags" is "tag-tag"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Thread created successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Thread created successfully" displayed
     And the user see title "IsThreadAutotest" is displayed
 
   @BrianVerifySubscribedThreads
@@ -43,9 +43,9 @@ Feature:  Brian process on Forum
     And the user want to click on title "itemTitle" and process
     Then the user see title "IsThreadAutotest" is displayed
     And the user add value on div "textbox"
-    And the user want to add attach a photo
-    When the user click on button "buttonSubmit"
-    Then the user see message "Post created successfully" displayed
+    And the user attaches a photo
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Post created successfully" displayed
     Then the user see div element "itemForumPost" displayed
 
  @BrianSearchReplies
@@ -64,7 +64,7 @@ Feature:  Brian process on Forum
    And the user see search field "Search Discussions" and typing keys "TestAutoDescription"
    And the user want to click on title "itemTitle" and process
    Then the user see title "IsThreadAutotest" is displayed
-   And the user click on button "reactionButton"
+   And the user clicks on button "reactionButton"
    Then the user see label of action "reactionResult" is displayed
 
   @BrianEditThread
@@ -89,8 +89,8 @@ Feature:  Brian process on Forum
     When the user want to click on button label "Action Menu" and process
     And the user action on "Move Thread"
     When the user want to select category at 4 on dropdown list "select-forum_id"
-    And the user click on button "buttonSubmit"
-    Then the user see message "Thread moved successfully." displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Thread moved successfully." displayed
     And the user see title "IsThreadAutotest" is displayed
 
   @BrainCopyThreadWithDefaultTitle
@@ -104,15 +104,15 @@ Feature:  Brian process on Forum
     Then the user see "Copy Thread" is displayed on user profile
     #When the user action on input field "inputTitle" with value ""
     And the user want to "Copy"
-    Then the user see message "Your thread copying progress is being processed. Please wait a few minutes." displayed
+    Then the user sees flash message "Your thread copying progress is being processed. Please wait a few minutes." displayed
     When the user "new_notification" this item
     And the user click on notification "Your thread copying process has been completed. Review now" and process
     Then the user see title "Copy - IsThreadAutotest" is displayed
-    And the user click on button "actionMenuButton"
+    And the user clicks on button "actionMenuButton"
     And the user action on "Delete Thread"
     Then the user see "Are you sure you want to delete this thread permanently?" displayed success
     And the user want to "OK"
-    Then the user see message "Thread deleted successfully." displayed
+    Then the user sees flash message "Thread deleted successfully." displayed
 
   @AdminStickThread
   Scenario: Admin Stick Thread
@@ -124,10 +124,10 @@ Feature:  Brian process on Forum
     And the user access first condition "inputWhen"
     When the user want to click on button label "Action Menu" and process
     And the user action on "Stick Thread"
-    Then the user see message "Thread successfully sticked." displayed
+    Then the user sees flash message "Thread successfully sticked." displayed
     When the user want to click on button label "actionMenu" and process
     And the user action on "Unstick Thread"
-    Then the user see message "Thread successfully unsticked." displayed
+    Then the user sees flash message "Thread successfully unsticked." displayed
 
   @BrainVerifyOnHistory
   Scenario: Brian verify on history
@@ -145,8 +145,8 @@ Feature:  Brian process on Forum
     When the user want to click on button label "Action Menu" and process
     And the user action on "Close Thread"
     And the user want to "OK"
-    Then the user see message "Thread closed successfully." displayed
+    Then the user sees flash message "Thread closed successfully." displayed
     And the user see "Closed" on tab
     When the user want to click on button label "actionMenu" and process
     And the user action on "Reopen Thread"
-    Then the user see message "Thread successfully reopened." displayed
+    Then the user sees flash message "Thread successfully reopened." displayed

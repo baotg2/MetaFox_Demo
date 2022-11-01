@@ -9,8 +9,8 @@ Feature: Config Settings On ACP Photo
     And the user action on "Photo"
     When the user want to scroll to the end of page
     When the user want to access "inputPhotoPhotoAllowDownloading"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @BrianVerifySettingDownloadPhoto
   Scenario: Brian Verify settings Downloading Photos
@@ -18,7 +18,7 @@ Feature: Config Settings On ACP Photo
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user see title "My Photos" is displayed
     And the user see item of "Brian"
-    And the user click on button "actionMenuButton" to action
+    And the user clicks on button "actionMenuButton" to action
     Then the user don't see "download-photo" is displayed
 
   @AdminResetConfigDownloadOnPhoto
@@ -29,8 +29,8 @@ Feature: Config Settings On ACP Photo
     And the user action on "Photo"
     When the user want to scroll to the end of page
     When the user want to access "inputPhotoPhotoAllowDownloading"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @AdminConfigPostingMainFeed
   Scenario: Admin Config Posting Main Feed OnACP
@@ -40,8 +40,8 @@ Feature: Config Settings On ACP Photo
     And the user action on "Photo"
     When the user want to scroll to the end of page
     When the user want to access "inputPhotoPhotoAllowPostingUserPhotoFeed"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @AdminVerifySettingPostingToMainFeed
   Scenario: Admin Verify setting Posting to main feed
@@ -56,8 +56,8 @@ Feature: Config Settings On ACP Photo
     And the user action on "Photo"
     When the user want to scroll to the end of page
     When the user want to access "inputPhotoPhotoAllowPostingUserPhotoFeed"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @AdminConfigAllowPostCoverPhotoToFeed
   Scenario: Admin config allows to post cover photo to feed
@@ -67,8 +67,8 @@ Feature: Config Settings On ACP Photo
     And the user action on "Photo"
     When the user want to scroll to the end of page
     When the user want to access "inputPhotoPhotoAllowPostingUserPhotoFeed"
-    When the user click on button "buttonSubmit"
-    Then the user see message "Save Changed Successfully" displayed
+    When the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Save Changed Successfully" displayed
 
   @AdminVerifyTheSettingAllowPostCoverOnFeed
   Scenario: Admin Verify the setting allow post cover on feed
@@ -76,7 +76,7 @@ Feature: Config Settings On ACP Photo
     When the user action on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user see item of "Brian"
-    And the user click on button "actionMenuButton" to action
+    And the user clicks on button "actionMenuButton" to action
     And the user "Make Cover Photo" this item
-    Then the user see message "Cover picture updated successfully" displayed
+    Then the user sees flash message "Cover picture updated successfully" displayed
     And the user want to access "userAvatar"

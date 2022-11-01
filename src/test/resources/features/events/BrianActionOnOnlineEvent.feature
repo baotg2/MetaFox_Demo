@@ -10,7 +10,7 @@ Feature:  Brain Process On Online Events
     And the user action on input field "name" with value "IsOfflineEvents"
     And the user add value on "select-categories" is "Music"
     And the user want to access "inputIsOnline"
-    And the user click on button "buttonSubmit"
+    And the user clicks on button "buttonSubmit"
     Then the user see "Online Link is required." displayed success
 
   @BrianAddNewEventsOnline
@@ -22,8 +22,8 @@ Feature:  Brain Process On Online Events
     And the user add value on "select-categories" is "Music"
     And the user want to access "inputIsOnline"
     When the user action on input field "event_url" with value "URLEvent"
-    And the user click on button "buttonSubmit"
-    Then the user see message "Event created successfully" displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Event created successfully" displayed
     Then the user see title "IsOnlineEvents" is displayed
     Then the user see a element "https://zoom.us/" is displayed on detail
 
@@ -51,5 +51,5 @@ Feature:  Brain Process On Online Events
     And the user access first condition "inputWhen"
     When the user want to click on button label "Action Menu" and process
     And the user action on "Delete"
-    And the user click on button "buttonSubmit"
-    Then the user see message "Event successfully deleted." displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "Event successfully deleted." displayed

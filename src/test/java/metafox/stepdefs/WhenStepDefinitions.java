@@ -1,11 +1,17 @@
 package metafox.stepdefs;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
+import metafox.support.Locator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.annotation.Nonnull;
+import java.time.Duration;
 import java.util.Objects;
 
 import static org.junit.Assert.assertEquals;
@@ -475,6 +481,22 @@ public class WhenStepDefinitions extends StepDefinitions {
         Thread.sleep(2000);
     }
 
+
+    /**
+     * -------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param testId is action name on user profile
+     * @purpose click action on user profile
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------------
+     */
+    @When("the user clicks on item {string}")
+    public void the_user_clicks_on_item(String testId) {
+        WebElement webElement = assertTestIdToBeClickable(testId);
+        webElement.click();
+    }
+
+
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -486,6 +508,39 @@ public class WhenStepDefinitions extends StepDefinitions {
     @When("^the user want to scroll to the up of page")
     public void toScrollToUpOfPage() throws InterruptedException {
         scrollUpPage();
-        Thread.sleep(2000);
+        Thread.sleep(250);
+    }
+
+    @When("the user types a sentence in {string}")
+    public void theUserFillsInInput(String name) {
+        WebElement element = assertTestIdToBeClickable(name);
+        element.clear();
+        element.sendKeys(DataProvider.faker.lorem().sentence());
+    }
+
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param name is value of field input
+     * @purpose handle input value
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @When("the user fills a paragraph in {string}")
+    public void theUserFillsParagraphIn(String name) {
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(15))
+                .until(ExpectedConditions.elementToBeClickable(Locator.byRole("text")));
+        element.clear();
+        element.sendKeys(DataProvider.faker.lorem().paragraph());
+    }
+
+    @When("the user add a tag")
+    public void theUserAddATag() {
+        WebElement element = assertTestIdToBeClickable("inputTags");
+        element.clear();
+        element.sendKeys(DataProvider.faker.lorem().word());
+        element.sendKeys(Keys.ENTER);
     }
 }

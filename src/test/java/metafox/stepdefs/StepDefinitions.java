@@ -4,10 +4,17 @@ import metafox.CucumberTestRunner;
 import metafox.pageobjects.Components;
 import metafox.support.DataProvider;
 import metafox.support.IsComponentVisible;
+import metafox.support.Locator;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.annotation.Nonnull;
+import java.time.Duration;
 
 
 public class StepDefinitions {
@@ -82,6 +89,12 @@ public class StepDefinitions {
                 System.out.println(driver.getTitle());
             }
         }
+    }
+
+
+    public WebElement assertTestIdToBeClickable(@Nonnull String testId) {
+        return new WebDriverWait(driver, Duration.ofSeconds(15))
+                .until(ExpectedConditions.elementToBeClickable(Locator.byTestId(testId)));
     }
 
 }

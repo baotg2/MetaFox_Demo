@@ -9,17 +9,26 @@ import java.util.HashMap;
 public class Locator {
 
     final public static HashMap<String, String> testIdMap = new HashMap<String, String>() {{
-        put("header", byTestId("layoutSlotHeader"));
-        put("sidebar", byTestId("layoutSlotSide"));
-        put("sidebar menu", byTestId("blockSidebarMenu"));
-        put("footer", byTestId("layoutSlotFooter"));
-        put("content", byTestId("layoutSlotMain"));
-        put("subside", byTestId("layoutSlotSubside"));
-        put("main form", byTestId("main form block"));
+        put("header", testIdSelector("layoutSlotHeader"));
+        put("sidebar", testIdSelector("layoutSlotSide"));
+        put("sidebar menu", testIdSelector("blockSidebarMenu"));
+        put("footer", testIdSelector("layoutSlotFooter"));
+        put("content", testIdSelector("layoutSlotMain"));
+        put("subside", testIdSelector("layoutSlotSubside"));
+        put("main form", testIdSelector("main form block"));
     }};
 
-    public static @Nonnull String byTestId(@Nonnull String testId) {
+    public static @Nonnull String testIdSelector(@Nonnull String testId) {
         return String.format("[data-testid=\"%s\"]", testId);
+    }
+
+
+    public static By byTestId(@Nonnull String testId) {
+        return By.cssSelector(testIdSelector(testId));
+    }
+
+    public static By byRole(@Nonnull String role) {
+        return By.cssSelector(String.format("[role=\"%s\"]", role));
     }
 
     public static @Nonnull By bySection(@Nonnull String name) {

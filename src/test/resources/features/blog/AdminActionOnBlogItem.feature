@@ -1,18 +1,17 @@
 @app_blog @user_admin
 Feature:  Admin process on blogs app
 
-  @focus
   Scenario: Admin Add New Blog Without Image
     Given the user logged in as "brian"
     And the browser opened at "/blog/add"
     And within the content
     Then the user action on input field "title" with value "Admin Blogs"
     And the user add value on div "textbox"
-    And the user want to add attach a photo
-    And the user want add categories is "Education"
+    And the user attaches a photo
+    And the user adds category "Education"
     And the user add value on "tags-tags" is "tag-tag"
-    And the user click on button "buttonSubmit"
-    And the user see message "blogCreate" displayed
+    And the user clicks on button "buttonSubmit"
+    And the user sees flash message "blogCreate" displayed
     Then the user verify title of blog is displayed
 
   Scenario: Admin See Pending Blog
@@ -33,8 +32,8 @@ Feature:  Admin process on blogs app
     And the user action on "Edit blog"
     Then the user see main form "form" is displayed
     And the user action on input field "title" with value "Modify Admin Blog"
-    And the user click on button "buttonSubmit"
-    Then the user see message "blogUpdate" displayed
+    And the user clicks on button "buttonSubmit"
+    Then the user sees flash message "blogUpdate" displayed
 
   @AdminDeleteRanDomBlog
   Scenario: Admin Delete Ran Dom Blog

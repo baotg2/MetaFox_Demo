@@ -91,9 +91,7 @@ public class TestCaseParameter implements ConcurrentEventListener {
             String browserName = platform.get("browserName").toString();
             parameters.add(createParameter(".url", baseUrl));
             parameters.add(createParameter(".browser", browserName));
-
             if (null != options) {
-                parameters.add(createParameter(".buildName", options.get("buildName").toString()));
                 parameters.add(createParameter(".os", options.get("os").toString()));
             }
 

@@ -1,6 +1,7 @@
 package metafox.stepdefs;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
 import metafox.support.Utility;
 import org.openqa.selenium.By;
@@ -203,7 +204,7 @@ public class AndStepDefinitions extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("the user click on button \"([^\"]*)\" to action$")
+    @And("the user clicks on button \"([^\"]*)\" to action$")
     public void clickOnButtonAction(String buttonName) {
         isComponentVisible.waitElement(By.xpath("//div[@class ='ltr-77ogkp']/button[@data-testid='" + buttonName + "']"));
         components.componentButtonAction(buttonName).click();
@@ -323,7 +324,7 @@ public class AndStepDefinitions extends StepDefinitions {
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------------
      */
-    @And("^the user action on \"([^\"]*)\"$")
+    @And("the user action on {string}")
     public void msgDisplay(String actionName) {
         isComponentVisible.waitElement(By.xpath("//span[text()='" + actionName + "']"));
         components.componentSpanName(actionName).click();
@@ -380,7 +381,7 @@ public class AndStepDefinitions extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("the user click on button \"([^\"]*)\"$")
+    @And("the user clicks on button \"([^\"]*)\"$")
     public void clickOnButton(String buttonName) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//button[@data-testid ='" + buttonName + "']"));
         components.componentButtonDataTestID(buttonName).click();
@@ -396,30 +397,28 @@ public class AndStepDefinitions extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("the user see message \"([^\"]*)\" displayed$")
+    @And("the user sees flash message \"([^\"]*)\" displayed$")
     public void isMsgCreateSuccessDisplayed(String msg) {
+
         assertTrue(components.componentsListByClassName("MuiAlert-message").size() > 0);
     }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param status has 2 option want|don't
      * @purpose handle on case upload attachment
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("^the user (want to|don't) add attach a (photo|video)")
-    public void actionAttachFile(@Nonnull String status, @Nonnull String folder) {
-        if (status.equals("want to")) {
-            if (!Utility.isLocal(driver)) {
-                WebElement upload = components.componentInputDataTestID("inputAttachments");
-                ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
-                upload.sendKeys(DataProvider.getFile(folder));
-            } else {
-                components.componentInputDataTestID("inputAttachments").sendKeys(DataProvider.getSinglePhoto());
-            }
+    @When("^the user attaches a (photo|video)")
+    public void actionAttachFile(@Nonnull String folder) {
+        if (!Utility.isLocal(driver)) {
+            WebElement upload = components.componentInputDataTestID("inputAttachments");
+            ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
+            upload.sendKeys(DataProvider.getFile(folder));
+        } else {
+            components.componentInputDataTestID("inputAttachments").sendKeys(DataProvider.getFile(folder));
         }
     }
 
@@ -432,10 +431,12 @@ public class AndStepDefinitions extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("the user want add categories is \"([^\"]*)\"$")
+    @And("the user adds category \"([^\"]*)\"$")
     public void actionOnCategoriesFiled(String value) {
-        components.componentInputDataTestID("inputCategories").sendKeys(value);
-        components.componentInputDataTestID("inputCategories").sendKeys(Keys.ENTER);
+        WebElement element = assertTestIdToBeClickable("inputCategories");
+
+        element.sendKeys(value);
+        element.sendKeys(Keys.ENTER);
     }
 
     /**
