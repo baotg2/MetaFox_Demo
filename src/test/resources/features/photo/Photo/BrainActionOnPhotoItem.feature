@@ -18,16 +18,16 @@ Feature: Brian process on photos item
   Scenario: Brian Reaction On Photo
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user see item of "Brian"
+    And the user sees item of "Brian"
     And the user clicks on button "reactionButton"
-    Then the user see result of "reactionResult" displayed
+    Then the user seesresult of "reactionResult" displayed
 
   @BrianDeletePhoto
   Scenario: Brian Delete Photo
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user opens action menu
-    Then the user clicks on "Delete"
+    Then  the user clicks on menu item "delete"
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
 
@@ -35,11 +35,11 @@ Feature: Brian process on photos item
   Scenario: Brian Report Photo
     Given the user logged in as "admin"
     Then the browser opened at item "photo" and tab "/photo/all"
-    And the user see title "All Photos" is displayed
-    And the user see item of "Brian"
+    And the user seestitle "All Photos" is displayed
+    And the user sees item of "Brian"
     And the user clicks on button "actionMenuButton" to action
     When the user clicks on item "report"
-    Then the user see main form "form" is displayed
+    Then the user seesmain form "form" is displayed
 
   @BrianAttachPhotoFromFeed
   Scenario: Brian Attach Photo From Feed
@@ -73,7 +73,7 @@ Feature: Brian process on photos item
     And the user opens action menu
     And the user clicks on "Feature"
     Then the user sees successful flash message
-    Then the user see label of action "featured" is displayed
+    Then the user seeslabel of action "featured" is displayed
 
   @BrianUnFeaturePhotos
   Scenario: Brain UnFeature Photos
@@ -89,25 +89,25 @@ Feature: Brian process on photos item
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user see item of "Brian"
+    And the user sees item of "Brian"
     When the user clicks on button "menuShareButton"
     When the user clicks on "Share now"
     And the user want to click on button label "Close" and process
     And the user back to "linkLogo" page
-    Then the user see "shared a post to newsfeed" on left menu
+    Then the user sees text "shared a post to newsfeed "
 
   @BrainShareToNewFeedPhotos
   Scenario: Brain Share Now Photos
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user see item of "Brian"
+    And the user sees item of "Brian"
     When the user clicks on button "menuShareButton"
     When the user clicks on "Share to News Feed"
     And the user clicks on button "submit"
     When the user want to click on button label "Close" and process
     And the user back to "linkLogo" page
-    Then the user see "shared a post to newsfeed" on left menu
+    Then the user sees text "shared a post to newsfeed "
 
   @BrianAddCoverImage
   Scenario: Brian Add Cover Image
@@ -118,4 +118,4 @@ Feature: Brian process on photos item
     And the user clicks on "Make Cover Photo"
     Then the user sees successful flash message
     And the user want to access "userAvatar"
-    Then the user see "updated her cover photo" on left menu
+    Then the user sees text "updated her cover photo "

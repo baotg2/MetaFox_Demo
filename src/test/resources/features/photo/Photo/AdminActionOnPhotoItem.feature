@@ -5,7 +5,7 @@ Feature: Admin process on photos item
   Scenario: AdminSeePendingPhoto
     Given the user logged in as "admin"
     Then the browser opened at item "photo" and tab "/photo/pending"
-    And the user see title "Pending Photos" is displayed
+    And the user seestitle "Pending Photos" is displayed
     And the user back to "linkLogo" page
 
   @AdminAddNewAlbumWithPhoto

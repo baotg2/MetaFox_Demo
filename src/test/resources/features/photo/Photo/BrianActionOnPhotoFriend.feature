@@ -10,8 +10,8 @@ Feature: Brian process on photos friend item
     Then the browser opened at item "photo" and tab "/photo/add"
     And the user want upload 1 photo
     And the user adds category "Comedy"
-    And the user see item of "Everyone"
-    When the user see item of "Friends"
+    And the user sees item of "Everyone"
+    When the user sees item of "Friends"
     And the user clicks on button "buttonSubmit"
     And the user sees successful flash message
     Then the user verify "itemPhoto" after upload
@@ -20,33 +20,33 @@ Feature: Brian process on photos friend item
   Scenario: Another User Search Photo Is Friend
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user see item of "Brian"
+    And the user sees item of "Brian"
     When the user get current URL
     And the user want to click on button label "Close" and process
     Then I want to click on "Logout"
     And the user logged in as "test"
     When the user open URL detail
-    Then the user see a element "Brian" is displayed on detail
+    Then the user seesa element "Brian" is displayed on detail
 
   @BrianShareNowOnPhotoFriend
   Scenario: Brain Share Now On Photo Friend
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user see item of "Brian"
+    And the user sees item of "Brian"
     And the user clicks on button "menuShareButton"
     When the user clicks on "Share now"
     Then the user sees successful flash message
     And the user want to click on button label "Close" and process
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
-    Then the user see "shared a post to newsfeed" on left menu
+    Then the user sees text "shared a post to newsfeed "
 
   @AnotherUserAccessOnBrianProfileAndSeePhoto
   Scenario: Another user access Brian profile and see Photo
     Given the user logged in as "terry"
-    Then the user see search field "Search" and typing keys "brian"
+    Then the user sees search field "Search" and typing keys "brian"
     And the user want to click on "/brian"
-    Then the user see "shared a post to newsfeed" on left menu
+    Then the user sees text "shared a post to newsfeed "
 
   @BrianFeaturePhotosFriends
   Scenario: Brain Feature Photos Friends
@@ -56,7 +56,7 @@ Feature: Brian process on photos friend item
     And the user opens action menu
     And the user clicks on "Feature"
     Then the user sees successful flash message
-    Then the user see label of action "featured" is displayed
+    Then the user seeslabel of action "featured" is displayed
 
   @BrianUnFeaturePhotosFriends
   Scenario: Brain UnFeature Photos Friends

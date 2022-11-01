@@ -6,35 +6,35 @@
     Given the user logged in as "terry"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
-    Then the user see title "IsOfflineEvents" is displayed
+    Then the user seestitle "IsOfflineEvents" is displayed
     Then the user want to see tab "DISCUSSIONS" displayed on detail
     And the user want to see tab "MANAGE" displayed on detail
     And the user want to see tab "PENDING POSTS" displayed on detail
-    Then the user see "Not Interested" displayed success
+    Then the user sees text "Not Interested" displayed success
 
   @GuestVewHostListByDefaultSettings
   Scenario: Guest Vew Host List by default settings
     Given the user logged in as "terry"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
     And the user want to "All Hosts"
     And the user want to "Host List"
-    Then the user see "Brian" on invited tab
+    Then the user sees text "Brian" on invited tab
 
   @GuestChangeStatusOnEventDetails
   Scenario: Guest Change Status On Event Details
     Given the user logged in as "terry"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
@@ -50,7 +50,7 @@
     Given the user logged in as "terry"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     When the user want to click on button label "Interested" and process
@@ -66,7 +66,7 @@
     Given the user logged in as "terry"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
@@ -74,15 +74,15 @@
     When the user clicks on "Share now"
     Then the user sees successful flash message
     And the user back to "linkLogo" page
-    Then the user see "shared a post to newsfeed" on left menu
-    Then the user see h4 "IsOfflineEvents" is displayed
+    Then the user sees text "shared a post to newsfeed "
+    Then the user seesh4 "IsOfflineEvents" is displayed
 
   @GuestShareOnFeedEvents
   Scenario: Guest Share On Feed Events
     Given the user logged in as "terry"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
@@ -91,19 +91,19 @@
     And the user want to "Share"
 #    Then the user sees successful flash message
     And the user back to "linkLogo" page
-    Then the user see "shared a post to newsfeed" on left menu
-    Then the user see h4 "IsOfflineEvents" is displayed
+    Then the user sees text "shared a post to newsfeed "
+    Then the user seesh4 "IsOfflineEvents" is displayed
 
   @BrainDeleteOfflineEvents
   Scenario: Brain delete offline events
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     When the user want to click on button label "actionMenu" and process
     And the user clicks on div "delete" and process
-    Then the user see "Are you sure you want to permanently delete this event?" displayed success
+    Then the user sees text "Are you sure you want to permanently delete this event?" displayed success
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message

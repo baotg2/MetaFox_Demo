@@ -18,7 +18,7 @@ Feature: Verify access side menu success
     And the user add comment "<autoPost>" on blog
     And the user clicks on button "submit"
     Then the user sees successful flash message
-    Then the user see "<autoPost>" displayed success
+    Then the user sees text "<autoPost>" displayed success
   Examples:
     |autoPost|
     |AutoPostStatus1|
@@ -77,4 +77,4 @@ Feature: Verify access side menu success
     Given the user logged in as "brian"
     Then the user want to access "userAvatar"
     And the user clicks on button "reactionButton"
-    Then the user see result of "reactionResult" displayed
+    Then the user seesresult of "reactionResult" displayed

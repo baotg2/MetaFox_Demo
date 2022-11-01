@@ -21,7 +21,7 @@ Feature: Config Settings On ACP Poll
     And the user clicks on input field "question" with value "a"
     And the user clicks on button "buttonSubmit"
     When the user want to scroll to the up of page
-    Then the user see "Title must contain at least 5 characters." displayed success
+    Then the user sees text "Title must contain at least 5 characters." displayed success
 
   @AdminSettingsIsImageRequired
   Scenario: Admin Config Settings Is Image Required

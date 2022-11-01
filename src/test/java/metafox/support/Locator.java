@@ -49,12 +49,16 @@ public class Locator {
         return By.cssSelector(selectTestId(testId));
     }
 
+    public static By byText(String text) {
+        return By.xpath("span[text()='" + text + "']");
+    }
+
     public static By byDataValue(String value) {
-        return By.cssSelector(String.format("[data-value=\"%s\"]",value));
+        return By.cssSelector(String.format("[data-value=\"%s\"]", value));
     }
 
     public static By byDataValue(int value) {
-        return By.cssSelector(String.format("[data-value=\"%s\"]",value));
+        return By.cssSelector(String.format("[data-value=\"%s\"]", value));
     }
 
     public static By byTestId(By by) {

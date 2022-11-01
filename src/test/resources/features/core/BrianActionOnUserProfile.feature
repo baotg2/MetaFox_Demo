@@ -5,9 +5,9 @@ Feature: Brain Process On User Profile
   Scenario: Brain Access User Profile
     Given the user logged in as "brian"
     Then the user want to access "userAvatar"
-    And the user see title "About Me" is displayed
-    Then the user see  tab "Friends" displayed success
-    Then the user see  tab "Photos" displayed success
+    And the user seestitle "About Me" is displayed
+    Then the user sees tab "Friends" displayed success
+    Then the user sees tab "Photos" displayed success
     And the user want to access items "friend" on user profile
     And the user want to access items "about" on user profile
     And the user want to access items "photo" on user profile
@@ -18,7 +18,7 @@ Feature: Brain Process On User Profile
     Given the user logged in as "brian"
     Then the user want to access "userAvatar"
     And the user want to "Edit Profile"
-    Then the user see title "Edit Profile" is displayed
+    Then the user seestitle "Edit Profile" is displayed
     And the user add value on "selectCountryState" is "<country_state>"
     Then the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
@@ -32,52 +32,52 @@ Feature: Brain Process On User Profile
     Given the user logged in as "brian"
     Then the user want to access "userAvatar"
     And the user want to "Edit Profile"
-    Then the user see title "Edit Profile" is displayed
+    Then the user seestitle "Edit Profile" is displayed
     Then the user clicks on input field "bio" with value "Everyone else was taken so this is me"
     Then the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
     And the user want to access "userAvatar"
     And the user want to access items "about" on user profile
-    Then the user see "Everyone else was taken so this is me" is displayed on user profile
+    Then the user sees text "Everyone else was taken so this is me "
 
   @BrianAddAboutMe
   Scenario: Brian Add About Me
     Given the user logged in as "brian"
     Then the user want to access "userAvatar"
     And the user want to "Edit Profile"
-    Then the user see title "Edit Profile" is displayed
+    Then the user seestitle "Edit Profile" is displayed
     Then the user add value "Designer and Photographer" on textArea "inputAboutMe"
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
     And the user want to access "userAvatar"
     And the user want to access items "about" on user profile
-    Then the user see "Designer and Photographer" is displayed on user profile
+    Then the user sees text "Designer and Photographer "
 
   @BrianAddInterested
   Scenario: Brian Add Interested
     Given the user logged in as "brian"
     Then the user want to access "userAvatar"
     And the user want to "Edit Profile"
-    Then the user see title "Edit Profile" is displayed
+    Then the user seestitle "Edit Profile" is displayed
     Then the user add value "Enjoy something" on textArea "inputInterest"
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
     And the user want to access "userAvatar"
     And the user want to access items "about" on user profile
-    Then the user see "Enjoy something" is displayed on user profile
+    Then the user sees text "Enjoy something "
 
   @BrianAddHobbies
   Scenario: Brian Add Hobbies
     Given the user logged in as "brian"
     Then the user want to access "userAvatar"
     And the user want to "Edit Profile"
-    Then the user see title "Edit Profile" is displayed
+    Then the user seestitle "Edit Profile" is displayed
     Then the user add value "Judo" on textArea "inputHobbies"
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
     And the user want to access "userAvatar"
     And the user want to access items "about" on user profile
-    Then the user see "Judo" is displayed on user profile
+    Then the user sees text "Judo "
 
   @BrianEditBirthDay
   Scenario: Brian Edit Birth Day

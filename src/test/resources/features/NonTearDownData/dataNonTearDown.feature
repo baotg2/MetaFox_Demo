@@ -26,7 +26,7 @@ Feature:  Non TearDown Data On Site
     And the user add description on items "Group"
     And the user add value on "select-reg_method" is "Public"
     And the user clicks on button "buttonSubmit"
-    Then the user see title h2 "IMPROVING EDUCATION AND LIVES" is displayed
+    Then the user seestitle h2 "IMPROVING EDUCATION AND LIVES" is displayed
     And the user want upload 1 photo
     And the user want to "Save"
     Then the user sees successful flash message
@@ -43,7 +43,7 @@ Feature:  Non TearDown Data On Site
     When the user select type "Public votes"
     And the user select type "Allow multiple choices"
     And the user clicks on button "buttonSubmit"
-    Then the user see title "Welcome!What are you looking for today?" is displayed
+    Then the user seestitle "Welcome!What are you looking for today?" is displayed
 
   @AdminAddNewAlbumWithPhotoNonTeardown
   Scenario: Admin Add New Album With Photo Non Teardown
@@ -66,8 +66,8 @@ Feature:  Non TearDown Data On Site
     And the user add value "Find out in what academia aesthetic you fit in: Classic Academia; Dark Academia; Light Academia; Romantic Academia; Art Academia or Chaotic Academia." on textArea "inputText"
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
-    Then the user see title "Which Academia Aesthetic Are You?" is displayed
-    And the user see "This album has no photos/videos uploaded" is displayed on user profile
+    Then the user seestitle "Which Academia Aesthetic Are You?" is displayed
+    And the user sees text "This album has no photos/videos uploaded "
 
   @AdminAddForumNonTearDown
   Scenario: Admin add forum non-tear down
@@ -81,17 +81,17 @@ Feature:  Non TearDown Data On Site
     And the user add value on "tags-tags" is "tag-tag"
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
-    And the user see title "AngryBirdsNest" is displayed
+    And the user seestitle "AngryBirdsNest" is displayed
 
   @BrainActionOnBlogDetailNonTearDown
   Scenario: Brian action on the blog detail non-tear down
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "blog" and tab ""
-    And the user see search field "Search blogs" and typing keys "Brit + Co"
+    And the user sees search field "Search blogs" and typing keys "Brit + Co"
     And the user want to click on title "itemTitle" and process
     And the user add comment "Amazing write-ups" on blog
-    Then the user see "Amazing write-ups" displayed success
+    Then the user sees text "Amazing write-ups" displayed success
     And the user clicks on button "reactionButton"
 
   @AdminAddFeedToGroupNonTearDownData
@@ -99,7 +99,7 @@ Feature:  Non TearDown Data On Site
     Given the user logged in as "admin"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search groups" and typing keys "IMPROVING EDUCATION AND LIVES"
+    And the user sees search field "Search groups" and typing keys "IMPROVING EDUCATION AND LIVES"
     And the user want to click on title "itemTitle" and process
     Then the user "whatsHappening" this item
     And the user add comment "I no longer depend on my parents and I am financially independent" on blog
@@ -111,7 +111,7 @@ Feature:  Non TearDown Data On Site
     Given the user logged in as "brian"
     When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
-    And the user see search field "Search polls" and typing keys "Welcome!What are you looking for today?"
+    And the user sees search field "Search polls" and typing keys "Welcome!What are you looking for today?"
     And the user want to click on title "itemTitle" and process
     And the user "brian" action vote on random options
 
@@ -119,10 +119,10 @@ Feature:  Non TearDown Data On Site
   Scenario: Brian Action On Album Detail Non Tear Down Data
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
-    And the user see search field "Search albums" and typing keys "Notebook Mini Album"
+    And the user sees search field "Search albums" and typing keys "Notebook Mini Album"
     And the user want to click on title "itemTitle" and process
     And the user clicks on button "reactionButton"
-    Then the user see result of "reactionResult" displayed
+    Then the user seesresult of "reactionResult" displayed
     When the user clicks on button "commentButton"
     And the user add comment "Amazing write-ups" on blog
-    Then the user see "Amazing write-ups" displayed success
+    Then the user sees text "Amazing write-ups" displayed success
