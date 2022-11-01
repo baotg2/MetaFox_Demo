@@ -154,4 +154,12 @@ public class GivenSteps extends StepDefinitions {
         assertTrue(element.isDisplayed());
     }
 
+    @Given("the user opened {string} profile page")
+    public void theUserOpenedProfilePage(@Nonnull String username) throws IOException, InterruptedException {
+        Map<String, String> user = DataProvider.getUser(username);
+
+        String url = user.get("url").toString();
+
+        driver.get(String.format("%s%s", System.getenv("BASE_URL"), url));
+    }
 }

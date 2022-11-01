@@ -307,6 +307,17 @@ public class DataProvider {
         }
     }
 
+    public static Map<String, String> getUser(String username) throws InterruptedException, IOException {
+
+        Optional<Map<String, String>> user = fromSheet("users")
+                .stream()
+                .filter(row -> row.get("username").equalsIgnoreCase(username)).findFirst();
+
+        if (!user.isPresent()) throw new InterruptedException("Failed logged in as " + username);
+
+        return user.get();
+    }
+
     public static String getUserAccessToken(@Nonnull String username) throws IOException, InterruptedException {
 
         String accessToken = UserToken.getUserToken(username);
@@ -315,16 +326,12 @@ public class DataProvider {
             return accessToken;
         }
 
-        Optional<Map<String, String>> user = fromSheet("users")
-                .stream()
-                .filter(row -> row.get("username").equalsIgnoreCase(username)).findFirst();
-
-        if (!user.isPresent()) throw new InterruptedException("Failed logged in as " + username);
+        Map<String, String> user = getUser(username);
 
         JSONObject body = new JSONObject();
 
-        body.put("username", user.get().get("email"));
-        body.put("password", user.get().get("password"));
+        body.put("username", user.get("email"));
+        body.put("password", user.get("password"));
         body.put("grant_type", "password");
 
         String url = apiUrl("/user/login");

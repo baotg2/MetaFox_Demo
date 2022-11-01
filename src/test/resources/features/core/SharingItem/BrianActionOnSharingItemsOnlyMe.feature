@@ -26,7 +26,7 @@ Feature: Brain Process On Sharing Items Only Me
     Then the user want to refresh page before handle the action
     And the user back to "linkLogo" page
     When the user "whatsHappening" this item
-    Then the user seesbutton "Only Me" is displayed
+    Then the user seesbutton "Only Me"
     And the user clicks on button "buttonClose"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"

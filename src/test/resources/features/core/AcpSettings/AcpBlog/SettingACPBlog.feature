@@ -18,16 +18,16 @@ Feature: Config Settings On ACP Blogs
     Given the user logged in as "brian"
     When the user clicks on "More"
     And the browser opened at item "blog" and tab "/blog/add"
-    And the user clicks on input field "title" with value "a"
+    And the user adds title with value "a"
     And the user clicks on button "buttonSubmit"
-    Then the user sees text "Title must contain at least 5 characters." displayed success
+    Then the user sees text "Title must contain at least 5 characters."
 
   @BrianVerifySettingsBlogCreateFeed
   Scenario: Brian Verify Settings Blog Create Feed
     Given the user logged in as "brian"
     When the user clicks on "More"
     And the browser opened at item "blog" and tab "/blog/add"
-    Then the user clicks on input field "title" with value "BlogName"
+    Then the user adds title with value "BlogName"
     And the user adds description
     And the user clicks on button "buttonSubmit"
     And the user sees successful flash message

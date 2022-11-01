@@ -19,7 +19,7 @@ Feature: Config Settings On ACP Forums
     When the user clicks on "More"
     And the browser opened at item "forum" and tab "/forum/thread/add"
     And the user add value on id "select-forum_id" is "General"
-    And the user clicks on input field "title" with value "a"
+    And the user adds title with value "a"
     And the user clicks on button "buttonSubmit"
     When the user want to scroll to the up of page
-    Then the user sees text "Title must contain at least 5 characters." displayed success
+    Then the user sees text "Title must contain at least 5 characters."

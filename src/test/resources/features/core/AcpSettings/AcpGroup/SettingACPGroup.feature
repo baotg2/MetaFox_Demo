@@ -21,4 +21,4 @@ Feature: Config Settings On ACP Groups
     And the user clicks on input field "name" with value "a"
     And the user clicks on button "buttonSubmit"
     When the user want to scroll to the up of page
-    Then the user sees text "Group Name must be at least 5 characters" displayed success
+    Then the user sees text "Group Name must be at least 5 characters"

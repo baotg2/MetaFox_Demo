@@ -55,7 +55,7 @@ Feature: Config Settings On ACP Sign Up
   @BrainVerifyTermConfirmation
   Scenario: Verify the TermConfirmation is displayed
     Given the user want to click on "register"
-    Then the user don't see "fieldAgree" is displayed
+    Then the user don't see "fieldAgree"
     And the user clicks on element link text a "Already Had an Account?"
     Given the user logged in as "admin"
     When the browser will get Administrator URL

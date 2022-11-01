@@ -35,11 +35,11 @@ Feature: Brian process on photos item
   Scenario: Brian Report Photo
     Given the user logged in as "admin"
     Then the browser opened at item "photo" and tab "/photo/all"
-    And the user seestitle "All Photos" is displayed
+    And the user sees text "All Photos"
     And the user sees item of "Brian"
     And the user clicks on button "actionMenuButton" to action
     When the user clicks on item "report"
-    Then the user seesmain form "form" is displayed
+    Then the user sees main form "form"
 
   @BrianAttachPhotoFromFeed
   Scenario: Brian Attach Photo From Feed
@@ -73,7 +73,7 @@ Feature: Brian process on photos item
     And the user opens action menu
     And the user clicks on "Feature"
     Then the user sees successful flash message
-    Then the user seeslabel of action "featured" is displayed
+    Then the user seeslabel of action "featured"
 
   @BrianUnFeaturePhotos
   Scenario: Brain UnFeature Photos

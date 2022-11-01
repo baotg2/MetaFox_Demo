@@ -22,4 +22,4 @@ Feature: Brian process on photos only me item
     When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user sees item of "Brian"
-    Then the user verify button test data id "menuShareButton" is displayed
+    Then the user verify button test data id "menuShareButton"

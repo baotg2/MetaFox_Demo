@@ -8,8 +8,8 @@ Feature:  Brian process on blogs is OnlyMe
     And the user adds title with value "BlogOnlyMe"
     And the user adds description
     And the user attaches a photo
-    And the user adds category "Education"
-    And the user add value on "tags-tags" is "tag-tag"
+    And the user adds a category
+    And the user adds a tag
     And the user set privacy is Only Me
     And the user submits the form
     And the user sees successful flash message

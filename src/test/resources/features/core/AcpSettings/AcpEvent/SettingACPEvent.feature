@@ -21,4 +21,4 @@ Feature: Config Settings On ACP Events
     And the user clicks on input field "name" with value "a"
     And the user clicks on button "buttonSubmit"
     When the user want to scroll to the up of page
-    Then the user sees text "Event Name must be at least 5 characters" displayed success
+    Then the user sees text "Event Name must be at least 5 characters"

@@ -16,7 +16,7 @@ Feature:  Brian process on blogs is Friend
     Given the user logged in as "terry"
     And the browser opened at "/blog"
     And within the sidebar
-    And the user searches with text "BlogName"
+    When the user searches with text "BlogName"
 
   @focus
   Scenario: Brain Share Now On Blog Friend Just Add
@@ -49,6 +49,5 @@ Feature:  Brian process on blogs is Friend
     And the user opens action menu
     And the user clicks on menu item "delete"
     And the user accepts the confirm
-    And the user clicks on button "buttonSubmit"
     And the user sees successful flash message
     Then the user sees text "No blogs are found. "

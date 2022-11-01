@@ -7,7 +7,7 @@ Feature: Brian process on album item
     Then the browser opened at item "photo" and tab "/photo/add"
     And the user want to add new album
     And the user clicks on button "buttonSubmit"
-    Then the user seesdiv element "error" displayed
+    Then the user sees div element "error" displayed
 
   @BrainAddNewAlbumWithPhoto
   Scenario: Brian Add New Album With Photo
@@ -28,16 +28,17 @@ Feature: Brian process on album item
   Scenario: Brian Search His Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
-    And the user sees search field "Search albums" and typing keys "Album"
+    And within the sidebar
+    When the user searches with text "Album"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    Then the user seesa element "NewAlbum" is displayed on detail
+    Then the user sees text "NewAlbum"
 
   @BrianReactionOnAlbum
   Scenario: Brian Reaction On Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
-    And the user seestitle "All Albums" is displayed
+    And the user sees text "All Albums"
     And the user clicks on div "itemMedia" and process
     And the user clicks on button "reactionButton"
     Then the user seesresult of "reactionResult" displayed
@@ -46,7 +47,7 @@ Feature: Brian process on album item
   Scenario: Brian Edit On Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
-    And the user sees search field "Search albums" and typing keys "Album"
+    And the user searches with text "Album"
     And the user opens action menu
     When the user clicks on "Edit Photo Album"
     And the user clicks on input field "name" with value "Auto Test New AlbumName"
@@ -57,7 +58,7 @@ Feature: Brian process on album item
   Scenario: Brian Delete Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
-    And the user sees search field "Search albums" and typing keys "Auto Test New AlbumName"
+    And the user searches with text "Auto Test New AlbumName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
@@ -74,14 +75,14 @@ Feature: Brian process on album item
     And the user add value "TestAtoDescription" on textArea "inputText"
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
-    Then the user seestitle "IsEmptyAlbum" is displayed
+    Then the user sees text "IsEmptyAlbum"
     And the user sees text "This album has no photos/videos uploaded "
 
   @BrianSearchEmptyAlbum
   Scenario: Brian Search Empty Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my-albums"
-    Then the user seestitle "itemTitle" with value "IsEmptyAlbum"
+    Then the user sees text "itemTitle" with value "IsEmptyAlbum"
 
   @BrianAddPhotoToEmptyAlbum
   Scenario: Brian Add Photo To Empty Album
@@ -93,13 +94,13 @@ Feature: Brian process on album item
     And the user clicks on button "buttonSubmit"
     And the user sees successful flash message
     Then the browser opened at item "photo" and tab "/photo/albums"
-    Then the user seestitle "itemTitle" with value "IsEmptyAlbum"
+    Then the user sees text "itemTitle" with value "IsEmptyAlbum"
 
   @BrianDeleteEmptyAlbum
   Scenario: Brian Delete Empty Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
-    And the user sees search field "Search albums" and typing keys "IsEmptyAlbum"
+    And the user searches with text "IsEmptyAlbum"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process

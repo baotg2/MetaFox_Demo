@@ -16,23 +16,23 @@ Feature:  Brian process on multiple choice polls is friend
     And the user sees item of "Everyone"
     When the user sees item of "Friends"
     And the user clicks on button "buttonSubmit"
-    Then the user seestitle "IsThisAutoPoll" is displayed
+    Then the user sees text "IsThisAutoPoll"
 
   @AnotherUserSearchPollIsFriend
   Scenario: Another User Search Poll Is Friend
     Given the user logged in as "test"
     When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
-    And the user sees search field "Search polls" and typing keys "Polls"
+    And the user searches with text "Polls"
     And the user want to click on title "itemTitle" and process
-    Then the user seestitle "IsThisAutoPoll" is displayed
+    Then the user sees text "IsThisAutoPoll"
 
   @AnotherUserSearchPollIsNotFriend
   Scenario: Another User Search Poll is not friend
     Given the user logged in as "terry"
     When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
-    And the user sees search field "Search polls" and typing keys "Polls"
+    And the user searches with text "Polls"
     Then the user sees text "No polls found. "
 
   @BrainSharePollFriend
@@ -40,7 +40,7 @@ Feature:  Brian process on multiple choice polls is friend
     Given the user logged in as "brian"
     When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
-    And the user sees search field "Search polls" and typing keys "Polls"
+    And the user searches with text "Polls"
     And the user want to click on title "itemTitle" and process
     And the user clicks on button "menuShareButton"
     When the user clicks on "Share now"
@@ -48,12 +48,12 @@ Feature:  Brian process on multiple choice polls is friend
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
     Then the user sees text "shared a post to newsfeed "
-    Then the user seesa element "IsThisAutoPoll" is displayed on detail
+    Then the user sees text "IsThisAutoPoll"
 
   @AnotherUserAccessOnBrianProfile
   Scenario: Another user access Brian profile
     Given the user logged in as "terry"
-    Then the user sees search field "Search" and typing keys "brian"
+    Then the user searches with text "brian"
     And the user want to click on "/brian"
     Then the user sees text "shared a post to newsfeed "
     Then the user sees text "Owner of this post has limited who can view this post. "
@@ -63,12 +63,12 @@ Feature:  Brian process on multiple choice polls is friend
     Given the user logged in as "brian"
     When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
-    And the user sees search field "Search polls" and typing keys "Polls"
+    And the user searches with text "Polls"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     When the user want to click on button label "Action Menu" and process
     And  the user clicks on menu item "delete"
-    Then the user sees text "Are you sure you want to permanently delete this poll?" displayed success
+    Then the user sees text "Are you sure you want to permanently delete this poll?"
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
 

@@ -712,4 +712,11 @@ public class WhenSteps extends StepDefinitions {
         button.click();
         currentMenuContext = Locator.byTestId("menuShare");
     }
+
+    @And("the user adds a category")
+    public void theUserAddsACategory() {
+        WebElement element = waitUntilDisplayed(currentSectionContext, Locator.byTestId("inputCategories"));
+        element.click();
+        element.sendKeys(Keys.ENTER);
+    }
 }
