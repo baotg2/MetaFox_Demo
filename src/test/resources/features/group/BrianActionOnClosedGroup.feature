@@ -19,7 +19,7 @@ Feature:  Brain Process On Closed Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "TestAutoClosedGroup"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "TestAutoClosedGroup"
 
   @BrianApproveAnotherUserJoinClosedGroup
@@ -28,7 +28,7 @@ Feature:  Brain Process On Closed Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "TestAutoClosedGroup"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user want to "Join Group"
     Then the user sees button "Pending Request"
     And I want to click on "Logout"
@@ -50,7 +50,7 @@ Feature:  Brain Process On Closed Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "TestAutoClosedGroup"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user sees text "actionMenu" and click on
     And  the user clicks on menu item "delete"
     Then the user sees text "Are you sure you want to delete this group permanently?"

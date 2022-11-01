@@ -24,7 +24,7 @@ Feature:  Brian process on multiple choice polls is friend
     When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user searches with text "Polls"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "IsThisAutoPoll"
 
   @AnotherUserSearchPollIsNotFriend
@@ -41,7 +41,7 @@ Feature:  Brian process on multiple choice polls is friend
     When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user searches with text "Polls"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "menuShareButton"
     When the user clicks on "Share now"
     Then the user sees successful flash message

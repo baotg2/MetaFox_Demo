@@ -61,7 +61,7 @@ Feature: Brian process on album item
     And the user searches with text "Auto Test New AlbumName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user opens action menu
     When  the user clicks on menu item "delete"
     And the user clicks on button "buttonSubmit"
@@ -103,7 +103,7 @@ Feature: Brian process on album item
     And the user searches with text "IsEmptyAlbum"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user opens action menu
     When  the user clicks on menu item "delete"
     And the user clicks on button "buttonSubmit"

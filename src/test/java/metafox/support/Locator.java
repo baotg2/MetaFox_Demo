@@ -44,6 +44,13 @@ public class Locator {
         return selector;
     }
 
+    public static String selectTestId(By context, By by, By by2) {
+        String selector = String.format("%s %s %s", transformByToString(context), transformByToString(by), transformByToString(by2));
+
+        LOGGER.warn("selectTestId {}", selector);
+        return selector;
+    }
+
 
     public static By byTestId(String testId) {
         return By.cssSelector(selectTestId(testId));
@@ -61,16 +68,11 @@ public class Locator {
         return By.cssSelector(String.format("[data-value=\"%s\"]", value));
     }
 
-    public static By byTestId(By by) {
-        return By.cssSelector(selectTestId(by));
+    public static By byTestId(By context, By by1) {
+        return By.cssSelector(selectTestId(context, by1));
     }
-
-    public static By byTestId(By context, String testId) {
-        return By.cssSelector(selectTestId(context, testId));
-    }
-
-    public static By byTestId(By context, By testId) {
-        return By.cssSelector(selectTestId(context, testId));
+    public static By byTestId(By context, By by1, By by2) {
+        return By.cssSelector(selectTestId(context, by1, by2));
     }
 
     public static By byRole(String role) {

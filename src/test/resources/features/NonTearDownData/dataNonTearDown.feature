@@ -89,7 +89,7 @@ Feature:  Non TearDown Data On Site
     When the user clicks on "More"
     Then the browser opened at item "blog" and tab ""
     And the user searches with text "Brit + Co"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user add comment "Amazing write-ups" on blog
     Then the user sees text "Amazing write-ups"
     And the user clicks on button "reactionButton"
@@ -100,7 +100,7 @@ Feature:  Non TearDown Data On Site
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "IMPROVING EDUCATION AND LIVES"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user "whatsHappening" this item
     And the user add comment "I no longer depend on my parents and I am financially independent" on blog
     And the user clicks on button "submit"
@@ -112,7 +112,7 @@ Feature:  Non TearDown Data On Site
     When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user searches with text "Welcome!What are you looking for today?"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user "brian" action vote on random options
 
   @BrianActionOnAlbumDetailNonTearDownData
@@ -120,7 +120,7 @@ Feature:  Non TearDown Data On Site
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
     And the user searches with text "Notebook Mini Album"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "reactionButton"
     Then the user sees result of "reactionResult" displayed
     When the user clicks on button "commentButton"

@@ -524,8 +524,9 @@ public class WhenSteps extends StepDefinitions {
      */
     @When("the user clicks on {string}")
     public void the_user_click_on(String item) {
-        assert currentSectionContext != null;
-        WebElement element = waitUntilDisplayed(currentSectionContext, Locator.byTestId(item));
+        By context  = getSectionContext();
+        assert context != null;
+        WebElement element = waitUntilDisplayed(context, Locator.byTestId(item));
         assertTrue(element.isDisplayed());
         element.click();
     }
@@ -542,8 +543,9 @@ public class WhenSteps extends StepDefinitions {
     @When("the user clicks on menu item {string}")
     public void the_user_click_on_menu_item(String item) {
         // assign current menu context to check every ok
-        assert currentMenuContext != null;
-        WebElement element = waitUntilDisplayed(currentMenuContext, Locator.byTestId(item));
+        By context  = getMenuContext();
+        assert context != null;
+        WebElement element = waitUntilDisplayed(context, Locator.byTestId(item));
         assertTrue(element.isDisplayed());
         element.click();
     }
@@ -600,13 +602,15 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user opens action menu")
     public void theUserOpensActionMenu() {
-        WebElement button = waitUntilDisplayed(currentSectionContext, Locator.byTestId("actionMenuButton"));
+        By context  = getSectionContext();
+        assert context != null;
+        WebElement button = waitUntilDisplayed(context, Locator.byTestId("actionMenuButton"));
         assertTrue(button.isDisplayed());
         button.click();
 
         // the current within must be scoped to new context
         waitUntilDisplayed(Locator.byTestId("action menu"));
-        currentMenuContext = Locator.byTestId("action menu");
+        setMenuContext(context);
     }
 
     /**
@@ -648,16 +652,19 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user submits the form")
     public void theUserSubmitsTheForm() {
-        WebElement button = waitUntilDisplayed(currentSectionContext, Locator.byTestId("buttonSubmit"));
+        By context  = getSectionContext();
+        assert context != null;
+        WebElement button = waitUntilDisplayed(context, Locator.byTestId("buttonSubmit"));
         assertTrue(button.isDisplayed());
         button.click();
     }
 
     @When("^the user set privacy is (Everyone|Community|Friends|Friends of Friends|Only Me|Custom)$")
     public void theUserSetPrivacyIsFriend(@Nonnull String privacy) {
-
+        By section  = getSectionContext();
+        assert section != null;
         By button = By.cssSelector("[data-testid=\"fieldPrivacy\"] [role=\"button\"]");
-        WebElement element = waitUntilDisplayed(currentSectionContext, button);
+        WebElement element = waitUntilDisplayed(section, button);
         assertTrue(element.isDisplayed());
         element.click();
 
@@ -672,7 +679,9 @@ public class WhenSteps extends StepDefinitions {
 
     @And("the user adds description")
     public void theUserAddsDescription() {
-        WebElement element = waitUntilDisplayed(currentSectionContext, Locator.byRole("textbox"));
+        By section  = getSectionContext();
+        assert section != null;
+        WebElement element = waitUntilDisplayed(section, Locator.byRole("textbox"));
         assertTrue(element.isDisplayed());
         element.sendKeys(DataProvider.faker.lorem().paragraph());
     }
@@ -680,7 +689,9 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user adds title with value {string}")
     public void theUserAddsTitleWithValue(@Nonnull String text) {
-        WebElement element = waitUntilDisplayed(currentSectionContext, Locator.byTestId("inputTitle"));
+        By section  = getSectionContext();
+        assert section != null;
+        WebElement element = waitUntilDisplayed(section, Locator.byTestId("inputTitle"));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys(text);
@@ -689,7 +700,9 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user adds title")
     public void theUserAddsTitle() {
-        WebElement element = waitUntilDisplayed(currentSectionContext, Locator.byTestId("inputTitle"));
+        By section  = getSectionContext();
+        assert section != null;
+        WebElement element = waitUntilDisplayed(section, Locator.byTestId("inputTitle"));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys(DataProvider.faker.lorem().sentence());
@@ -697,7 +710,9 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user searches with text {string}")
     public void theUserSearchesWithValue(@Nonnull String value) {
-        WebElement element = waitUntilDisplayed(currentSectionContext, Locator.byTestId("searchBox"));
+        By section  = getSectionContext();
+        assert section != null;
+        WebElement element = waitUntilDisplayed(section, Locator.byTestId("searchBox"));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys(value);
@@ -706,16 +721,29 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user opens share menu")
     public void theUserOpensShareMenu() {
-        WebElement button = waitUntilDisplayed(currentSectionContext, Locator.byTestId("menuShareButton"));
+        By section  = getSectionContext();
+        assert section != null;
+        WebElement button = waitUntilDisplayed(section, Locator.byTestId("menuShareButton"));
         assertTrue(button.isDisplayed());
         // open menu
         button.click();
-        currentMenuContext = Locator.byTestId("menuShare");
+        setMenuContext(Locator.byTestId("menuShare"));
     }
 
     @And("the user adds a category")
     public void theUserAddsACategory() {
-        WebElement element = waitUntilDisplayed(currentSectionContext, Locator.byTestId("inputCategories"));
+        By section  = getSectionContext();
+        assert section != null;
+        WebElement element = waitUntilDisplayed(section, Locator.byTestId("inputCategories"));
+        element.click();
+        element.sendKeys(Keys.ENTER);
+    }
+
+    @When("the user clicks on the item title")
+    public void theUserClicksOnTheItemTitle() {
+        By section  = getSectionContext();
+        assert section != null;
+        WebElement element = waitUntilDisplayed(section, Locator.byTestId("itemTitle"), By.tagName("a"));
         element.click();
         element.sendKeys(Keys.ENTER);
     }

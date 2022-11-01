@@ -9,7 +9,7 @@
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "IsOfflineEvents"
     Then the user want to see tab "DISCUSSIONS" displayed on detail
     And the user want to see tab "MANAGE" displayed on detail
@@ -24,7 +24,7 @@
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user want to "All Hosts"
     And the user want to "Host List"
     Then the user sees text "Brian" on invited tab
@@ -37,7 +37,7 @@
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user want to click on button label "Not Interested" and process
     When the user "Interested" this item
     Then the user sees successful flash message
@@ -56,7 +56,7 @@
     When the user want to click on button label "Interested" and process
     Then the user clicks on "Not Interested"
     Then the user sees successful flash message
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user want to refresh page before handle the action
     Then the user want to see tab "DISCUSSIONS" displayed on detail
     And the user want to see tab "MANAGE" displayed on detail
@@ -69,7 +69,7 @@
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "menuShareButton"
     When the user clicks on "Share now"
     Then the user sees successful flash message
@@ -85,7 +85,7 @@
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "menuShareButton"
     When the user clicks on "Share to News Feed"
     And the user want to "Share"

@@ -20,7 +20,7 @@ Feature:  Brian process polls on feed
     When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user searches with text "Polls"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "IsThisAutoPoll"
 
   @BrianDeletePublicVotePollOnFeed
@@ -29,7 +29,7 @@ Feature:  Brian process polls on feed
     When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user searches with text "Polls"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user want to click on button label "Action Menu" and process
     And  the user clicks on menu item "delete"
     Then the user sees text "Are you sure you want to permanently delete this poll?"

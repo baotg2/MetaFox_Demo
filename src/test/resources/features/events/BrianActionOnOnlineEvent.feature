@@ -36,7 +36,7 @@ Feature:  Brain Process On Online Events
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     Then the user sees text "Your event"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "IsOnlineEvents"
     When the user clicks on element link text a "https://zoom.us/"
     Then the user want to verify tab "https://zoom.us/" open successfully

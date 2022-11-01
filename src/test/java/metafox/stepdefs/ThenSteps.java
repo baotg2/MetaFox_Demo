@@ -411,23 +411,6 @@ public class ThenSteps extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user want to click on title \"([^\"]*)\" and process$")
-    public void clickOnTitle(String title) throws InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//h4[@data-testid='" + title + "']"));
-        Thread.sleep(2000);
-        components.componentH4DataTestID(title).click();
-        Thread.sleep(2000);
-    }
-
-    /**
-     * ------------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param title is title content
-     * @purpose click on the title content of items on search results page
-     * @Author baotg2
-     * ------------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
     @Then("^the user see title \"([^\"]*)\" with value \"([^\"]*)\"")
     public void isTitleDisplayed(String title, String titleContent) {
         isComponentVisible.waitElement(By.xpath("//h4[@data-testid='" + title + "']"));
@@ -644,7 +627,7 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("the user sees text {string}")
     public void theUserSeesTextContains(@Nonnull String text) {
-        WebElement element = waitUntilDisplayed(currentSectionContext, By.xpath("//span[text()='" + text + "']"));
+        WebElement element = waitUntilDisplayed(getSectionContext(), By.linkText("//span[text()='" + text + "']"));
         assertTrue(element.isDisplayed());
     }
 }

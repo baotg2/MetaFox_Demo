@@ -37,12 +37,6 @@ public class StepDefinitions {
     protected static final Logger LOGGER = LoggerFactory.getLogger(StepDefinitions.class);
 
     /**
-     * Scoped within context, by default test in the main content
-     */
-    protected By currentSectionContext = Locator.bySection("content");
-    protected By currentMenuContext;
-
-    /**
      * ------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @purpose lick on logo and back to home page
@@ -104,13 +98,36 @@ public class StepDefinitions {
                 .until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
-    public WebElement waitUntilDisplayed(@NotNull By context, @Nonnull By testId) {
+    public WebElement waitUntilDisplayed(@NotNull By context, @Nonnull By by1) {
         return new WebDriverWait(driver, Duration.ofSeconds(15))
-                .until(ExpectedConditions.visibilityOfElementLocated(Locator.byTestId(context, testId)));
+                .until(ExpectedConditions.visibilityOfElementLocated(Locator.byTestId(context, by1)));
+    }
+
+    public WebElement waitUntilDisplayed(@NotNull By context, @Nonnull By by1, @Nonnull By by2) {
+        return new WebDriverWait(driver, Duration.ofSeconds(15))
+                .until(ExpectedConditions.visibilityOfElementLocated(Locator.byTestId(context, by1, by2)));
     }
 
     public void waitUntilInvisible(@Nonnull By testId) {
         new WebDriverWait(driver, Duration.ofSeconds(15))
                 .until(ExpectedConditions.invisibilityOfElementLocated(testId));
+    }
+
+
+    public By getMenuContext() {
+        return CucumberTestRunner.getManagedWebDriver().getMenuContext();
+    }
+
+    public By getSectionContext() {
+        return CucumberTestRunner.getManagedWebDriver().getSectionContext();
+    }
+
+    public void setMenuContext(By menuContext) {
+        CucumberTestRunner.getManagedWebDriver().setMenuContext(menuContext);
+    }
+
+
+    public void setSectionContext(By sectionContext) {
+        CucumberTestRunner.getManagedWebDriver().setSectionContext(sectionContext);
     }
 }

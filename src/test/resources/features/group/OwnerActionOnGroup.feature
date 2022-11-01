@@ -19,7 +19,7 @@ Feature:  Owner Action On Public Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "Groups"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user want upload 1 photo
     And the user want to "Save"
     And the user want to refresh page before handle the action
@@ -31,7 +31,7 @@ Feature:  Owner Action On Public Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "Groups"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user sees item of "More"
     Then the user access on sub items "Blogs" more option
     When the user clicks on element link text a "Add New Blog"
@@ -51,5 +51,5 @@ Feature:  Owner Action On Public Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "Groups"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user want to access items "photo" on user profile

@@ -27,7 +27,7 @@ Feature:  Brain Process On Secret Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "TestAutoSecretGroup"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user clicks on "Invite"
     And the user clicks on "Invite Friends"
     #Then the user add value on "searchBox" is "test"
@@ -48,7 +48,7 @@ Feature:  Brain Process On Secret Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "TestAutoSecretGroup"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user sees text "actionMenu" and click on
     And the user clicks on div "leave_group" and process
     Then the user sees text "Are you sure you want to leave this group?"
@@ -60,7 +60,7 @@ Feature:  Brain Process On Secret Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "TestAutoSecretGroup"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user want to click on button label "Action Menu" and process
     When  the user clicks on menu item "delete"
     Then the user sees text "Are you sure you want to delete this group permanently?"
