@@ -14,7 +14,7 @@ Feature: Config Settings On ACP Sign Up
 
   @BrainVerifyFromSignUp
   Scenario: Brain Verify From Sign Up
-    Then the user see link text element "buttonRegister" is not displayed on screen
+    Then the user seeslink text element "buttonRegister" is not displayed on screen
     Given the user logged in as "admin"
     When the browser will get Administrator URL
     And the user clicks on "Members"

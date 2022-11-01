@@ -9,7 +9,7 @@ Feature:  Brain Process On Public Events
     Then the browser opened at item "event" and tab "/event/add"
     And the user clicks on input field "name" with value "Groups"
     And the user clicks on button "buttonSubmit"
-    Then the user see "The location field is required for offline event." displayed success
+    Then the user sees text "The location field is required for offline event." displayed success
 
   @BrianAddNewEventsOffline
   Scenario: Brian Add New Events EventsOffline
@@ -24,14 +24,14 @@ Feature:  Brain Process On Public Events
     And the user clicks on the "tooltip" on screen
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
-    Then the user see title "IsOfflineEvents" is displayed
+    Then the user seestitle "IsOfflineEvents" is displayed
 
   @BrianReactionOnEventJustAdd
   Scenario: Brain Reaction On This Event
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
@@ -41,19 +41,19 @@ Feature:  Brain Process On Public Events
   Scenario: Brain See Post Create on Feed
     Given the user logged in as "brian"
     When the user want to access "userAvatar"
-    Then the user see "added an event" on left menu
-    Then the user see "1 person going" displayed success
-    And the user see h4 "IsOfflineEvents" is displayed
+    Then the user sees text "added an event "
+    Then the user sees text "1 person going" displayed success
+    And the user seesh4 "IsOfflineEvents" is displayed
 
   @BrainSeeOnGoingOnEventJustCreated
   Scenario: Brain See OnGoing On EventsOffline
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    Then the user see "Your event" displayed success
+    Then the user sees text "Your event" displayed success
 
   @BrainVerifyMyHostingEvent
   Scenario: Brain Verify my hosting events
@@ -61,69 +61,69 @@ Feature:  Brain Process On Public Events
     When the user clicks on "More"
     Then the browser opened at item "event" and tab "/event/hosted"
     When the user want to click on list button label "ONGOING" and process
-    Then the user see title "itemTitle" with value "IsOfflineEvents"
-    Then the user see "Your event" displayed success
+    Then the user seestitle "itemTitle" with value "IsOfflineEvents"
+    Then the user sees text "Your event" displayed success
 
   @BrainVerifyNumberOfGuestsJoinedEvents
   Scenario: Brain Verify Number of guests joined events
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
-    Then the user see title "IsOfflineEvents" is displayed
-    Then the user see "Your event" displayed success
+    Then the user seestitle "IsOfflineEvents" is displayed
+    Then the user sees text "Your event" displayed success
 
   @BrianVerifyHostListOnEvents
   Scenario: Brain Verify HostList On Events
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
-    Then the user see title "IsOfflineEvents" is displayed
+    Then the user seestitle "IsOfflineEvents" is displayed
     And the user want to "All Hosts"
     And the user want to "Host List"
-    Then the user see "Brian" on invited tab
+    Then the user sees text "Brian" on invited tab
 
   @BrianVerifyGuestListOnPublicEvent
   Scenario: Brain Verify GuestList On Events
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
-    Then the user see title "IsOfflineEvents" is displayed
+    Then the user seestitle "IsOfflineEvents" is displayed
     And the user want to "View list"
     And the user want to "Going"
-    Then the user see "Brian" on invited tab
+    Then the user sees text "Brian" on invited tab
     And the user want to "Invited"
-    Then the user see "No Content" on tab
+    Then the user sees text "No Content" on tab
 
   @BrainVerifyManageTab
   Scenario: Brain Verify Manage Tab
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
     When the user want to click on list button label "MANAGE" and process
-    Then the user see title "Event Settings" is displayed
+    Then the user seestitle "Event Settings" is displayed
 
   @BrainAddNewHost
   Scenario: Brain Add New Hosts
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     When the user want to click on button label "actionMenu" and process
@@ -133,8 +133,8 @@ Feature:  Brain Process On Public Events
     And the user clicks on button "buttonSubmit"
     And the user want to "All Hosts"
     And the user want to "Invited"
-    Then the user see "test" on invited tab
-    And the user see button "Cancel Invite" is displayed
+    Then the user sees text "test" on invited tab
+    And the user seesbutton "Cancel Invite" is displayed
     When the user clicks on button "buttonClose"
     And I want to click on "Logout"
     Given the user logged in as "test"
@@ -146,7 +146,7 @@ Feature:  Brain Process On Public Events
     And the user want to refresh page before handle the action
     And the user want to "All Hosts"
     And the user want to "Invited"
-    Then the user see "test" on invited tab
+    Then the user sees text "test" on invited tab
     When the user clicks on button "buttonClose"
     And the user want to click on list button label "EVENT INFO" and process
     And the user want to click on list button label "DISCUSSIONS" and process
@@ -158,7 +158,7 @@ Feature:  Brain Process On Public Events
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     When the user want to click on button label "Action Menu" and process
@@ -171,16 +171,16 @@ Feature:  Brain Process On Public Events
     Given the user logged in as "test"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user want to click on title "itemTitle" and process
-    Then the user see "Going" displayed success
+    Then the user sees text "Going" displayed success
 
   @BrainInviteAnotherUserJoinEvent
   Scenario: Brain Invite Another User Join Event
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
@@ -193,20 +193,20 @@ Feature:  Brain Process On Public Events
     Given the user logged in as "admin"
     When the user "new_notification" this item
     Then the user clicks on notification "Brian invited you to the event IsOfflineEvents" and process
-    Then the user see button "Not Interested" is default
+    Then the user seesbutton "Not Interested" is default
     When the user want to click on button label "Not Interested" and process
     And the user access this blog by "Going" and process
     Then the user sees successful flash message
     And the user want to "View list"
     And the user want to "Going"
-    Then the user see "admin" on invited tab
+    Then the user sees text "admin" on invited tab
 
   @BrianShareNowEvents
   Scenario: Brain Share Now On Event Just Add
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
@@ -214,15 +214,15 @@ Feature:  Brain Process On Public Events
     When the user clicks on "Share now"
     Then the user sees successful flash message
     And the user back to "linkLogo" page
-    Then the user see "shared a post to newsfeed" on left menu
-    Then the user see h4 "IsOfflineEvents" is displayed
+    Then the user sees text "shared a post to newsfeed "
+    Then the user seesh4 "IsOfflineEvents" is displayed
 
   @BrianShareOnFeedEvents
   Scenario: Brian Share On Feed Events
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
@@ -231,15 +231,15 @@ Feature:  Brain Process On Public Events
     And the user want to "Share"
     Then the user sees successful flash message
     And the user back to "linkLogo" page
-    Then the user see "shared a post to newsfeed" on left menu
-    Then the user see h4 "IsOfflineEvents" is displayed
+    Then the user sees text "shared a post to newsfeed "
+    Then the user seesh4 "IsOfflineEvents" is displayed
 
   @BrianShareEventsOnFriendProfile
   Scenario: Brian Share On Events On Friend Profile
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
-    And the user see search field "Search events" and typing keys "IsOfflineEvents"
+    And the user sees search field "Search events" and typing keys "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
@@ -249,4 +249,4 @@ Feature:  Brain Process On Public Events
     And the user clicks on button "submit"
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
-    Then the user see h4 "IsOfflineEvents" is displayed
+    Then the user seesh4 "IsOfflineEvents" is displayed

@@ -2,15 +2,19 @@ package metafox.stepdefs;
 
 import io.cucumber.java.en.Then;
 import metafox.support.DataProvider;
+import metafox.support.Locator;
 import metafox.support.Utility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;
+import java.time.Duration;
 
 import static org.junit.Assert.*;
 
@@ -277,21 +281,6 @@ public class ThenSteps extends StepDefinitions {
 
 
     /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param menuItemName is menu's name
-     * @Author baotg2
-     * @purpose: Verify element visible on left menu
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @Then("^the user see \"([^\"]*)\" on left menu$")
-    public void isChildMenuItemDisplayed(String menuItemName) {
-        isComponentVisible.waitElement(By.xpath("//span[text()='" + menuItemName + "']"));
-        assertTrue(components.componentSpanName(menuItemName).isDisplayed());
-    }
-
-    /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param formValue id of form
@@ -414,24 +403,6 @@ public class ThenSteps extends StepDefinitions {
     }
 
     /**
-     * ---------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param bioValue is value of Bio
-     * @purpose verify Bio/Interested/AboutMe/Hobbies is displayed on user profile
-     * @Author baotg2
-     * --------------------------------------------------------------------------------------------------------------------------------
-     * @since 06-01-2022
-     */
-    @Then("^the user see \"([^\"]*)\" is displayed on user profile")
-    public void isBio(String bioValue) {
-        if (components.componentsListDivMsg(bioValue).size() != 0) {
-            components.componentsDivMsg(bioValue).getText().contains(bioValue);
-        } else {
-            assertEquals(components.componentsListDivMsg(bioValue).size(), 0);
-        }
-    }
-
-    /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param title is title content
@@ -506,11 +477,10 @@ public class ThenSteps extends StepDefinitions {
     @Then("^the user sees page url (contains|matches) \"([^\"]*)\"$")
     public void isPageUrlContain(String compare, String url) {
         if (compare.equals("contains")) {
-            assertTrue(driver.getCurrentUrl().contains(url));
+            new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.urlContains(url));
         } else {
-            assertTrue(driver.getCurrentUrl().matches(url));
+            new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.urlMatches(url));
         }
-
     }
 
     /**
@@ -667,8 +637,14 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("the user sees confirm popup")
     public void theUserSeesConfirmPopup() {
-        WebElement popup = assertToBeDisplayed("popupConfirm");
+        WebElement popup = waitUntilDisplayed(Locator.byTestId("popupConfirm"));
 
         assertTrue(popup.isDisplayed());
+    }
+
+    @Then("the user sees text {string}")
+    public void theUserSeesTextContains(@Nonnull String text) {
+        WebElement element = waitUntilDisplayed(currentSectionContext, By.xpath("//span[text()='" + text + "']"));
+        assertTrue(element.isDisplayed());
     }
 }

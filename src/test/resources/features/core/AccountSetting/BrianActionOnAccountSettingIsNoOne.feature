@@ -10,9 +10,9 @@ Feature: Brain Process On Account Settings Is No One
     Then the user sees successful flash message
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
-    Then the user see button "Message" is displayed
+    Then the user seesbutton "Message" is displayed
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
@@ -29,7 +29,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user sees successful flash message
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
     Then the user don't see tab "friend" on user profile
     And I want to click on "Logout"
@@ -48,7 +48,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user sees successful flash message
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
     Then the user don't see "whatsHappening" is displayed
     And I want to click on "Logout"
@@ -67,9 +67,9 @@ Feature: Brain Process On Account Settings Is No One
     Then the user sees successful flash message
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
-    Then the user see "No content is found." on left menu
+    Then the user sees text "No content is found. "
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
@@ -86,7 +86,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user sees successful flash message
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
     Then the user don't see "detailview profile detail about" is displayed
     Then the user logged in as "brian"
@@ -104,7 +104,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user sees successful flash message
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
     Then the user not see a text "Photos" displayed on page
     And I want to click on "Logout"
@@ -123,9 +123,9 @@ Feature: Brain Process On Account Settings Is No One
     Then the user sees successful flash message
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
-    Then the user see "Profile is private" on left menu
+    Then the user sees text "Profile is private "
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
@@ -142,7 +142,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user sees successful flash message
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
     Then the user don't see tab "about" on user profile
     And I want to click on "Logout"

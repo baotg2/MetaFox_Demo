@@ -5,98 +5,98 @@ Feature: Brain Verify on the UI
   Scenario: Brian See All App By More Button
     Given the user logged in as "brian"
     When the user "more_menu" this item
-    Then the user see "Forum" on left menu
-    And the user see "Friends" on left menu
-    And the user see "Members" on left menu
-    And the user see "Blogs" on left menu
-    And the user see "Videos" on left menu
-    And the user see "Photos" on left menu
-    And the user see "Polls" on left menu
-    #And the user see "Quizzes" on left menu
-    And the user see "Events" on left menu
-#    And the user see "Music" on left menu
-#    And the user see "Marketplace" on left menu
-    And the user see "Pages" on left menu
-    And the user see "Groups" on left menu
-    And the user see "Saved Items" on left menu
-    #And the user see img "/logo.png" is displayed
+    Then the user sees text "Forum "
+    And the user sees text "Friends "
+    And the user sees text "Members "
+    And the user sees text "Blogs "
+    And the user sees text "Videos "
+    And the user sees text "Photos "
+    And the user sees text "Polls "
+    #And the user sees text "Quizzes "
+    And the user sees text "Events "
+#    And the user sees text "Music "
+#    And the user sees text "Marketplace "
+    And the user sees text "Pages "
+    And the user sees text "Groups "
+    And the user sees text "Saved Items "
+    #And the user seesimg "/logo.png" is displayed
 
 
   @BrianChangeToDarkMode
   Scenario: Brian Change to dark mode
     Given the user logged in as "brian"
     And I want to click on "Dark Mode"
-    When the user see item of "On"
-    Then the user see img "/logo-dark.png" is displayed
+    When the user sees item of "On"
+    Then the user seesimg "/logo-dark.png" is displayed
     And the user want to refresh page before handle the action
     And I want to click on "Dark Mode"
-    When the user see item of "Off"
-    Then the user see img "/logo.png" is displayed
-    When the user see item of "Auto"
+    When the user sees item of "Off"
+    Then the user seesimg "/logo.png" is displayed
+    When the user sees item of "Auto"
 
   @BrianViewAllNotification
   Scenario: Brian View all notifications
     Given the user logged in as "brian"
     When the user "new_notification" this item
-    And the user see "notificationSettingsMenu" and click on
+    And the user sees text "notificationSettingsMenu" and click on
     And the user clicks on "Open Notifications"
-    Then the user see title h2 "Notifications" is displayed
-    Then the user see "Mark all as read" is displayed on user profile
-    Then the user see "Setting" is displayed on user profile
+    Then the user seestitle h2 "Notifications" is displayed
+    Then the user sees text "Mark all as read "
+    Then the user sees text "Setting "
 
   @BrainAccessSettings
   Scenario: Brain Access Settings
     Given the user logged in as "brian"
     When I want to click on "Account Settings"
-    Then the user see "General" on left menu
-    #And the user see "Payment" on left menu
-    And the user see "Your Profile" on left menu
-    And the user see "Invisible Mode" on left menu
-    And the user see "Sharing Items" on left menu
-    And the user see "Email Notifications" on left menu
-    And the user see "Blocked Users" on left menu
-    And the user see "Profile Menu" on left menu
+    Then the user sees text "General "
+    #And the user sees text "Payment "
+    And the user sees text "Your Profile "
+    And the user sees text "Invisible Mode "
+    And the user sees text "Sharing Items "
+    And the user sees text "Email Notifications "
+    And the user sees text "Blocked Users "
+    And the user sees text "Profile Menu "
     
   @BrianVerifyUIFromSideMenu
   Scenario: Brian verify UI from side menu
     Given the user logged in as "brian"
-    And the user see h5 text "Shortcuts" displayed
+    And the user seesh5 text "Shortcuts" displayed
     When the user clicks on "More"
-    Then the user see div element "Home" displayed
-    And the user see div element "Friends" displayed
-    And the user see div element "Members" displayed
-    And the user see div element "forum" displayed
-    And the user see div element "Blogs" displayed
-    And the user see div element "Videos" displayed
-    And the user see div element "Photos" displayed
-    And the user see div element "Polls" displayed
-    #And the user see div element "subscription" displayed
-    #And the user see div element "Quizzes" displayed
-    And the user see div element "Events" displayed
-    #And the user see div element "Music" displayed
-    #And the user see div element "Marketplace" displayed
-    And the user see div element "Pages" displayed
-    And the user see div element "Groups" displayed
-    And the user see div element "Saved Items" displayed
-    Then the user see div element "less" displayed
+    Then the user seesdiv element "Home" displayed
+    And the user seesdiv element "Friends" displayed
+    And the user seesdiv element "Members" displayed
+    And the user seesdiv element "forum" displayed
+    And the user seesdiv element "Blogs" displayed
+    And the user seesdiv element "Videos" displayed
+    And the user seesdiv element "Photos" displayed
+    And the user seesdiv element "Polls" displayed
+    #And the user seesdiv element "subscription" displayed
+    #And the user seesdiv element "Quizzes" displayed
+    And the user seesdiv element "Events" displayed
+    #And the user seesdiv element "Music" displayed
+    #And the user seesdiv element "Marketplace" displayed
+    And the user seesdiv element "Pages" displayed
+    And the user seesdiv element "Groups" displayed
+    And the user seesdiv element "Saved Items" displayed
+    Then the user seesdiv element "less" displayed
 
   @BrainAccessAppFromMoreMenu
   Scenario: Brain Access App From More Menu
     Given the user logged in as "brian"
     Then the user "more_menu" this item
     And the user clicks on "Forum"
-    Then the user see title "Forums" is displayed
+    Then the user seestitle "Forums" is displayed
     When the user "more_menu" this item
     And the user clicks on "Friends"
-    Then the user see title "Friend Requests" is displayed
+    Then the user seestitle "Friend Requests" is displayed
     When the user "more_menu" this item
     And the user clicks on "Members"
     When the user "more_menu" this item
     And the user clicks on "Blogs"
-    Then the user see title "Blogs" is displayed
+    Then the user seestitle "Blogs" is displayed
     When the user "more_menu" this item
     And the user clicks on "Videos"
-    Then the user see title "Videos" is displayed
+    Then the user seestitle "Videos" is displayed
     When the user "more_menu" this item
     And the user clicks on "Activity Points"
-    Then the user see title "Activity Point" is displayed
+    Then the user seestitle "Activity Point" is displayed

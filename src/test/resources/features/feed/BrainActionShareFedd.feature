@@ -24,21 +24,21 @@ Feature:  Brain Action Share Feed
     Given the user logged in as "admin"
     When the user clicks on button "menuShareButton"
     And the user clicks on "Share on a Group"
-    Then the user see "Select Group to Share" is displayed on user profile
+    Then the user sees text "Select Group to Share "
 
   @BriaActionOnGlobalSearch
   Scenario: Brian Action On Global Search
     Given the user logged in as "admin"
-    When the user see search field "Search" and typing keys "test"
+    When the user sees search field "Search" and typing keys "test"
     And the user clicks on "Members"
     And the user clicks on element link text a "test"
-    Then the user see div element "whatsHappening" displayed
+    Then the user seesdiv element "whatsHappening" displayed
 
   @BrianSearchRandomKeywords
   Scenario: Brian Search Random Keywords
     Given the user logged in as "admin"
-    When the user see search field "Search" and typing keys "#test"
-    Then the user see title "#test" is displayed
+    When the user sees search field "Search" and typing keys "#test"
+    Then the user seestitle "#test" is displayed
 
   @BrianCommentStickerOnFeed
   Scenario: Brian Comments Sticker On Feed
@@ -65,7 +65,7 @@ Feature:  Brain Action Share Feed
   Scenario: Brian reply random comment
     Given the user logged in as "admin"
     When the user want to access "replyButton"
-    Then the user see "Write a reply..." is displayed on user profile
+    Then the user sees text "Write a reply... "
 
   @BrianUploadPhotoOnFeed
   Scenario: Brian Upload Photo on feed

@@ -3,6 +3,7 @@ package metafox.stepdefs;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
+import metafox.support.Locator;
 import metafox.support.Utility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -136,7 +137,7 @@ public class AndSteps extends StepDefinitions {
      *
      * @param reactionName is id of span element
      * @Author baotg2
-     * @purpose: the user see result after reaction
+     * @purpose: the user seesresult after reaction
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
@@ -151,7 +152,7 @@ public class AndSteps extends StepDefinitions {
      *
      * @param buttonName is id of div element
      * @Author baotg2
-     * @purpose: the user see photo of who want to delete photo
+     * @purpose: the user seesphoto of who want to delete photo
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
@@ -167,7 +168,7 @@ public class AndSteps extends StepDefinitions {
      *
      * @param buttonName is id of div element
      * @Author baotg2
-     * @purpose: the user see photo of who want to delete photo
+     * @purpose: the user seesphoto of who want to delete photo
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
@@ -372,7 +373,7 @@ public class AndSteps extends StepDefinitions {
      */
     @And("the user adds category \"([^\"]*)\"$")
     public void actionOnCategoriesFiled(String value) {
-        WebElement element = assertTestIdToBeClickable("inputCategories");
+        WebElement element = waitUntilDisplayed(Locator.byTestId("inputCategories"));
 
         element.sendKeys(value);
         element.sendKeys(Keys.ENTER);
@@ -639,4 +640,5 @@ public class AndSteps extends StepDefinitions {
         isComponentVisible.waitElement(By.xpath("//li[@data-testid='" + commentType + "']"));
         components.componentLi(commentType).click();
     }
+
 }

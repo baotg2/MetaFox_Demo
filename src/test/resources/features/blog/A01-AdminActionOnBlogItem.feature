@@ -5,11 +5,10 @@ Feature:  Admin process on blogs app
     Given the user logged in as "brian"
     And the browser opened at "/blog/add"
     And within the content
-    When the user types a sentence in field title
-    And the user add value on div "textbox"
+    When the user adds title
+    And the user adds description
     And the user submits the form
     Then the user sees successful flash message
-
 
   Scenario: Admin can edit his own blogs
     Given the user logged in as "admin"
@@ -17,7 +16,7 @@ Feature:  Admin process on blogs app
     And within the content
     When the user opens action menu
     And the user clicks on menu item "edit"
-    Then the user sees page url contains "/blog/edit/"
+    Then the user sees page url contains "/blog/edit/\d+"
 
   Scenario: Admin must confirm deleting item
     Given the user logged in as "admin"

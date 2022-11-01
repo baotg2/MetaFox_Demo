@@ -11,33 +11,33 @@ Feature:  Owner Action On Public Groups
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Public"
     And the user clicks on button "buttonSubmit"
-    Then the user see title h2 "GroupTestAuto" is displayed
+    Then the user seestitle h2 "GroupTestAuto" is displayed
 
   @OwnerChangeCoverImage
   Scenario: Owner Change Cover Image
     Given the user logged in as "admin"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search groups" and typing keys "Groups"
+    And the user sees search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
     And the user want upload 1 photo
     And the user want to "Save"
     And the user want to refresh page before handle the action
-    Then the user see "updated the group cover photo" on left menu
+    Then the user sees text "updated the group cover photo "
 
   @OwnerAddBlogs
   Scenario: OwnersAddBlogOnGroup
     Given the user logged in as "admin"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search groups" and typing keys "Groups"
+    And the user sees search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
-    When the user see item of "More"
+    When the user sees item of "More"
     Then the user access on sub items "Blogs" more option
     When the user clicks on element link text a "Add New Blog"
-    Then the user see title "Add New Blog" is displayed
+    Then the user seestitle "Add New Blog" is displayed
     Then the user clicks on input field "title" with value "BlogName"
-    And the user add value on div "textbox"
+    And the user adds description
     And the user attaches a photo
     And the user adds category "Education"
     And the user add value on "tags-tags" is "tag-tag"
@@ -50,6 +50,6 @@ Feature:  Owner Action On Public Groups
     Given the user logged in as "admin"
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
-    And the user see search field "Search groups" and typing keys "Groups"
+    And the user sees search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
     When the user want to access items "photo" on user profile

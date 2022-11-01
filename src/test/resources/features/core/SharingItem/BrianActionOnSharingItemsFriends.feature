@@ -11,7 +11,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user back to "linkLogo" page
     Then the user want to refresh page before handle the action
     When the user "whatsHappening" this item
-    Then the user see button "Friends" is displayed
+    Then the user seesbutton "Friends" is displayed
     And the user clicks on button "buttonClose"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
@@ -27,7 +27,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user back to "linkLogo" page
     When the user clicks on "More"
     And the browser opened at item "blog" and tab "/blog/add"
-    Then the user see "Friends" is displayed on user profile
+    Then the user sees text "Friends "
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Blogs" and change to "Everyone"
@@ -42,7 +42,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user back to "linkLogo" page
     When the user clicks on "More"
     And the browser opened at item "event" and tab "/event/add"
-    Then the user see "Friends" is displayed on user profile
+    Then the user sees text "Friends "
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Events" and change to "Everyone"
@@ -57,7 +57,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user back to "linkLogo" page
     When the user clicks on "More"
     And the browser opened at item "photo" and tab "/photo/add"
-    Then the user see "Friends" is displayed on user profile
+    Then the user sees text "Friends "
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Photos" and change to "Everyone"
@@ -72,7 +72,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user back to "linkLogo" page
     When the user clicks on "More"
     And the browser opened at item "photo" and tab "/photo/album/add"
-    Then the user see "Friends" is displayed on user profile
+    Then the user sees text "Friends "
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Photo Albums" and change to "Everyone"
@@ -87,7 +87,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user back to "linkLogo" page
     When the user clicks on "More"
     And the browser opened at item "poll" and tab "/poll/add"
-    Then the user see "Friends" is displayed on user profile
+    Then the user sees text "Friends "
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Polls" and change to "Everyone"
@@ -102,7 +102,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user back to "linkLogo" page
     When the user clicks on "More"
     And the browser opened at item "video" and tab "/video/share"
-    Then the user see "Friends" is displayed on user profile
+    Then the user sees text "Friends "
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Videos" and change to "Everyone"

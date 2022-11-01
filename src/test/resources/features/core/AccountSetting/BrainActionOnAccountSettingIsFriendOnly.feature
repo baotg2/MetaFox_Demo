@@ -10,14 +10,14 @@ Feature: Brain Process On Account Settings Is Friend Only
     Then the user sees successful flash message
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
-    Then the user see "Profile is private" on left menu
+    Then the user sees text "Profile is private "
     And I want to click on "Logout"
     Then the user logged in as "admin"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
-    Then the user see div element "whatsHappening" displayed
+    Then the user seesdiv element "whatsHappening" displayed
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
@@ -34,14 +34,14 @@ Feature: Brain Process On Account Settings Is Friend Only
     Then the user sees successful flash message
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
     Then the user don't see "detailview profile detail about" is displayed
     And I want to click on "Logout"
     Then the user logged in as "admin"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
-    Then the user see title "About Me" is displayed
+    Then the user seestitle "About Me" is displayed
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"
@@ -59,15 +59,15 @@ Feature: Brain Process On Account Settings Is Friend Only
     Then the user sees successful flash message
     And I want to click on "Logout"
     Then the user logged in as "terry"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
     Then the user not see a text "Photos" displayed on page
     And I want to click on "Logout"
     Then the user logged in as "admin"
-    And the user see search field "Search" and typing keys "brian"
+    And the user sees search field "Search" and typing keys "brian"
     And the user clicks on element link text a "Brian"
     Then the user want to access items "photo" on user profile
-    Then the user see div element "itemMedia" displayed
+    Then the user seesdiv element "itemMedia" displayed
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"

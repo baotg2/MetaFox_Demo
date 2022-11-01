@@ -5,18 +5,18 @@ Feature:  Brain Action On Activity Point
     Given the user logged in as "brian"
     And the browser opened at "/"
     When I want to click on "Activity Points"
-    Then the user see title h2 "Point Transactions" is displayed
-    And the user see "Point Packages" on left menu
-    And the user see "How To Earn" on left menu
-    And the user see "Transaction History" on left menu
+    Then the user seestitle h2 "Point Transactions" is displayed
+    And the user sees text "Point Packages "
+    And the user sees text "How To Earn "
+    And the user sees text "Transaction History "
 
   @BrainVerifyUIViewAllTransactionsHistoryView
   Scenario: Brian Verify UIView All Transactions History
     Given the user logged in as "brian"
     When I want to click on "Activity Points"
-    Then the user see title h2 "Point Transactions" is displayed
+    Then the user seestitle h2 "Point Transactions" is displayed
     And the user clicks on element link text a "View All Transactions"
-    Then the user see title h2 "Transactions History" is displayed
+    Then the user seestitle h2 "Transactions History" is displayed
 
   @admincp
   Scenario: Admin Add New Package
@@ -44,10 +44,10 @@ Feature:  Brain Action On Activity Point
     When the user want to "Manage Packages"
     And the user clicks on input field "q" with value "AutoPackagePoint"
     When the user want to "Search"
-    Then the user see "AutoPackagePoint" is displayed on user profile
+    Then the user sees text "AutoPackagePoint "
     And the user want to click on button label "Options" and process
-    And the user see item of "Edit"
-    Then the user see "Edit Package" is displayed on user profile
+    And the user sees item of "Edit"
+    Then the user sees text "Edit Package "
     When the user clicks on button "buttonCancel"
 
   @AdminChangePointSettingOnBlog
@@ -61,7 +61,7 @@ Feature:  Brain Action On Activity Point
     And the user add value on "select-module_id" is "Blog"
     And the user clicks on button "buttonSubmit"
     And the user want to click on button label "Options" and process
-    And the user see item of "Edit"
+    And the user sees item of "Edit"
     When the user clicks on input field "points" with value "1"
     And the user clicks on input field "max_earned" with value "10"
     And the user want to "Save Changes"
@@ -72,13 +72,13 @@ Feature:  Brain Action On Activity Point
     And the browser opened at "/"
     When I want to click on "Activity Points"
     And the user clicks on "Transaction History"
-    Then the user see h5 text "App" displayed
+    Then the user seesh5 text "App" displayed
     When the user back to "linkLogo" page
     When the user clicks on "More"
     Then the browser opened at item "blog" and tab "/blog/add"
     Then the user clicks on input field "title" with value "Brian Blogs"
     Then the user don't add photo
-    And the user add value on div "textbox"
+    And the user adds description
     And the user attaches a photo
     And the user adds category "Education"
     And the user add value on "tags-tags" is "tag-tag"
@@ -88,8 +88,8 @@ Feature:  Brain Action On Activity Point
     When I want to click on "Activity Points"
     And the user clicks on "Transaction History"
     When the user want to refresh page before handle the action
-    Then the user see "Blogs" is displayed on user profile
-    Then the user see "1" is displayed on user profile
-    Then the user see "Publish a new blog" is displayed on user profile
-    Then the user see "Earned" is displayed on user profile
+    Then the user sees text "Blogs "
+    Then the user sees text "1 "
+    Then the user sees text "Publish a new blog "
+    Then the user sees text "Earned "
 

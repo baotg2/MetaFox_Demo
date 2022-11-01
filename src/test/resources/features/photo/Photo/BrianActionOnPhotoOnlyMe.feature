@@ -10,8 +10,8 @@ Feature: Brian process on photos only me item
     Then the browser opened at item "photo" and tab "/photo/add"
     And the user want upload 1 photo
     And the user adds category "Comedy"
-    And the user see item of "Everyone"
-    When the user see item of "Only Me"
+    And the user sees item of "Everyone"
+    When the user sees item of "Only Me"
     And the user clicks on button "buttonSubmit"
     And the user sees successful flash message
     Then the user verify "itemPhoto" after upload
@@ -21,5 +21,5 @@ Feature: Brian process on photos only me item
     Given the user logged in as "brian"
     When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user see item of "Brian"
+    And the user sees item of "Brian"
     Then the user verify button test data id "menuShareButton" is displayed

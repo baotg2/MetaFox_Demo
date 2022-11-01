@@ -9,7 +9,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user clicks on input field "last_name" with value "<lastName>"
     And the user clicks on input field "full_name" with value "<fullName>"
     And the user input info sign up "Email Address" with value "<emailValue>"
-    Then the user see error message "Email Address must be a valid email" is displayed
+    Then the user seeserror message "Email Address must be a valid email" is displayed
     Examples:
     |firstName |lastName|fullName|emailValue
     |testAuto1 | testAuto1|testAuto1|adv@abc
@@ -26,26 +26,26 @@ Feature: Verify Visitor Process on Sign Up
     And the user clicks on input field "password" with value "123456"
     And the user clicks on check box "checkbox"
     And the user clicks on button "buttonSubmit"
-    Then the user see error message "The email has already been taken." is displayed
+    Then the user seeserror message "The email has already been taken." is displayed
 
   @VisitorSignUpWithEmptyValue
   Scenario: Visitor SignUp With Empty Value
     Given the browser opened at "/"
     Given the user want to click on "register"
     And the user clicks on button "buttonSubmit"
-    Then the user see error message "First Name is required." is displayed
-    Then the user see error message "Last Name is required." is displayed
-    Then the user see error message "Full Name is required." is displayed
-    Then the user see error message "Choose a Username" is displayed
-    Then the user see error message "Email address is required." is displayed
-    Then the user see error message "Enter Password" is displayed
+    Then the user seeserror message "First Name is required." is displayed
+    Then the user seeserror message "Last Name is required." is displayed
+    Then the user seeserror message "Full Name is required." is displayed
+    Then the user seeserror message "Choose a Username" is displayed
+    Then the user seeserror message "Email address is required." is displayed
+    Then the user seeserror message "Enter Password" is displayed
 
   @VisitorBreakSignUpAction
   Scenario: Visitor Break SignUp Action
     Given the browser opened at "/"
     Given the user want to click on "register"
     And the user clicks on element link text a "Already Had an Account?"
-    Then the user see "Welcome Back" is displayed
+    Then the user sees text "Welcome Back" is displayed
 
   @VisitorRegisterNewAccountWithExistUserName
   Scenario: Visitor Process register new account With Exist User Name
@@ -59,7 +59,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user clicks on input field "password" with value "123456"
     And the user clicks on check box "checkbox"
     And the user clicks on button "buttonSubmit"
-    Then the user see error message "The user name has already been taken." is displayed
+    Then the user seeserror message "The user name has already been taken." is displayed
 
   @VisitorRegisterNewAccountWithShortPassword
   Scenario: Visitor Process register new account With Short Password
@@ -73,7 +73,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user clicks on input field "password" with value "cv"
     And the user clicks on check box "checkbox"
     And the user clicks on button "buttonSubmit"
-    Then the user see error message "Your password must be at least 6 characters long. Please try another." is displayed
+    Then the user seeserror message "Your password must be at least 6 characters long. Please try another." is displayed
 
   @VisitorRegisterNewAccountWithSpaceOnPasswordField
   Scenario: Visitor Process register new account With Space On Password Field
@@ -87,4 +87,4 @@ Feature: Verify Visitor Process on Sign Up
     And the user clicks on input field "password" with value " "
     And the user clicks on check box "checkbox"
     And the user clicks on button "buttonSubmit"
-    Then the user see error message "The password is required." is displayed
+    Then the user seeserror message "The password is required." is displayed

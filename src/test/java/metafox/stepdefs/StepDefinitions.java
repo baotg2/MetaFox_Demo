@@ -39,7 +39,7 @@ public class StepDefinitions {
     /**
      * Scoped within context, by default test in the main content
      */
-    protected By currentWithinContext = Locator.bySection("content");
+    protected By currentSectionContext = Locator.bySection("content");
     protected By currentMenuContext;
 
     /**
@@ -99,48 +99,18 @@ public class StepDefinitions {
         }
     }
 
-
-    public WebElement assertTestIdToBeClickable(@Nonnull String testId) {
-        return new WebDriverWait(driver, Duration.ofSeconds(15))
-                .until(ExpectedConditions.elementToBeClickable(Locator.byTestId(testId)));
-    }
-
-    public WebElement assertTestIdToBeClickable(@Nonnull By context, @Nonnull By testId) {
-        return assertToBeDisplayed(Locator.byTestId(context, testId));
-    }
-
-    public WebElement assertTestIdToBeClickable(@Nonnull By context, @Nonnull String testId) {
-        return assertToBeDisplayed(Locator.byTestId(context, testId));
-    }
-
-    public WebElement assertToBeDisplayed(@Nonnull String testId) {
-        return assertToBeDisplayed(Locator.byTestId(testId));
-    }
-
-    public WebElement assertToBeDisplayed(@Nonnull By by) {
+    public WebElement waitUntilDisplayed(@Nonnull By by) {
         return new WebDriverWait(driver, Duration.ofSeconds(15))
                 .until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
-
-    public WebElement assertToBeDisplayed(@NotNull By context, @Nonnull String testId) {
+    public WebElement waitUntilDisplayed(@NotNull By context, @Nonnull By testId) {
         return new WebDriverWait(driver, Duration.ofSeconds(15))
                 .until(ExpectedConditions.visibilityOfElementLocated(Locator.byTestId(context, testId)));
     }
 
-    public WebElement assertToBeDisplayed(@NotNull By context, @Nonnull By testId) {
-        return new WebDriverWait(driver, Duration.ofSeconds(15))
-                .until(ExpectedConditions.visibilityOfElementLocated(Locator.byTestId(context, testId)));
-    }
-
-
-    public void assertTestIdToBeNotExists(@Nonnull String testId) {
+    public void waitUntilInvisible(@Nonnull By testId) {
         new WebDriverWait(driver, Duration.ofSeconds(15))
-                .until(ExpectedConditions.invisibilityOfElementLocated(Locator.byTestId(testId)));
-    }
-
-    public void assertTestIdToBeNotExists(@Nonnull By context, @Nonnull String testId) {
-        new WebDriverWait(driver, Duration.ofSeconds(15))
-                .until(ExpectedConditions.invisibilityOfElementLocated(Locator.byTestId(context, testId)));
+                .until(ExpectedConditions.invisibilityOfElementLocated(testId));
     }
 }
