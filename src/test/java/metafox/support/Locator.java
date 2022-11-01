@@ -23,29 +23,18 @@ public class Locator {
     }};
 
     public static String selectTestId(String testId) {
-        return String.format("[data-testid=\"%s\"]", testId);
-    }
-
-    public static String selectTestId(By by) {
-        return transformByToString(by);
-    }
-
-    public static String selectTestId(By context, String testId) {
-        String selector = String.format("%s [data-testid=\"%s\"]", transformByToString(context), testId);
-
-        LOGGER.warn("selectTestId {}", selector);
-        return selector;
+        return String.format("//*[@data-testid='%s']", testId);
     }
 
     public static String selectTestId(By context, By by) {
-        String selector = String.format("%s %s", transformByToString(context), transformByToString(by));
+        String selector = String.format("%s%s", transformByToString(context), transformByToString(by));
 
         LOGGER.warn("selectTestId {}", selector);
         return selector;
     }
 
     public static String selectTestId(By context, By by, By by2) {
-        String selector = String.format("%s %s %s", transformByToString(context), transformByToString(by), transformByToString(by2));
+        String selector = String.format("%s%s%s", transformByToString(context), transformByToString(by), transformByToString(by2));
 
         LOGGER.warn("selectTestId {}", selector);
         return selector;
@@ -53,34 +42,26 @@ public class Locator {
 
 
     public static By byTestId(String testId) {
-        return By.cssSelector(selectTestId(testId));
-    }
-
-    public static By byText(String text) {
-        return By.xpath("span[text()='" + text + "']");
-    }
-
-    public static By byDataValue(String value) {
-        return By.cssSelector(String.format("[data-value=\"%s\"]", value));
+        return By.xpath(selectTestId(testId));
     }
 
     public static By byDataValue(int value) {
-        return By.cssSelector(String.format("[data-value=\"%s\"]", value));
+        return By.xpath(String.format("//*[@data-value='%s']", value));
     }
 
     public static By byTestId(By context, By by1) {
-        return By.cssSelector(selectTestId(context, by1));
+        return By.xpath(selectTestId(context, by1));
     }
     public static By byTestId(By context, By by1, By by2) {
-        return By.cssSelector(selectTestId(context, by1, by2));
+        return By.xpath(selectTestId(context, by1, by2));
     }
 
     public static By byRole(String role) {
-        return By.cssSelector(String.format("[role=\"%s\"]", role));
+        return By.xpath(String.format("//*[@role='%s']", role));
     }
 
     public static By bySection(String name) {
-        return By.cssSelector(selectTestId(Identity.get(name)));
+        return By.xpath(selectTestId(Identity.get(name)));
     }
 
     public static String sectionTestId(String name) {
