@@ -13,7 +13,7 @@ Feature: Brian process on photos friend item
     And the user see item of "Everyone"
     When the user see item of "Friends"
     And the user clicks on button "buttonSubmit"
-    And the user sees flash message "Media item successfully uploaded." displayed
+    And the user sees successful flash message
     Then the user verify "itemPhoto" after upload
 
   @AnotherUserSearchPhotoIsFriend
@@ -34,8 +34,8 @@ Feature: Brian process on photos friend item
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user see item of "Brian"
     And the user clicks on button "menuShareButton"
-    When the user action on "Share now"
-    Then the user sees flash message "Shared successfully" displayed
+    When the user clicks on "Share now"
+    Then the user sees successful flash message
     And the user want to click on button label "Close" and process
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
@@ -51,18 +51,18 @@ Feature: Brian process on photos friend item
   @BrianFeaturePhotosFriends
   Scenario: Brain Feature Photos Friends
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user click on "actionMenuButton" to access blog
-    And the user action on "Feature"
-    Then the user sees flash message "Photo featured successfully." displayed
+    And the user opens action menu
+    And the user clicks on "Feature"
+    Then the user sees successful flash message
     Then the user see label of action "featured" is displayed
 
   @BrianUnFeaturePhotosFriends
   Scenario: Brain UnFeature Photos Friends
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user click on "actionMenuButton" to access blog
-    And the user action on "Unfeature"
-    Then the user sees flash message "Photo unfeatured successfully." displayed
+    And the user opens action menu
+    And the user clicks on "Unfeature"
+    Then the user sees successful flash message

@@ -5,13 +5,13 @@ Feature:  Brain Action Share Feed
   Scenario: Brian Share Now
     Given the user logged in as "admin"
     When the user clicks on button "menuShareButton"
-    And the user action on "Share now"
+    And the user clicks on "Share now"
 
   @BrainShareToNewFeed
   Scenario: Brian Share To New Feed
     Given the user logged in as "admin"
     When the user clicks on button "menuShareButton"
-    And the user action on "Share to News Feed"
+    And the user clicks on "Share to News Feed"
 
   @BrainShareOnFriendWall
   Scenario: Brian Share On Friend Wall
@@ -23,15 +23,15 @@ Feature:  Brain Action Share Feed
   Scenario: Brian Share On Group
     Given the user logged in as "admin"
     When the user clicks on button "menuShareButton"
-    And the user action on "Share on a Group"
+    And the user clicks on "Share on a Group"
     Then the user see "Select Group to Share" is displayed on user profile
 
   @BriaActionOnGlobalSearch
   Scenario: Brian Action On Global Search
     Given the user logged in as "admin"
     When the user see search field "Search" and typing keys "test"
-    And the user action on "Members"
-    And the user click on element link text a "test"
+    And the user clicks on "Members"
+    And the user clicks on element link text a "test"
     Then the user see div element "whatsHappening" displayed
 
   @BrianSearchRandomKeywords
@@ -58,8 +58,8 @@ Feature:  Brain Action Share Feed
   Scenario: Brian Copy Link On Feed
     Given the user logged in as "admin"
     When the user clicks on button "menuShareButton"
-    And the user action on "Copy link"
-    Then the user sees flash message "Copied to clipboard" displayed
+    And the user clicks on "Copy link"
+    Then the user sees successful flash message
 
   @BrianReplyRandomComment
   Scenario: Brian reply random comment

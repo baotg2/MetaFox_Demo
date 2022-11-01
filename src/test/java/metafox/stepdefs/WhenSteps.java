@@ -1,12 +1,15 @@
 package metafox.stepdefs;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
 import metafox.support.Locator;
+import metafox.support.Privacy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v85.domsnapshot.model.ArrayOfStrings;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,7 +29,7 @@ import static org.junit.Assert.assertTrue;
  * @purpose: WhenStepDefinitions is class defined all steps use Method @When
  * @since 04-05-2022
  */
-public class WhenStepDefinitions extends StepDefinitions {
+public class WhenSteps extends StepDefinitions {
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -256,7 +259,7 @@ public class WhenStepDefinitions extends StepDefinitions {
      * ----------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 06-15-2022
      */
-    @When("^the user click on notification \"([^\"]*)\" and process$")
+    @When("^the user clicks on notification \"([^\"]*)\" and process$")
     public void findAndSelectNotifications(String notification) throws InterruptedException {
         Thread.sleep(3000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemSummary']"));
@@ -406,12 +409,12 @@ public class WhenStepDefinitions extends StepDefinitions {
      * ---------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @When("^the user click on the \"([^\"]*)\" on screen$")
+    @When("^the user clicks on the \"([^\"]*)\" on screen$")
     public void clickOnDiv(String divText) {
         components.componentDivRole(divText).click();
     }
 
-    @When("^the user click on the \"([^\"]*)\" on page$")
+    @When("^the user clicks on the \"([^\"]*)\" on page$")
     public void clickOnPText(String divText) {
         components.componentPText(divText).click();
     }
@@ -443,7 +446,7 @@ public class WhenStepDefinitions extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @When("^the user click on element link text a \"([^\"]*)\"$")
+    @When("^the user clicks on element link text a \"([^\"]*)\"$")
     public void clickOnLinkText(String linkText) {
         isComponentVisible.waitElement(By.xpath("//a[text()='" + linkText + "']"));
         components.componentTextLink(linkText).click();
@@ -511,11 +514,63 @@ public class WhenStepDefinitions extends StepDefinitions {
         Thread.sleep(250);
     }
 
+    /**
+     * -------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param item is id of button
+     * @purpose access first blog on My Blog or All Blog
+     * @Author baotg2
+     * --------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @When("the user clicks on {string}")
+    public void the_user_click_on(String item) {
+        assert currentWithinContext != null;
+        WebElement element = assertToBeDisplayed(currentWithinContext, item);
+        assertTrue(element.isDisplayed());
+        element.click();
+    }
+
+    /**
+     * -------------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param item is id of button
+     * @purpose access first blog on My Blog or All Blog
+     * @Author baotg2
+     * --------------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @When("the user clicks on menu item {string}")
+    public void the_user_click_on_menu_item(String item) {
+        // assign current menu context to check every ok
+        assert currentMenuContext != null;
+        WebElement element = assertToBeDisplayed(currentMenuContext, item);
+        assertTrue(element.isDisplayed());
+        element.click();
+    }
+
+
     @When("the user types a sentence in {string}")
     public void theUserFillsInInput(String name) {
-        WebElement element = assertTestIdToBeClickable(name);
-        element.clear();
-        element.sendKeys(DataProvider.faker.lorem().sentence());
+        WebElement field = assertTestIdToBeClickable(name);
+        field.clear();
+        field.sendKeys(DataProvider.faker.lorem().sentence());
+    }
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param buttonName is name of button
+     * @purpose handle click on button
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @When("the user clicks on button \"([^\"]*)\"$")
+    public void clickOnButton(String buttonName) throws InterruptedException {
+        isComponentVisible.waitElement(By.xpath("//button[@data-testid ='" + buttonName + "']"));
+        components.componentButtonDataTestID(buttonName).click();
+        Thread.sleep(3000);
     }
 
 
@@ -530,17 +585,98 @@ public class WhenStepDefinitions extends StepDefinitions {
      */
     @When("the user fills a paragraph in {string}")
     public void theUserFillsParagraphIn(String name) {
-        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(15))
-                .until(ExpectedConditions.elementToBeClickable(Locator.byRole("text")));
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(Locator.byRole("text")));
+
         element.clear();
         element.sendKeys(DataProvider.faker.lorem().paragraph());
     }
 
-    @When("the user add a tag")
+    @When("the user adds a tag")
     public void theUserAddATag() {
         WebElement element = assertTestIdToBeClickable("inputTags");
         element.clear();
         element.sendKeys(DataProvider.faker.lorem().word());
         element.sendKeys(Keys.ENTER);
+    }
+
+    @When("the user opens action menu")
+    public void theUserOpensActionMenu() {
+        WebElement button = assertToBeDisplayed(currentWithinContext, "actionMenuButton");
+        assertTrue(button.isDisplayed());
+        button.click();
+
+        // the current within must be scoped to new context
+        assertToBeDisplayed("action menu");
+        currentMenuContext = Locator.byTestId("action menu");
+    }
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param status is content of message
+     * @purpose verify message displayed success
+     * @Author baotg2
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user sees (successful) flash message$")
+    public void isMsgCreateSuccessDisplayed(String status) {
+        WebElement flashMessage = assertToBeDisplayed("flashMessage");
+        assertTrue(flashMessage.isDisplayed());
+    }
+
+
+    @When("the user types a sentence in field title")
+    public void theUserTypesASentenceInFieldTitle() {
+        WebElement field = assertToBeDisplayed(currentWithinContext, "inputTitle");
+        assertTrue(field.isDisplayed());
+        field.clear();
+        field.sendKeys(DataProvider.faker.lorem().sentence());
+    }
+
+    @When("the user accepts the confirm")
+    public void theUserAcceptsTheConfirm() {
+        By context = Locator.byTestId("popupConfirm");
+        WebElement button = assertTestIdToBeClickable(context, "buttonSubmit");
+
+        assertTrue(button.isDisplayed());
+        button.click();
+
+        assertTestIdToBeNotExists("popupConfirm");
+    }
+
+    @When("the user rejects the confirm")
+    public void theUserRejectTheConfirm() {
+        By context = Locator.byTestId("popupConfirm");
+        WebElement button = assertTestIdToBeClickable(context, "buttonSubmit");
+
+        assertTrue(button.isDisplayed());
+        button.click();
+
+        assertTestIdToBeNotExists("popupConfirm");
+    }
+
+    @When("the user submits the form")
+    public void theUserSubmitsTheForm() {
+        WebElement button = assertTestIdToBeClickable(currentWithinContext, "buttonSubmit");
+        assertTrue(button.isDisplayed());
+        button.click();
+    }
+
+    @When("^the user set privacy is (Everyone|Community|Friends|Friends of Friends|Only Me|Custom)$")
+    public void theUserSetPrivacyIsFriend(@Nonnull String privacy) {
+
+        By button = By.cssSelector("[data-testid=\"fieldPrivacy\"] input");
+        WebElement element = assertToBeDisplayed(currentWithinContext, button);
+        assertTrue(element.isDisplayed());
+        element.click();
+
+        By context = Locator.byTestId("menuPrivacy");
+        By item = Locator.byDataValue(Privacy.getValue(privacy));
+
+        WebElement menuitem = assertToBeDisplayed(context, item);
+
+        assertTrue(menuitem.isDisplayed());
+        menuitem.click();
     }
 }

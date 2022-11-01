@@ -4,9 +4,9 @@ Feature:  Brian process on multiple choice polls is friend
   @BrianAddNewPollMultipleChoiceIsFriend
   Scenario: Brian Add New Poll Public Vote Is Friend
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab "/poll/add"
-    And the user action on input field "question" with value "Polls"
+    And the user clicks on input field "question" with value "Polls"
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user add value on div "textbox"
@@ -21,7 +21,7 @@ Feature:  Brian process on multiple choice polls is friend
   @AnotherUserSearchPollIsFriend
   Scenario: Another User Search Poll Is Friend
     Given the user logged in as "test"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
@@ -30,7 +30,7 @@ Feature:  Brian process on multiple choice polls is friend
   @AnotherUserSearchPollIsNotFriend
   Scenario: Another User Search Poll is not friend
     Given the user logged in as "terry"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     Then the user see "No polls found." on left menu
@@ -38,13 +38,13 @@ Feature:  Brian process on multiple choice polls is friend
   @BrainSharePollFriend
   Scenario: Brian Share Poll is Friend
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
     And the user clicks on button "menuShareButton"
-    When the user action on "Share now"
-    Then the user sees flash message "Shared successfully" displayed
+    When the user clicks on "Share now"
+    Then the user sees successful flash message
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
     Then the user see "shared a post to newsfeed" on left menu
@@ -61,15 +61,15 @@ Feature:  Brian process on multiple choice polls is friend
   @BrainDeletePollsIsFriendJustAdded
   Scenario: Brain Delete Polls Is Friend Just Added
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     When the user want to click on button label "Action Menu" and process
-    And the user action on "Delete"
+    And the user clicks on "Delete"
     Then the user see "Are you sure you want to permanently delete this poll?" displayed success
     And the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Poll deleted successfully" displayed
+    Then the user sees successful flash message
 
 

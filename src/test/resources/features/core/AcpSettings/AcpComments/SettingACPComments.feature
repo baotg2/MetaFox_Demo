@@ -5,12 +5,12 @@ Feature: Config Settings On ACP Comments
   Scenario: Admin Config Comment Photo OnACP
     Given the user logged in as "admin"
     When the browser will get Administrator URL
-    And the user action on "App Settings"
-    And the user action on "Comment"
+    And the user clicks on "App Settings"
+    And the user clicks on "Comment"
     When the user want to access "inputCommentEnablePhoto"
     When the user want to scroll to the end of page
     When the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Save Changed Successfully" displayed
+    Then the user sees successful flash message
 
   @AdminVerifySettingsEnablePhotoOnComments
   Scenario: Admin verify settings enable photo on comments
@@ -21,23 +21,23 @@ Feature: Config Settings On ACP Comments
   Scenario: Admin Reset Config Comment Photo OnACP
     Given the user logged in as "admin"
     When the browser will get Administrator URL
-    And the user action on "App Settings"
-    And the user action on "Comment"
+    And the user clicks on "App Settings"
+    And the user clicks on "Comment"
     When the user want to access "inputCommentEnablePhoto"
     When the user want to scroll to the end of page
     When the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Save Changed Successfully" displayed
+    Then the user sees successful flash message
 
   @AdminConfigOnCommentsSticker
   Scenario: Admin Config Comments Sticker OnACP
     Given the user logged in as "admin"
     When the browser will get Administrator URL
-    And the user action on "App Settings"
-    And the user action on "Comment"
+    And the user clicks on "App Settings"
+    And the user clicks on "Comment"
     When the user want to access "inputCommentEnableSticker"
     When the user want to scroll to the end of page
     When the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Save Changed Successfully" displayed
+    Then the user sees successful flash message
 
   @AdminVerifySettingsEnableStickerOnComments
   Scenario: Admin verify settings enable sticker on comments
@@ -48,23 +48,23 @@ Feature: Config Settings On ACP Comments
   Scenario: Admin Reset Config Comments Sticker OnACP
     Given the user logged in as "admin"
     When the browser will get Administrator URL
-    And the user action on "App Settings"
-    And the user action on "Comment"
+    And the user clicks on "App Settings"
+    And the user clicks on "Comment"
     When the user want to access "inputCommentEnableSticker"
     When the user want to scroll to the end of page
     When the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Save Changed Successfully" displayed
+    Then the user sees successful flash message
 
   @AdminConfigOnCommentsEmojis
   Scenario: Admin Config Comments Emojis OnACP
     Given the user logged in as "admin"
     When the browser will get Administrator URL
-    And the user action on "App Settings"
-    And the user action on "Comment"
+    And the user clicks on "App Settings"
+    And the user clicks on "Comment"
     When the user want to access "inputCommentEnableEmoticon"
     When the user want to scroll to the end of page
     When the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Save Changed Successfully" displayed
+    Then the user sees successful flash message
 
   @AdminVerifySettingsEnableEmojisOnComments
   Scenario: Admin verify settings enable Emojis on comments
@@ -75,9 +75,9 @@ Feature: Config Settings On ACP Comments
   Scenario: Admin Reset Config Comments Emojis OnACP
     Given the user logged in as "admin"
     When the browser will get Administrator URL
-    And the user action on "App Settings"
-    And the user action on "Comment"
+    And the user clicks on "App Settings"
+    And the user clicks on "Comment"
     When the user want to access "inputCommentEnableEmoticon"
     When the user want to scroll to the end of page
     When the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Save Changed Successfully" displayed
+    Then the user sees successful flash message

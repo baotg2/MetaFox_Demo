@@ -1,37 +1,87 @@
 package metafox.support;
 
-
+import metafox.stepdefs.StepDefinitions;
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import javax.annotation.Nonnull;
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 public class Locator {
+    protected static final Logger LOGGER = LoggerFactory.getLogger(StepDefinitions.class);
 
-    final public static HashMap<String, String> testIdMap = new HashMap<String, String>() {{
-        put("header", testIdSelector("layoutSlotHeader"));
-        put("sidebar", testIdSelector("layoutSlotSide"));
-        put("sidebar menu", testIdSelector("blockSidebarMenu"));
-        put("footer", testIdSelector("layoutSlotFooter"));
-        put("content", testIdSelector("layoutSlotMain"));
-        put("subside", testIdSelector("layoutSlotSubside"));
-        put("main form", testIdSelector("main form block"));
+    final public static HashMap<String, String> Identity = new HashMap<String, String>() {{
+        put("header", "layoutSlotHeader");
+        put("sidebar", "layoutSlotSide");
+        put("sidebar menu", "blockSidebarMenu");
+        put("footer", "layoutSlotFooter");
+        put("content", "layoutSlotMain");
+        put("subside", "layoutSlotSubside");
+        put("main form", "main form block");
+        put("action menu", "action menu");
     }};
 
-    public static @Nonnull String testIdSelector(@Nonnull String testId) {
+    public static String selectTestId(String testId) {
         return String.format("[data-testid=\"%s\"]", testId);
     }
 
-
-    public static By byTestId(@Nonnull String testId) {
-        return By.cssSelector(testIdSelector(testId));
+    public static String selectTestId(By by) {
+        return transformByToString(by);
     }
 
-    public static By byRole(@Nonnull String role) {
+    public static String selectTestId(By context, String testId) {
+        String selector = String.format("%s [data-testid=\"%s\"]", transformByToString(context), testId);
+
+        LOGGER.warn("selectTestId {}", selector);
+        return selector;
+    }
+
+    public static String selectTestId(By context, By by) {
+        String selector = String.format("%s %s", transformByToString(context), transformByToString(by));
+
+        LOGGER.warn("selectTestId {}", selector);
+        return selector;
+    }
+
+
+    public static By byTestId(String testId) {
+        return By.cssSelector(selectTestId(testId));
+    }
+
+    public static By byDataValue(String value) {
+        return By.cssSelector(String.format("[data-value=\"%s\"]",value));
+    }
+
+    public static By byDataValue(int value) {
+        return By.cssSelector(String.format("[data-value=\"%s\"]",value));
+    }
+
+    public static By byTestId(By by) {
+        return By.cssSelector(selectTestId(by));
+    }
+
+    public static By byTestId(By context, String testId) {
+        return By.cssSelector(selectTestId(context, testId));
+    }
+
+    public static By byTestId(By context, By testId) {
+        return By.cssSelector(selectTestId(context, testId));
+    }
+
+    public static By byRole(String role) {
         return By.cssSelector(String.format("[role=\"%s\"]", role));
     }
 
-    public static @Nonnull By bySection(@Nonnull String name) {
-        return By.cssSelector(testIdMap.get(name));
+    public static By bySection(String name) {
+        return By.cssSelector(selectTestId(Identity.get(name)));
+    }
+
+    public static String sectionTestId(String name) {
+        return Identity.get(name);
+    }
+
+    private static String transformByToString(By by) {
+        return Pattern.compile("^By\\.\\w+:\\s*").matcher(by.toString()).replaceFirst("");
     }
 }

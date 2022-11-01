@@ -6,7 +6,7 @@ Feature:  Brian process polls on feed
     Given the user logged in as "brian"
     When the user clicks on button "buttonAttachPoll"
     And the user see "New poll" is displayed on user profile
-    And the user action on input field "question" with value "Polls"
+    And the user clicks on input field "question" with value "Polls"
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user want to "Done"
@@ -17,7 +17,7 @@ Feature:  Brian process polls on feed
   @BrainSearchMultipleChoicePollOnFeed
   Scenario: Brian Search Poll Created On Feed
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
@@ -26,12 +26,12 @@ Feature:  Brian process polls on feed
   @BrianDeletePublicVotePollOnFeed
   Scenario: Brain Delete Public Vote Poll Created On Feed
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
     When the user want to click on button label "Action Menu" and process
-    And the user action on "Delete"
+    And the user clicks on "Delete"
     Then the user see "Are you sure you want to permanently delete this poll?" displayed success
     And the user clicks on button "buttonSubmit"
-    #Then the user sees flash message "No polls found" displayed
+    #Then the user sees successful flash message

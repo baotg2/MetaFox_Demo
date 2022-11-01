@@ -4,9 +4,9 @@ Feature:  Brian process on multiple choice polls
   @BrianAddNewUnPublicVotePoll
   Scenario: Brian Add New Poll Public Vote
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab "/poll/add"
-    And the user action on input field "question" with value "Polls"
+    And the user clicks on input field "question" with value "Polls"
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user add value on div "textbox"
@@ -19,7 +19,7 @@ Feature:  Brian process on multiple choice polls
   @BrainSearchUnPublicVotePoll
   Scenario: Brian Search Poll
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
@@ -28,7 +28,7 @@ Feature:  Brian process on multiple choice polls
   @AnotherUserVoteUnPublicVotePoll
   Scenario: Another User Vote Poll
     Given the user logged in as "admin"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     And the user want to click on title "itemTitle" and process
@@ -38,11 +38,11 @@ Feature:  Brian process on multiple choice polls
   @BrianEditUnPublicVotePoll
   Scenario: Brain Edit Un Public Vote Polls
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     When the user want to click on button label "Action Menu" and process
-    And the user action on "Edit poll"
+    And the user clicks on "Edit poll"
     Then the user see title "Edit poll" is displayed
     And the user see item of "Remove"
     And the user want to "OK"
@@ -51,11 +51,11 @@ Feature:  Brian process on multiple choice polls
   @BrianDeleteUnPublicVotePoll
   Scenario: Brain Delete Un Public Vote Polls
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user see search field "Search polls" and typing keys "Polls"
     When the user want to click on button label "Action Menu" and process
-    And the user action on "Delete"
+    And the user clicks on "Delete"
     Then the user see "Are you sure you want to permanently delete this poll?" displayed success
     And the user clicks on button "buttonSubmit"
     #Then the user see "No polls found" on left menu

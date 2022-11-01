@@ -25,23 +25,7 @@ import static org.junit.Assert.assertTrue;
  * @purpose: AndStepDefinitions is class defined all steps use Method @And
  * @since 04-05-2022
  */
-public class AndStepDefinitions extends StepDefinitions {
-
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param menuItemName is menu's name
-     * @Author baotg2
-     * @purpose: Verify element visible on left menu
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @And("^the user see \"([^\"]*)\" on left menu$")
-    public void isChildMenuItemDisplayed(String menuItemName) {
-        isComponentVisible.waitElement(By.xpath("//span[text()='" + menuItemName + "']"));
-        assertTrue(components.componentSpanName(menuItemName).isDisplayed());
-    }
-
+public class AndSteps extends StepDefinitions {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -140,7 +124,7 @@ public class AndStepDefinitions extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("^the user click on div \"([^\"]*)\" and process")
+    @And("^the user clicks on div \"([^\"]*)\" and process")
     public void accessBlogOnSearchResult(String itemName) throws InterruptedException {
         Thread.sleep(5000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + itemName + "']"));
@@ -319,20 +303,6 @@ public class AndStepDefinitions extends StepDefinitions {
     /**
      * -------------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param actionName is action name on user profile
-     * @purpose click action on user profile
-     * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------------
-     */
-    @And("the user action on {string}")
-    public void msgDisplay(String actionName) {
-        isComponentVisible.waitElement(By.xpath("//span[text()='" + actionName + "']"));
-        components.componentSpanName(actionName).click();
-    }
-
-    /**
-     * -------------------------------------------------------------------------------------------------------------------------------------------
-     *
      * @param status has 2 type want | don't
      * @purpose handle upload document on test case want to
      * @Author baotg2
@@ -370,37 +340,6 @@ public class AndStepDefinitions extends StepDefinitions {
     @And("^the user add description on items \"([^\"]*)\"$")
     public void inputValueOnDivNonTearDown(@Nonnull String itemName) throws Exception {
         components.componentDivRole("textbox").sendKeys(DataProvider.faker.lorem().paragraph());
-    }
-
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param buttonName is name of button
-     * @purpose handle click on button
-     * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @And("the user clicks on button \"([^\"]*)\"$")
-    public void clickOnButton(String buttonName) throws InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//button[@data-testid ='" + buttonName + "']"));
-        components.componentButtonDataTestID(buttonName).click();
-        Thread.sleep(3000);
-    }
-
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param msg is content of message
-     * @purpose verify message displayed success
-     * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @And("the user sees flash message \"([^\"]*)\" displayed$")
-    public void isMsgCreateSuccessDisplayed(String msg) {
-
-        assertTrue(components.componentsListByClassName("MuiAlert-message").size() > 0);
     }
 
     /**
@@ -507,20 +446,6 @@ public class AndStepDefinitions extends StepDefinitions {
         assertEquals(driver.findElement(By.xpath("//h2[text()='" + myBlogs + "']")).getText(), myBlogs);
     }
 
-    /**
-     * -------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param buttonTestDataID is id of button
-     * @purpose access first blog on My Blog or All Blog
-     * @Author baotg2
-     * --------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @And("^the user click on \"([^\"]*)\" to access blog$")
-    public void accessFirstBlog(String buttonTestDataID) {
-        isComponentVisible.waitElement(By.xpath("//button[@data-testid='" + buttonTestDataID + "']"));
-        components.componentListButtonDataTestID(buttonTestDataID).get(0).click();
-    }
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------
@@ -624,7 +549,7 @@ public class AndStepDefinitions extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @And("the user click on check box {string}")
+    @And("the user clicks on check box {string}")
     public void theUserClickOnCheckOn(String typeName) {
         if (!components.componentInputType(typeName).isSelected()) {
             components.componentInputType(typeName).click();
@@ -692,7 +617,7 @@ public class AndStepDefinitions extends StepDefinitions {
     }
 
 
-    @And("^the user click on input type check box \"([^\"]*)\"$")
+    @And("^the user clicks on input type check box \"([^\"]*)\"$")
     public void theUserClickOnInputTypeCheckBox(String inputName) {
         isComponentVisible.waitElement(By.xpath("//input[@name='" + inputName + "']"));
         if (!components.componentInputName(inputName).isSelected()) {

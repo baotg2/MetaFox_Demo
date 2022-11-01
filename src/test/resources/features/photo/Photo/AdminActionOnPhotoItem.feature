@@ -18,7 +18,7 @@ Feature: Admin process on photos item
     And the user want upload 1 photo
     And the user want to add new album
     And the user clicks on button "buttonSubmit"
-    And the user sees flash message "Media item successfully uploaded." displayed
+    And the user sees successful flash message
     And the user back to "linkLogo" page
     Then the browser opened at item "photo" and tab "/photo/my-albums"
     Then the user verify "itemMedia" after upload
@@ -33,5 +33,5 @@ Feature: Admin process on photos item
     And the user want upload 1 photo
     And the user adds category "Comedy"
     And the user clicks on button "buttonSubmit"
-    And the user sees flash message "Media item successfully uploaded." displayed
+    And the user sees successful flash message
     Then the user verify "itemPhoto" after upload

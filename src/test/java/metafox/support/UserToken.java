@@ -10,7 +10,7 @@ public class UserToken {
     public int expires_in;
 
 
-    private static HashMap<String, UserToken> tokenStores = new HashMap<String, UserToken>();
+    private static final HashMap<String, UserToken> tokenStores = new HashMap<String, UserToken>();
 
     public UserToken(String access_token, int expires_in) {
         this.access_token = access_token;

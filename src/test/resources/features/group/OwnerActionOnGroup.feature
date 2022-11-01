@@ -4,9 +4,9 @@ Feature:  Owner Action On Public Groups
   @OwnerAddNewGroups
   Scenario: Owner Add New Group
     Given the user logged in as "admin"
-    Then the user action on "More"
+    Then the user clicks on "More"
     Then the browser opened at item "group" and tab "/group/add"
-    And the user action on input field "name" with value "Groups"
+    And the user clicks on input field "name" with value "Groups"
     And the user add value on "select-type_id" is "Song"
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Public"
@@ -16,7 +16,7 @@ Feature:  Owner Action On Public Groups
   @OwnerChangeCoverImage
   Scenario: Owner Change Cover Image
     Given the user logged in as "admin"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
@@ -28,27 +28,27 @@ Feature:  Owner Action On Public Groups
   @OwnerAddBlogs
   Scenario: OwnersAddBlogOnGroup
     Given the user logged in as "admin"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process
     When the user see item of "More"
     Then the user access on sub items "Blogs" more option
-    When the user click on element link text a "Add New Blog"
+    When the user clicks on element link text a "Add New Blog"
     Then the user see title "Add New Blog" is displayed
-    Then the user action on input field "title" with value "BlogName"
+    Then the user clicks on input field "title" with value "BlogName"
     And the user add value on div "textbox"
     And the user attaches a photo
     And the user adds category "Education"
     And the user add value on "tags-tags" is "tag-tag"
     And the user clicks on button "buttonSubmit"
-    And the user sees flash message "Blog published successfully" displayed
+    And the user sees successful flash message
     Then the user verify title of blog is displayed
     
   @OwnerAddPhotoToGroup
   Scenario: OwnersAddPhotoToGroup
     Given the user logged in as "admin"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "Groups"
     And the user want to click on title "itemTitle" and process

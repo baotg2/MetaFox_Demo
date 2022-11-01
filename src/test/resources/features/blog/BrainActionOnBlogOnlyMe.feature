@@ -6,7 +6,7 @@ Feature:  Brian process on blogs is OnlyMe
   Scenario: Brian Add New Blog With Image With Privacy Is Only Me
     Given the user logged in as "brian"
     And the browser opened at "/blog/add"
-    Then the user action on input field "title" with value "BlogOnlyMe"
+    Then the user clicks on input field "title" with value "BlogOnlyMe"
     And the user add value on div "textbox"
     And the user attaches a photo
     And the user adds category "Education"
@@ -14,14 +14,14 @@ Feature:  Brian process on blogs is OnlyMe
     And the user see item of "Everyone"
     When the user see item of "Only Me"
     And the user clicks on button "buttonSubmit"
-    And the user sees flash message "blogCreate" displayed
+    And the user sees successful flash message
 
 
   @AnotherUserSearchBlogOnlyMe
   Scenario: Another User Search Blog Only Me
     Given the user logged in as "terry"
     And the browser opened at "/"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "BlogOnlyMe"
     Then the user see "No blogs are found." on left menu
@@ -31,7 +31,7 @@ Feature:  Brian process on blogs is OnlyMe
   Scenario: Brain Share Now On Blog OnlyMe Just Add
     Given the user logged in as "brian"
     And the browser opened at "/"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "BlogOnlyMe"
     And the user access first condition "inputSort"
@@ -44,13 +44,13 @@ Feature:  Brian process on blogs is OnlyMe
   Scenario: Brain Delete Blog OnlyMe Just Added
     Given the user logged in as "brian"
     And the browser opened at "/"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "blog" and tab ""
     And the user see search field "Search blogs" and typing keys "BlogOnlyMe"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user click on "actionMenuButton" to access blog
-    And the user action on "Delete"
+    And the user opens action menu
+    And the user clicks on "delete"
     And the user clicks on button "buttonSubmit"
-    Then the user sees flash message "blogDelete" displayed
+    Then the user sees successful flash message
     Then the user see "No blogs are found." on left menu

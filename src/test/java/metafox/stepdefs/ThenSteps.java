@@ -23,15 +23,15 @@ import static org.junit.Assert.*;
  * @purpose: ThenStepDefinitions is class defined all steps use Method @Then
  * @since 04-05-2022
  */
-public class ThenStepDefinitions extends StepDefinitions {
+public class ThenSteps extends StepDefinitions {
 
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param userName is invalid user name
+     * @param userName is invalid username
      * @param passWord is invalid password
-     * @purpose verify error msg is displayed when login with invalid infor username and passWord
+     * @purpose verify error msg is displayed when login with invalid info username and passWord
      * @Author baotg2
      * -------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
@@ -150,7 +150,7 @@ public class ThenStepDefinitions extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user action on input field \"([^\"]*)\" with value \"([^\"]*)\"$")
+    @Then("^the user clicks on input field \"([^\"]*)\" with value \"([^\"]*)\"$")
     public void inputValueOnField(String fieldName, @Nonnull String value) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//input[@name='" + fieldName + "']"));
 
@@ -273,6 +273,22 @@ public class ThenStepDefinitions extends StepDefinitions {
     public void compareTitleBlogAdded() {
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemTitle']"));
         components.componentDivDataTestID("itemTitle").getText().contains(DataProvider.readConstants("BlogName"));
+    }
+
+
+    /**
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     *
+     * @param menuItemName is menu's name
+     * @Author baotg2
+     * @purpose: Verify element visible on left menu
+     * -----------------------------------------------------------------------------------------------------------------------------------------
+     * @since 04-05-2022
+     */
+    @Then("^the user see \"([^\"]*)\" on left menu$")
+    public void isChildMenuItemDisplayed(String menuItemName) {
+        isComponentVisible.waitElement(By.xpath("//span[text()='" + menuItemName + "']"));
+        assertTrue(components.componentSpanName(menuItemName).isDisplayed());
     }
 
     /**
@@ -480,16 +496,21 @@ public class ThenStepDefinitions extends StepDefinitions {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param pageAddressValue is page address value
+     * @param compare is page address value
+     * @param url     is page address value
      * @return true if move to page PageAddressValue success
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------
      * @since 10-06-2022
      */
-    @Then("^the user see address page is \"([^\"]*)\"$")
-    public boolean isPageAddressSuccessDisplayed(String pageAddressValue) {
-        assertTrue(driver.getCurrentUrl().contains(pageAddressValue));
-        return true;
+    @Then("^the user sees page url (contains|matches) \"([^\"]*)\"$")
+    public void isPageUrlContain(String compare, String url) {
+        if (compare.equals("contains")) {
+            assertTrue(driver.getCurrentUrl().contains(url));
+        } else {
+            assertTrue(driver.getCurrentUrl().matches(url));
+        }
+
     }
 
     /**
@@ -644,4 +665,10 @@ public class ThenStepDefinitions extends StepDefinitions {
     }
 
 
+    @Then("the user sees confirm popup")
+    public void theUserSeesConfirmPopup() {
+        WebElement popup = assertToBeDisplayed("popupConfirm");
+
+        assertTrue(popup.isDisplayed());
+    }
 }

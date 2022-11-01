@@ -5,30 +5,30 @@ Feature: Config Settings On ACP Blogs
   Scenario: Admin Config Blog OnACP
     Given the user logged in as "admin"
     When the browser will get Administrator URL
-    And the user action on "App Settings"
-    And the user action on "Blog"
+    And the user clicks on "App Settings"
+    And the user clicks on "Blog"
     When the user want to scroll to the end of page
-    And the user action on input field "blog.minimum_name_length" with value "5"
-    And the user action on input field "blog.maximum_name_length" with value "255"
+    And the user clicks on input field "blog.minimum_name_length" with value "5"
+    And the user clicks on input field "blog.maximum_name_length" with value "255"
     When the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Save Changed Successfully" displayed
+    Then the user sees successful flash message
 
   @BrianVerifySettingsBlogOnACP
   Scenario: Brian Verify Settings Blog On ACP
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     And the browser opened at item "blog" and tab "/blog/add"
-    And the user action on input field "title" with value "a"
+    And the user clicks on input field "title" with value "a"
     And the user clicks on button "buttonSubmit"
     Then the user see "Title must contain at least 5 characters." displayed success
 
   @BrianVerifySettingsBlogCreateFeed
   Scenario: Brian Verify Settings Blog Create Feed
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     And the browser opened at item "blog" and tab "/blog/add"
-    Then the user action on input field "title" with value "BlogName"
+    Then the user clicks on input field "title" with value "BlogName"
     And the user add value on div "textbox"
     And the user clicks on button "buttonSubmit"
-    And the user sees flash message "Blog published successfully" displayed
+    And the user sees successful flash message
     Then the user verify title of blog is displayed
