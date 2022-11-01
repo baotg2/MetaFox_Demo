@@ -13,7 +13,7 @@ Feature: Brian process on album item friends
     And the user see item of "Everyone"
     When the user see item of "Friends"
     And the user clicks on button "buttonSubmit"
-    And the user sees flash message "Media item successfully uploaded." displayed
+    And the user sees successful flash message
     And the user back to "linkLogo" page
     Then the browser opened at item "photo" and tab "/photo/my-albums"
     Then the user verify "itemMedia" after upload
@@ -21,7 +21,7 @@ Feature: Brian process on album item friends
   @AnotherUserSearchAlbumIsFriend
   Scenario: Another User Search Album Is Friend
     Given the user logged in as "test"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/albums"
     And the user see search field "Search albums" and typing keys "Album"
     And the user want to click on title "itemTitle" and process
@@ -30,7 +30,7 @@ Feature: Brian process on album item friends
   @AnotherUserSearchAlbumsIsNotFriend
   Scenario: Another User Search Album is not friend
     Given the user logged in as "terry"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/albums"
     And the user see search field "Search albums" and typing keys "Album"
     Then the user see "No albums found" on left menu
@@ -38,15 +38,15 @@ Feature: Brian process on album item friends
   @BrianShareNowOnAlbumFriendJustAdd
   Scenario: Brain Share Now On Album Friend Just Add
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/albums"
     And the user see search field "Search albums" and typing keys "Album"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
     And the user clicks on button "menuShareButton"
-    When the user action on "Share now"
-    Then the user sees flash message "Shared successfully" displayed
+    When the user clicks on "Share now"
+    Then the user sees successful flash message
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
     Then the user see "shared a post to newsfeed" on left menu
@@ -67,7 +67,7 @@ Feature: Brian process on album item friends
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     And the user want to click on title "itemTitle" and process
-    And the user click on "actionMenuButton" to access blog
-    When the user action on "Delete"
+    And the user opens action menu
+    When the user clicks on "Delete"
     And the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Photo album deleted successfully." displayed
+    Then the user sees successful flash message

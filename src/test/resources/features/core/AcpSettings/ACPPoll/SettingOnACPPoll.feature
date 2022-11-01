@@ -5,20 +5,20 @@ Feature: Config Settings On ACP Poll
   Scenario: Admin Config Poll OnACP
     Given the user logged in as "admin"
     When the browser will get Administrator URL
-    And the user action on "App Settings"
-    And the user action on "Poll"
+    And the user clicks on "App Settings"
+    And the user clicks on "Poll"
     When the user want to scroll to the end of page
-    And the user action on input field "poll.minimum_name_length" with value "5"
-    And the user action on input field "poll.maximum_name_length" with value "255"
+    And the user clicks on input field "poll.minimum_name_length" with value "5"
+    And the user clicks on input field "poll.maximum_name_length" with value "255"
     When the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Save Changed Successfully" displayed
+    Then the user sees successful flash message
 
   @BrianVerifySettingsPollOnACP
   Scenario: Brian Verify Settings Poll On ACP
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     And the browser opened at item "poll" and tab "/poll/add"
-    And the user action on input field "question" with value "a"
+    And the user clicks on input field "question" with value "a"
     And the user clicks on button "buttonSubmit"
     When the user want to scroll to the up of page
     Then the user see "Title must contain at least 5 characters." displayed success
@@ -27,18 +27,18 @@ Feature: Config Settings On ACP Poll
   Scenario: Admin Config Settings Is Image Required
     Given the user logged in as "admin"
     When the browser will get Administrator URL
-    And the user action on "App Settings"
-    And the user action on "Poll"
+    And the user clicks on "App Settings"
+    And the user clicks on "Poll"
     When the user want to access "inputPollIsImageRequired"
     When the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Save Changed Successfully" displayed
+    Then the user sees successful flash message
 
   @AdminVerifySettingPollImageRequired
   Scenario: Admin Verify Settings Poll image required
     Given the user logged in as "admin"
-    When the user action on "More"
+    When the user clicks on "More"
     When the browser opened at item "poll" and tab "/poll/add"
-    And the user action on input field "question" with value "Polls"
+    And the user clicks on input field "question" with value "Polls"
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
     And the user clicks on button "buttonSubmit"
@@ -47,8 +47,8 @@ Feature: Config Settings On ACP Poll
   Scenario: Admin Reset Settings Is Image Required
     Given the user logged in as "admin"
     When the browser will get Administrator URL
-    And the user action on "App Settings"
-    And the user action on "Poll"
+    And the user clicks on "App Settings"
+    And the user clicks on "Poll"
     When the user want to access "inputPollIsImageRequired"
     When the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Save Changed Successfully" displayed
+    Then the user sees successful flash message

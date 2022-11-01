@@ -36,7 +36,7 @@ Feature: Verify login pHpFox success
     Then I want to click on "Logout"
     And the user logged in as "admin"
     Then the user see search field "Search" and typing keys "brian"
-    And the user click on element link text a "Brian"
+    And the user clicks on element link text a "Brian"
     And the user want to "Confirm"
     Then the user see button "Unfriend" is displayed
 
@@ -45,11 +45,11 @@ Feature: Verify login pHpFox success
     Given the user logged in as "brian"
     And the browser opened at "/"
     Then the user see search field "Search" and typing keys "test"
-    And the user click on element link text a "test"
+    And the user clicks on element link text a "test"
     And the user want to "Add Friend"
     Then I want to click on "Logout"
     And the user logged in as "test"
     Then the user see search field "Search" and typing keys "brian"
-    And the user click on element link text a "Brian"
+    And the user clicks on element link text a "Brian"
     And the user want to "Confirm"
     Then the user see button "Unfriend" is displayed

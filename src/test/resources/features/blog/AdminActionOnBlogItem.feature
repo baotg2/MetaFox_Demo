@@ -1,47 +1,45 @@
 @app_blog @user_admin
 Feature:  Admin process on blogs app
 
-  Scenario: Admin Add New Blog Without Image
+  Scenario: Admin can add a new blog
     Given the user logged in as "brian"
     And the browser opened at "/blog/add"
     And within the content
-    Then the user action on input field "title" with value "Admin Blogs"
+    When the user types a sentence in field title
     And the user add value on div "textbox"
-    And the user attaches a photo
-    And the user adds category "Education"
-    And the user add value on "tags-tags" is "tag-tag"
-    And the user clicks on button "buttonSubmit"
-    And the user sees flash message "blogCreate" displayed
-    Then the user verify title of blog is displayed
+    And the user submits the form
+    Then the user sees successful flash message
 
-  Scenario: Admin See Pending Blog
-    Given the user logged in as "admin"
-    And the browser opened at "/"
-    When the user action on "More"
-    And the browser opened at item "blog" and tab "/blog/pending"
-    And the user see "No blogs found" on left menu
-    And the user back to "linkLogo" page
 
-  @AdminEditRanDomBlog
-  Scenario: Admin Edit Ran Dom Blog
+  Scenario: Admin can edit his own blogs
     Given the user logged in as "admin"
-    And the browser opened at "/"
-    When the user action on "More"
-    And the browser opened at item "blog" and tab "/blog/my"
-    And the user click on "actionMenuButton" to access blog
-    And the user action on "Edit blog"
-    Then the user see main form "form" is displayed
-    And the user action on input field "title" with value "Modify Admin Blog"
-    And the user clicks on button "buttonSubmit"
-    Then the user sees flash message "blogUpdate" displayed
+    And the browser opened at "/blog/my"
+    And within the content
+    When the user opens action menu
+    And the user clicks on menu item "edit"
+    Then the user sees page url contains "/blog/edit/"
 
-  @AdminDeleteRanDomBlog
-  Scenario: Admin Delete Ran Dom Blog
+  Scenario: Admin must confirm deleting item
     Given the user logged in as "admin"
-    And the browser opened at "/"
-    When the user action on "More"
-    And the browser opened at item "blog" and tab "/blog/all"
-    And the user click on "actionMenuButton" to access blog
-    And the user action on "Delete"
-    Then the user see id button "buttonSubmit" is displayed
-    Then the user see id button "buttonCancel" is displayed
+    And the browser opened at "/blog/all"
+    And within the content
+    # chain
+    When the user opens action menu
+    And the user clicks on menu item "delete"
+    Then the user sees confirm popup
+    And the user rejects the confirm
+    # chain accept
+    When the user opens action menu
+    And the user clicks on menu item "delete"
+    Then the user sees confirm popup
+    When the user accepts the confirm
+
+
+  Scenario: Admin can delete a blog item
+    Given the user logged in as "admin"
+    And the browser opened at "/blog/all"
+    And within the content
+    When the user opens action menu
+    And the user clicks on menu item "delete"
+    And the user accepts the confirm
+    Then the user sees successful flash message

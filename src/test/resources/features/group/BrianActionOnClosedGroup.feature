@@ -4,9 +4,9 @@ Feature:  Brain Process On Closed Groups
   @BrianAddNewClosedGroups
   Scenario: Brian Add New Group
     Given the user logged in as "brian"
-    Then the user action on "More"
+    Then the user clicks on "More"
     Then the browser opened at item "group" and tab "/group/add"
-    And the user action on input field "name" with value "TestAutoClosedGroup"
+    And the user clicks on input field "name" with value "TestAutoClosedGroup"
     And the user add value on "select-type_id" is "Song"
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Closed"
@@ -16,7 +16,7 @@ Feature:  Brain Process On Closed Groups
   @AnotherUserSearchClosedGroup
   Scenario: Another User Search Group
     Given the user logged in as "admin"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "TestAutoClosedGroup"
     And the user want to click on title "itemTitle" and process
@@ -25,7 +25,7 @@ Feature:  Brain Process On Closed Groups
   @BrianApproveAnotherUserJoinClosedGroup
   Scenario: Brian Approve Another User Join Closed Group
     Given the user logged in as "terry"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "TestAutoClosedGroup"
     And the user want to click on title "itemTitle" and process
@@ -34,25 +34,25 @@ Feature:  Brain Process On Closed Groups
     And I want to click on "Logout"
     Given the user logged in as "brian"
     When the user "new_notification" this item
-    Then the user click on notification "requested to join TestAutoClosedGroup" and process
+    Then the user clicks on notification "requested to join TestAutoClosedGroup" and process
     And the user want to click on list button label "PENDING REQUESTS" and process
     When the user want to edit "itemview group_request"
-    Then the user sees flash message "Terry has been accepted." displayed
+    Then the user sees successful flash message
     Then I want to click on "Logout"
     Given the user logged in as "terry"
     Then the user "new_notification" this item
-    And the user click on notification "An admin has approved your request to join the group." and process
+    And the user clicks on notification "An admin has approved your request to join the group." and process
     Then the user see button "Joined" is displayed
 
   @BrianDeleteClosedGroup
   Scenario: Brian Delete Closed Group
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user see search field "Search groups" and typing keys "TestAutoClosedGroup"
     And the user want to click on title "itemTitle" and process
     When the user see "actionMenu" and click on
-    And the user action on "Delete"
+    And the user clicks on "Delete"
     Then the user see "Are you sure you want to delete this group permanently?" displayed success
     And the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Successfully deleted the group" displayed
+    Then the user sees successful flash message

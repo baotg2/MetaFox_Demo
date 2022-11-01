@@ -5,9 +5,9 @@ Feature: Verify Visitor Process on Sign Up
   Scenario Outline: Visitor Process register new account With Error Msg Invalid Email
     Given the browser opened at "/"
     Given the user want to click on "register"
-    And the user action on input field "first_name" with value "<firstName>"
-    And the user action on input field "last_name" with value "<lastName>"
-    And the user action on input field "full_name" with value "<fullName>"
+    And the user clicks on input field "first_name" with value "<firstName>"
+    And the user clicks on input field "last_name" with value "<lastName>"
+    And the user clicks on input field "full_name" with value "<fullName>"
     And the user input info sign up "Email Address" with value "<emailValue>"
     Then the user see error message "Email Address must be a valid email" is displayed
     Examples:
@@ -18,13 +18,13 @@ Feature: Verify Visitor Process on Sign Up
   Scenario: Visitor Process register new account With Error Msg Exist Email
     Given the browser opened at "/"
     Given the user want to click on "register"
-    And the user action on input field "first_name" with value "Test exist email"
-    And the user action on input field "last_name" with value "Test exist email"
-    And the user action on input field "full_name" with value "Test exist email"
+    And the user clicks on input field "first_name" with value "Test exist email"
+    And the user clicks on input field "last_name" with value "Test exist email"
+    And the user clicks on input field "full_name" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example.com"
     And the user input info sign up "Choose a Username" with value "TestAutoExistEmail"
-    And the user action on input field "password" with value "123456"
-    And the user click on check box "checkbox"
+    And the user clicks on input field "password" with value "123456"
+    And the user clicks on check box "checkbox"
     And the user clicks on button "buttonSubmit"
     Then the user see error message "The email has already been taken." is displayed
 
@@ -44,20 +44,20 @@ Feature: Verify Visitor Process on Sign Up
   Scenario: Visitor Break SignUp Action
     Given the browser opened at "/"
     Given the user want to click on "register"
-    And the user click on element link text a "Already Had an Account?"
+    And the user clicks on element link text a "Already Had an Account?"
     Then the user see "Welcome Back" is displayed
 
   @VisitorRegisterNewAccountWithExistUserName
   Scenario: Visitor Process register new account With Exist User Name
     Given the browser opened at "/"
     Given the user want to click on "register"
-    And the user action on input field "first_name" with value "N"
-    And the user action on input field "last_name" with value "L"
-    And the user action on input field "full_name" with value "V"
+    And the user clicks on input field "first_name" with value "N"
+    And the user clicks on input field "last_name" with value "L"
+    And the user clicks on input field "full_name" with value "V"
     And the user input info sign up "Email Address" with value "nlv@phpfox.com"
     And the user input info sign up "Choose a Username" with value "admin"
-    And the user action on input field "password" with value "123456"
-    And the user click on check box "checkbox"
+    And the user clicks on input field "password" with value "123456"
+    And the user clicks on check box "checkbox"
     And the user clicks on button "buttonSubmit"
     Then the user see error message "The user name has already been taken." is displayed
 
@@ -65,13 +65,13 @@ Feature: Verify Visitor Process on Sign Up
   Scenario: Visitor Process register new account With Short Password
     Given the browser opened at "/"
     Given the user want to click on "register"
-    And the user action on input field "first_name" with value "Test exist email"
-    And the user action on input field "last_name" with value "Test exist email"
-    And the user action on input field "full_name" with value "Test exist email"
+    And the user clicks on input field "first_name" with value "Test exist email"
+    And the user clicks on input field "last_name" with value "Test exist email"
+    And the user clicks on input field "full_name" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example123.com"
     And the user input info sign up "Choose a Username" with value "TestAuto1"
-    And the user action on input field "password" with value "cv"
-    And the user click on check box "checkbox"
+    And the user clicks on input field "password" with value "cv"
+    And the user clicks on check box "checkbox"
     And the user clicks on button "buttonSubmit"
     Then the user see error message "Your password must be at least 6 characters long. Please try another." is displayed
 
@@ -79,12 +79,12 @@ Feature: Verify Visitor Process on Sign Up
   Scenario: Visitor Process register new account With Space On Password Field
     Given the browser opened at "/"
     Given the user want to click on "register"
-    And the user action on input field "first_name" with value "Test exist email"
-    And the user action on input field "last_name" with value "Test exist email"
-    And the user action on input field "full_name" with value "Test exist email"
+    And the user clicks on input field "first_name" with value "Test exist email"
+    And the user clicks on input field "last_name" with value "Test exist email"
+    And the user clicks on input field "full_name" with value "Test exist email"
     And the user input info sign up "Email Address" with value "brian@example123.com"
     And the user input info sign up "Choose a Username" with value "TestAuto1"
-    And the user action on input field "password" with value " "
-    And the user click on check box "checkbox"
+    And the user clicks on input field "password" with value " "
+    And the user clicks on check box "checkbox"
     And the user clicks on button "buttonSubmit"
     Then the user see error message "The password is required." is displayed

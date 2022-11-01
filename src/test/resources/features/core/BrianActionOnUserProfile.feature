@@ -21,7 +21,7 @@ Feature: Brain Process On User Profile
     Then the user see title "Edit Profile" is displayed
     And the user add value on "selectCountryState" is "<country_state>"
     Then the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Information updated successfully" displayed
+    Then the user sees successful flash message
     Examples:
       |country_state|
       |Vietnam     |
@@ -33,9 +33,9 @@ Feature: Brain Process On User Profile
     Then the user want to access "userAvatar"
     And the user want to "Edit Profile"
     Then the user see title "Edit Profile" is displayed
-    Then the user action on input field "bio" with value "Everyone else was taken so this is me"
+    Then the user clicks on input field "bio" with value "Everyone else was taken so this is me"
     Then the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Information updated successfully" displayed
+    Then the user sees successful flash message
     And the user want to access "userAvatar"
     And the user want to access items "about" on user profile
     Then the user see "Everyone else was taken so this is me" is displayed on user profile
@@ -48,7 +48,7 @@ Feature: Brain Process On User Profile
     Then the user see title "Edit Profile" is displayed
     Then the user add value "Designer and Photographer" on textArea "inputAboutMe"
     And the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Information updated successfully" displayed
+    Then the user sees successful flash message
     And the user want to access "userAvatar"
     And the user want to access items "about" on user profile
     Then the user see "Designer and Photographer" is displayed on user profile
@@ -61,7 +61,7 @@ Feature: Brain Process On User Profile
     Then the user see title "Edit Profile" is displayed
     Then the user add value "Enjoy something" on textArea "inputInterest"
     And the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Information updated successfully" displayed
+    Then the user sees successful flash message
     And the user want to access "userAvatar"
     And the user want to access items "about" on user profile
     Then the user see "Enjoy something" is displayed on user profile
@@ -74,7 +74,7 @@ Feature: Brain Process On User Profile
     Then the user see title "Edit Profile" is displayed
     Then the user add value "Judo" on textArea "inputHobbies"
     And the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Information updated successfully" displayed
+    Then the user sees successful flash message
     And the user want to access "userAvatar"
     And the user want to access items "about" on user profile
     Then the user see "Judo" is displayed on user profile
@@ -86,4 +86,4 @@ Feature: Brain Process On User Profile
     And the user want to "Edit Profile"
     And the user add value "" on element "0"
     And the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Information updated successfully" displayed
+    Then the user sees successful flash message

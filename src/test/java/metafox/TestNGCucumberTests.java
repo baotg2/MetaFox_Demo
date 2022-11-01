@@ -18,13 +18,9 @@ import io.cucumber.testng.CucumberOptions;
         features = {"src/test/resources/features"},
         glue = "metafox",
         plugin = {
+                "pretty",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
-                "metafox.plugin.TestCaseParameter",
-                "html:reports/tests/cucumber/html",
-                "timeline:reports/tests/cucumber/timeline",
-                "junit:reports/tests/cucumber/junit/cucumber.xml",
-                "testng:reports/tests/cucumber/testng/cucumber.xml",
-                "json:reports/tests/cucumber/json/cucumber.json"
+                "metafox.plugin.TestCaseParameter"
         },
         monochrome = true
 )

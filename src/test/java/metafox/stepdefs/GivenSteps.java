@@ -33,7 +33,7 @@ import static org.junit.Assert.assertTrue;
  * @purpose: GivenStepDefinitions is class defined all steps use Method @Given
  * @since 04-05-2022
  */
-public class GivenStepDefinitions extends StepDefinitions {
+public class GivenSteps extends StepDefinitions {
 
     Components components = new Components();
     IsComponentVisible isComponentVisible = new IsComponentVisible();
@@ -145,11 +145,11 @@ public class GivenStepDefinitions extends StepDefinitions {
     @And("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form)$")
     public void withinTheContent(@Nonnull String name) {
         // map within current page as associate
-        By locator = Locator.bySection(name);
+        By currentWithinContext = Locator.bySection(name);
 
         WebElement element = new WebDriverWait(driver, Duration.ofSeconds(15))
                 .ignoring(NoSuchElementException.class)
-                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+                .until(ExpectedConditions.visibilityOfElementLocated(currentWithinContext));
 
         assertTrue(element.isDisplayed());
     }

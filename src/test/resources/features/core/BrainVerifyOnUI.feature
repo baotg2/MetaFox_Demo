@@ -39,7 +39,7 @@ Feature: Brain Verify on the UI
     Given the user logged in as "brian"
     When the user "new_notification" this item
     And the user see "notificationSettingsMenu" and click on
-    And the user action on "Open Notifications"
+    And the user clicks on "Open Notifications"
     Then the user see title h2 "Notifications" is displayed
     Then the user see "Mark all as read" is displayed on user profile
     Then the user see "Setting" is displayed on user profile
@@ -61,7 +61,7 @@ Feature: Brain Verify on the UI
   Scenario: Brian verify UI from side menu
     Given the user logged in as "brian"
     And the user see h5 text "Shortcuts" displayed
-    When the user action on "More"
+    When the user clicks on "More"
     Then the user see div element "Home" displayed
     And the user see div element "Friends" displayed
     And the user see div element "Members" displayed
@@ -84,19 +84,19 @@ Feature: Brain Verify on the UI
   Scenario: Brain Access App From More Menu
     Given the user logged in as "brian"
     Then the user "more_menu" this item
-    And the user action on "Forum"
+    And the user clicks on "Forum"
     Then the user see title "Forums" is displayed
     When the user "more_menu" this item
-    And the user action on "Friends"
+    And the user clicks on "Friends"
     Then the user see title "Friend Requests" is displayed
     When the user "more_menu" this item
-    And the user action on "Members"
+    And the user clicks on "Members"
     When the user "more_menu" this item
-    And the user action on "Blogs"
+    And the user clicks on "Blogs"
     Then the user see title "Blogs" is displayed
     When the user "more_menu" this item
-    And the user action on "Videos"
+    And the user clicks on "Videos"
     Then the user see title "Videos" is displayed
     When the user "more_menu" this item
-    And the user action on "Activity Points"
+    And the user clicks on "Activity Points"
     Then the user see title "Activity Point" is displayed

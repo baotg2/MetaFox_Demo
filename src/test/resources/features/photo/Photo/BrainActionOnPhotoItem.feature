@@ -11,7 +11,7 @@ Feature: Brian process on photos item
     And the user want upload 1 photo
     And the user adds category "Comedy"
     And the user clicks on button "buttonSubmit"
-    And the user sees flash message "Media item successfully uploaded." displayed
+    And the user sees successful flash message
     Then the user verify "itemPhoto" after upload
 
   @BrianReactionOnPhoto
@@ -26,10 +26,10 @@ Feature: Brian process on photos item
   Scenario: Brian Delete Photo
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user click on "actionMenuButton" to access blog
-    Then the user action on "Delete"
+    And the user opens action menu
+    Then the user clicks on "Delete"
     And the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Photo deleted successfully" displayed
+    Then the user sees successful flash message
 
   @BrianReportPhoto
   Scenario: Brian Report Photo
@@ -61,37 +61,37 @@ Feature: Brian process on photos item
     And the user want upload 1 photo
     Then the user clicks on button "submit"
     And the user back to "linkLogo" page
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     Then the user verify "itemPhoto" after upload
 
   @BrianFeaturePhotos
   Scenario: Brain Feature Photos
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user click on "actionMenuButton" to access blog
-    And the user action on "Feature"
-    Then the user sees flash message "Photo featured successfully." displayed
+    And the user opens action menu
+    And the user clicks on "Feature"
+    Then the user sees successful flash message
     Then the user see label of action "featured" is displayed
 
   @BrianUnFeaturePhotos
   Scenario: Brain UnFeature Photos
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
-    And the user click on "actionMenuButton" to access blog
-    And the user action on "Unfeature"
-    Then the user sees flash message "Photo unfeatured successfully." displayed
+    And the user opens action menu
+    And the user clicks on "Unfeature"
+    Then the user sees successful flash message
 
   @BrainShareNowPhotos
   Scenario: Brain Share Now Photos
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user see item of "Brian"
     When the user clicks on button "menuShareButton"
-    When the user action on "Share now"
+    When the user clicks on "Share now"
     And the user want to click on button label "Close" and process
     And the user back to "linkLogo" page
     Then the user see "shared a post to newsfeed" on left menu
@@ -99,11 +99,11 @@ Feature: Brian process on photos item
   @BrainShareToNewFeedPhotos
   Scenario: Brain Share Now Photos
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user see item of "Brian"
     When the user clicks on button "menuShareButton"
-    When the user action on "Share to News Feed"
+    When the user clicks on "Share to News Feed"
     And the user clicks on button "submit"
     When the user want to click on button label "Close" and process
     And the user back to "linkLogo" page
@@ -112,10 +112,10 @@ Feature: Brian process on photos item
   @BrianAddCoverImage
   Scenario: Brian Add Cover Image
     Given the user logged in as "brian"
-    When the user action on "More"
+    When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/my"
     And the user want to click on button label "Action Menu" and process
-    And the user action on "Make Cover Photo"
-    Then the user sees flash message "Cover picture updated successfully" displayed
+    And the user clicks on "Make Cover Photo"
+    Then the user sees successful flash message
     And the user want to access "userAvatar"
     Then the user see "updated her cover photo" on left menu

@@ -5,15 +5,15 @@ Feature: Config Settings On ACP Feed
   Scenario: Admin Config Feed OnACP
     Given the user logged in as "admin"
     When the browser will get Administrator URL
-    And the user action on "App Settings"
-    And the user action on "Feed"
-    And the user click on input type check box "activity.feed.enable_check_in"
-    And the user click on input type check box "activity.feed.enable_tag_friends"
-    And the user click on input type check box "activity.feed.enable_hide_feed"
+    And the user clicks on "App Settings"
+    And the user clicks on "Feed"
+    And the user clicks on input type check box "activity.feed.enable_check_in"
+    And the user clicks on input type check box "activity.feed.enable_tag_friends"
+    And the user clicks on input type check box "activity.feed.enable_hide_feed"
     When the user want to scroll to the end of page
-    And the user action on input field "activity.feed.spam_check_status_updates" with value "1"
+    And the user clicks on input field "activity.feed.spam_check_status_updates" with value "1"
     When the user clicks on button "buttonSubmit"
-    Then the user sees flash message "Save Changed Successfully" displayed
+    Then the user sees successful flash message
 
   @BrianVerifySettingsFeedOnACP
   Scenario: Brain Verify Settings Feed On ACP
