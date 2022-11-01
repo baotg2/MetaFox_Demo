@@ -24,7 +24,7 @@ Feature:  Brian process on blogs app
     When the user searches with text "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user add comment "test comment" on blog
     Then the user sees text "test comment"
 
@@ -35,7 +35,7 @@ Feature:  Brian process on blogs app
     When the user searches with text "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "reactionButton"
 
 
@@ -46,7 +46,7 @@ Feature:  Brian process on blogs app
     When the user searches with text "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "menuShareButton"
     When the user clicks on "Share now"
     Then the user sees successful flash message
@@ -63,7 +63,7 @@ Feature:  Brian process on blogs app
     When the user searches with text "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "menuShareButton"
     When the user clicks on "Share now"
     And the user back to "linkLogo" page
@@ -78,7 +78,7 @@ Feature:  Brian process on blogs app
     When the user searches with text "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "menuShareButton"
     When the user "share_on_friends" this item
     Then the user "itemUndefined" this item
@@ -172,7 +172,7 @@ Feature:  Brian process on blogs app
     And the user opens action menu
     And the user clicks on "Feature"
     Then the user sees successful flash message
-    Then the user seeslabel of action "featured"
+    Then the user sees label of action "featured"
 
 
   Scenario: Brain UnFeature Blogs

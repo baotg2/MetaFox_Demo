@@ -3,6 +3,7 @@ package metafox.stepdefs;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.qameta.allure.Allure;
+import metafox.CucumberTestRunner;
 import metafox.pageobjects.Components;
 import metafox.support.DataProvider;
 import metafox.support.IsComponentVisible;
@@ -145,11 +146,16 @@ public class GivenSteps extends StepDefinitions {
     @And("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form)$")
     public void withinTheContent(@Nonnull String name) {
         // map within current page as associate
-        By currentWithinContext = Locator.bySection(name);
+        By context = Locator.bySection(name);
+
+        // safe to use cross state
+        setSectionContext(context);
+
+        LOGGER.warn("withinTheContent {}", name);
 
         WebElement element = new WebDriverWait(driver, Duration.ofSeconds(15))
                 .ignoring(NoSuchElementException.class)
-                .until(ExpectedConditions.visibilityOfElementLocated(currentWithinContext));
+                .until(ExpectedConditions.visibilityOfElementLocated(context));
 
         assertTrue(element.isDisplayed());
     }
@@ -162,4 +168,5 @@ public class GivenSteps extends StepDefinitions {
 
         driver.get(String.format("%s%s", System.getenv("BASE_URL"), url));
     }
+
 }

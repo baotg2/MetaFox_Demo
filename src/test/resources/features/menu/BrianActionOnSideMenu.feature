@@ -77,4 +77,4 @@ Feature: Verify access side menu success
     Given the user logged in as "brian"
     Then the user want to access "userAvatar"
     And the user clicks on button "reactionButton"
-    Then the user seesresult of "reactionResult" displayed
+    Then the user sees result of "reactionResult" displayed

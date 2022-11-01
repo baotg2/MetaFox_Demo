@@ -34,7 +34,7 @@ Feature:  Brain Process On Public Events
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "reactionButton"
 
   @BrainSeePostCreateOnFeed
@@ -43,7 +43,7 @@ Feature:  Brain Process On Public Events
     When the user want to access "userAvatar"
     Then the user sees text "added an event "
     Then the user sees text "1 person going"
-    And the user seesh4 "IsOfflineEvents"
+    And the user sees h4 "IsOfflineEvents"
 
   @BrainSeeOnGoingOnEventJustCreated
   Scenario: Brain See OnGoing On EventsOffline
@@ -72,7 +72,7 @@ Feature:  Brain Process On Public Events
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "IsOfflineEvents"
     Then the user sees text "Your event"
 
@@ -84,7 +84,7 @@ Feature:  Brain Process On Public Events
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "IsOfflineEvents"
     And the user want to "All Hosts"
     And the user want to "Host List"
@@ -98,7 +98,7 @@ Feature:  Brain Process On Public Events
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "IsOfflineEvents"
     And the user want to "View list"
     And the user want to "Going"
@@ -114,7 +114,7 @@ Feature:  Brain Process On Public Events
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user want to click on list button label "MANAGE" and process
     Then the user sees text "Event Settings"
 
@@ -134,13 +134,13 @@ Feature:  Brain Process On Public Events
     And the user want to "All Hosts"
     And the user want to "Invited"
     Then the user sees text "test" on invited tab
-    And the user seesbutton "Cancel Invite"
+    And the user sees button "Cancel Invite"
     When the user clicks on button "buttonClose"
     And I want to click on "Logout"
     Given the user logged in as "test"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab "/event/friend"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user "Accept" on invite
     Then the user sees successful flash message
     And the user want to refresh page before handle the action
@@ -172,7 +172,7 @@ Feature:  Brain Process On Public Events
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "Going"
 
   @BrainInviteAnotherUserJoinEvent
@@ -183,7 +183,7 @@ Feature:  Brain Process On Public Events
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user clicks on "Invite"
     And the user clicks on div "Invite People To Come" and process
     Then the user "itemUndefined" this item
@@ -193,7 +193,7 @@ Feature:  Brain Process On Public Events
     Given the user logged in as "admin"
     When the user "new_notification" this item
     Then the user clicks on notification "Brian invited you to the event IsOfflineEvents" and process
-    Then the user seesbutton "Not Interested" is default
+    Then the user sees button "Not Interested" is default
     When the user want to click on button label "Not Interested" and process
     And the user access this blog by "Going" and process
     Then the user sees successful flash message
@@ -209,13 +209,13 @@ Feature:  Brain Process On Public Events
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "menuShareButton"
     When the user clicks on "Share now"
     Then the user sees successful flash message
     And the user back to "linkLogo" page
     Then the user sees text "shared a post to newsfeed "
-    Then the user seesh4 "IsOfflineEvents"
+    Then the user sees h4 "IsOfflineEvents"
 
   @BrianShareOnFeedEvents
   Scenario: Brian Share On Feed Events
@@ -225,14 +225,14 @@ Feature:  Brain Process On Public Events
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "menuShareButton"
     When the user clicks on "Share to News Feed"
     And the user want to "Share"
     Then the user sees successful flash message
     And the user back to "linkLogo" page
     Then the user sees text "shared a post to newsfeed "
-    Then the user seesh4 "IsOfflineEvents"
+    Then the user sees h4 "IsOfflineEvents"
 
   @BrianShareEventsOnFriendProfile
   Scenario: Brian Share On Events On Friend Profile
@@ -242,11 +242,11 @@ Feature:  Brain Process On Public Events
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "menuShareButton"
     When the user "share_on_friends" this item
     Then the user "itemUndefined" this item
     And the user clicks on button "submit"
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
-    Then the user seesh4 "IsOfflineEvents"
+    Then the user sees h4 "IsOfflineEvents"

@@ -24,7 +24,7 @@ Feature: Brian process on album item friends
     When the user clicks on "More"
     Then the browser opened at item "photo" and tab "/photo/albums"
     And the user searches with text "Album"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "NewAlbum"
 
   @AnotherUserSearchAlbumsIsNotFriend
@@ -43,7 +43,7 @@ Feature: Brian process on album item friends
     And the user searches with text "Album"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "menuShareButton"
     When the user clicks on "Share now"
     Then the user sees successful flash message
@@ -66,7 +66,7 @@ Feature: Brian process on album item friends
     And the user searches with text "Album"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user opens action menu
     When  the user clicks on menu item "delete"
     And the user clicks on button "buttonSubmit"

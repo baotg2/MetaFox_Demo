@@ -11,7 +11,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user back to "linkLogo" page
     Then the user want to refresh page before handle the action
     When the user "whatsHappening" this item
-    Then the user seesbutton "Friends"
+    Then the user sees button "Friends"
     And the user clicks on button "buttonClose"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"

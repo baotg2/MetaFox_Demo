@@ -22,7 +22,7 @@ Feature:  Brian process on multiple choice polls
     When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user searches with text "Polls"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "IsThisAutoPoll"
 
   @AnotherUserVoteUnPublicVotePoll
@@ -31,7 +31,7 @@ Feature:  Brian process on multiple choice polls
     When the user clicks on "More"
     When the browser opened at item "poll" and tab ""
     And the user searches with text "Polls"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "IsThisAutoPoll"
     And the user "admin" action vote on random options
 

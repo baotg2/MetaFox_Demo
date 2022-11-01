@@ -31,7 +31,7 @@ Feature:  Brian process on blogs is OnlyMe
     When the user searches with text "BlogOnlyMe"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user opens action menu
 
 

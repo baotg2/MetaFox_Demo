@@ -56,7 +56,7 @@ Feature: Brian process on photos friend item
     And the user opens action menu
     And the user clicks on "Feature"
     Then the user sees successful flash message
-    Then the user seeslabel of action "featured"
+    Then the user sees label of action "featured"
 
   @BrianUnFeaturePhotosFriends
   Scenario: Brain UnFeature Photos Friends

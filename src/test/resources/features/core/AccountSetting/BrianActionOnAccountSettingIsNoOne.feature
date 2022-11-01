@@ -12,7 +12,7 @@ Feature: Brain Process On Account Settings Is No One
     Then the user logged in as "terry"
     And the user searches with text "brian"
     And the user clicks on element link text a "Brian"
-    Then the user seesbutton "Message"
+    Then the user sees button "Message"
     And I want to click on "Logout"
     Then the user logged in as "brian"
     Then I want to click on "Account Settings"

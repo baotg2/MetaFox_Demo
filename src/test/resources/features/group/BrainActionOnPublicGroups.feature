@@ -20,7 +20,7 @@ Feature:  Brain Process On Public Groups
     When the user want to select category at 1 on dropdown list "select-type_id"
     And the user add value on "select-reg_method" is "Public"
     And the user clicks on button "buttonSubmit"
-    Then Then the user sees text "GroupTestAuto"
+    Then the user sees text "GroupTestAuto"
 
   @AnotherUserSearchGroup
   Scenario: Another User Search Group
@@ -28,8 +28,8 @@ Feature:  Brain Process On Public Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "Groups"
-    And the user want to click on title "itemTitle" and process
-    Then Then the user sees text "GroupTestAuto"
+    And the user clicks on the item title
+    Then the user sees text "GroupTestAuto"
 
   @AnotherUserJoinGroupOnGroupDetail
   Scenario: Another User Join Group
@@ -37,10 +37,10 @@ Feature:  Brain Process On Public Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "Groups"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user want to "Join Group"
     Then the user sees successful flash message
-    Then the user seesbutton "Joined"
+    Then the user sees button "Joined"
 
   @AnotherUserPostOnGroup
   Scenario: Another User Post On Group
@@ -48,7 +48,7 @@ Feature:  Brain Process On Public Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "Groups"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user "whatsHappening" this item
     And the user add comment "AutoPostStatus1" on blog
     And the user clicks on button "submit"
@@ -60,7 +60,7 @@ Feature:  Brain Process On Public Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "Groups"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "reactionButton"
 
   @AnotherUserLeaveGroup
@@ -69,12 +69,12 @@ Feature:  Brain Process On Public Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "Groups"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user sees text "actionMenu" and click on
     And the user clicks on div "leave_group" and process
     Then the user sees text "Are you sure you want to leave this group?"
     And the user clicks on button "buttonSubmit"
-    Then the user seesbutton "Join Group"
+    Then the user sees button "Join Group"
 
   @AnotherUserJoinGroupOnSlotMain
   Scenario: Another User Join Group
@@ -91,7 +91,7 @@ Feature:  Brain Process On Public Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "Groups"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user sees text "actionMenu" and click on
     And the user "manage" this item
     And the user clicks on "Membership Questions"
@@ -115,7 +115,7 @@ Feature:  Brain Process On Public Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "Groups"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user sees text "actionMenu" and click on
     And the user "manage" this item
     And the user clicks on "Pending Posts"
@@ -130,7 +130,7 @@ Feature:  Brain Process On Public Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "Groups"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user "whatsHappening" this item
     And the user add comment "AutoPostStatus" on blog
     And the user clicks on button "submit"
@@ -146,7 +146,7 @@ Feature:  Brain Process On Public Groups
     When the user clicks on "More"
     Then the browser opened at item "group" and tab ""
     And the user searches with text "Groups"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     When the user sees text "actionMenu" and click on
     And  the user clicks on menu item "delete"
     Then the user sees text "Are you sure you want to delete this group permanently?"

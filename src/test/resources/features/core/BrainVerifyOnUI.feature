@@ -19,7 +19,7 @@ Feature: Brain Verify on the UI
     And the user sees text "Pages "
     And the user sees text "Groups "
     And the user sees text "Saved Items "
-    #And the user seesimg "/logo.png"
+    #And the user sees img "/logo.png"
 
 
   @BrianChangeToDarkMode
@@ -27,11 +27,11 @@ Feature: Brain Verify on the UI
     Given the user logged in as "brian"
     And I want to click on "Dark Mode"
     When the user sees item of "On"
-    Then the user seesimg "/logo-dark.png"
+    Then the user sees img "/logo-dark.png"
     And the user want to refresh page before handle the action
     And I want to click on "Dark Mode"
     When the user sees item of "Off"
-    Then the user seesimg "/logo.png"
+    Then the user sees img "/logo.png"
     When the user sees item of "Auto"
 
   @BrianViewAllNotification
@@ -40,7 +40,7 @@ Feature: Brain Verify on the UI
     When the user "new_notification" this item
     And the user sees text "notificationSettingsMenu" and click on
     And the user clicks on "Open Notifications"
-    Then Then the user sees text "Notifications"
+    Then the user sees text "Notifications"
     Then the user sees text "Mark all as read "
     Then the user sees text "Setting "
 
@@ -60,7 +60,7 @@ Feature: Brain Verify on the UI
   @BrianVerifyUIFromSideMenu
   Scenario: Brian verify UI from side menu
     Given the user logged in as "brian"
-    And the user seesh5 text "Shortcuts" displayed
+    And the user sees h5 text "Shortcuts" displayed
     When the user clicks on "More"
     Then the user sees div element "Home" displayed
     And the user sees div element "Friends" displayed

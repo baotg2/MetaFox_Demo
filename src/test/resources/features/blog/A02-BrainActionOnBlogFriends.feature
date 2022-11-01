@@ -18,7 +18,7 @@ Feature:  Brian process on blogs is Friend
     And within the sidebar
     When the user searches with text "BlogName"
 
-  @focus
+
   Scenario: Brain Share Now On Blog Friend Just Add
     Given the user logged in as "brian"
     And the browser opened at "/blog"
@@ -28,15 +28,16 @@ Feature:  Brian process on blogs is Friend
     And the user access first condition "inputWhen"
     # next
     Given within the content
+    When the user clicks on the item title
     And the user opens share menu
     When the user clicks on menu item "share_now"
     And the user sees successful flash message
 
+  @focus
   Scenario: Another user access Brian profile and see blog
     Given the user logged in as "terry"
-    And the browser opened at "/user/3/blog"
+    And the user opened "brian" profile page
     And within the content
-    Then the user sees text "shared a post to newsfeed "
     Then the user sees text "Owner of this post has limited who can view this post."
 
   Scenario: Brain Delete Blog Friend Just Added

@@ -40,7 +40,7 @@ Feature:  Brian process on Forum
     And the user searches with text "IsThreadAutotest"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "IsThreadAutotest"
     And the user adds description
     And the user attaches a photo
@@ -62,10 +62,10 @@ Feature:  Brian process on Forum
    When the user clicks on "More"
    Then the browser opened at item "forum" and tab ""
    And the user searches with text "TestAutoDescription"
-   And the user want to click on title "itemTitle" and process
+   And the user clicks on the item title
    Then the user sees text "IsThreadAutotest"
    And the user clicks on button "reactionButton"
-   Then the user seeslabel of action "reactionResult"
+   Then the user sees label of action "reactionResult"
 
   @BrianEditThread
   Scenario: Brain Edit Thread

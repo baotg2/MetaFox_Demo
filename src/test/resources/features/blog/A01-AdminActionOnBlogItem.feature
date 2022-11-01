@@ -25,13 +25,13 @@ Feature:  Admin process on blogs app
     # chain
     When the user opens action menu
     And the user clicks on menu item "delete"
-    Then the user sees confirm popup
+    And the user sees confirm popup
     And the user rejects the confirm
     # chain accept
     When the user opens action menu
     And the user clicks on menu item "delete"
-    Then the user sees confirm popup
-    When the user accepts the confirm
+    And the user sees confirm popup
+    And the user accepts the confirm
 
 
   Scenario: Admin can delete a blog item

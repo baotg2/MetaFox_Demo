@@ -37,7 +37,7 @@ Feature: Brain Process On Public Events Is Friends
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     Then the user sees text "IsOfflineEvents"
 
 
@@ -58,13 +58,13 @@ Feature: Brain Process On Public Events Is Friends
     And the user searches with text "IsOfflineEvents"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
-    And the user want to click on title "itemTitle" and process
+    And the user clicks on the item title
     And the user clicks on button "menuShareButton"
     When the user clicks on "Share now"
     Then the user sees successful flash message
     And the user back to "linkLogo" page
     Then the user sees text "shared a post to newsfeed "
-    Then the user seesh4 "IsOfflineEvents"
+    Then the user sees h4 "IsOfflineEvents"
 
 
   @AnotherUserAccessOnBrianProfileAndSeeEvents

@@ -3,9 +3,9 @@ Feature:  Brain Action On Activity Point
 
   Scenario: Brain Verify Ui Activity Point
     Given the user logged in as "brian"
-    And the browser opened at "/"
-    When I want to click on "Activity Points"
-    Then Then the user sees text "Point Transactions"
+    And the browser opened at "/activitypoint"
+    And within the sidebar
+    Then the user sees text "Point Transactions"
     And the user sees text "Point Packages "
     And the user sees text "How To Earn "
     And the user sees text "Transaction History "
@@ -14,9 +14,9 @@ Feature:  Brain Action On Activity Point
   Scenario: Brian Verify UIView All Transactions History
     Given the user logged in as "brian"
     When I want to click on "Activity Points"
-    Then Then the user sees text "Point Transactions"
+    Then the user sees text "Point Transactions"
     And the user clicks on element link text a "View All Transactions"
-    Then Then the user sees text "Transactions History"
+    Then the user sees text "Transactions History"
 
   @admincp
   Scenario: Admin Add New Package
@@ -72,7 +72,7 @@ Feature:  Brain Action On Activity Point
     And the browser opened at "/"
     When I want to click on "Activity Points"
     And the user clicks on "Transaction History"
-    Then the user seesh5 text "App" displayed
+    Then the user sees text "App" displayed
     When the user back to "linkLogo" page
     When the user clicks on "More"
     Then the browser opened at item "blog" and tab "/blog/add"
