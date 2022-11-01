@@ -386,22 +386,6 @@ public class AndSteps extends StepDefinitions {
     }
 
     /**
-     * -------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param myBlogs title on main contain
-     * @purpose see title like Feature, Popular on main contain
-     * @Author baotg2
-     * -------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @And("^the user see \"([^\"]*)\"$")
-    public void myBlogIsDisplayed(String myBlogs) {
-        isComponentVisible.waitElement(By.xpath("//h2[text()='" + myBlogs + "']"));
-        assertEquals(driver.findElement(By.xpath("//h2[text()='" + myBlogs + "']")).getText(), myBlogs);
-    }
-
-
-    /**
      * ------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param action action's name
