@@ -11,12 +11,12 @@ public class LazyInitWebDriverIterator implements Iterator<Object[]> {
     private final List<Object[]> testParams;
     private int paramIndex = 0;
 
-    public LazyInitWebDriverIterator(Object[][] testParams) {
+    public LazyInitWebDriverIterator(Object[][] scenarios) {
         this.testMethodName = "";
         this.platforms = WebDriverFactory.getInstance().getPlatforms();
         List<Object[]> testParamsList = new ArrayList<Object[]>();
-        if (testParams != null) {
-            testParamsList = Arrays.stream(testParams).collect(Collectors.toList());
+        if (scenarios != null) {
+            testParamsList = Arrays.stream(scenarios).collect(Collectors.toList());
         }
 
         //Create list of combinations of Scenarios and Platforms

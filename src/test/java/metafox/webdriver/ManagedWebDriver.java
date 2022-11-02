@@ -5,6 +5,8 @@ import org.json.simple.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import javax.annotation.Nonnull;
+
 public class ManagedWebDriver {
     private String testName;
     private final WebDriverFactory webDriverFactory;
@@ -21,9 +23,9 @@ public class ManagedWebDriver {
      * Scoped within context, by default test in the main content
      * mark static to share the same context
      */
-    private By menuContext;
+    private By menuContext = Locator.bySection("sidebar menu");
 
-    public By getSectionContext() {
+    public @Nonnull By getSectionContext() {
         return sectionContext;
     }
 
@@ -31,7 +33,7 @@ public class ManagedWebDriver {
         this.sectionContext = sectionContext;
     }
 
-    public By getMenuContext() {
+    public @Nonnull By getMenuContext() {
         return menuContext;
     }
 

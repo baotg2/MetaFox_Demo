@@ -1,6 +1,7 @@
 package metafox.stepdefs;
 
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
 import metafox.support.Locator;
 import metafox.support.Utility;
@@ -67,17 +68,15 @@ public class ThenSteps extends StepDefinitions {
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param mss is content of message want to verify
-     * @return true if msg is displayed
+     * @param text is content of message want to verify
      * @Author baotg2
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see error message \"([^\"]*)\"$")
-    public boolean isErrMsgDisplayed(String mss) {
-        isComponentVisible.waitElement(By.xpath("//p[text() ='" + mss + "']"));
-        assertEquals(driver.findElement(By.xpath("//p[text() ='" + mss + "']")).getText(), mss);
-        return true;
+    @Then("^the user sees error message \"([^\"]*)\"$")
+    public void isErrMsgDisplayed(String text) {
+        WebElement error = waitUntilDisplayed(getSectionContext(), Locator.byText("p", text));
+        assertTrue(error.isDisplayed());
     }
 
     /**
@@ -215,24 +214,27 @@ public class ThenSteps extends StepDefinitions {
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param comment content want to comment
+     * @param text content want to comment
      * @purpose add comment on items
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user add comment \"([^\"]*)\" on blog$")
-    public void addComment(String comment) throws InterruptedException {
-        //isComponentVisible.waitElement(By.xpath("//div[@role='combobox']"));
-        if (components.componentListDivDataTestID("fieldStatus").size() != 0) {
-            driver.findElement(By.xpath("//div[@data-testid='fieldStatus']//div[@role ='combobox']")).sendKeys(comment);
-        } else {
-            components.componentDivRole("combobox").sendKeys(comment);
-            components.componentDivRole("combobox").sendKeys(Keys.ENTER);
-        }
-        Thread.sleep(2000);
-//        isComponentVisible.waitElement( By.xpath( "//p[text() = '" + comment + "']" ) );
-//        assertTrue( components.componentPText( comment ).isDisplayed() );
+    @When("^the user add comment \"([^\"]*)\"$")
+    public void addComment(String text) throws InterruptedException {
+        By section = getSectionContext();
+        WebElement commentBox = waitUntilDisplayed(section, Locator.byRole("combobox"));
+        assertTrue(commentBox.isDisplayed());
+        commentBox.sendKeys(text);
+        commentBox.sendKeys(Keys.ENTER);
+        verifyCommentAdded(text);
+    }
+
+    public void verifyCommentAdded(@Nonnull String text) {
+        By section = getSectionContext();
+        WebElement commentBox = waitUntilDisplayed(section, Locator.byTestId("comment"), Locator.byText("p", text));
+
+        assertTrue(commentBox.isDisplayed());
     }
 
     /**
@@ -627,7 +629,31 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("the user sees text {string}")
     public void theUserSeesTextContains(@Nonnull String text) {
-        WebElement element = waitUntilDisplayed(getSectionContext(), By.linkText(String.format("//*[contains(text(),\"%s\"]",text)));
+        WebElement element = waitUntilDisplayed(getSectionContext(), By.linkText(String.format("//*[contains(text(),'%s')]", text.trim())));
         assertTrue(element.isDisplayed());
+    }
+
+    @Then("^the user (sees|doesn't see) flag featured$")
+    public void theUserSeesFlagFeatured(@Nonnull String action) {
+        boolean negative = action.equalsIgnoreCase("doesn't");
+
+        if (negative) {
+            waitUntilInvisible(getSectionContext(), Locator.byTestId("featured"));
+        } else {
+            WebElement flag = waitUntilDisplayed(getSectionContext(), Locator.byTestId("featured"));
+            assertTrue(flag.isDisplayed());
+        }
+    }
+
+    @Then("^the user (sees|doesn't see) flag sponsored$")
+    public void theUserSeesFlagSponsored(@Nonnull String action) {
+        boolean negative = action.equalsIgnoreCase("doesn't");
+
+        if (negative) {
+            waitUntilInvisible(getSectionContext(), Locator.byTestId("sponsor"));
+        } else {
+            WebElement flag = waitUntilDisplayed(getSectionContext(), Locator.byTestId("sponsor"));
+            assertTrue(flag.isDisplayed());
+        }
     }
 }

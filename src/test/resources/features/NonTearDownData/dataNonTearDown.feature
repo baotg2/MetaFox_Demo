@@ -90,7 +90,7 @@ Feature:  Non TearDown Data On Site
     Then the browser opened at item "blog" and tab ""
     And the user searches with text "Brit + Co"
     And the user clicks on the item title
-    And the user add comment "Amazing write-ups" on blog
+    And the user add comment "Amazing write-ups"
     Then the user sees text "Amazing write-ups"
     And the user clicks on button "reactionButton"
 
@@ -102,7 +102,7 @@ Feature:  Non TearDown Data On Site
     And the user searches with text "IMPROVING EDUCATION AND LIVES"
     And the user clicks on the item title
     Then the user "whatsHappening" this item
-    And the user add comment "I no longer depend on my parents and I am financially independent" on blog
+    And the user add comment "I no longer depend on my parents and I am financially independent"
     And the user clicks on button "submit"
     Then the user sees successful flash message
 
@@ -124,5 +124,5 @@ Feature:  Non TearDown Data On Site
     And the user clicks on button "reactionButton"
     Then the user sees result of "reactionResult" displayed
     When the user clicks on button "commentButton"
-    And the user add comment "Amazing write-ups" on blog
+    And the user add comment "Amazing write-ups"
     Then the user sees text "Amazing write-ups"

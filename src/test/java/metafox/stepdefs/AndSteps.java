@@ -3,7 +3,6 @@ package metafox.stepdefs;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
-import metafox.support.Locator;
 import metafox.support.Utility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

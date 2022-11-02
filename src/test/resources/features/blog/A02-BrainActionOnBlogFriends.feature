@@ -33,12 +33,11 @@ Feature:  Brian process on blogs is Friend
     When the user clicks on menu item "share_now"
     And the user sees successful flash message
 
-  @focus
   Scenario: Another user access Brian profile and see blog
     Given the user logged in as "terry"
     And the user opened "brian" profile page
     And within the content
-    Then the user sees text "Owner of this post has limited who can view this post."
+    Then the user sees text "The post owner has limited who can view this post"
 
   Scenario: Brain Delete Blog Friend Just Added
     Given the user logged in as "brian"
@@ -47,8 +46,9 @@ Feature:  Brian process on blogs is Friend
     When the user searches with text "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
+    # next
+    Given within the content
     And the user opens action menu
     And the user clicks on menu item "delete"
     And the user accepts the confirm
     And the user sees successful flash message
-    Then the user sees text "No blogs are found. "

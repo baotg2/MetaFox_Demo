@@ -45,7 +45,7 @@ Feature: Brian process on photos friend item
   Scenario: Another user access Brian profile and see Photo
     Given the user logged in as "terry"
     Then the user searches with text "brian"
-    And the user want to click on "/brian"
+    And the user clicks on link "/brian"
     Then the user sees text "shared a post to newsfeed "
 
   @BrianFeaturePhotosFriends

@@ -1,12 +1,14 @@
 package metafox.stepdefs;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
 import metafox.support.Locator;
 import metafox.support.Privacy;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -54,33 +56,16 @@ public class WhenSteps extends StepDefinitions {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param item link want to moved
+     * @param url link want to moved
      * @purpose moved to other page by href
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------------
      */
-    @When("^the user want to click on \"([^\"]*)\"$")
-    public void accessNewPage(String item) throws InterruptedException {
-        Thread.sleep(3000);
-        isComponentVisible.waitElement(By.xpath("//a[contains(@href, '" + item + "')]"));
-        components.componentLinkText(item).click();
-        if (components.componentListHref(item).size() != 0) {
-            components.componentLinkText(item).click();
-        }
-    }
-
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param item value behind url homepage
-     * @purpose move to page has format homepgarUrl/item
-     * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @When("^the move to page \"([^\"]*)\"$")
-    public void openNewPage(String item) {
-        driver.get(System.getenv("BASE_URL") + item);
+    @When("^the user clicks on link \"([^\"]*)\"$")
+    public void accessNewPage(String url) throws InterruptedException {
+        WebElement link = waitUntilDisplayed(getSectionContext(), Locator.byHref(url));
+        assertTrue(link.isDisplayed());
+        link.click();
     }
 
     /**
@@ -524,9 +509,7 @@ public class WhenSteps extends StepDefinitions {
      */
     @When("the user clicks on {string}")
     public void the_user_click_on(String item) {
-        By context  = getSectionContext();
-        assert context != null;
-        WebElement element = waitUntilDisplayed(context, Locator.byTestId(item));
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId(item));
         assertTrue(element.isDisplayed());
         element.click();
     }
@@ -543,9 +526,7 @@ public class WhenSteps extends StepDefinitions {
     @When("the user clicks on menu item {string}")
     public void the_user_click_on_menu_item(String item) {
         // assign current menu context to check every ok
-        By context  = getMenuContext();
-        assert context != null;
-        WebElement element = waitUntilDisplayed(context, Locator.byTestId(item));
+        WebElement element = waitUntilDisplayed(getMenuContext(), Locator.byTestId(item));
         assertTrue(element.isDisplayed());
         element.click();
     }
@@ -569,9 +550,12 @@ public class WhenSteps extends StepDefinitions {
      */
     @When("the user clicks on button \"([^\"]*)\"$")
     public void clickOnButton(String buttonName) throws InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//button[@data-testid ='" + buttonName + "']"));
-        components.componentButtonDataTestID(buttonName).click();
-        Thread.sleep(3000);
+        By section = getSectionContext();
+
+        WebElement button = waitUntilDisplayed(section, Locator.byTestId("button", buttonName));
+
+        assertTrue(button.isDisplayed());
+        button.click();
     }
 
 
@@ -594,7 +578,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user adds a tag")
     public void theUserAddATag() {
-        WebElement element = waitUntilDisplayed(Locator.byTestId("inputTags"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("input", "inputTags"));
         element.clear();
         element.sendKeys(DataProvider.faker.lorem().word());
         element.sendKeys(Keys.ENTER);
@@ -602,15 +586,14 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user opens action menu")
     public void theUserOpensActionMenu() {
-        By context  = getSectionContext();
-        assert context != null;
-        WebElement button = waitUntilDisplayed(context, Locator.byTestId("actionMenuButton"));
+        WebElement button = waitUntilDisplayed(getSectionContext(), Locator.byTestId("button", "actionMenuButton"));
         assertTrue(button.isDisplayed());
         button.click();
 
         // the current within must be scoped to new context
-        waitUntilDisplayed(Locator.byTestId("action menu"));
-        setMenuContext(context);
+        By menu = Locator.byTestId("div", "action menu");
+        waitUntilDisplayed(menu);
+        setMenuContext(menu);
     }
 
     /**
@@ -623,7 +606,7 @@ public class WhenSteps extends StepDefinitions {
      * @since 04-05-2022
      */
     @Then("^the user sees (successful) flash message$")
-    public void isMsgCreateSuccessDisplayed(String status) {
+    public void theUserSeeFlashMessage(String status) {
         WebElement flashMessage = waitUntilDisplayed(Locator.byTestId("flashMessage"));
         assertTrue(flashMessage.isDisplayed());
     }
@@ -631,7 +614,7 @@ public class WhenSteps extends StepDefinitions {
     @When("the user accepts the confirm")
     public void theUserAcceptsTheConfirm() {
         By context = Locator.byTestId("popupConfirm");
-        WebElement button = waitUntilDisplayed(context, Locator.byTestId("inputTitle"));
+        WebElement button = waitUntilDisplayed(context, Locator.byTestId("buttonSubmit"));
 
         assertTrue(button.isDisplayed());
         button.click();
@@ -652,36 +635,25 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user submits the form")
     public void theUserSubmitsTheForm() {
-        By context  = getSectionContext();
-        assert context != null;
-        WebElement button = waitUntilDisplayed(context, Locator.byTestId("buttonSubmit"));
+        WebElement button = waitUntilDisplayed(getSectionContext(), Locator.byTestId("buttonSubmit"));
         assertTrue(button.isDisplayed());
         button.click();
     }
 
     @When("^the user set privacy is (Everyone|Community|Friends|Friends of Friends|Only Me|Custom)$")
     public void theUserSetPrivacyIsFriend(@Nonnull String privacy) {
-        By section  = getSectionContext();
-        assert section != null;
-        By button = By.cssSelector("[data-testid=\"fieldPrivacy\"] [role=\"button\"]");
-        WebElement element = waitUntilDisplayed(section, button);
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("fieldPrivacy"), Locator.byRole("button"));
         assertTrue(element.isDisplayed());
         element.click();
 
-        By context = Locator.byTestId("menuPrivacy");
-        By item = Locator.byDataValue(Privacy.getValue(privacy));
-
-        WebElement menuitem = waitUntilDisplayed(context, item);
-
+        WebElement menuitem = waitUntilDisplayed(Locator.byTestId("menuPrivacy"), Locator.byDataValue(Privacy.getValue(privacy)));
         assertTrue(menuitem.isDisplayed());
         menuitem.click();
     }
 
     @And("the user adds description")
     public void theUserAddsDescription() {
-        By section  = getSectionContext();
-        assert section != null;
-        WebElement element = waitUntilDisplayed(section, Locator.byRole("textbox"));
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byRole("textbox"));
         assertTrue(element.isDisplayed());
         element.sendKeys(DataProvider.faker.lorem().paragraph());
     }
@@ -689,9 +661,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user adds title with value {string}")
     public void theUserAddsTitleWithValue(@Nonnull String text) {
-        By section  = getSectionContext();
-        assert section != null;
-        WebElement element = waitUntilDisplayed(section, Locator.byTestId("inputTitle"));
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputTitle"));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys(text);
@@ -700,19 +670,12 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user adds title")
     public void theUserAddsTitle() {
-        By section  = getSectionContext();
-        assert section != null;
-        WebElement element = waitUntilDisplayed(section, Locator.byTestId("inputTitle"));
-        assertTrue(element.isDisplayed());
-        element.clear();
-        element.sendKeys(DataProvider.faker.lorem().sentence());
+        theUserAddsTitleWithValue(DataProvider.faker.lorem().sentence());
     }
 
     @When("the user searches with text {string}")
     public void theUserSearchesWithValue(@Nonnull String value) {
-        By section  = getSectionContext();
-        assert section != null;
-        WebElement element = waitUntilDisplayed(section, Locator.byTestId("searchBox"));
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "searchBox"));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys(value);
@@ -721,30 +684,35 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user opens share menu")
     public void theUserOpensShareMenu() {
-        By section  = getSectionContext();
-        assert section != null;
-        WebElement button = waitUntilDisplayed(section, Locator.byTestId("menuShareButton"));
+        WebElement button = waitUntilDisplayed(getSectionContext(), Locator.byTestId("button", "menuShareButton"));
         assertTrue(button.isDisplayed());
         // open menu
         button.click();
-        setMenuContext(Locator.byTestId("menuShare"));
+        setMenuContext(Locator.byTestId("div", "menuShare"));
     }
 
     @And("the user adds a category")
     public void theUserAddsACategory() {
-        By section  = getSectionContext();
-        assert section != null;
-        WebElement element = waitUntilDisplayed(section, Locator.byTestId("inputCategories"));
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputCategories"));
         element.click();
         element.sendKeys(Keys.ENTER);
     }
 
     @When("the user clicks on the item title")
     public void theUserClicksOnTheItemTitle() {
-        By section  = getSectionContext();
-        assert section != null;
-        WebElement element = waitUntilDisplayed(section, Locator.byTestId("itemTitle"), By.tagName("a"));
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("itemTitle"), Locator.byTagName("a"));
         element.click();
         element.sendKeys(Keys.ENTER);
+    }
+
+    @Given("the user navigates to {string}")
+    public void theUserNavigateTo(String url) throws InterruptedException {
+        navigateTo(url);
+        Thread.sleep(1000);
+    }
+
+    public void navigateTo(@Nonnull String url) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeAsyncScript(String.format("window.$manager.historyBackend.replace('%s')", url));
     }
 }
