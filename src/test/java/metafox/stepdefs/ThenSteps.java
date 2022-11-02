@@ -627,7 +627,7 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("the user sees text {string}")
     public void theUserSeesTextContains(@Nonnull String text) {
-        WebElement element = waitUntilDisplayed(getSectionContext(), By.linkText("//span[text()='" + text + "']"));
+        WebElement element = waitUntilDisplayed(getSectionContext(), By.linkText(String.format("//*[contains(text(),\"%s\"]",text)));
         assertTrue(element.isDisplayed());
     }
 }
