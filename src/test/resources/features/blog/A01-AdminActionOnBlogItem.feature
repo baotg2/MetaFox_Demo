@@ -1,4 +1,4 @@
-@app_blog @user_admin @focus
+@app_blog @focus
 Feature:  Admin process on blogs app
 
   Scenario: Admin can add a new blog
@@ -16,7 +16,7 @@ Feature:  Admin process on blogs app
     And within the content
     When the user opens action menu
     And the user clicks on menu item "edit"
-    Then the user sees page url contains "/blog/edit/\d+"
+    Then the user sees page url matches "/blog/edit/\d+"
 
   Scenario: Admin must confirm deleting item
     Given the user logged in as "admin"

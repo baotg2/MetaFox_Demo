@@ -68,17 +68,15 @@ public class ThenSteps extends StepDefinitions {
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param mss is content of message want to verify
-     * @return true if msg is displayed
+     * @param text is content of message want to verify
      * @Author baotg2
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see error message \"([^\"]*)\"$")
-    public boolean isErrMsgDisplayed(String mss) {
-        isComponentVisible.waitElement(By.xpath("//p[text() ='" + mss + "']"));
-        assertEquals(driver.findElement(By.xpath("//p[text() ='" + mss + "']")).getText(), mss);
-        return true;
+    @Then("^the user sees error message \"([^\"]*)\"$")
+    public void isErrMsgDisplayed(String text) {
+        WebElement error = waitUntilDisplayed(getSectionContext(), Locator.byText("p", text));
+        assertTrue(error.isDisplayed());
     }
 
     /**
@@ -633,5 +631,29 @@ public class ThenSteps extends StepDefinitions {
     public void theUserSeesTextContains(@Nonnull String text) {
         WebElement element = waitUntilDisplayed(getSectionContext(), By.linkText(String.format("//*[contains(text(),'%s')]", text.trim())));
         assertTrue(element.isDisplayed());
+    }
+
+    @Then("^the user (sees|doesn't see) flag featured$")
+    public void theUserSeesFlagFeatured(@Nonnull String action) {
+        boolean negative = action.equalsIgnoreCase("doesn't");
+
+        if (negative) {
+            waitUntilInvisible(getSectionContext(), Locator.byTestId("featured"));
+        } else {
+            WebElement flag = waitUntilDisplayed(getSectionContext(), Locator.byTestId("featured"));
+            assertTrue(flag.isDisplayed());
+        }
+    }
+
+    @Then("^the user (sees|doesn't see) flag sponsored$")
+    public void theUserSeesFlagSponsored(@Nonnull String action) {
+        boolean negative = action.equalsIgnoreCase("doesn't");
+
+        if (negative) {
+            waitUntilInvisible(getSectionContext(), Locator.byTestId("sponsor"));
+        } else {
+            WebElement flag = waitUntilDisplayed(getSectionContext(), Locator.byTestId("sponsor"));
+            assertTrue(flag.isDisplayed());
+        }
     }
 }

@@ -4,7 +4,7 @@ Feature: Verify Visitor Process on Sign Up
   @VisitorRegisterNewAccountWithErrorMsgInvalidEmail
   Scenario Outline: Visitor Process register new account With Error Msg Invalid Email
     Given the browser opened at "/"
-    Given the user want to click on "register"
+    Given the user clicks on link "register"
     And the user clicks on input field "first_name" with value "<firstName>"
     And the user clicks on input field "last_name" with value "<lastName>"
     And the user clicks on input field "full_name" with value "<fullName>"
@@ -17,7 +17,7 @@ Feature: Verify Visitor Process on Sign Up
   @VisitorRegisterNewAccountWithErrorMsgExistEmail
   Scenario: Visitor Process register new account With Error Msg Exist Email
     Given the browser opened at "/"
-    Given the user want to click on "register"
+    Given the user clicks on link "register"
     And the user clicks on input field "first_name" with value "Test exist email"
     And the user clicks on input field "last_name" with value "Test exist email"
     And the user clicks on input field "full_name" with value "Test exist email"
@@ -31,7 +31,7 @@ Feature: Verify Visitor Process on Sign Up
   @VisitorSignUpWithEmptyValue
   Scenario: Visitor SignUp With Empty Value
     Given the browser opened at "/"
-    Given the user want to click on "register"
+    Given the user clicks on link "register"
     And the user clicks on button "buttonSubmit"
     Then the user sees error message "First Name is required."
     Then the user sees error message "Last Name is required."
@@ -43,14 +43,14 @@ Feature: Verify Visitor Process on Sign Up
   @VisitorBreakSignUpAction
   Scenario: Visitor Break SignUp Action
     Given the browser opened at "/"
-    Given the user want to click on "register"
+    Given the user clicks on link "register"
     And the user clicks on element link text a "Already Had an Account?"
     Then the user sees text "Welcome Back"
 
   @VisitorRegisterNewAccountWithExistUserName
   Scenario: Visitor Process register new account With Exist User Name
     Given the browser opened at "/"
-    Given the user want to click on "register"
+    Given the user clicks on link "register"
     And the user clicks on input field "first_name" with value "N"
     And the user clicks on input field "last_name" with value "L"
     And the user clicks on input field "full_name" with value "V"
@@ -64,7 +64,7 @@ Feature: Verify Visitor Process on Sign Up
   @VisitorRegisterNewAccountWithShortPassword
   Scenario: Visitor Process register new account With Short Password
     Given the browser opened at "/"
-    Given the user want to click on "register"
+    Given the user clicks on link "register"
     And the user clicks on input field "first_name" with value "Test exist email"
     And the user clicks on input field "last_name" with value "Test exist email"
     And the user clicks on input field "full_name" with value "Test exist email"
@@ -78,7 +78,7 @@ Feature: Verify Visitor Process on Sign Up
   @VisitorRegisterNewAccountWithSpaceOnPasswordField
   Scenario: Visitor Process register new account With Space On Password Field
     Given the browser opened at "/"
-    Given the user want to click on "register"
+    Given the user clicks on link "register"
     And the user clicks on input field "first_name" with value "Test exist email"
     And the user clicks on input field "last_name" with value "Test exist email"
     And the user clicks on input field "full_name" with value "Test exist email"

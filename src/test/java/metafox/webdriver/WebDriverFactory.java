@@ -51,7 +51,6 @@ public class WebDriverFactory {
         String conf = System.getProperty("conf", "single");
         String file = String.format("src/test/resources/conf/%s.conf.json", conf);
         String capabilitiesConfigFile = System.getProperty("caps", file);
-        LOGGER.info("Build browser config from {}", file);
         try {
             return (JSONObject) parser.parse(new FileReader(capabilitiesConfigFile));
         } catch (IOException | ParseException var6) {
@@ -98,16 +97,16 @@ public class WebDriverFactory {
 
 
     public WebDriver createLocalChromeDriver() {
+        LOGGER.info("Creating new chrome driver");
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("use-fake-device-for-media-stream");
         options.addArguments("use-fake-ui-for-media-stream");
         options.addArguments("--window-size=1440,980");
         options.setHeadless(isHeadless());
         options.setAcceptInsecureCerts(true);
-        // read from system env.
-//        options.setBinary("/usr/local/bin/chromedriver");
 
-        Map<String, Object> prefs = new HashMap<String, Object>();
+        Map<String, Object> prefs = new HashMap<>();
         prefs.put("profile.default_content_setting_values.media_stream_mic", 1);
         prefs.put("profile.default_content_setting_values.media_stream_camera", 1);
         prefs.put("profile.default_content_setting_values.geolocation", 1);
@@ -122,6 +121,8 @@ public class WebDriverFactory {
     }
 
     public WebDriver createLocalFireFox() {
+        LOGGER.info("Creating new firefox driver");
+
         FirefoxOptions options = new FirefoxOptions();
         FirefoxProfile profile = new FirefoxProfile();
         options.setProfile(profile);

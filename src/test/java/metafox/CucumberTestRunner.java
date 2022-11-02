@@ -1,9 +1,7 @@
 package metafox;
 
 import com.browserstack.local.Local;
-import io.cucumber.testng.FeatureWrapper;
-import io.cucumber.testng.PickleWrapper;
-import io.cucumber.testng.TestNGCucumberRunner;
+import io.cucumber.testng.*;
 import metafox.support.Utility;
 import metafox.webdriver.LazyInitWebDriverIterator;
 import metafox.webdriver.ManagedWebDriver;
@@ -15,6 +13,16 @@ import org.testng.annotations.Test;
 
 import java.util.Iterator;
 
+@CucumberOptions(
+        features = {"src/test/resources/features"},
+        glue = "metafox",
+        tags = "@focus",
+        plugin = {
+                "pretty",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+                "metafox.plugin.TestCaseParameter"
+        }
+)
 public class CucumberTestRunner {
 
     private TestNGCucumberRunner testNGCucumberRunner;
@@ -23,8 +31,7 @@ public class CucumberTestRunner {
 
     @BeforeClass(alwaysRun = true)
     public void setUpClass() {
-
-        testNGCucumberRunner = new TestNGCucumberRunner(TestNGCucumberTests.class);
+        testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
     }
 
     private synchronized static void setThreadLocalWebDriver(ManagedWebDriver managedWebDriver) {
@@ -39,7 +46,7 @@ public class CucumberTestRunner {
         return getManagedWebDriver().getWebDriver();
     }
 
-    @Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "scenarios")
+    @Test(groups = "cucumber", dataProvider = "scenarios")
     public void feature(PickleWrapper pickleWrapper, FeatureWrapper featureWrapper, ManagedWebDriver managedWebDriver) {
         if (Utility.isLocal(managedWebDriver) && local == null) {
             local = new Local();
@@ -59,16 +66,7 @@ public class CucumberTestRunner {
 
     @AfterClass(alwaysRun = true)
     public void tearDownClass() {
-        if (local != null) {
-            try {
-                local.stop();
-            } catch (Exception e) {
-                throw new Error("Unable to stop BrowserStack Local.");
-            }
-        }
-        if (testNGCucumberRunner == null) {
-            return;
-        }
+
         testNGCucumberRunner.finish();
     }
 

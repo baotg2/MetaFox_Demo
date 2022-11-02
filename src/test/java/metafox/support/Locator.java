@@ -5,8 +5,11 @@ import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.Nonnull;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Locator {
     protected static final Logger LOGGER = LoggerFactory.getLogger(StepDefinitions.class);
@@ -20,6 +23,7 @@ public class Locator {
         put("subside", "layoutSlotSubside");
         put("main form", "main form block");
         put("action menu", "action menu");
+        put("profile menu", "profile menu");
     }};
 
     final private static Pattern pattern = Pattern.compile("^By\\.\\w+:\\s*");
@@ -35,19 +39,8 @@ public class Locator {
         return selector;
     }
 
-    public static String selectTestId(By context, By by, By by2) {
-        String selector = String.format("%s%s%s", transform(context), transform(by), transform(by2));
-
-        LOGGER.warn("selectTestId {}", selector);
-        return selector;
-    }
-
-
-    public static String selectTestId(By context, By by, By by2, By by3) {
-        String selector = String.format("%s%s%s%s", transform(context), transform(by), transform(by2), transform(by3));
-
-        LOGGER.warn("selectTestId {}", selector);
-        return selector;
+    public static String selectTestId(By... list) {
+        return Arrays.stream(list).map(Locator::transform).collect(Collectors.joining());
     }
 
 
@@ -63,16 +56,8 @@ public class Locator {
         return By.xpath(String.format("//*[@data-value='%s']", value));
     }
 
-    public static By byTestId(By context, By by1) {
-        return By.xpath(selectTestId(context, by1));
-    }
-
-    public static By byTestId(By context, By by1, By by2) {
-        return By.xpath(selectTestId(context, by1, by2));
-    }
-
-    public static By byTestId(By context, By by1, By by2, By by3) {
-        return By.xpath(selectTestId(context, by1, by2, by3));
+    public static By by(By... list) {
+        return By.xpath(selectTestId(list));
     }
 
     public static By byRole(String role) {
@@ -87,7 +72,6 @@ public class Locator {
         return By.xpath(String.format("//%s", tag));
     }
 
-
     private static String transform(By by) {
         return pattern.matcher(by.toString()).replaceFirst("");
     }
@@ -98,5 +82,17 @@ public class Locator {
 
     public static By byText(String tagName, String text) {
         return By.xpath(String.format("//%s[contains(text(), '%s')]", tagName, text.trim()));
+    }
+
+    public static By byId(String text) {
+        return byText("*", text);
+    }
+
+    public static By byId(String tagName, String id) {
+        return By.xpath(String.format("//%s[@id='%s')]", tagName, id.trim()));
+    }
+
+    public static By byHref(@Nonnull String url) {
+        return By.xpath(String.format("//a[contains(@href, '%s')]", url.trim()));
     }
 }

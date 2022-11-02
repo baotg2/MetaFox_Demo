@@ -140,17 +140,15 @@ Feature:  Brian process on blogs app
     And the user clicks on button "buttonSubmit"
     And the user sees successful flash message
 
+  @focus
   Scenario: Brian Report Blog
     Given the user logged in as "brian"
-    And the browser opened at "/"
-    Then the user searches with text "brian"
-    And the user clicks on element link text a "Brian"
-    And the user sees item of "More"
-    And the user want access tool tip "Blogs" from More
-    And the user want to click on button label "Action Menu" and process
-    When the user clicks on item "report"
-    Then the user sees main form "form"
-    And the user submits the form
+    And the browser opened at "/user/3/blog"
+    And within the content
+    And the user opens action menu
+    When the user clicks on menu item "report"
+    Given within the main form
+    When the user submits the form
     Then the user sees successful flash message
 
 
@@ -166,13 +164,12 @@ Feature:  Brian process on blogs app
 
   Scenario: Brain Feature Blogs
     Given the user logged in as "brian"
-    And the browser opened at "/"
-    When the user clicks on "More"
-    Then the browser opened at item "blog" and tab "/blog/all"
+    And the browser opened at "/blog/all"
+    And within the content
     And the user opens action menu
-    And the user clicks on "Feature"
+    And the user clicks on menu item "feature"
     Then the user sees successful flash message
-    Then the user sees label of action "featured"
+    And the user sees flag featured
 
 
   Scenario: Brain UnFeature Blogs
@@ -181,7 +178,7 @@ Feature:  Brian process on blogs app
     When the user clicks on "More"
     Then the browser opened at item "blog" and tab "/blog/all"
     And the user opens action menu
-    And the user clicks on "Unfeature"
+    And the user clicks on menu item "remove_feature"
     Then the user sees successful flash message
 
 
@@ -192,29 +189,29 @@ Feature:  Brian process on blogs app
     When the user searches with text "BlogName"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
+    #next
+    Given within the content
     And the user opens action menu
     And  the user clicks on menu item "delete"
-    And the user sees confirm popup
+    And the user accepts the confirm
     Then the user sees successful flash message
 
   Scenario: Brian deletes blog on his profile page
     Given the user logged in as "brian"
-    And the user opened "brian" profile page
-    And the user want access tool tip "Blogs" from More
-    And the user want to click on "/blog/add"
-    Then the user adds title with value "BlogName"
-    Then the user want to add photo
+    And the browser opened at "/brian/blog"
+    And within the content
+    And the user clicks on link "/blog/add"
+    When the user adds title with value "BlogName"
+    And the user want to add photo
     And the user adds description
     And the user attaches a photo
-    And the user adds a category
-    And the user adds a tag
     And the user submits the form
     And the user sees successful flash message
-    Then the user verify title of blog is displayed
-    Then the user want to access "userAvatar"
-    And the user sees item of "More"
-    And the user want access tool tip "Blogs" from More
-    And the user "buttonActionMenu" this item
+    Then the user sees page url matches "/blog/\d+"
+    # next
+    Given the user navigates to "/brian/blog"
+    And within the content
+    And the user opens action menu
     And  the user clicks on menu item "delete"
-    And the user submits the form
+    And the user sees confirm popup
     Then the user sees successful flash message

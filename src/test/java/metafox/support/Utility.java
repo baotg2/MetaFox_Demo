@@ -32,7 +32,7 @@ public class Utility {
             accessKey = (String) config.get("key");
         }
 
-        @Nonnull JSONObject bstackOptions = commonCapabilities.get("bstack:options") != null ?
+        JSONObject bstackOptions = commonCapabilities.get("bstack:options") != null ?
                 (JSONObject) commonCapabilities.get("bstack:options") : new JSONObject();
 
         bstackOptions.putIfAbsent("userName", username);

@@ -37,7 +37,7 @@ Feature: Config Settings On ACP Sign Up
 
   @BrainVerifyRe-enterPassword
   Scenario: Verify the re-enter password is displayed
-    Given the user want to click on "register"
+    Given the user clicks on link "register"
     Then the user clicks on input field "password_confirmation" with value "abc"
 
   @AdminConfigTermsPrivacyConfirmation
@@ -54,7 +54,7 @@ Feature: Config Settings On ACP Sign Up
 
   @BrainVerifyTermConfirmation
   Scenario: Verify the TermConfirmation is displayed
-    Given the user want to click on "register"
+    Given the user clicks on link "register"
     Then the user don't see "fieldAgree"
     And the user clicks on element link text a "Already Had an Account?"
     Given the user logged in as "admin"

@@ -139,7 +139,6 @@ public class GivenSteps extends StepDefinitions {
 
     @Given("the browser opened at {string}")
     public void the_browser_opened_at(String url) {
-        LOGGER.info("the browser opened at {}", url);
         driver.get(String.format("%s%s", System.getenv("BASE_URL"), url));
     }
 
@@ -153,7 +152,7 @@ public class GivenSteps extends StepDefinitions {
         assertTrue(element.isDisplayed());
     }
 
-    @Given("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form)$")
+    @Given("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form|profile menu)$")
     public void GivenWithinTheContent(@Nonnull String name) {
         withinTheContent(name);
     }

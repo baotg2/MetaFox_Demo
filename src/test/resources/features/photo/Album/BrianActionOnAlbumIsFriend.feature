@@ -56,7 +56,7 @@ Feature: Brian process on album item friends
   Scenario: Another user access Brian profile and see Album
     Given the user logged in as "test"
     Then the user searches with text "brian"
-    And the user want to click on "/brian"
+    And the user clicks on link "/brian"
     Then the user sees text "shared a post to newsfeed "
 
   @BrianDeleteAlbumIsFriend

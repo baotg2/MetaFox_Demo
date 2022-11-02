@@ -31,7 +31,7 @@ Feature: Verify login pHpFox success
     Given the user logged in as "brian"
     And the browser opened at "/"
     Then the user searches with text "admin"
-    And the user want to click on "/admin"
+    And the user clicks on link "/admin"
     And the user want to "Add Friend"
     Then I want to click on "Logout"
     And the user logged in as "admin"

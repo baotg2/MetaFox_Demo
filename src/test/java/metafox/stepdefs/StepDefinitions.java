@@ -97,21 +97,19 @@ public class StepDefinitions {
                 .until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
-    public WebElement waitUntilDisplayed(@Nonnull By context, @Nonnull By by1) {
-        return waitUntilDisplayed(Locator.byTestId(context, by1));
+    public WebElement waitUntilDisplayed(@Nonnull By... list) {
+        return waitUntilDisplayed(Locator.by(list));
     }
 
-    public WebElement waitUntilDisplayed(@Nonnull By context, @Nonnull By by1, @Nonnull By by2) {
-        return waitUntilDisplayed(Locator.byTestId(context, by1, by2));
+    public void waitUntilInvisible(@Nonnull By by) {
+        new WebDriverWait(driver, Duration.ofSeconds(5))
+                .ignoring(ClassNotFoundException.class)
+                .until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
-    public WebElement waitUntilDisplayed(@Nonnull By context, @Nonnull By by1, @Nonnull By by2, @Nonnull By by3) {
-        return waitUntilDisplayed(Locator.byTestId(context, by1, by2, by3));
-    }
 
-    public void waitUntilInvisible(@Nonnull By testId) {
-        new WebDriverWait(driver, Duration.ofSeconds(15))
-                .until(ExpectedConditions.invisibilityOfElementLocated(testId));
+    public void waitUntilInvisible(@Nonnull By... list) {
+        waitUntilInvisible(Locator.by(list));
     }
 
 
