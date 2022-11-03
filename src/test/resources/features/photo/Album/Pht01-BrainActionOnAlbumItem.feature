@@ -1,7 +1,6 @@
-@MetaFox @photo  @albumFunction_Brain
+@app_photo @album_public @brian
 Feature: Brian process on album item
 
-  @BrianAddNewAlbumWithoutImage
   Scenario: Brian Add New Album Without Image
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/add"
@@ -9,7 +8,6 @@ Feature: Brian process on album item
     And the user clicks on button "buttonSubmit"
     Then the user sees div element "error" displayed
 
-  @BrainAddNewAlbumWithPhoto
   Scenario: Brian Add New Album With Photo
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
@@ -24,7 +22,6 @@ Feature: Brian process on album item
     Then the browser opened at item "photo" and tab "/photo/my-albums"
     Then the user verify "itemMedia" after upload
 
-  @BrianSearchHisAlbum
   Scenario: Brian Search His Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
@@ -34,7 +31,6 @@ Feature: Brian process on album item
     And the user access first condition "inputWhen"
     Then the user sees text "NewAlbum"
 
-  @BrianReactionOnAlbum
   Scenario: Brian Reaction On Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
@@ -43,7 +39,6 @@ Feature: Brian process on album item
     And the user clicks on button "reactionButton"
     Then the user sees result of "reactionResult" displayed
 
-  @BrianEditAlbum
   Scenario: Brian Edit On Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
@@ -54,7 +49,6 @@ Feature: Brian process on album item
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
 
-  @BrianDeleteAlbum
   Scenario: Brian Delete Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"
@@ -67,7 +61,6 @@ Feature: Brian process on album item
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
 
-  @BrainAddNewEmptyAlbum
   Scenario: Brian Add Empty Album
     Given the user logged in as "brian"
     When the browser opened at item "photo" and tab "/photo/album/add"
@@ -78,13 +71,11 @@ Feature: Brian process on album item
     Then the user sees text "IsEmptyAlbum"
     And the user sees text "This album has no photos/videos uploaded "
 
-  @BrianSearchEmptyAlbum
   Scenario: Brian Search Empty Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my-albums"
     Then the user sees text "itemTitle" with value "IsEmptyAlbum"
 
-  @BrianAddPhotoToEmptyAlbum
   Scenario: Brian Add Photo To Empty Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/add"
@@ -96,7 +87,6 @@ Feature: Brian process on album item
     Then the browser opened at item "photo" and tab "/photo/albums"
     Then the user sees text "itemTitle" with value "IsEmptyAlbum"
 
-  @BrianDeleteEmptyAlbum
   Scenario: Brian Delete Empty Album
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"

@@ -1,7 +1,6 @@
-@photo @photoFunction_Brain
+@app_photo @photo_public @brian
 Feature: Brian process on photos item
 
-  @BrainAddNewPhoto
   Scenario: Brian Add New Photo
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/all"
@@ -14,7 +13,6 @@ Feature: Brian process on photos item
     And the user sees successful flash message
     Then the user verify "itemPhoto" after upload
 
-  @BrianReactionOnPhoto
   Scenario: Brian Reaction On Photo
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
@@ -22,7 +20,6 @@ Feature: Brian process on photos item
     And the user clicks on button "reactionButton"
     Then the user sees result of "reactionResult" displayed
 
-  @BrianDeletePhoto
   Scenario: Brian Delete Photo
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
@@ -31,8 +28,6 @@ Feature: Brian process on photos item
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
 
-  @BrianReportPhoto
-  Scenario: Brian Report Photo
     Given the user logged in as "admin"
     Then the browser opened at item "photo" and tab "/photo/all"
     And the user sees text "All Photos"
@@ -41,7 +36,6 @@ Feature: Brian process on photos item
     When the user clicks on item "report"
     Then the user sees main form "form"
 
-  @BrianAttachPhotoFromFeed
   Scenario: Brian Attach Photo From Feed
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
@@ -52,7 +46,6 @@ Feature: Brian process on photos item
     Then the browser opened at item "photo" and tab "/photo/my"
     Then the user verify "itemPhoto" after upload
 
-  @BrianAttachPhotoFromUserProfile
   Scenario: Brian Attach Photo From User Profile
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/my"
@@ -65,7 +58,6 @@ Feature: Brian process on photos item
     Then the browser opened at item "photo" and tab "/photo/my"
     Then the user verify "itemPhoto" after upload
 
-  @BrianFeaturePhotos
   Scenario: Brain Feature Photos
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -75,7 +67,6 @@ Feature: Brian process on photos item
     Then the user sees successful flash message
     Then the user sees label of action "featured"
 
-  @BrianUnFeaturePhotos
   Scenario: Brain UnFeature Photos
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -84,7 +75,6 @@ Feature: Brian process on photos item
     And the user clicks on "Unfeature"
     Then the user sees successful flash message
 
-  @BrainShareNowPhotos
   Scenario: Brain Share Now Photos
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -96,7 +86,6 @@ Feature: Brian process on photos item
     And the user back to "linkLogo" page
     Then the user sees text "shared a post to newsfeed "
 
-  @BrainShareToNewFeedPhotos
   Scenario: Brain Share Now Photos
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -109,7 +98,6 @@ Feature: Brian process on photos item
     And the user back to "linkLogo" page
     Then the user sees text "shared a post to newsfeed "
 
-  @BrianAddCoverImage
   Scenario: Brian Add Cover Image
     Given the user logged in as "brian"
     When the user clicks on "More"

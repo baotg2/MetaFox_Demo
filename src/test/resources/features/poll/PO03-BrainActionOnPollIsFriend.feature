@@ -1,7 +1,6 @@
-@polls  @multiplePollFunctionIsFriend_Brian
+@app_poll @poll_friend @brian
 Feature:  Brian process on multiple choice polls is friend
 
-  @BrianAddNewPollMultipleChoiceIsFriend
   Scenario: Brian Add New Poll Public Vote Is Friend
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -18,7 +17,6 @@ Feature:  Brian process on multiple choice polls is friend
     And the user clicks on button "buttonSubmit"
     Then the user sees text "IsThisAutoPoll"
 
-  @AnotherUserSearchPollIsFriend
   Scenario: Another User Search Poll Is Friend
     Given the user logged in as "test"
     When the user clicks on "More"
@@ -27,7 +25,6 @@ Feature:  Brian process on multiple choice polls is friend
     And the user clicks on the item title
     Then the user sees text "IsThisAutoPoll"
 
-  @AnotherUserSearchPollIsNotFriend
   Scenario: Another User Search Poll is not friend
     Given the user logged in as "terry"
     When the user clicks on "More"
@@ -35,7 +32,6 @@ Feature:  Brian process on multiple choice polls is friend
     And the user searches with text "Polls"
     Then the user sees text "No polls found. "
 
-  @BrainSharePollFriend
   Scenario: Brian Share Poll is Friend
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -50,7 +46,6 @@ Feature:  Brian process on multiple choice polls is friend
     Then the user sees text "shared a post to newsfeed "
     Then the user sees text "IsThisAutoPoll"
 
-  @AnotherUserAccessOnBrianProfile
   Scenario: Another user access Brian profile
     Given the user logged in as "terry"
     Then the user searches with text "brian"
@@ -58,7 +53,6 @@ Feature:  Brian process on multiple choice polls is friend
     Then the user sees text "shared a post to newsfeed "
     Then the user sees text "The post owner has limited who can view this post"
 
-  @BrainDeletePollsIsFriendJustAdded
   Scenario: Brain Delete Polls Is Friend Just Added
     Given the user logged in as "brian"
     When the user clicks on "More"

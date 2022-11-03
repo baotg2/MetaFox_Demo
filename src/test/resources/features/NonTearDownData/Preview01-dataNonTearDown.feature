@@ -1,7 +1,6 @@
 @previewSite @NonTearDownData
 Feature:  Non TearDown Data On Site
 
-  @AdminAddNewBlogEveryOne
   Scenario: Admin Add New Blog Non Tear Down
     Given the user logged in as "admin"
     When the user clicks on "More"
@@ -15,7 +14,6 @@ Feature:  Non TearDown Data On Site
     And the user sees successful flash message
     Then the user verify title of blog is displayed
 
-  @AdminAddNewPublicGroup
   Scenario: Admin Add New Public group
     Given the user logged in as "admin"
     Then the user clicks on "More"
@@ -31,7 +29,6 @@ Feature:  Non TearDown Data On Site
     And the user want to "Save"
     Then the user sees successful flash message
 
-  @AdminAddNewPollMultipleChoice
   Scenario: Admin Add New Poll Public Vote
     Given the user logged in as "admin"
     When the user clicks on "More"
@@ -45,7 +42,6 @@ Feature:  Non TearDown Data On Site
     And the user clicks on button "buttonSubmit"
     Then the user sees text "Welcome!What are you looking for today?"
 
-  @AdminAddNewAlbumWithPhotoNonTeardown
   Scenario: Admin Add New Album With Photo Non Teardown
     Given the user logged in as "admin"
     Then the browser opened at item "photo" and tab "/photo/add"
@@ -58,7 +54,6 @@ Feature:  Non TearDown Data On Site
     And the user back to "linkLogo" page
     Then the browser opened at item "photo" and tab "/photo/my-albums"
 
-  @AdminAddNewEmptyAlbumNonTearDown
   Scenario: Admin Add Empty Album Non Tear Down
     Given the user logged in as "admin"
     When the browser opened at item "photo" and tab "/photo/album/add"
@@ -69,7 +64,6 @@ Feature:  Non TearDown Data On Site
     Then the user sees text "Which Academia Aesthetic Are You?"
     And the user sees text "This album has no photos/videos uploaded "
 
-  @AdminAddForumNonTearDown
   Scenario: Admin add forum non-tear down
     Given the user logged in as "admin"
     When the user clicks on "More"
@@ -83,7 +77,6 @@ Feature:  Non TearDown Data On Site
     Then the user sees successful flash message
     And the user sees text "AngryBirdsNest"
 
-  @BrainActionOnBlogDetailNonTearDown
   Scenario: Brian action on the blog detail non-tear down
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -94,7 +87,6 @@ Feature:  Non TearDown Data On Site
     Then the user sees text "Amazing write-ups"
     And the user clicks on button "reactionButton"
 
-  @AdminAddFeedToGroupNonTearDownData
   Scenario: Admin add feed to group non-tear down data
     Given the user logged in as "admin"
     When the user clicks on "More"
@@ -106,7 +98,6 @@ Feature:  Non TearDown Data On Site
     And the user clicks on button "submit"
     Then the user sees successful flash message
 
-  @UserVoteMultipleChoiceNonTearDownData
   Scenario: Another User Vote Poll Non Tear Down Data
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -115,7 +106,6 @@ Feature:  Non TearDown Data On Site
     And the user clicks on the item title
     And the user "brian" action vote on random options
 
-  @BrianActionOnAlbumDetailNonTearDownData
   Scenario: Brian Action On Album Detail Non Tear Down Data
     Given the user logged in as "brian"
     Then the browser opened at item "photo" and tab "/photo/albums"

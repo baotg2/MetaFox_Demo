@@ -1,7 +1,6 @@
-@polls  @publicPollFunction_Brian
+@app_poll @poll_publicvote @brian
 Feature:  Brian process on public vote polls
 
-  @BrianSeePopUpWhenRemoveAnswers
   Scenario: Brian See Pop Up When Remove Answers
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -10,7 +9,6 @@ Feature:  Brian process on public vote polls
     Then the user sees text "You must have a minimum of 2 answers."
     And the user want to "OK"
 
-  @BrianAddNewPollPublicVote
   Scenario: Brian Add New Poll Public Vote
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -24,7 +22,6 @@ Feature:  Brian process on public vote polls
     And the user clicks on button "buttonSubmit"
     Then the user sees text "IsThisAutoPoll"
 
-  @BrainSearchPoll
   Scenario: Brian Search Poll
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -33,7 +30,6 @@ Feature:  Brian process on public vote polls
     And the user clicks on the item title
     Then the user sees text "IsThisAutoPoll"
 
-  @AnotherUserVotePublicPoll
   Scenario: Another User Vote Poll
     Given the user logged in as "admin"
     When the user clicks on "More"
@@ -43,7 +39,6 @@ Feature:  Brian process on public vote polls
     Then the user sees text "IsThisAutoPoll"
     And the user "admin" action vote on random options
 
-  @BrianDeletePublicVotePoll
   Scenario: Brain Delete Public Vote Poll
     Given the user logged in as "brian"
     Given the user logged in as "brian"

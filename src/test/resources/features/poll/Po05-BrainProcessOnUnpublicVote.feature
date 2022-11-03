@@ -1,7 +1,6 @@
 @polls  @unPublicVotePollFunction_Brian
 Feature:  Brian process on multiple choice polls
 
-  @BrianAddNewUnPublicVotePoll
   Scenario: Brian Add New Poll Public Vote
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -16,7 +15,6 @@ Feature:  Brian process on multiple choice polls
     And the user clicks on button "buttonSubmit"
     Then the user sees text "IsThisAutoPoll"
 
-  @BrainSearchUnPublicVotePoll
   Scenario: Brian Search Poll
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -25,7 +23,6 @@ Feature:  Brian process on multiple choice polls
     And the user clicks on the item title
     Then the user sees text "IsThisAutoPoll"
 
-  @AnotherUserVoteUnPublicVotePoll
   Scenario: Another User Vote Poll
     Given the user logged in as "admin"
     When the user clicks on "More"
@@ -35,7 +32,6 @@ Feature:  Brian process on multiple choice polls
     Then the user sees text "IsThisAutoPoll"
     And the user "admin" action vote on random options
 
-  @BrianEditUnPublicVotePoll
   Scenario: Brain Edit Un Public Vote Polls
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -48,7 +44,6 @@ Feature:  Brian process on multiple choice polls
     And the user want to "OK"
     Then the user don't see "Remove" displayed on screen
 
-  @BrianDeleteUnPublicVotePoll
   Scenario: Brain Delete Un Public Vote Polls
     Given the user logged in as "brian"
     When the user clicks on "More"

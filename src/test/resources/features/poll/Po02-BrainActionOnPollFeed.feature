@@ -1,7 +1,6 @@
-@polls  @PollsOnFeed
+@app_poll @poll_onfeed @brian
 Feature:  Brian process polls on feed
 
-  @BrianAddNewPollOnFeed
   Scenario: Brian Add New Poll On Feed
     Given the user logged in as "brian"
     When the user clicks on button "buttonAttachPoll"
@@ -14,7 +13,6 @@ Feature:  Brian process polls on feed
     Then the user sees text "added a poll "
     Then the user sees text "IsThisAutoPoll"
 
-  @BrainSearchMultipleChoicePollOnFeed
   Scenario: Brian Search Poll Created On Feed
     Given the user logged in as "brian"
     When the user clicks on "More"
@@ -23,7 +21,6 @@ Feature:  Brian process polls on feed
     And the user clicks on the item title
     Then the user sees text "IsThisAutoPoll"
 
-  @BrianDeletePublicVotePollOnFeed
   Scenario: Brain Delete Public Vote Poll Created On Feed
     Given the user logged in as "brian"
     When the user clicks on "More"

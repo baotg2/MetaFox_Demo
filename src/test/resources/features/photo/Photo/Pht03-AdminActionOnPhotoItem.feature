@@ -1,4 +1,4 @@
-@PhotoItem_Admin
+@app_photo @photo @admin
 Feature: Admin process on photos item
 
   @AdminSeePendingPhoto
