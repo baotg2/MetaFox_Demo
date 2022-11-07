@@ -24,6 +24,8 @@ public class Locator {
         put("main form", "main form block");
         put("action menu", "action menu");
         put("profile menu", "profile menu");
+        put("slot top", "layoutSlotTop");
+        put("main top", "layoutSlotMainTop");
     }};
 
     final private static Pattern pattern = Pattern.compile("^By\\.\\w+:\\s*");

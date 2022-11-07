@@ -1,19 +1,6 @@
 @page_login @previewSite
 Feature: Verify login pHpFox success
 
-  Scenario: Verify login success with all users
-    Given the user logged in as "admin"
-    And the browser opened at "/"
-    And I want to click on "Logout"
-    And the user logged in as "brian"
-    And I want to click on "Logout"
-    And the user logged in as "terry"
-    And I want to click on "Logout"
-    And the user logged in as "luna"
-    And I want to click on "Logout"
-    And the user logged in as "katie"
-    And I want to click on "Logout"
-
   Scenario Outline: verify errorMsg with wrong user info
     Given I want to verified error message with user "<userName>", "<passWord>"
     Then the user sees error message "The user credentials were incorrect."
@@ -24,28 +11,22 @@ Feature: Verify login pHpFox success
     |dev@phpfox.com|bubble666vds
     |a@mail.com|bubble666
 
-  Scenario: Brain Add Friend
+  Scenario: Brain Add Friend With Admin
     Given the user logged in as "brian"
-    And the browser opened at "/"
-    Then the user searches with text "admin"
-    And the user clicks on link "/admin"
-    And the user want to "Add Friend"
-    Then I want to click on "Logout"
-    And the user logged in as "admin"
-    Then the user searches with text "brian"
-    And the user clicks on element link text a "Brian"
-    And the user want to "Confirm"
-    Then the user sees button "Unfriend"
+    And the browser opened at "/admin"
+    When within the slot top
+    And the user "Add Friend"
+    Given switch account "admin"
+    #next logged user accpect request
+    And the browser opened at "/brian"
+    When the user want to "Confirm"
 
-  Scenario: Brain Add Friend
+  Scenario: Brian Add Friend With Test
     Given the user logged in as "brian"
-    And the browser opened at "/"
-    Then the user searches with text "test"
-    And the user clicks on element link text a "test"
-    And the user want to "Add Friend"
-    Then I want to click on "Logout"
-    And the user logged in as "test"
-    Then the user searches with text "brian"
-    And the user clicks on element link text a "Brian"
-    And the user want to "Confirm"
-    Then the user sees button "Unfriend"
+    And the browser opened at "/test"
+    When within the slot top
+    And the user "Add Friend"
+    Given switch account "test"
+    #next logged user accpect request
+    And the browser opened at "/brian"
+    When the user want to "Confirm"

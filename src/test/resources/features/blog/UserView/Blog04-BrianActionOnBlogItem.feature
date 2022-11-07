@@ -140,7 +140,6 @@ Feature:  Brian process on blogs app
     And the user clicks on button "buttonSubmit"
     And the user sees successful flash message
 
-  @focus
   Scenario: Brian Report Blog
     Given the user logged in as "brian"
     And the browser opened at "/user/3/blog"

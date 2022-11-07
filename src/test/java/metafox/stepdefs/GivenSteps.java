@@ -96,15 +96,13 @@ public class GivenSteps extends StepDefinitions {
         components.componentSearchAttributes("Enter your password").sendKeys(user.get().get("password"));
 
         components.componentButtonDataTestID("buttonLogin").click();
-        Thread.sleep(6000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid ='formSearch']"));
         assertTrue(components.componentDivDataTestID("formSearch").isDisplayed());
     }
 
     @Given("the browser will get Administrator URL")
     public void getAddressACP() throws InterruptedException {
-        driver.get(System.getenv("BASE_URL") + "admincp/");
-        Thread.sleep(6000);
+        driver.get(System.getenv("BASE_URL") + "/admincp");
     }
 
     @Given("the user get current URL")
@@ -152,7 +150,7 @@ public class GivenSteps extends StepDefinitions {
         assertTrue(element.isDisplayed());
     }
 
-    @Given("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form|profile menu)$")
+    @Given("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form|profile menu|form|main top|slot top)$")
     public void GivenWithinTheContent(@Nonnull String name) {
         withinTheContent(name);
     }
@@ -166,4 +164,16 @@ public class GivenSteps extends StepDefinitions {
         driver.get(String.format("%s%s", System.getenv("BASE_URL"), url));
     }
 
+    @Given("switch account {string}")
+    public void openNewTab(String username) throws IOException, InterruptedException {
+        Thread.sleep(2000);
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='menuAppBar']/div[5]/div"));
+        driver.findElement(By.xpath("//div[@data-testid ='menuAppBar']/div[5]/div")).click();
+        isComponentVisible.waitElement(By.xpath("//span[text()='Logout']"));
+        components.componentSpanName("Logout").click();
+        driver.get(String.format("%s/_blank.html", System.getenv("BASE_URL")));
+        String accessToken = DataProvider.getUserAccessToken(username);
+        String cookieName = DataProvider.getAuthCookieName();
+        driver.manage().addCookie(new Cookie(cookieName, accessToken));
+    }
 }

@@ -79,6 +79,17 @@ public class ThenSteps extends StepDefinitions {
         assertTrue(error.isDisplayed());
     }
 
+    @Then("the user see message {string}")
+    public void isMessageDisplayed(String textMessage){
+        WebElement msg = waitUntilDisplayed(getSectionContext(), Locator.byText("span", textMessage));
+        assertTrue(msg.isDisplayed());
+    }
+
+    @Then("the user sees button {string} is enabled")
+    public void isButtonEnabled(String buttonText){
+        WebElement btnText = waitUntilDisplayed(getSectionContext(), Locator.byText("button", buttonText));
+        assertTrue(btnText.isDisplayed());
+    }
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -88,11 +99,11 @@ public class ThenSteps extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user want to edit \"([^\"]*)\"$")
-    public void editInfoAccount(String fieldName) {
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid = '" + fieldName + "']//button[2]"));
-        components.componentDivButton(fieldName).get(0).click();
-    }
+    //@Then("^the user want to edit \"([^\"]*)\"$")
+//    public void editInfoAccount(String fieldName) {
+//        isComponentVisible.waitElement(By.xpath("//div[@data-testid = '" + fieldName + "']//button[2]"));
+//        components.componentDivButton(fieldName).get(0).click();
+//    }
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -230,7 +241,7 @@ public class ThenSteps extends StepDefinitions {
         verifyCommentAdded(text);
     }
 
-    public void verifyCommentAdded(@Nonnull String text) {
+    private void verifyCommentAdded(@Nonnull String text) {
         By section = getSectionContext();
         WebElement commentBox = waitUntilDisplayed(section, Locator.byTestId("comment"), Locator.byText("p", text));
 
@@ -383,11 +394,11 @@ public class ThenSteps extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see button \"([^\"]*)\" is default")
-    public void isButtonEnabled(String ariaLabel) {
-        isComponentVisible.waitElement(By.xpath("//button[@aria-label ='" + ariaLabel + "']"));
-        assertTrue(components.componentsTagButton(ariaLabel).isEnabled());
-    }
+//    @Then("^the user see button \"([^\"]*)\" is default")
+//    public void isButtonEnabled(String ariaLabel) {
+//        isComponentVisible.waitElement(By.xpath("//button[@aria-label ='" + ariaLabel + "']"));
+//        assertTrue(components.componentsTagButton(ariaLabel).isEnabled());
+//    }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -655,5 +666,13 @@ public class ThenSteps extends StepDefinitions {
             WebElement flag = waitUntilDisplayed(getSectionContext(), Locator.byTestId("sponsor"));
             assertTrue(flag.isDisplayed());
         }
+    }
+
+    @Then("the user see name {string}")
+    public void verifyNameDisplayed(@Nonnull String name){
+        By section = getSectionContext();
+        WebElement commentBox = waitUntilDisplayed(section,Locator.byText("div", name));
+
+        assertTrue(commentBox.isDisplayed());
     }
 }

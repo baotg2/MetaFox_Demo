@@ -468,22 +468,6 @@ public class WhenSteps extends StepDefinitions {
         Thread.sleep(2000);
     }
 
-
-    /**
-     * -------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param testId is action name on user profile
-     * @purpose click action on user profile
-     * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------------
-     */
-    @When("the user clicks on item {string}")
-    public void the_user_clicks_on_item(String testId) {
-        WebElement webElement = waitUntilDisplayed(Locator.byTestId(testId));
-        webElement.click();
-    }
-
-
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -549,7 +533,7 @@ public class WhenSteps extends StepDefinitions {
      * @since 04-05-2022
      */
     @When("the user clicks on button \"([^\"]*)\"$")
-    public void clickOnButton(String buttonName) throws InterruptedException {
+    public void clickOnButton(String buttonName) {
         By section = getSectionContext();
 
         WebElement button = waitUntilDisplayed(section, Locator.byTestId("button", buttonName));
@@ -667,6 +651,13 @@ public class WhenSteps extends StepDefinitions {
         element.sendKeys(text);
     }
 
+    @When("the user add on {string} with value {string}")
+    public void theUserAddValue (String text, String value){
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", text));
+        assertTrue(element.isDisplayed());
+        element.clear();
+        element.sendKeys(value);
+    }
 
     @When("the user adds title")
     public void theUserAddsTitle() {
@@ -691,6 +682,16 @@ public class WhenSteps extends StepDefinitions {
         setMenuContext(Locator.byTestId("div", "menuShare"));
     }
 
+    @When("the user {string}")
+    public void theUserAction(String actionName){
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byText("button",actionName));
+        assertTrue(element.isDisplayed());
+        //click on
+        element.click();
+        if(element.isDisplayed()){
+            element.click();
+        }
+    }
     @And("the user adds a category")
     public void theUserAddsACategory() {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputCategories"));
@@ -711,8 +712,16 @@ public class WhenSteps extends StepDefinitions {
         Thread.sleep(1000);
     }
 
-    public void navigateTo(@Nonnull String url) {
+    private void navigateTo(@Nonnull String url) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeAsyncScript(String.format("window.$manager.historyBackend.replace('%s')", url));
     }
+
+    @When("the user modified items")
+    public void theUserActionOnOption(){
+        WebElement element = waitUntilDisplayed(Locator.byRole("menuitem"));
+        element.click();
+    }
+
+
 }

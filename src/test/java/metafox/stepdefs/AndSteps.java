@@ -4,9 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
 import metafox.support.Utility;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
 
@@ -248,7 +246,6 @@ public class AndSteps extends StepDefinitions {
      */
     @And("^the user don't see \"([^\"]*)\"")
     public void isSearchFormDisplayed(String whatsHappening) throws InterruptedException {
-        Thread.sleep(5000);
         assertEquals(components.componentListDivDataTestID(whatsHappening).size(), 0);
     }
 
@@ -503,7 +500,8 @@ public class AndSteps extends StepDefinitions {
      * @since 04-05-2022
      */
     @And("^the user want to \"([^\"]*)\"$")
-    public void clickOnButtonText(String actionName) {
+    public void clickOnButtonText(String actionName) throws InterruptedException {
+        Thread.sleep(4000);
         isComponentVisible.waitElement(By.xpath("//button[text()='" + actionName + "']"));
         components.componentButtonText(actionName).click();
     }
