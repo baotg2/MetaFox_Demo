@@ -112,7 +112,7 @@ Feature: Brain Process On Account Settings Is No One
     When within the content
     And the user select privacy at field "Who can view your profile page?" and change to "Anyone"
     Then the user sees successful flash message
-  @focus
+
   Scenario: Brian Verify Information Tab On Profile Page Is NoOne
     Given the user logged in as "brian"
     And the browser opened at "/settings/profile"

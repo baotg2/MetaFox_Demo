@@ -3,12 +3,11 @@ Feature: Config Settings On ACP Comments
 
   Scenario: Admin Config Comment Photo OnACP
     Given the user logged in as "admin"
-    When the browser will get Administrator URL
-    And the user clicks on "App Settings"
-    And the user clicks on "Comment"
+    When the browser opened at "/admincp/comment/setting"
+    Given within the content
     When the user want to access "inputCommentEnablePhoto"
-    When the user want to scroll to the end of page
-    When the user clicks on button "buttonSubmit"
+    And the user want to scroll to the end of page
+    And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
 
   Scenario: Admin verify settings enable photo on comments
@@ -17,22 +16,20 @@ Feature: Config Settings On ACP Comments
 
   Scenario: Admin Reset Config Comment Photo OnACP
     Given the user logged in as "admin"
-    When the browser will get Administrator URL
-    And the user clicks on "App Settings"
-    And the user clicks on "Comment"
+    When the browser opened at "/admincp/comment/setting"
+    Given within the content
     When the user want to access "inputCommentEnablePhoto"
-    When the user want to scroll to the end of page
-    When the user clicks on button "buttonSubmit"
+    And the user want to scroll to the end of page
+    And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
 
   Scenario: Admin Config Comments Sticker OnACP
     Given the user logged in as "admin"
-    When the browser will get Administrator URL
-    And the user clicks on "App Settings"
-    And the user clicks on "Comment"
+    When the browser opened at "/admincp/comment/setting"
+    Given within the content
     When the user want to access "inputCommentEnableSticker"
-    When the user want to scroll to the end of page
-    When the user clicks on button "buttonSubmit"
+    And the user want to scroll to the end of page
+    And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
 
   Scenario: Admin verify settings enable sticker on comments
@@ -41,22 +38,20 @@ Feature: Config Settings On ACP Comments
 
   Scenario: Admin Reset Config Comments Sticker OnACP
     Given the user logged in as "admin"
-    When the browser will get Administrator URL
-    And the user clicks on "App Settings"
-    And the user clicks on "Comment"
+    When the browser opened at "/admincp/comment/setting"
+    Given within the content
     When the user want to access "inputCommentEnableSticker"
-    When the user want to scroll to the end of page
-    When the user clicks on button "buttonSubmit"
+    And the user want to scroll to the end of page
+    And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
 
   Scenario: Admin Config Comments Emojis OnACP
     Given the user logged in as "admin"
-    When the browser will get Administrator URL
-    And the user clicks on "App Settings"
-    And the user clicks on "Comment"
+    When the browser opened at "/admincp/comment/setting"
+    Given within the content
     When the user want to access "inputCommentEnableEmoticon"
-    When the user want to scroll to the end of page
-    When the user clicks on button "buttonSubmit"
+    And the user want to scroll to the end of page
+    And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
 
   Scenario: Admin verify settings enable Emojis on comments
@@ -65,10 +60,9 @@ Feature: Config Settings On ACP Comments
 
   Scenario: Admin Reset Config Comments Emojis OnACP
     Given the user logged in as "admin"
-    When the browser will get Administrator URL
-    And the user clicks on "App Settings"
-    And the user clicks on "Comment"
+    When the browser opened at "/admincp/comment/setting"
+    Given within the content
     When the user want to access "inputCommentEnableEmoticon"
-    When the user want to scroll to the end of page
-    When the user clicks on button "buttonSubmit"
+    And the user want to scroll to the end of page
+    And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message

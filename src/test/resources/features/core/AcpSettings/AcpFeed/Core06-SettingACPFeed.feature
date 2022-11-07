@@ -3,9 +3,9 @@ Feature: Config Settings On ACP Feed
 
   Scenario: Admin Config Feed OnACP
     Given the user logged in as "admin"
-    When the browser will get Administrator URL
-    And the user clicks on "App Settings"
-    And the user clicks on "Feed"
+    When the browser opened at "/admincp/activity/setting"
+    And the user want to scroll to the end of page
+    Given within the content
     And the user clicks on input type check box "activity.feed.enable_check_in"
     And the user clicks on input type check box "activity.feed.enable_tag_friends"
     And the user clicks on input type check box "activity.feed.enable_hide_feed"
@@ -16,9 +16,8 @@ Feature: Config Settings On ACP Feed
 
   Scenario: Brain Verify Settings Feed On ACP
     Given the user logged in as "brian"
+    And the browser opened at "/"
     When the user "whatsHappening" this item
-    Then the user sees id button "buttonAttachLocation"
-    Then the user sees id button "statusTagFriendsButton"
     And the user add comment "<autoPost>"
     And the user clicks on button "submit"
     When the user "whatsHappening" this item
