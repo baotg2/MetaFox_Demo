@@ -4,8 +4,8 @@ Feature: Config Settings On ACP Groups
   Scenario: Admin Config Groups OnACP
     Given the user logged in as "admin"
     And the browser opened at "/admincp/group/setting"
-    When the user want to scroll to the end of page
-    And the user clicks on input field "group.minimum_name_length" with value "5"
+    And within the content
+    When the user clicks on input field "group.minimum_name_length" with value "5"
     And the user clicks on input field "group.maximum_name_length" with value "255"
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
@@ -13,7 +13,8 @@ Feature: Config Settings On ACP Groups
   Scenario: Brian Verify Settings Groups On ACP
     Given the user logged in as "brian"
     And the browser opened at "/group/add"
-    And the user clicks on input field "name" with value "a"
+    And within the content
+    When the user clicks on input field "name" with value "a"
     And the user clicks on button "buttonSubmit"
-    When the user want to scroll to the up of page
+    And the user want to scroll to the up of page
     Then the user sees text "Group Name must be at least 5 characters"

@@ -150,7 +150,7 @@ public class GivenSteps extends StepDefinitions {
         assertTrue(element.isDisplayed());
     }
 
-    @Given("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form|profile menu|form|main top|slot top)$")
+    @Given("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form|profile menu|form|main top|slot top|status composer)$")
     public void GivenWithinTheContent(@Nonnull String name) {
         withinTheContent(name);
     }

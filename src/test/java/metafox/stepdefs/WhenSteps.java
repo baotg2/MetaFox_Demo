@@ -256,25 +256,25 @@ public class WhenSteps extends StepDefinitions {
         }
     }
 
-    /**
-     * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @throws InterruptedException is thrown when interruptedException
-     * @purpose select first item form tag list
-     * @Author baotg2
-     * --------------------------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 06-15-2022
-     */
-    @When("^the user tag first friend on list tag$")
-    public void tagFirstFriendOnList() throws InterruptedException {
-        Thread.sleep(6000);
-        if (components.componentsListH5DataTestID("itemTitle").isDisplayed()) {
-            components.componentsListH5DataTestID("itemTitle").click();
-            components.componentsListH5DataTestID("itemTitle").click();
-        } else {
-            components.componentsDivMsg("No people found").isDisplayed();
-        }
-    }
+//    /**
+//     * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//     *
+//     * @throws InterruptedException is thrown when interruptedException
+//     * @purpose select first item form tag list
+//     * @Author baotg2
+//     * --------------------------------------------------------------------------------------------------------------------------------------------------------------
+//     * @since 06-15-2022
+//     */
+//    @When("^the user tag first friend on list tag$")
+//    public void tagFirstFriendOnList() throws InterruptedException {
+//        Thread.sleep(6000);
+//        if (components.componentsListH5DataTestID("itemTitle").isDisplayed()) {
+//            components.componentsListH5DataTestID("itemTitle").click();
+//            components.componentsListH5DataTestID("itemTitle").click();
+//        } else {
+//            components.componentsDivMsg("No people found").isDisplayed();
+//        }
+//    }
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -387,15 +387,15 @@ public class WhenSteps extends StepDefinitions {
     /**
      * ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param divText is role vale of the element
      * @purpose click on the div element has role is divText
      * @Author baotg2
      * ---------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @When("^the user clicks on the \"([^\"]*)\" on screen$")
-    public void clickOnDiv(String divText) {
-        components.componentDivRole(divText).click();
+    @When("^the user select location$")
+    public void clickOnDiv(){
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(Locator.byRole("tooltip")));
+        element.click();
     }
 
     @When("^the user clicks on the \"([^\"]*)\" on page$")
@@ -436,23 +436,23 @@ public class WhenSteps extends StepDefinitions {
         components.componentTextLink(linkText).click();
     }
 
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param titleText is value want to verify
-     * @purpose verify items displayed enough on profile
-     * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 27-07-2022
-     */
-    @When("^the user verify items \"([^\"]*)\" displayed on \"([^\"]*)\"$")
-    public void countItemsDisplayedSuccessfully(String titleText, String items) {
-        isComponentVisible.waitElement(By.xpath("//h4[@data-testid='\"+dataTestID+\"']/a"));
-        int size = components.componentListH4DataTestID(titleText).size();
-        components.componentSpanDataTestID("userAvatar").click();
-        components.componentsListElementByID(items).get(1).click();
-        assertEquals(components.componentListH4DataTestID(titleText).size(), size);
-    }
+//    /**
+//     * -----------------------------------------------------------------------------------------------------------------------------------------
+//     *
+//     * @param titleText is value want to verify
+//     * @purpose verify items displayed enough on profile
+//     * @Author baotg2
+//     * -----------------------------------------------------------------------------------------------------------------------------------------
+//     * @since 27-07-2022
+//     */
+//    @When("^the user verify items \"([^\"]*)\" displayed on \"([^\"]*)\"$")
+//    public void countItemsDisplayedSuccessfully(String titleText, String items) {
+//        isComponentVisible.waitElement(By.xpath("//h4[@data-testid='\"+dataTestID+\"']/a"));
+//        int size = components.componentListH4DataTestID(titleText).size();
+//        components.componentSpanDataTestID("userAvatar").click();
+//        components.componentsListElementByID(items).get(1).click();
+//        assertEquals(components.componentListH4DataTestID(titleText).size(), size);
+//    }
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -652,8 +652,8 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("the user add on {string} with value {string}")
-    public void theUserAddValue (String text, String value){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", text));
+    public void theUserAddValue (String elementsID, String value){
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId(elementsID));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys(value);
@@ -682,16 +682,20 @@ public class WhenSteps extends StepDefinitions {
         setMenuContext(Locator.byTestId("div", "menuShare"));
     }
 
+    @When("the user opens status composer")
+    public void openStatusComposer() {
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("div", "whatsHappening"));
+        element.click();
+    }
+
     @When("the user {string}")
     public void theUserAction(String actionName){
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byText("button",actionName));
         assertTrue(element.isDisplayed());
         //click on
         element.click();
-        if(element.isDisplayed()){
-            element.click();
-        }
     }
+
     @And("the user adds a category")
     public void theUserAddsACategory() {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputCategories"));
@@ -703,7 +707,6 @@ public class WhenSteps extends StepDefinitions {
     public void theUserClicksOnTheItemTitle() {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("itemTitle"), Locator.byTagName("a"));
         element.click();
-        element.sendKeys(Keys.ENTER);
     }
 
     @Given("the user navigates to {string}")
@@ -723,5 +726,14 @@ public class WhenSteps extends StepDefinitions {
         element.click();
     }
 
-
+    @Then( "^the user add comment \"([^\"]*)\" on items$" )
+    public void addComment( String comment ){
+        if(components.componentListDivDataTestID("fieldStatus").size()!=0){
+            driver.findElement(By.xpath("//div[@data-testid='fieldStatus']//div[@role ='combobox']")).sendKeys(comment);
+        }
+        else{
+            components.componentDivRole("combobox").sendKeys(comment);
+            components.componentDivRole("combobox").sendKeys(Keys.ENTER);
+        }
+    }
 }

@@ -5,8 +5,8 @@ Feature: Config Settings On ACP Events
     Given the user logged in as "admin"
     When the browser opened at "/admincp/event/setting"
     And the user want to scroll to the end of page
-    Given within the content
-    And the user clicks on input field "event.minimum_name_length" with value "5"
+    And within the content
+    When the user clicks on input field "event.minimum_name_length" with value "5"
     And the user clicks on input field "event.maximum_name_length" with value "255"
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
@@ -14,8 +14,8 @@ Feature: Config Settings On ACP Events
   Scenario: Brian Verify Settings Events On ACP
     Given the user logged in as "brian"
     And the browser opened at "/event/add"
-    Given within the content
-    And the user clicks on input field "name" with value "a"
+    And within the content
+    When the user clicks on input field "name" with value "a"
     And the user clicks on button "buttonSubmit"
     When the user want to scroll to the up of page
     Then the user sees text "Event Name must be at least 5 characters"

@@ -128,7 +128,10 @@ public class WebDriverFactory {
         options.setProfile(profile);
         options.setHeadless(isHeadless());
         options.addPreference("dom.webnotifications.enabled", true);
-
+        options.addPreference("geo.enabled", true);
+        options.addPreference("geo.provider.use_corelocation", true);
+        options.addPreference("geo.prompt.testing", true);
+        options.addPreference("geo.prompt.testing.allow", true);
         return new FirefoxDriver(options);
     }
 }

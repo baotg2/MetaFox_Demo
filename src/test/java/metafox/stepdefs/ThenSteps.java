@@ -232,7 +232,7 @@ public class ThenSteps extends StepDefinitions {
      * @since 04-05-2022
      */
     @When("^the user add comment \"([^\"]*)\"$")
-    public void addComment(String text) throws InterruptedException {
+    public void addComment(String text){
         By section = getSectionContext();
         WebElement commentBox = waitUntilDisplayed(section, Locator.byRole("combobox"));
         assertTrue(commentBox.isDisplayed());
@@ -247,6 +247,7 @@ public class ThenSteps extends StepDefinitions {
 
         assertTrue(commentBox.isDisplayed());
     }
+
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -293,19 +294,35 @@ public class ThenSteps extends StepDefinitions {
     }
 
 
+//    /**
+//     * ------------------------------------------------------------------------------------------------------------------------------------------------
+//     *
+//     * @param formValue id of form
+//     * @purpose verify form is displayed. Like report form, add form, etc
+//     * @Author baotg2
+//     * ------------------------------------------------------------------------------------------------------------------------------------------------
+//     * @since 04-05-2022
+//     */
+//    @Then("^the user see main form \"([^\"]*)\"$")
+//    public void seeMainForm(String formValue) {
+//        isComponentVisible.waitElement(By.xpath("//form[@data-testid ='form']"));
+//        assertTrue(components.componentMainFormDataTestID(formValue).isDisplayed());
+//    }
+
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param formValue id of form
-     * @purpose verify form is displayed. Like report form, add form, etc
+     * @param settingName id of form
+     * @purpose access user profile
      * @Author baotg2
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see main form \"([^\"]*)\"$")
-    public void seeMainForm(String formValue) {
-        isComponentVisible.waitElement(By.xpath("//form[@data-testid ='form']"));
-        assertTrue(components.componentMainFormDataTestID(formValue).isDisplayed());
+    @Then("the user turn off setting {string}")
+    public void accessUserProfile(String settingName){
+        WebElement settingElements = waitUntilDisplayed(getSectionContext(),Locator.byTestId("span", settingName));
+        assertTrue(settingElements.isDisplayed());
+        settingElements.click();
     }
 
     /**
@@ -317,27 +334,12 @@ public class ThenSteps extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user want to access \"([^\"]*)\"$")
-    public void accessUserProfile(String spanValue) throws InterruptedException {
-        Thread.sleep(2000);
-        isComponentVisible.waitElement(By.xpath("//span[@data-testid='" + spanValue + "']"));
-        components.componentSpanDataTestID(spanValue).click();
-    }
-
-    /**
-     * ------------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param spanValue id of form
-     * @purpose access user profile
-     * @Author baotg2
-     * ------------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @Then("^the user see label of action \"([^\"]*)\"$")
-    public void seeLabelAction(String spanValue) {
-        isComponentVisible.waitElement(By.xpath("//span[@data-testid='" + spanValue + "']"));
-        components.componentSpanDataTestID(spanValue).isDisplayed();
-    }
+//    @Then("^the user see label of action \"([^\"]*)\"$")
+//    public void seeLabelAction(String spanValue) {
+//        By section = getSectionContext();
+//        WebElement settingElements = waitUntilDisplayed(section,Locator.byTestId(spanValue));
+//        assertTrue(settingElements.isDisplayed());
+//    }
 
 
     /**
@@ -349,11 +351,11 @@ public class ThenSteps extends StepDefinitions {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see \"([^\"]*)\"$")
-    public void isStatusVisible(String statusContent) {
-        isComponentVisible.waitElement(By.xpath("//p[text() = '" + statusContent + "']"));
-        assertTrue(components.componentPText(statusContent).isDisplayed());
-    }
+//    @Then("^the user see \"([^\"]*)\"$")
+//    public void isStatusVisible(String statusContent) {
+//        isComponentVisible.waitElement(By.xpath("//p[text() = '" + statusContent + "']"));
+//        assertTrue(components.componentPText(statusContent).isDisplayed());
+//    }
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------
@@ -364,11 +366,11 @@ public class ThenSteps extends StepDefinitions {
      * -------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Then("^the user see  tab \"([^\"]*)\"$")
-    public void isTabDisplayedSuccess(String text) {
-        isComponentVisible.waitElement(By.xpath("//h3[text()='" + text + "']"));
-        assertEquals(components.componentH3ItemTitle(text).getText(), text);
-    }
+//    @Then("^the user see  tab \"([^\"]*)\"$")
+//    public void isTabDisplayedSuccess(String text) {
+//        isComponentVisible.waitElement(By.xpath("//h3[text()='" + text + "']"));
+//        assertEquals(components.componentH3ItemTitle(text).getText(), text);
+//    }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -415,20 +417,20 @@ public class ThenSteps extends StepDefinitions {
         components.componentsListTagButton(ariaLabel).get(1).click();
     }
 
-    /**
-     * ------------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param title is title content
-     * @purpose click on the title content of items on search results page
-     * @Author baotg2
-     * ------------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-    @Then("^the user see title \"([^\"]*)\" with value \"([^\"]*)\"")
-    public void isTitleDisplayed(String title, String titleContent) {
-        isComponentVisible.waitElement(By.xpath("//h4[@data-testid='" + title + "']"));
-        assertEquals(components.componentH4DataTestID(title).getText(), titleContent);
-    }
+//    /**
+//     * ------------------------------------------------------------------------------------------------------------------------------------------------
+//     *
+//     * @param title is title content
+//     * @purpose click on the title content of items on search results page
+//     * @Author baotg2
+//     * ------------------------------------------------------------------------------------------------------------------------------------------------
+//     * @since 04-05-2022
+//     */
+//    @Then("^the user see title \"([^\"]*)\" with value \"([^\"]*)\"")
+//    public void isTitleDisplayed(String title, String titleContent) {
+//        isComponentVisible.waitElement(By.xpath("//h4[@data-testid='" + title + "']"));
+//        assertEquals(components.componentH4DataTestID(title).getText(), titleContent);
+//    }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------
@@ -479,21 +481,21 @@ public class ThenSteps extends StepDefinitions {
         }
     }
 
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param postTitle the title of post on feed
-     * @return true if the feed has post title displayed on screen
-     * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------
-     * @since 10-06-2022
-     */
-    @Then("^the user see the post \"([^\"]*)\" after upload")
-    public boolean isThePostCreated(String postTitle) {
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='itemFeed']//div//span[2]"));
-        assertTrue(driver.findElement(By.xpath("//div[@data-testid ='itemFeed']//div//span[2]")).getText().contains(postTitle));
-        return true;
-    }
+//    /**
+//     * -----------------------------------------------------------------------------------------------------------------------------------
+//     *
+//     * @param postTitle the title of post on feed
+//     * @return true if the feed has post title displayed on screen
+//     * @Author baotg2
+//     * -----------------------------------------------------------------------------------------------------------------------------------
+//     * @since 10-06-2022
+//     */
+//    @Then("^the user see the post \"([^\"]*)\" after upload")
+//    public boolean isThePostCreated(String postTitle) {
+//        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='itemFeed']//div//span[2]"));
+//        assertTrue(driver.findElement(By.xpath("//div[@data-testid ='itemFeed']//div//span[2]")).getText().contains(postTitle));
+//        return true;
+//    }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -672,7 +674,11 @@ public class ThenSteps extends StepDefinitions {
     public void verifyNameDisplayed(@Nonnull String name){
         By section = getSectionContext();
         WebElement commentBox = waitUntilDisplayed(section,Locator.byText("div", name));
-
         assertTrue(commentBox.isDisplayed());
+    }
+    @Then("the user sees items has privacy is {string}")
+    public void theUserAction(String actionName){
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byText("button",actionName));
+        assertTrue(element.isDisplayed());
     }
 }

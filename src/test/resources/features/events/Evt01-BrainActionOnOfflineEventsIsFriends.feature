@@ -3,27 +3,25 @@ Feature: Brain Process On Public Events Is Friends
 
   Scenario: Brian Add New Events Is Friend With Empty Value
     Given the user logged in as "brian"
-    Then the user clicks on "More"
-    Then the browser opened at item "event" and tab "/event/add"
-    And the user clicks on input field "name" with value "Groups"
+    And the browser opened at "/event/add"
+    And within the content
+    When the user add on "inputName" with value "IsOfflineEvents"
     And the user clicks on button "buttonSubmit"
-    Then the user sees text "The location field is required for offline event."
+    Then the user sees text "Location is a required field."
 
   Scenario: Brian Add New Events Offline Is Friends
     Given the user logged in as "brian"
-    Then the user clicks on "More"
-    Then the browser opened at item "event" and tab "/event/add"
-    And the user clicks on input field "name" with value "IsOfflineEvents"
-    And the user add value on "select-categories" is "Music"
+    And the browser opened at "/event/add"
+    And within the content
+    When the user add on "inputName" with value "IsOfflineEvents"
     And the user want to add new date is "29"
     When the user want to scroll to the end of page
-    Then the user clicks on input field "fieldLocation" with value "Ho Chi Minh City"
-    And the user clicks on the "tooltip" on screen
-    And the user sees item of "Everyone"
-    When the user sees item of "Friends"
-    And the user clicks on button "buttonSubmit"
+    And the user add on "fieldLocation" with value "Ho Chi Minh City"
+    And the user select location
+    And the user set privacy is Friends
+    When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
-    Then the user sees text "IsOfflineEvents"
+    And the user sees page url matches "/event/\d+"
 
   Scenario: Another User Search OfflineEvents Is Friends
     Given the user logged in as "test"

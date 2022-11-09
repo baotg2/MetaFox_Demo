@@ -5,8 +5,8 @@ Feature: Config Settings On ACP Blogs
     Given the user logged in as "admin"
     And the browser opened at "/admincp/blog/setting"
     And the user want to scroll to the end of page
-    Given within the content
-    And the user clicks on input field "blog.minimum_name_length" with value "5"
+    And within the content
+    When the user clicks on input field "blog.minimum_name_length" with value "5"
     And the user clicks on input field "blog.maximum_name_length" with value "255"
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
@@ -14,7 +14,7 @@ Feature: Config Settings On ACP Blogs
   Scenario: Brian Verify Settings Blog On ACP
     Given the user logged in as "brian"
     And the browser opened at "/blog/add"
-    Given within the content
+    And within the content
     When the user adds title with value "a"
     And the user clicks on button "buttonSubmit"
     Then the user sees text "Title must contain at least 5 characters."

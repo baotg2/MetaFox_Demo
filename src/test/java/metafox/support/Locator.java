@@ -26,6 +26,7 @@ public class Locator {
         put("profile menu", "profile menu");
         put("slot top", "layoutSlotTop");
         put("main top", "layoutSlotMainTop");
+        put("status composer", "dialogStatusComposer");
     }};
 
     final private static Pattern pattern = Pattern.compile("^By\\.\\w+:\\s*");

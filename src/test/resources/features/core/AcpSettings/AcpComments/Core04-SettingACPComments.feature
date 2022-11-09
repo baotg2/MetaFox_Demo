@@ -4,8 +4,8 @@ Feature: Config Settings On ACP Comments
   Scenario: Admin Config Comment Photo OnACP
     Given the user logged in as "admin"
     When the browser opened at "/admincp/comment/setting"
-    Given within the content
-    When the user want to access "inputCommentEnablePhoto"
+    And within the content
+    When the user turn off setting "inputCommentEnablePhoto"
     And the user want to scroll to the end of page
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
@@ -17,8 +17,8 @@ Feature: Config Settings On ACP Comments
   Scenario: Admin Reset Config Comment Photo OnACP
     Given the user logged in as "admin"
     When the browser opened at "/admincp/comment/setting"
-    Given within the content
-    When the user want to access "inputCommentEnablePhoto"
+    And within the content
+    When the user turn off setting "inputCommentEnablePhoto"
     And the user want to scroll to the end of page
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
@@ -26,8 +26,8 @@ Feature: Config Settings On ACP Comments
   Scenario: Admin Config Comments Sticker OnACP
     Given the user logged in as "admin"
     When the browser opened at "/admincp/comment/setting"
-    Given within the content
-    When the user want to access "inputCommentEnableSticker"
+    And within the content
+    When the user turn off setting "inputCommentEnableSticker"
     And the user want to scroll to the end of page
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
@@ -39,8 +39,8 @@ Feature: Config Settings On ACP Comments
   Scenario: Admin Reset Config Comments Sticker OnACP
     Given the user logged in as "admin"
     When the browser opened at "/admincp/comment/setting"
-    Given within the content
-    When the user want to access "inputCommentEnableSticker"
+    And within the content
+    When the user turn off setting "inputCommentEnableSticker"
     And the user want to scroll to the end of page
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
@@ -48,8 +48,8 @@ Feature: Config Settings On ACP Comments
   Scenario: Admin Config Comments Emojis OnACP
     Given the user logged in as "admin"
     When the browser opened at "/admincp/comment/setting"
-    Given within the content
-    When the user want to access "inputCommentEnableEmoticon"
+    And within the content
+    When the user turn off setting "inputCommentEnableEmoticon"
     And the user want to scroll to the end of page
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
@@ -61,8 +61,8 @@ Feature: Config Settings On ACP Comments
   Scenario: Admin Reset Config Comments Emojis OnACP
     Given the user logged in as "admin"
     When the browser opened at "/admincp/comment/setting"
-    Given within the content
-    When the user want to access "inputCommentEnableEmoticon"
+    And within the content
+    When the user turn off setting "inputCommentEnableEmoticon"
     And the user want to scroll to the end of page
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
