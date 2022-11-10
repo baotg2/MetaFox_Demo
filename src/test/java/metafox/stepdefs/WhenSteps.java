@@ -643,6 +643,7 @@ public class WhenSteps extends StepDefinitions {
     }
 
 
+
     @When("the user adds title with value {string}")
     public void theUserAddsTitleWithValue(@Nonnull String text) {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputTitle"));
@@ -704,7 +705,7 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("the user clicks on the item title")
-    public void theUserClicksOnTheItemTitle() {
+    public void theUserClicksOnTheItemTitle(){
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("itemTitle"), Locator.byTagName("a"));
         element.click();
     }
@@ -727,7 +728,8 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @Then( "^the user add comment \"([^\"]*)\" on items$" )
-    public void addComment( String comment ){
+    public void addComment( String comment ) throws InterruptedException {
+        isComponentVisible.waitElement(By.xpath("//div[@role ='combobox']"));
         if(components.componentListDivDataTestID("fieldStatus").size()!=0){
             driver.findElement(By.xpath("//div[@data-testid='fieldStatus']//div[@role ='combobox']")).sendKeys(comment);
         }

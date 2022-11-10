@@ -375,9 +375,9 @@ public class AndSteps extends StepDefinitions {
      */
     @And("^the user add value \"([^\"]*)\" on element \"([^\"]*)\"$")
     public void inputByContainsID(String value, int index) {
-        isComponentVisible.waitElement(By.xpath("//input[(contains(@id,'mui-'))]"));
-        components.componentInputContainsID("mui-").get(index).click();
-        components.componentInputContainsID("mui-").get(index).sendKeys(value);
+        isComponentVisible.waitElement(By.xpath("//input[(contains(@id,':r'))]"));
+        components.componentInputContainsID(":r").get(index).click();
+        components.componentInputContainsID(":r").get(index).sendKeys(value);
     }
 
     /**

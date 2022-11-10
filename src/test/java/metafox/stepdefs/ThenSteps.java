@@ -5,6 +5,7 @@ import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
 import metafox.support.Locator;
 import metafox.support.Utility;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -134,7 +135,7 @@ public class ThenSteps extends StepDefinitions {
     public void addPhoto(int numberOfImage) {
         isComponentVisible.waitElement(By.xpath("//input[@type='file']"));
 
-        if (Utility.isLocal(driver)) {
+        if (!Utility.isLocal(driver)) {
             WebElement upload = components.componentInputType("file");
             ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
             upload.sendKeys(DataProvider.getSinglePhoto());
@@ -680,5 +681,20 @@ public class ThenSteps extends StepDefinitions {
     public void theUserAction(String actionName){
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byText("button",actionName));
         assertTrue(element.isDisplayed());
+    }
+
+    @Then("^the user (selects|not selects) friends on friend list$")
+    public void selectFriendsOnFriendList(@Nonnull String type){
+        setMenuContext(Locator.byTestId("div", "popupFriendPicker"));
+        if(type.equals("selects")){
+            WebElement element = waitUntilDisplayed(getMenuContext(), Locator.byTestId("itemUndefined"), Locator.byTagName("div"));
+            assertTrue(element.isDisplayed());
+
+            element.click();
+        }
+        else {
+            WhenSteps whenSteps = new WhenSteps();
+            whenSteps.theUserAction("buttonClose");
+        }
     }
 }

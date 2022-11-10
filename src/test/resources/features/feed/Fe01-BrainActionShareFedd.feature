@@ -1,33 +1,41 @@
 @action_feed @brian
-Feature:  Brain Action Share Feed
+Feature: Brain Action Share Feed
 
   Scenario: Brian Share Now
     Given the user logged in as "admin"
-    When the user clicks on button "menuShareButton"
-    And the user clicks on "Share now"
+    And the browser opened at "/"
+    And within the content
+    When the user opens share menu
+    And the user clicks on menu item "share_now"
+    Then the user sees successful flash message
 
   Scenario: Brian Share To New Feed
     Given the user logged in as "admin"
-    When the user clicks on button "menuShareButton"
-    And the user clicks on "Share to News Feed"
+    And the browser opened at "/"
+    And within the content
+    When the user opens share menu
+    And the user clicks on menu item "share_to_newsfeed"
+    Given within the status composer
+    And the user clicks on button "submit"
+    Then the user sees successful flash message
 
   Scenario: Brian Share On Friend Wall
     Given the user logged in as "admin"
-    When the user clicks on button "menuShareButton"
-    When the user "share_on_friends" this item
+    And the browser opened at "/"
+    And within the content
+    When the user opens share menu
+    And the user clicks on menu item "share_on_friends"
+    Given within the friend picker
+    And the user selects friends on friend list
+    Given within the status composer
+    And the user clicks on button "submit"
+    Then the user sees successful flash message
 
   Scenario: Brian Share On Group
     Given the user logged in as "admin"
     When the user clicks on button "menuShareButton"
     And the user clicks on "Share on a Group"
     Then the user sees text "Select Group to Share "
-
-  Scenario: Brian Action On Global Search
-    Given the user logged in as "admin"
-    When the user searches with text "test"
-    And the user clicks on "Members"
-    And the user clicks on element link text a "test"
-    Then the user sees div element "whatsHappening" displayed
 
   Scenario: Brian Search Random Keywords
     Given the user logged in as "admin"

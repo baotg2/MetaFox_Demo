@@ -93,7 +93,7 @@ public class StepDefinitions {
     }
 
     public WebElement waitUntilDisplayed(@Nonnull By by) {
-        return new WebDriverWait(driver, Duration.ofSeconds(10))
+        return new WebDriverWait(driver, Duration.ofSeconds(15))
                 .until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 

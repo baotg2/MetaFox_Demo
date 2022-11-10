@@ -32,7 +32,7 @@ Feature:  Brain Process On Online Events
     Then the user sees text "IsOnlineEvents"
     When the user clicks on element link text a "https://zoom.us/"
     Then the user want to verify tab "https://zoom.us/" open successfully
-  @focus
+
   Scenario: Brain delete online events
     Given the user logged in as "brian"
     And the browser opened at "/event"

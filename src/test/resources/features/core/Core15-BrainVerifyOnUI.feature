@@ -1,4 +1,4 @@
-@app_core @verifyUI @brian @previewSite
+@app_core @verifyUI @brian
 Feature: Brain Verify on the UI
 
   Scenario: Brian See All App By More Button
