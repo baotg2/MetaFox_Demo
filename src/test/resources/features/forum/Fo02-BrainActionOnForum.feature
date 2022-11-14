@@ -3,16 +3,15 @@ Feature:  Brian process on Forum
 
   Scenario: Brian Add New Forum With Empty Value
     Given the user logged in as "brian"
-    When the user clicks on "More"
-    When the browser opened at item "forum" and tab "/forum/thread/add"
-    And the user clicks on button "buttonSubmit"
+    And the browser opened at "/forum/thread/add"
+    And within the content
+    When the user clicks on button "buttonSubmit"
     Then the user sees text "Title is required."
-    Then the user sees text "Content is required. "
+    And the user sees text "Content is required. "
 
   Scenario: Brian Add New Forum
     Given the user logged in as "brian"
-    When the user clicks on "More"
-    When the browser opened at item "forum" and tab "/forum/thread/add"
+    When the browser opened at "/forum/thread/add"
     And the user add value on id "select-forum_id" is "General"
     When the user want to select category at 1 on dropdown list "select-forum_id"
     And the user adds title with value "IsThreadAutotest"
@@ -25,41 +24,34 @@ Feature:  Brian process on Forum
 
   Scenario: Brian verified subscribed threads
     Given the user logged in as "brian"
-    When the user clicks on "More"
-    When the browser opened at item "forum" and tab "/forum/subscribed-thread"
+    When the browser opened at "/forum/subscribed-thread"
+    And within the content
     Then the user sees text "IsThreadAutotest"
 
   Scenario: Another User Reply Thread
     Given the user logged in as "terry"
-    When the user clicks on "More"
-    Then the browser opened at item "forum" and tab ""
+    When the browser opened at "/forum"
+    And within the sidebar
     And the user searches with text "IsThreadAutotest"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
+    Given within the content
     And the user clicks on the item title
     Then the user sees text "IsThreadAutotest"
     And the user adds description
     And the user attaches a photo
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
-    Then the user sees div element "itemForumPost" displayed
-
- Scenario: Brain Search Replies
-   Given the user logged in as "brian"
-   When the user clicks on "More"
-   Then the browser opened at item "forum" and tab ""
-   And the user searches with text "TestAutoDescription"
-   When the user want to select category at 1 on dropdown list "select-item_type"
-
- Scenario: Brain Reaction On Thread
-   Given the user logged in as "brian"
-   When the user clicks on "More"
-   Then the browser opened at item "forum" and tab ""
-   And the user searches with text "TestAutoDescription"
-   And the user clicks on the item title
-   Then the user sees text "IsThreadAutotest"
-   And the user clicks on button "reactionButton"
-   Then the user sees label of action "reactionResult"
+  @focus
+  Scenario: Brain Reaction On Thread
+    Given the user logged in as "brian"
+    When the browser opened at "/forum"
+    And within the sidebar
+    When the user searches with text "TestAutoDescription"
+    And within the content
+    And the user clicks on the item title
+    Then the user sees text "IsThreadAutotest"
+    And the user clicks on button "reactionButton"
 
   Scenario: Brain Edit Thread
     Given the user logged in as "brian"
