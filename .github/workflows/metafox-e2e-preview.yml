@@ -18,7 +18,7 @@ env:
   ALLURE_SERVER: https://cloudcall-s01.phpfox.com
   ALLURE_PROJECT: default
   BASE_URL: https://preview-foxsocial.phpfox.us
-  TEST_TAGS: '@previewSite'
+  TEST_TAGS: '@NonTearDownData'
 
 jobs:
   build:
