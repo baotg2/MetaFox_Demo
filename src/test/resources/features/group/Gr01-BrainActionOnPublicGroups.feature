@@ -3,71 +3,78 @@ Feature:  Brain Process On Public Groups
 
   Scenario: Brian Add New Group With Empty Value
     Given the user logged in as "brian"
-    Then the user clicks on "More"
-    Then the browser opened at item "group" and tab "/group/add"
+    And the browser opened at "/group/add"
+    And within the content
     And the user clicks on button "buttonSubmit"
     Then the user sees text "Group Name is required."
     Then the user sees text "Group Privacy is required."
 
   Scenario: Brian Add New Group
     Given the user logged in as "brian"
-    Then the user clicks on "More"
-    Then the browser opened at item "group" and tab "/group/add"
-    And the user clicks on input field "name" with value "Groups"
-    And the user add value on "select-type_id" is "Song"
-    When the user want to select category at 1 on dropdown list "select-type_id"
+    And the browser opened at "/group/add"
+    And within the content
+    Given the user add on "inputName" with value "IsPublicGroup"
     And the user add value on "select-reg_method" is "Public"
     And the user clicks on button "buttonSubmit"
-    Then the user sees text "GroupTestAuto"
+    Given within the slot top
+    Then the user sees text "IsPublicGroup"
 
   Scenario: Another User Search Group
     Given the user logged in as "admin"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
-    And the user searches with text "Groups"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsPublicGroup"
+    Given within the content
     And the user clicks on the item title
-    Then the user sees text "GroupTestAuto"
+    Given within the slot top
+    Then the user sees text "IsPublicGroup"
 
   Scenario: Another User Join Group
     Given the user logged in as "admin"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
-    And the user searches with text "Groups"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsPublicGroup"
+    Given within the content
     And the user clicks on the item title
-    When the user want to "Join Group"
+    And within the slot top
+    When the user "Join Group"
     Then the user sees successful flash message
-    Then the user sees button "Joined"
+    Then the user sees button "Joined" on screen
 
   Scenario: Another User Post On Group
     Given the user logged in as "admin"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
-    And the user searches with text "Groups"
-    And the user clicks on the item title
-    Then the user "whatsHappening" this item
-    And the user add comment "AutoPostStatus1"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsPublicGroup"
+    Given within the content
+    When the user clicks on the item title
+    And the user "whatsHappening" this item
+    And within the status composer
+    When the user add comment "AutoPostStatus1" on items
     And the user clicks on button "submit"
-    Then the user sees text "AutoPostStatus1"
 
   Scenario: Brain Reaction Group
     Given the user logged in as "brian"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
-    And the user searches with text "Groups"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsPublicGroup"
+    Given within the content
     And the user clicks on the item title
     And the user clicks on button "reactionButton"
-
+  @focus
   Scenario: Another User Leave Group
     Given the user logged in as "admin"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
-    And the user searches with text "Groups"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsPublicGroup"
+    Given within the content
     And the user clicks on the item title
-    When the user sees text "actionMenu" and click on
-    And the user clicks on div "leave_group" and process
+    And within the slot top
+    When the user opens action menu
+    And the user clicks on menu item "leave_group"
     Then the user sees text "Are you sure you want to leave this group?"
-    And the user clicks on button "buttonSubmit"
-    Then the user sees button "Join Group"
+    And the user accepts the confirm
+    Then the user sees button "Join" on screen
 
   Scenario: Another User Join Group
     Given the user logged in as "terry"

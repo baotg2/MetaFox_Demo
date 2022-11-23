@@ -729,13 +729,13 @@ public class WhenSteps extends StepDefinitions {
 
     @Then( "^the user add comment \"([^\"]*)\" on items$" )
     public void addComment( String comment ) throws InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//div[@role ='combobox']"));
+        isComponentVisible.waitElement(By.xpath("//div[@role ='textbox']"));
         if(components.componentListDivDataTestID("fieldStatus").size()!=0){
-            driver.findElement(By.xpath("//div[@data-testid='fieldStatus']//div[@role ='combobox']")).sendKeys(comment);
+            driver.findElement(By.xpath("//div[@data-testid='fieldStatus']//div[@role ='textbox']")).sendKeys(comment);
         }
         else{
-            components.componentDivRole("combobox").sendKeys(comment);
-            components.componentDivRole("combobox").sendKeys(Keys.ENTER);
+            components.componentDivRole("textbox").sendKeys(comment);
+            components.componentDivRole("textbox").sendKeys(Keys.ENTER);
         }
     }
 }

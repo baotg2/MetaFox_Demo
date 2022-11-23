@@ -10,7 +10,7 @@ Feature: Brain Process On Sharing Items Friends of Friends
     And the browser opened at "/"
     When the user opens status composer
     And within the status composer
-    Then the user sees items has privacy is "Friends of Friends"
+    Then the user sees button "Friends of Friends" on screen
     And the user clicks on button "buttonClose"
     When the browser opened at "/settings/items"
     And within the content

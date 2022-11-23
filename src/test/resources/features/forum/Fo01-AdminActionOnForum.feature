@@ -1,5 +1,5 @@
 @app_forum @admin
-Feature:  Brian process on Forum
+Feature:  Admin process on Forum app
 
   Scenario: Admin Create New Thread
     Given the user logged in as "admin"

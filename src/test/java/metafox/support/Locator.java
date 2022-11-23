@@ -28,6 +28,7 @@ public class Locator {
         put("main top", "layoutSlotMainTop");
         put("status composer", "dialogStatusComposer");
         put("friend picker", "popupFriendPicker");
+        put("form", "fieldSubmit");
     }};
 
     final private static Pattern pattern = Pattern.compile("^By\\.\\w+:\\s*");

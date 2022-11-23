@@ -26,7 +26,7 @@ Feature: Admin action on ActivityPointApp
     When within the content
     And the user clicks on input field "q" with value "AutoPackagePoint"
     And the user clicks on button "buttonSubmit"
-    Then the user see name "AutoPackagePoint"
+    Then the user sees items "AutoPackagePoint" on screen
 
   Scenario: Admin Change Point Settings On Blog
     Given the user logged in as "admin"

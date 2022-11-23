@@ -235,7 +235,7 @@ public class ThenSteps extends StepDefinitions {
     @When("^the user add comment \"([^\"]*)\"$")
     public void addComment(String text){
         By section = getSectionContext();
-        WebElement commentBox = waitUntilDisplayed(section, Locator.byRole("combobox"));
+        WebElement commentBox = waitUntilDisplayed(section, Locator.byRole("textbox"));
         assertTrue(commentBox.isDisplayed());
         commentBox.sendKeys(text);
         commentBox.sendKeys(Keys.ENTER);
@@ -325,23 +325,6 @@ public class ThenSteps extends StepDefinitions {
         assertTrue(settingElements.isDisplayed());
         settingElements.click();
     }
-
-    /**
-     * ------------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param spanValue id of form
-     * @purpose access user profile
-     * @Author baotg2
-     * ------------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
-//    @Then("^the user see label of action \"([^\"]*)\"$")
-//    public void seeLabelAction(String spanValue) {
-//        By section = getSectionContext();
-//        WebElement settingElements = waitUntilDisplayed(section,Locator.byTestId(spanValue));
-//        assertTrue(settingElements.isDisplayed());
-//    }
-
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -671,13 +654,13 @@ public class ThenSteps extends StepDefinitions {
         }
     }
 
-    @Then("the user see name {string}")
+    @Then("the user sees items {string} on screen")
     public void verifyNameDisplayed(@Nonnull String name){
         By section = getSectionContext();
         WebElement commentBox = waitUntilDisplayed(section,Locator.byText("div", name));
         assertTrue(commentBox.isDisplayed());
     }
-    @Then("the user sees items has privacy is {string}")
+    @Then("the user sees button {string} on screen")
     public void theUserAction(String actionName){
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byText("button",actionName));
         assertTrue(element.isDisplayed());
