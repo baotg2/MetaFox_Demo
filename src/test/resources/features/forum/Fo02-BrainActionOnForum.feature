@@ -42,7 +42,7 @@ Feature:  Brian process on Forum
     And the user attaches a photo
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
-  @focus
+    
   Scenario: Brain Reaction On Thread
     Given the user logged in as "brian"
     When the browser opened at "/forum"
