@@ -580,6 +580,18 @@ public class WhenSteps extends StepDefinitions {
         setMenuContext(menu);
     }
 
+    @When("the user opens action menu by label")
+    public void openActionMenuByLabel() {
+        WebElement button = waitUntilDisplayed(getSectionContext(), Locator.byAriaLabel("ActionMenu"));
+        assertTrue(button.isDisplayed());
+        button.click();
+
+        // the current within must be scoped to new context
+        By menu = Locator.byTestId("div", "action menu");
+        waitUntilDisplayed(menu);
+        setMenuContext(menu);
+    }
+
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -660,6 +672,14 @@ public class WhenSteps extends StepDefinitions {
         element.sendKeys(value);
     }
 
+    @When("the user adds on {string}")
+    public void addOn(String id){
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId(id));
+        assertTrue(element.isDisplayed());
+        element.clear();
+        element.sendKeys(DataProvider.faker.lorem().paragraph());
+    }
+
     @When("the user adds title")
     public void theUserAddsTitle() {
         theUserAddsTitleWithValue(DataProvider.faker.lorem().sentence());
@@ -710,24 +730,12 @@ public class WhenSteps extends StepDefinitions {
         element.click();
     }
 
-    @Given("the user navigates to {string}")
-    public void theUserNavigateTo(String url) throws InterruptedException {
-        navigateTo(url);
-        Thread.sleep(1000);
-    }
-
-    private void navigateTo(@Nonnull String url) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeAsyncScript(String.format("window.$manager.historyBackend.replace('%s')", url));
-    }
-
     @When("the user modified items")
     public void theUserActionOnOption(){
         WebElement element = waitUntilDisplayed(Locator.byRole("menuitem"));
         element.click();
     }
-
-    @Then( "^the user add comment \"([^\"]*)\" on items$" )
+    @When( "^the user add comment \"([^\"]*)\" on items$" )
     public void addComment( String comment ) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//div[@role ='textbox']"));
         if(components.componentListDivDataTestID("fieldStatus").size()!=0){

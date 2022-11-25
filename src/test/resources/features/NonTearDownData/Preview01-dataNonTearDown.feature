@@ -67,6 +67,19 @@ Feature:  Non TearDown Data On Site
     Then the user sees successful flash message
     And the user sees text "AngryBirdsNest"
 
+  Scenario: Admin action on Page non-tear down data
+    Given the user logged in as "admin"
+    And the browser opened at "/page/add"
+    Given within the content
+    And the user add on "inputName" with value "Knowledge Sea"
+    And the user adds description
+    And the user clicks on button "buttonSubmit"
+    Then the user sees successful flash message
+    Given within the slot top
+    And the user want upload 1 photo
+    And the user "Save"
+    Then the user sees successful flash message
+
   Scenario: Brian action on the blog detail non-tear down
     Given the user logged in as "brian"
     And the browser opened at "/blog/all"

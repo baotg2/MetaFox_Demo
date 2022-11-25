@@ -29,6 +29,7 @@ public class Locator {
         put("status composer", "dialogStatusComposer");
         put("friend picker", "popupFriendPicker");
         put("form", "fieldSubmit");
+        put("basic", "fieldBasic");
     }};
 
     final private static Pattern pattern = Pattern.compile("^By\\.\\w+:\\s*");
@@ -69,6 +70,13 @@ public class Locator {
         return By.xpath(String.format("//*[@role='%s']", role));
     }
 
+    public static By byType(String type) {
+        return By.xpath(String.format("//*[@type='%s']", type));
+    }
+
+    public static By byAriaLabel(String ariaLabelValue) {
+        return By.xpath(String.format("//*[@aria-label='%s']", ariaLabelValue));
+    }
     public static By bySection(String name) {
         return By.xpath(xpath("div", Identity.get(name)));
     }

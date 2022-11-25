@@ -150,7 +150,8 @@ public class GivenSteps extends StepDefinitions {
         assertTrue(element.isDisplayed());
     }
 
-    @Given("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form|profile menu|form|main top|slot top|status composer|friend picker|form)$")
+    @Given("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form|profile menu|form|main top|slot top|status composer|friend picker|form" +
+            "|basic)$")
     public void GivenWithinTheContent(@Nonnull String name) {
         withinTheContent(name);
     }
@@ -175,5 +176,11 @@ public class GivenSteps extends StepDefinitions {
         String accessToken = DataProvider.getUserAccessToken(username);
         String cookieName = DataProvider.getAuthCookieName();
         driver.manage().addCookie(new Cookie(cookieName, accessToken));
+    }
+
+    @Given("the user navigates to {string}")
+    public void theUserNavigateTo(String url) throws InterruptedException {
+        driver.navigate().to(driver.getCurrentUrl()+url);
+        Thread.sleep(1000);
     }
 }
