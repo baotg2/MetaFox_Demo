@@ -61,7 +61,7 @@ Feature:  Brain Process On Public Groups
     Given within the content
     And the user clicks on the item title
     And the user clicks on button "reactionButton"
-  @focus
+
   Scenario: Another User Leave Group
     Given the user logged in as "admin"
     And the browser opened at "/group"
@@ -78,64 +78,59 @@ Feature:  Brain Process On Public Groups
 
   Scenario: Another User Join Group
     Given the user logged in as "terry"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
-    And the user searches with text "Groups"
-    When the user clicks on the "Join Group" on page
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsPublicGroup"
+    Given within the content
+    And the user clicks on the item title
+    And within the slot top
+    When the user "Join Group"
     Then the user sees successful flash message
+    Then the user sees button "Joined" on screen
 
   Scenario: Brain Add MemberShip Question
     Given the user logged in as "brian"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
-    And the user searches with text "Groups"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsPublicGroup"
+    Given within the content
     And the user clicks on the item title
-    When the user sees text "actionMenu" and click on
-    And the user "manage" this item
-    And the user clicks on "Membership Questions"
-    When the user clicks on check box "checkbox"
-    And the user want to "Add"
-    And the user sees text "Add Question "
-    And the user add value on "question" is "Question is required"
-    And the user select type "Written Answer" on "type_id"
-    Then the user clicks on button "buttonSubmit"
-    And I want to click on "Logout"
-    Given the user logged in as "test"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
-    And the user searches with text "Groups"
-    When the user clicks on the "Join Group" on page
-    Then the user clicks on button "buttonSubmit"
+    And within the slot top
+    When the user opens action menu by label
+    And the user clicks on menu item "manage"
+    When the user navigates to "/membership_questions"
+    Given within the content
+    And the user "Add"
+    Given within the basic
+    And the user adds on "question"
+    When the user select option Written Answer
+    Given within the form
+    And the user clicks on button "buttonSubmit"
 
+  Scenario: Another user see membership questions
+    Given the user logged in as "luna"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsPublicGroup"
+    Given within the content
+    And the user clicks on the item title
+    And within the slot top
+    When the user "Join Group"
+    Given within the form
+    Then the user sees button "Submit" on screen
+  @focus
   Scenario: Brain Add Pending Post
     Given the user logged in as "brian"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
-    And the user searches with text "Groups"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsPublicGroup"
+    Given within the content
     And the user clicks on the item title
-    When the user sees text "actionMenu" and click on
-    And the user "manage" this item
-    And the user clicks on "Pending Posts"
-    Then the user sees text "Enable Pending Mode "
-    When the user clicks on check box "checkbox"
-    And the user clicks on "Membership Questions"
-    When the user want to "Delete"
-    Then the user sees text "Are you sure you want to permanently delete this question?"
-    And the user want to "OK"
-    And I want to click on "Logout"
-    Given the user logged in as "terry"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
-    And the user searches with text "Groups"
-    And the user clicks on the item title
-    Then the user "whatsHappening" this item
-    And the user add comment "AutoPostStatus"
-    And the user clicks on button "submit"
-    And I want to click on "Logout"
-    Given the user logged in as "brian"
-    Then the user "new_notification" this item
-    Then the user clicks on notification " is waiting for your approval." and process
-    Then the user "Approve" on invite
+    And within the slot top
+    When the user opens action menu by label
+    And the user clicks on menu item "manage"
+    When the user navigates to "/pending_posts"
+    And within the content
 
   Scenario: Brain Delete Public Groups
     Given the user logged in as "brian"

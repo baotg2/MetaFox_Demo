@@ -4,6 +4,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
 import metafox.support.Locator;
+import metafox.support.Privacy;
 import metafox.support.Utility;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
@@ -679,5 +680,16 @@ public class ThenSteps extends StepDefinitions {
             WhenSteps whenSteps = new WhenSteps();
             whenSteps.theUserAction("buttonClose");
         }
+    }
+
+    @Then("^the user select option (Checkbox|Multiple Choice|Written Answer)$")
+    public void selectOption(String optionValue){
+        WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byRole("button"));
+        assertTrue(element.isDisplayed());
+        element.click();
+
+        WebElement menuitem = waitUntilDisplayed(Locator.byDataValue(Privacy.getValue(optionValue)));
+        assertTrue(menuitem.isDisplayed());
+        menuitem.click();
     }
 }

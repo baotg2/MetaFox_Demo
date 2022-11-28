@@ -674,7 +674,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user adds on {string}")
     public void addOn(String id){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId(id));
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId("input", id));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys(DataProvider.faker.lorem().paragraph());

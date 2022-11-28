@@ -72,7 +72,7 @@ Feature:  Non TearDown Data On Site
     And the browser opened at "/page/add"
     Given within the content
     And the user add on "inputName" with value "Knowledge Sea"
-    And the user adds description
+    And the user types a sentence in "inputText"
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
     Given within the slot top

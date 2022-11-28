@@ -60,11 +60,6 @@ Feature: Brain Action Share Feed
     And the user clicks on "Copy link"
     Then the user sees successful flash message
 
-  Scenario: Brian reply random comment
-    Given the user logged in as "admin"
-    When the user want to access "replyButton"
-    Then the user sees text "Write a reply... "
-
   Scenario: Brian Upload Photo on feed
     Given the user logged in as "admin"
     When the user "whatsHappening" this item

@@ -1,4 +1,4 @@
-@page-Register @previewSite
+@page-Register
 Feature: Verify Visitor Process on Sign Up
 
   Scenario Outline: Visitor Process register new account With Error Msg Invalid Email

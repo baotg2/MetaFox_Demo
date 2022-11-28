@@ -1,17 +1,17 @@
 @app_core @userProfile @brian @previewSite
 Feature: Brain Process On User Profile
 
-  Scenario Outline: Brian Edit Profile
-    Given the user logged in as "brian"
-    And the browser opened at "/user/3/profile"
-    And within the content
-    And the user add value on "selectCountryState" is "<country_state>"
-    Then the user clicks on button "buttonSubmit"
-    Then the user sees successful flash message
-    Examples:
-      |country_state|
-      |Vietnam     |
-      |United States|
+#  Scenario Outline: Brian Edit Profile
+#    Given the user logged in as "brian"
+#    And the browser opened at "/user/3/profile"
+#    And within the content
+#    And the user add value on "selectCountryState" is "<country_state>"
+#    Then the user clicks on button "buttonSubmit"
+#    Then the user sees successful flash message
+#    Examples:
+#      |country_state|
+#      |Vietnam     |
+#      |United States|
 
   Scenario: Brian Add Bio
     Given the user logged in as "brian"

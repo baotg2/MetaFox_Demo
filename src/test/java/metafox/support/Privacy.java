@@ -4,9 +4,11 @@ public class Privacy {
 
     public static int getValue(String label) {
         switch (label.toLowerCase()) {
-            case "community":
+            case "community" :
+            case "multiple choice":
                 return 1;
             case "friends":
+            case "checkbox":
                 return 2;
             case "friends of friends":
                 return 3;

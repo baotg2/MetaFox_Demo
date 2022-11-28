@@ -102,7 +102,7 @@ public class Locator {
     }
 
     public static By byId(String tagName, String id) {
-        return By.xpath(String.format("//%s[@id='%s')]", tagName, id.trim()));
+        return By.xpath(String.format("//%s[@id='%s']", tagName, id.trim()));
     }
 
     public static By byHref(@Nonnull String url) {

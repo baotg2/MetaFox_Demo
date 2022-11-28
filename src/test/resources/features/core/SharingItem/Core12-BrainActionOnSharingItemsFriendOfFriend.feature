@@ -1,20 +1,20 @@
 @app_core @sharingItem @brian @previewSite
 Feature: Brain Process On Sharing Items Friends of Friends
 
-  Scenario:Brain Verify Privacy Feed Default Privacy Is Friends of Friends
-    Given the user logged in as "brian"
-    And the browser opened at "/settings/items"
-    And within the content
-    When the user select privacy at field "Feed default privacy" and change to "Friends of Friends"
-    Then the user sees successful flash message
-    And the browser opened at "/"
-    When the user opens status composer
-    And within the status composer
-    Then the user sees button "Friends of Friends" on screen
-    And the user clicks on button "buttonClose"
-    When the browser opened at "/settings/items"
-    And within the content
-    And the user select privacy at field "Feed default privacy" and change to "Everyone"
+#  Scenario:Brain Verify Privacy Feed Default Privacy Is Friends of Friends
+#    Given the user logged in as "brian"
+#    And the browser opened at "/settings/items"
+#    And within the content
+#    When the user select privacy at field "Feed default privacy" and change to "Friends of Friends"
+#    Then the user sees successful flash message
+#    And the browser opened at "/"
+#    When the user opens status composer
+#    And within the status composer
+#    Then the user sees button "Friends of Friends" on screen
+#    And the user clicks on button "buttonClose"
+#    When the browser opened at "/settings/items"
+#    And within the content
+#    And the user select privacy at field "Feed default privacy" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Blogs Is Friends of Friends
     Given the user logged in as "brian"
