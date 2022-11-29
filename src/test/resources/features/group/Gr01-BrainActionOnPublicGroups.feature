@@ -14,6 +14,7 @@ Feature:  Brain Process On Public Groups
     And the browser opened at "/group/add"
     And within the content
     Given the user add on "inputName" with value "IsPublicGroup"
+    And the user types a sentence in "inputText"
     And the user add value on "select-reg_method" is "Public"
     And the user clicks on button "buttonSubmit"
     Given within the slot top

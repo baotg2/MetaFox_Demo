@@ -1,63 +1,59 @@
-@app_group @group_secret @brian @wip
+@app_group @group_secret @brian
 Feature:  Brain Process On Secret Groups
 
   Scenario: Brian Add New Group
     Given the user logged in as "brian"
-    Then the user clicks on "More"
-    Then the browser opened at item "group" and tab "/group/add"
-    And the user clicks on input field "name" with value "TestAutoSecretGroup"
-    And the user add value on "select-type_id" is "Song"
-    When the user want to select category at 1 on dropdown list "select-type_id"
+    And the browser opened at "/group/add"
+    And within the content
+    Given the user add on "inputName" with value "TestAutoSecretGroup"
+    And the user types a sentence in "inputText"
     And the user add value on "select-reg_method" is "Secret"
     And the user clicks on button "buttonSubmit"
+    Given within the slot top
     Then the user sees text "TestAutoSecretGroup"
 
   Scenario: Another User Search Group
-    Given the user logged in as "test"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
+    Given the user logged in as "terry"
+    And the browser opened at "/group"
+    And within the sidebar
     And the user searches with text "TestAutoSecretGroup"
+    Given within the content
     Then the user sees text "No groups are found. "
 
   Scenario: Brian Invite Another User Join Secret Group
     Given the user logged in as "brian"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
+    And the browser opened at "/group"
+    And within the sidebar
     And the user searches with text "TestAutoSecretGroup"
+    Given within the content
     And the user clicks on the item title
-    When the user clicks on "Invite"
-    And the user clicks on "Invite Friends"
-    #Then the user add value on "searchBox" is "test"
-    Then the user "itemUndefined" this item
-    Then the user clicks on button "buttonDone"
-    Then the user sees successful flash message
-    And I want to click on "Logout"
-    Given the user logged in as "test"
-    Then the user "new_notification" this item
-    Then the user clicks on notification "TestAutoSecretGroup" and process
-    When the user "Accept Invite" on invite
-    Then the user sees successful flash message
-    Then the user sees button "Joined"
+    And within the slot top
+    When the owner invite to friend
+    And the user clicks on menu item "invite"
+    When the user selects friends on friend list
 
   Scenario: Another user leave secret group
     Given the user logged in as "test"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
-    And the user searches with text "TestAutoSecretGroup"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsPublicGroup"
+    Given within the content
     And the user clicks on the item title
-    When the user sees text "actionMenu" and click on
-    And the user clicks on div "leave_group" and process
+    And within the slot top
+    When the user opens action menu
+    And the user clicks on menu item "leave_group"
     Then the user sees text "Are you sure you want to leave this group?"
-    And the user clicks on button "buttonSubmit"
+    And the user accepts the confirm
 
   Scenario: Brain delete secret group
     Given the user logged in as "brian"
-    When the user clicks on "More"
-    Then the browser opened at item "group" and tab ""
+    And the browser opened at "/group"
+    And within the sidebar
     And the user searches with text "TestAutoSecretGroup"
+    Given within the content
     And the user clicks on the item title
-    When the user want to click on button label "Action Menu" and process
-    When  the user clicks on menu item "delete"
-    Then the user sees text "Are you sure you want to delete this group permanently?"
-    And the user clicks on button "buttonSubmit"
+    And within the slot top
+    When the user opens action menu by label
+    And  the user clicks on menu item "delete"
+    And the user accepts the confirm
     Then the user sees successful flash message

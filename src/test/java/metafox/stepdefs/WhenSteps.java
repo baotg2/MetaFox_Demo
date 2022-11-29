@@ -752,4 +752,16 @@ public class WhenSteps extends StepDefinitions {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("itemview group_request"), Locator.byClass("span", "ico-check"));
         element.click();
     }
+
+    @When("the owner invite to friend")
+    public void theOwnerInviteToFriend() {
+        WebElement button = waitUntilDisplayed(getSectionContext(), Locator.byAriaLabel("Action Menu"));
+        assertTrue(button.isDisplayed());
+        button.click();
+
+        // the current within must be scoped to new context
+        By menu = Locator.byTestId("div", "action menu");
+        waitUntilDisplayed(menu);
+        setMenuContext(menu);
+    }
 }
