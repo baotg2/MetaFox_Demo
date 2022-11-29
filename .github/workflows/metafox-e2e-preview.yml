@@ -3,7 +3,9 @@
 
 name: metafox-e2e-preview
 
-concurrency: metafox-e2e-preview
+concurrency: 
+  group: metafox-e2e-preview
+  cancel-in-progress: true
 
 on:
   schedule:
