@@ -3,7 +3,9 @@
 
 name: metafox-e2e-staging
 
-concurrency: metafox-e2e-staging
+concurrency: 
+  group: metafox-e2e-staging
+  cancel-in-progress: true
 
 on:
   schedule:
