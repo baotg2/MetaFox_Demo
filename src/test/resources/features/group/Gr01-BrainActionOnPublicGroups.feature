@@ -133,7 +133,7 @@ Feature:  Brain Process On Public Groups
     And within the content
     When the users turn on setting
 
-  Scenario: Brain Delete Public Groups
+  Scenario: 012_Brain Delete Public Groups
     Given the user logged in as "brian"
     And the browser opened at "/group"
     And within the sidebar

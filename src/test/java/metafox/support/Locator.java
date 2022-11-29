@@ -99,6 +99,9 @@ public class Locator {
     public static By byText(String tagName, String text) {
         return By.xpath(String.format("//%s[contains(text(), '%s')]", tagName, text.trim()));
     }
+    public static By byClass(String tagName, String text) {
+        return By.xpath(String.format("//%s[contains(@class, '%s')]", tagName, text.trim()));
+    }
 
     public static By byId(String text) {
         return byText("*", text);

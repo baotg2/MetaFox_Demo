@@ -746,4 +746,10 @@ public class WhenSteps extends StepDefinitions {
             components.componentDivRole("textbox").sendKeys(Keys.ENTER);
         }
     }
+
+    @When("Admin approves the request")
+    public void theUserWantToEdit() {
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("itemview group_request"), Locator.byClass("span", "ico-check"));
+        element.click();
+    }
 }
