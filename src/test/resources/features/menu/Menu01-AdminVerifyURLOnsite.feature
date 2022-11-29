@@ -1,4 +1,4 @@
-#@urlSite @Url_acp
+#@urlSite @Url_acp @wip
 #Feature: Admin verify url on site
 #
 #  Scenario: Admin verify url on AdminCP

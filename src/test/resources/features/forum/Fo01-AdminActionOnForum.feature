@@ -1,4 +1,4 @@
-@app_forum @admin
+@app_forum @admin @previewSite
 Feature:  Admin process on Forum app
 
   Scenario: Admin Create New Thread

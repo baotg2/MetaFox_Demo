@@ -1,4 +1,4 @@
-@app_photo @album_friend @brian
+@app_photo @album_friend @brian @wip
 Feature: Brian process on album item friends
 
   Scenario: Brian Add New Album Friend With Photo

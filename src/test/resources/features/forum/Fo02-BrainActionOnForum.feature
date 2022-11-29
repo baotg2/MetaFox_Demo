@@ -1,4 +1,4 @@
-@app_forum @brian
+@app_forum @brian @previewSite
 Feature:  Brian process on Forum
 
   Scenario: Brian Add New Forum With Empty Value
@@ -64,7 +64,6 @@ Feature:  Brian process on Forum
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
     Given within the content
-    And the user clicks on the item title
     When the user opens action menu
     And the user clicks on menu item "edit"
     Then the user sees items "Remove" on screen
@@ -83,8 +82,6 @@ Feature:  Brian process on Forum
     Given within the form
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
-    Given within the content
-    And the user sees text "IsThreadAutotest"
 
   Scenario: Brain copy thread with default title
     Given the user logged in as "brian"

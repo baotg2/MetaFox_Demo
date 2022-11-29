@@ -1,4 +1,4 @@
-@app_photo @photo_friend @brian
+@app_photo @photo_friend @brian @wip
 Feature: Brian process on photos friend item
 
   @BrainAddNewPhotoFriend

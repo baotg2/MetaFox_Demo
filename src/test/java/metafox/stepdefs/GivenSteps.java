@@ -151,7 +151,7 @@ public class GivenSteps extends StepDefinitions {
     }
 
     @Given("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form|profile menu|form|main top|slot top|status composer|friend picker|form" +
-            "|basic)$")
+            "|basic|group picker|report|search)$")
     public void GivenWithinTheContent(@Nonnull String name) {
         withinTheContent(name);
     }
@@ -167,7 +167,7 @@ public class GivenSteps extends StepDefinitions {
 
     @Given("switch account {string}")
     public void openNewTab(String username) throws IOException, InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         isComponentVisible.waitElement(By.xpath("//div[@data-testid ='menuAppBar']/div[5]/div"));
         driver.findElement(By.xpath("//div[@data-testid ='menuAppBar']/div[5]/div")).click();
         isComponentVisible.waitElement(By.xpath("//span[text()='Logout']"));

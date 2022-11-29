@@ -1,4 +1,4 @@
-@urlSite @Url_site
+@urlSite @Url_site @wip
 Feature: Verify access side menu success
 
   Scenario: verify access child side menu

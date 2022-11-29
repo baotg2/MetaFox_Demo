@@ -1,4 +1,4 @@
-@app_blog @brian
+@app_blog @brian @previewSite
 Feature:  Brian process on blogs is OnlyMe
 
   Scenario: Brian Add New Blog With Image With Privacy Is Only Me
@@ -23,7 +23,6 @@ Feature:  Brian process on blogs is OnlyMe
     Given within the content
     Then the user sees text "No blogs are found."
 
-
   Scenario: Brain Share Now On Blog OnlyMe Just Add
     Given the user logged in as "brian"
     And the browser opened at "/blog"
@@ -31,20 +30,20 @@ Feature:  Brian process on blogs is OnlyMe
     When the user searches with text "BlogOnlyMe"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
+    Given within the content
     And the user clicks on the item title
     And the user opens action menu
-
 
   Scenario: Brain Delete Blog OnlyMe Just Added
     Given the user logged in as "brian"
     And the browser opened at "/blog"
-    And within the content
+    And within the sidebar
     When the user searches with text "BlogOnlyMe"
     And the user access first condition "inputSort"
     And the user access first condition "inputWhen"
+    Given within the content
     And the user opens action menu
     # verify
-    Given within the content
     And  the user clicks on menu item "delete"
     And the user accepts the confirm
     Then the user sees successful flash message

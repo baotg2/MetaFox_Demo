@@ -1,9 +1,9 @@
 @app_core @blockUser @brian @previewSite
-Feature:  Brain Process On Add Friend UnFriend
+Feature:  Brain Process On Block Friend
 
   Scenario: Brian Block User
     Given the user logged in as "brian"
-    And the browser opened at "/terry"
+    And the browser opened at "/luna"
     And within the slot top
     When the user opens action menu
     And the user clicks on menu item "block"

@@ -1,4 +1,4 @@
-@app_poll @poll_multiplechoices @brian
+@app_poll @poll_multiplechoices @brian @wip
 Feature:  Brian process on multiple choice polls
 
   Scenario: Brian Add New Poll Public Vote

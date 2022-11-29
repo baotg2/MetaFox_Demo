@@ -1,4 +1,4 @@
-@app_group @group_close @brian
+@app_group @group_close @brian @wip
 Feature:  Brain Process On Closed Groups
 
   Scenario: Brian Add New Group

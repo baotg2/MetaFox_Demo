@@ -1,4 +1,4 @@
-@app_group @group_secret @brian
+@app_group @group_secret @brian @wip
 Feature:  Brain Process On Secret Groups
 
   Scenario: Brian Add New Group

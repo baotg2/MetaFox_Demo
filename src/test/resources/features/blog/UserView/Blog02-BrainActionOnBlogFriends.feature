@@ -1,4 +1,4 @@
-@app_blog @brain
+@app_blog @brain @previewSite
 Feature:  Brian process on blogs is Friend
 
   Scenario: Brian Add New Blog With Image With Privacy Is Friend
@@ -32,12 +32,6 @@ Feature:  Brian process on blogs is Friend
     And the user opens share menu
     When the user clicks on menu item "share_now"
     And the user sees successful flash message
-
-  Scenario: Another user access Brian profile and see blog
-    Given the user logged in as "terry"
-    And the user opened "brian" profile page
-    And within the content
-    Then the user sees text "The post owner has limited who can view this post"
 
   Scenario: Brain Delete Blog Friend Just Added
     Given the user logged in as "brian"

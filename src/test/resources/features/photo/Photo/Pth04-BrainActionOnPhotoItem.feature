@@ -1,4 +1,4 @@
-@app_photo @photo_public @brian
+@app_photo @photo_public @brian @wip
 Feature: Brian process on photos item
 
   Scenario: Brian Add New Photo

@@ -28,8 +28,11 @@ public class Locator {
         put("main top", "layoutSlotMainTop");
         put("status composer", "dialogStatusComposer");
         put("friend picker", "popupFriendPicker");
+        put("group picker", "popupGroupPicker");
         put("form", "fieldSubmit");
         put("basic", "fieldBasic");
+        put("report", "popupReport");
+        put("search", "blockSearch");
     }};
 
     final private static Pattern pattern = Pattern.compile("^By\\.\\w+:\\s*");

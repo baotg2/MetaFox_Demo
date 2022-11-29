@@ -1,4 +1,4 @@
-@app_poll @poll_publicvote @brian
+@app_poll @poll_publicvote @brian @wip
 Feature:  Brian process on public vote polls
 
   Scenario: Brian See Pop Up When Remove Answers

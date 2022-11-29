@@ -1,4 +1,4 @@
-@app_blog @admin
+@app_blog @admin @previewSite
 Feature:  Admin process on blogs app
 
   Scenario: Admin can add a new blog

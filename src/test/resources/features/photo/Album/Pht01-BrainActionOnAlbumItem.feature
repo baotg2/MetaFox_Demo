@@ -1,4 +1,4 @@
-@app_photo @album_public @brian
+@app_photo @album_public @brian @wip
 Feature: Brian process on album item
 
   Scenario: Brian Add New Album Without Image

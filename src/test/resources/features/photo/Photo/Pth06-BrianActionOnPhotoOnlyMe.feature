@@ -1,4 +1,4 @@
-@app_photo @photo_onlyme @brian
+@app_photo @photo_onlyme @brian @wip
 Feature: Brian process on photos only me item
 
   @BrainAddNewPhotoOnlyMe

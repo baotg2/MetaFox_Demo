@@ -1,4 +1,4 @@
-@app_poll @poll_onfeed @brian
+@app_poll @poll_onfeed @brian @wip
 Feature:  Brian process polls on feed
 
   Scenario: Brian Add New Poll On Feed

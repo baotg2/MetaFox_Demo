@@ -250,6 +250,12 @@ public class ThenSteps extends StepDefinitions {
         assertTrue(commentBox.isDisplayed());
     }
 
+    @Then("the users turn on setting")
+    public void testSetting(){
+        if(!components.componentInputType("checkbox").isSelected()) {
+            components.componentInputType("checkbox").click();
+        }
+    }
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
