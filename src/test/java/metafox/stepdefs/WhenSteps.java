@@ -730,6 +730,12 @@ public class WhenSteps extends StepDefinitions {
         element.click();
     }
 
+    @When("the user get media details")
+    public void theUserClicksOnTheItemMedia(){
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("itemPhoto"), Locator.byHref("/photo"));
+        driver.get(element.getAttribute("href"));
+    }
+
     @When("the user modified items")
     public void theUserActionOnOption(){
         WebElement element = waitUntilDisplayed(Locator.byRole("menuitem"));
@@ -737,13 +743,13 @@ public class WhenSteps extends StepDefinitions {
     }
     @When( "^the user add comment \"([^\"]*)\" on items$" )
     public void addComment( String comment ) throws InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//div[@role ='textbox']"));
+        isComponentVisible.waitElement(By.xpath("//div[@role ='combobox']"));
         if(components.componentListDivDataTestID("fieldStatus").size()!=0){
-            driver.findElement(By.xpath("//div[@data-testid='fieldStatus']//div[@role ='textbox']")).sendKeys(comment);
+            driver.findElement(By.xpath("//div[@data-testid='fieldStatus']//div[@role ='combobox']")).sendKeys(comment);
         }
         else{
-            components.componentDivRole("textbox").sendKeys(comment);
-            components.componentDivRole("textbox").sendKeys(Keys.ENTER);
+            components.componentDivRole("combobox").sendKeys(comment);
+            components.componentDivRole("combobox").sendKeys(Keys.ENTER);
         }
     }
 

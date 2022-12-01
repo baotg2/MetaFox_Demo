@@ -236,7 +236,7 @@ public class ThenSteps extends StepDefinitions {
     @When("^the user add comment \"([^\"]*)\"$")
     public void addComment(String text){
         By section = getSectionContext();
-        WebElement commentBox = waitUntilDisplayed(section, Locator.byRole("textbox"));
+        WebElement commentBox = waitUntilDisplayed(section, Locator.byRole("combobox"));
         assertTrue(commentBox.isDisplayed());
         commentBox.sendKeys(text);
         commentBox.sendKeys(Keys.ENTER);

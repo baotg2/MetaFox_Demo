@@ -1,4 +1,4 @@
-@app_photo @album_public @brian @previewSite
+@app_photo @album_public @brian
 Feature: Brian process on album item
 
   Scenario: Brian Add New Album Without Image
@@ -51,6 +51,17 @@ Feature: Brian process on album item
     And the user clicks on menu item "edit"
     When the user add on "inputName" with value "Auto Test New AlbumName"
     And the user clicks on button "buttonSubmit"
+    Then the user sees successful flash message
+
+  Scenario: Another User Report Album
+    Given the user logged in as "admin"
+    And the browser opened at "/photo/albums"
+    And within the content
+    And the user clicks on the item title
+    And the user opens action menu
+    When the user clicks on menu item "report"
+    Given within the report
+    When the user submits the form
     Then the user sees successful flash message
 
   Scenario: Brian Delete Album
