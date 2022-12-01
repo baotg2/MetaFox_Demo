@@ -1,10 +1,10 @@
-@app_poll @poll_multiplechoices @brian @wip
+@app_poll @poll_multiplechoices @brian
 Feature:  Brian process on multiple choice polls
 
   Scenario: Brian Add New Poll Public Vote
     Given the user logged in as "brian"
-    When the user clicks on "More"
-    When the browser opened at item "poll" and tab "/poll/add"
+    When the browser opened at "/poll/add"
+    And within the content
     And the user clicks on input field "question" with value "Polls"
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
