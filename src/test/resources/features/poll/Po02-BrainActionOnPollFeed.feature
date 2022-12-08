@@ -3,6 +3,8 @@ Feature:  Brian process polls on feed
 
   Scenario: Brian Add New Poll On Feed
     Given the user logged in as "brian"
+    And the browser opened at "/"
+    And within the content
     When the user clicks on button "buttonAttachPoll"
     And the user sees text "New poll "
     And the user clicks on input field "question" with value "Polls"

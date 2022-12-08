@@ -123,7 +123,6 @@ Feature: Brain Process On Account Settings Is No One
     And the browser opened at "/brian"
     When within the subside
     Then the user don't see tab "about" on user profile
-    And I want to click on "Logout"
     Given switch account "brian"
     And the browser opened at "/settings/profile"
     When within the content

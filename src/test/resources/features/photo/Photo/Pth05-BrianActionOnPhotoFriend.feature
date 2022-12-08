@@ -1,4 +1,4 @@
-@app_photo @photo_friend @brian @wip
+@app_photo @photo_friend @brian @previewSite
 Feature: Brian process on photos friend item
 
   Scenario: Brian Add New Photo Friends
@@ -19,7 +19,7 @@ Feature: Brian process on photos friend item
     When the user opens share menu
     And the user clicks on menu item "share_now"
     Then the user sees successful flash message
-  @focus
+
   Scenario: Another user access Brian profile and see Photo
     Given the user logged in as "terry"
     And the browser opened at "/"

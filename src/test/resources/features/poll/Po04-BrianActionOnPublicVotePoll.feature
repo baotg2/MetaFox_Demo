@@ -1,18 +1,10 @@
-@app_poll @poll_publicvote @brian @wip
+@app_poll @poll_publicvote @brian
 Feature:  Brian process on public vote polls
-
-  Scenario: Brian See Pop Up When Remove Answers
-    Given the user logged in as "brian"
-    When the user clicks on "More"
-    When the browser opened at item "poll" and tab "/poll/add"
-    And the user want to "Remove"
-    Then the user sees text "You must have a minimum of 2 answers."
-    And the user want to "OK"
 
   Scenario: Brian Add New Poll Public Vote
     Given the user logged in as "brian"
-    When the user clicks on "More"
-    When the browser opened at item "poll" and tab "/poll/add"
+    When the browser opened at "/poll/add"
+    And within the content
     And the user clicks on input field "question" with value "Polls"
     And the user add value "Yes" on element "1"
     And the user add value "No" on element "2"
@@ -24,30 +16,30 @@ Feature:  Brian process on public vote polls
 
   Scenario: Brian Search Poll
     Given the user logged in as "brian"
-    When the user clicks on "More"
-    When the browser opened at item "poll" and tab ""
-    And the user searches with text "Polls"
+    When the browser opened at "/poll"
+    And within the sidebar
+    When the user searches with text "IsThisAutoPoll"
+    And within the content
     And the user clicks on the item title
     Then the user sees text "IsThisAutoPoll"
 
   Scenario: Another User Vote Poll
     Given the user logged in as "admin"
-    When the user clicks on "More"
-    When the browser opened at item "poll" and tab ""
-    And the user searches with text "Polls"
+    When the browser opened at "/poll"
+    And within the sidebar
+    When the user searches with text "IsThisAutoPoll"
+    And within the content
     And the user clicks on the item title
-    Then the user sees text "IsThisAutoPoll"
+    Given within the detail poll
     And the user "admin" action vote on random options
 
   Scenario: Brain Delete Public Vote Poll
     Given the user logged in as "brian"
-    Given the user logged in as "brian"
-    When the user clicks on "More"
-    When the browser opened at item "poll" and tab ""
-    And the user searches with text "Polls"
-    And the user clicks on the item title
-    When the user want to click on button label "Action Menu" and process
-    And  the user clicks on menu item "delete"
-    Then the user sees text "Are you sure you want to permanently delete this poll?"
-    And the user clicks on button "buttonSubmit"
+    When the browser opened at "/poll"
+    And within the sidebar
+    When the user searches with text "IsThisAutoPoll"
+    And within the content
+    When the user opens action menu
+    And the user clicks on menu item "delete"
+    And the user accepts the confirm
     Then the user sees successful flash message

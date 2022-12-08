@@ -34,6 +34,7 @@ public class Locator {
         put("report", "popupReport");
         put("search", "blockSearch");
         put("detail photo", "popupDetailPhoto");
+        put("detail poll", "detailview poll");
     }};
 
     final private static Pattern pattern = Pattern.compile("^By\\.\\w+:\\s*");
@@ -93,8 +94,8 @@ public class Locator {
         return pattern.matcher(by.toString()).replaceFirst("");
     }
 
-    public static By byText(String text) {
-        return byText("*", text);
+    public static By byTitle(String tagName, String value) {
+        return By.xpath(String.format("//%s[@title='%s']", tagName, value.trim()));
     }
 
     public static By byText(String tagName, String text) {
