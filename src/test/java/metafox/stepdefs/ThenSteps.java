@@ -675,12 +675,16 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("^the user (selects|not selects) friends on friend list$")
     public void selectFriendsOnFriendList(@Nonnull String type){
-        setMenuContext(Locator.byTestId("div", "popupFriendPicker"));
+        //setMenuContext(Locator.byTestId("div", "popupFriendPicker"));
         if(type.equals("selects")){
-            WebElement element = waitUntilDisplayed(getMenuContext(), Locator.byTestId("itemUndefined"), Locator.byTagName("div"));
+            WebElement btn_confirm = waitUntilDisplayed(Locator.byTestId("button", "buttonDone"));
+            WebElement element = waitUntilDisplayed(Locator.byTestId("itemUndefined"), Locator.byTagName("div"));
             assertTrue(element.isDisplayed());
 
             element.click();
+            assertTrue(btn_confirm.isDisplayed());
+
+            btn_confirm.click();
         }
         else {
             WhenSteps whenSteps = new WhenSteps();
