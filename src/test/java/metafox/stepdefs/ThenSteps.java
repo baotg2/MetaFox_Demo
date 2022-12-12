@@ -240,7 +240,7 @@ public class ThenSteps extends StepDefinitions {
         assertTrue(commentBox.isDisplayed());
         commentBox.sendKeys(text);
         commentBox.sendKeys(Keys.ENTER);
-        verifyCommentAdded(text);
+        //verifyCommentAdded(text);
     }
 
     private void verifyCommentAdded(@Nonnull String text) {
@@ -701,5 +701,11 @@ public class ThenSteps extends StepDefinitions {
         WebElement menuitem = waitUntilDisplayed(Locator.byDataValue(Privacy.getValue(optionValue)));
         assertTrue(menuitem.isDisplayed());
         menuitem.click();
+    }
+
+    @Then("the user sees reaction result displayed")
+    public void theUserSeesReactionResultDisplayed() {
+        WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byTestId("reactionResult"));
+        assertTrue(element.isDisplayed());
     }
 }

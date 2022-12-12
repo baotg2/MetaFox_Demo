@@ -1,4 +1,4 @@
-@app_group @group_public @brian @previewSite
+@app_group @group_public @brian @previewSite @focus
 Feature:  Brain Process On Public Groups
 
   Scenario: 01_Brian Add New Group With Empty Value
@@ -71,9 +71,8 @@ Feature:  Brain Process On Public Groups
     Given within the content
     And the user clicks on the item title
     And within the slot top
-    When the user opens action menu
+    When the user opens action menu by label
     And the user clicks on menu item "leave_group"
-    Then the user sees text "Are you sure you want to leave this group?"
     And the user accepts the confirm
     Then the user sees button "Join" on screen
 

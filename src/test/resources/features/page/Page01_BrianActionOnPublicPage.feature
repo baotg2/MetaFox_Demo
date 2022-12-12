@@ -47,7 +47,7 @@ Feature: Brian process on page app
     And within the content
     And the user clicks on the item title
     And the user clicks on button "reactionButton"
-  @focus
+
   Scenario: Brian invite friend to join the page
     Given the user logged in as "brian"
     And the browser opened at "/page"
@@ -58,6 +58,4 @@ Feature: Brian process on page app
     Given within the slot top
     And the user "Invite Friends"
     When the user selects friends on friend list
-
-
-
+    Then the user sees successful flash message

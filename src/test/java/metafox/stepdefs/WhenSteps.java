@@ -770,4 +770,11 @@ public class WhenSteps extends StepDefinitions {
         waitUntilDisplayed(menu);
         setMenuContext(menu);
     }
+
+    @When("the user access user profile")
+    public void theUserAccessUserProfile() {
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("userAvatar"));
+        assertTrue(element.isDisplayed());
+        element.click();
+    }
 }
