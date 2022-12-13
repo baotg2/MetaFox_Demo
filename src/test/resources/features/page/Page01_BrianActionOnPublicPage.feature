@@ -1,4 +1,4 @@
-@app_page @brian @wip
+@app_page @brian @previewSite
 Feature: Brian process on page app
 
   Scenario: AdminSeePendingPhoto

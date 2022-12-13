@@ -1,4 +1,4 @@
-@app_group @group_public @brian @previewSite @focus
+@app_group @group_public @brian @previewSite
 Feature:  Brain Process On Public Groups
 
   Scenario: 01_Brian Add New Group With Empty Value
