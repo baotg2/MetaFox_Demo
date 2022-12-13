@@ -777,4 +777,13 @@ public class WhenSteps extends StepDefinitions {
         assertTrue(element.isDisplayed());
         element.click();
     }
+
+    @When("the user marks as read announcements")
+    public void markAsReadAnnouncements(){
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId("Mark as read"));
+        assertTrue(element.isDisplayed());
+        element.click();
+
+        waitUntilInvisible(Locator.byId("Announcements"));
+    }
 }

@@ -170,7 +170,6 @@ public class ThenSteps extends StepDefinitions {
     public void inputValueOnField(String fieldName, @Nonnull String value) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//input[@name='" + fieldName + "']"));
 
-
         if (value.equals("BlogName") || (value.equals("Album") || (value.equals("Groups")) || (value.equals("Polls")) || (value.equals("URLEvent")))) {
             components.componentInputName(fieldName).clear();
             components.componentInputName(fieldName).sendKeys(DataProvider.readConstants(value));
@@ -706,6 +705,17 @@ public class ThenSteps extends StepDefinitions {
     @Then("the user sees reaction result displayed")
     public void theUserSeesReactionResultDisplayed() {
         WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byTestId("reactionResult"));
+        assertTrue(element.isDisplayed());
+    }
+
+    @Then("the user verify items {string} not displayed on screen")
+    public void testVerifyItemsNotDisplayedOnScreen(String itemID) {
+        waitUntilInvisible(Locator.byTestId(itemID));
+    }
+
+    @Then("the user sees items {string} matches on site and acp")
+    public void testVerifyItems(String itemsValue){
+        WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byId(itemsValue));
         assertTrue(element.isDisplayed());
     }
 }
