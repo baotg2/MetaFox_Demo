@@ -1,4 +1,4 @@
-@app_poll @poll_publicvote @brian
+@app_poll @poll_publicvote @brian @previewSite
 Feature:  Brian process on public vote polls
 
   Scenario: Brian Add New Poll Public Vote

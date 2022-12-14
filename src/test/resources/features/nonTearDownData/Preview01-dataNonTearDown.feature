@@ -1,6 +1,15 @@
 @previewSite @NonTearDownData
 Feature:  Non TearDown Data On Site
 
+  Scenario: Admin Attach Photo From Feed
+    Given the user logged in as "Admin"
+    And the browser opened at "/"
+    And within the content
+    When the user want upload 1 photo
+    And within the status composer
+    And the user clicks on button "submit"
+    Then the user sees successful flash message
+
   Scenario: Admin Add New Blog Non Tear Down
     Given the user logged in as "admin"
     And the browser opened at "/blog/add"

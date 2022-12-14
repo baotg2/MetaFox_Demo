@@ -1,6 +1,6 @@
 @app_photo @photo_friend @brian @previewSite
 Feature: Brian process on photos friend item
-
+  @focus
   Scenario: Brian Add New Photo Friends
     Given the user logged in as "brian"
     And the browser opened at "/photo/add"
@@ -23,7 +23,7 @@ Feature: Brian process on photos friend item
   Scenario: Another user access Brian profile and see Photo
     Given the user logged in as "terry"
     And the browser opened at "/"
-    And within the slot top
+    And within the header
     Then the user searches with text "brian"
     And within the content
     And the user clicks on link "/brian"

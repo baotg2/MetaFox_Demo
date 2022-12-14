@@ -359,7 +359,7 @@ public class WhenSteps extends StepDefinitions {
         components.componentsListLabel().get(randomPosition).click();
         String value = components.componentsListLabel().get(randomPosition).getText();
         components.componentButtonText("Vote").click();
-        Thread.sleep(6000);
+        Thread.sleep(4000);
         if (components.componentsListDivMsg("vote").size() != 0) {
             components.componentsDivMsg("vote").click();
             Thread.sleep(3000);
@@ -542,6 +542,15 @@ public class WhenSteps extends StepDefinitions {
         button.click();
     }
 
+    @When("the user adds poll on feed")
+    public void clickOnButtonTitle() {
+        By section = getSectionContext();
+
+        WebElement button = waitUntilDisplayed(section, Locator.byTitle("button", "Create Poll"));
+
+        assertTrue(button.isDisplayed());
+        button.click();
+    }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -780,7 +789,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user marks as read announcements")
     public void markAsReadAnnouncements(){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId("Mark as read"));
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId("Mark as Read"));
         assertTrue(element.isDisplayed());
         element.click();
 
