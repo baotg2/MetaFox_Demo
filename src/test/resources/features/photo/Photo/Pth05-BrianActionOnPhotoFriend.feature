@@ -1,6 +1,6 @@
 @app_photo @photo_friend @brian @previewSite
 Feature: Brian process on photos friend item
-  @focus
+
   Scenario: Brian Add New Photo Friends
     Given the user logged in as "brian"
     And the browser opened at "/photo/add"
