@@ -1,4 +1,4 @@
-@app_event @brian
+@app_event @brian @wip
 Feature: Guest Action On Public Events
 
   Scenario: Guest Verify On Event Detail

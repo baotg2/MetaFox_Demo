@@ -35,6 +35,7 @@ public class Locator {
         put("search", "blockSearch");
         put("detail photo", "popupDetailPhoto");
         put("detail poll", "detailview poll");
+        put("edit popup", "editPopup");
     }};
 
     final private static Pattern pattern = Pattern.compile("^By\\.\\w+:\\s*");

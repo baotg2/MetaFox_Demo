@@ -24,8 +24,8 @@ Feature: Admin Action On ACP Announcement
     Given the user logged in as "admin"
     And the browser opened at "/"
     And within the subside
-    Then the user sees items "IsAutoAnnouncements Subject" matches on site and acp
-    And the user sees items "IsAutoAnnouncements Intro" matches on site and acp
+    Then the user sees items "IsAutoAnnouncements Subject" matches on site
+    And the user sees items "IsAutoAnnouncements Intro" matches on site
 
   Scenario: Admin Not Mark As Read
     Given the user logged in as "admin"

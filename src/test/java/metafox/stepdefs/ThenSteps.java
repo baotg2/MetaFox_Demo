@@ -713,7 +713,7 @@ public class ThenSteps extends StepDefinitions {
         waitUntilInvisible(Locator.byTestId(itemID));
     }
 
-    @Then("the user sees items {string} matches on site and acp")
+    @Then("the user sees items {string} matches on site")
     public void testVerifyItems(String itemsValue){
         WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byId(itemsValue));
         assertTrue(element.isDisplayed());
