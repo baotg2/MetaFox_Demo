@@ -8,8 +8,6 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  schedule:
-    - cron: "00 12 * * *"
 
   repository_dispatch:
     types: [test-preview]
@@ -19,7 +17,7 @@ env:
   BROWSERSTACK_ACCESS_KEY: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
   ALLURE_SERVER: https://cloudcall-s01.phpfox.com
   ALLURE_PROJECT: default
-  BASE_URL: https://preview-foxsocial.phpfox.us
+  BASE_URL: https://preview.metafox.app
   TEST_TAGS: '@NonTearDownData'
 
 jobs:

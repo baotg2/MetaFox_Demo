@@ -19,7 +19,7 @@ env:
   BROWSERSTACK_ACCESS_KEY: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
   ALLURE_SERVER: https://cloudcall-s01.phpfox.com
   ALLURE_PROJECT: default
-  BASE_URL: https://staging-foxsocial.phpfox.us
+  BASE_URL: https://staging.metafox.app
 
 jobs:
   build:
