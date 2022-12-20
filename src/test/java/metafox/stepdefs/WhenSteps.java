@@ -694,6 +694,35 @@ public class WhenSteps extends StepDefinitions {
         theUserAddsTitleWithValue(DataProvider.faker.lorem().sentence());
     }
 
+    @When("^the user fills (firstName|lastName|fullName|userName)$")
+    public void fillNames(String name){
+        WebElement element;
+        switch (name){
+            case "firstName":
+                element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("inputFirstName"));
+                element.clear();
+                element.sendKeys(DataProvider.faker.name().firstName());
+                break;
+            case "lastName":
+                element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("inputLastName"));
+                element.clear();
+                element.sendKeys(DataProvider.faker.name().lastName());
+                break;
+            case "fullName":
+                element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("inputFullName"));
+                element.clear();
+                element.sendKeys(DataProvider.faker.name().fullName());
+                break;
+            case "userName":
+                element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("inputUserName"));
+                element.clear();
+                element.sendKeys(DataProvider.faker.name().firstName().replace(" ",""));
+                break;
+        }
+
+
+    }
+
     @When("the user searches with text {string}")
     public void theUserSearchesWithValue(@Nonnull String value) {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "searchBox"));
@@ -789,7 +818,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user marks as read announcements")
     public void markAsReadAnnouncements(){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId("Mark as Read"));
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId("Mark as read"));
         assertTrue(element.isDisplayed());
         element.click();
 
