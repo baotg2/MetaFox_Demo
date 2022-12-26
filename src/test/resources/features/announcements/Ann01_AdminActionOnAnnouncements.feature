@@ -31,7 +31,7 @@ Feature: Admin Action On ACP Announcement
     Given the user logged in as "admin"
     And the browser opened at "/"
     And within the subside
-    Then the user see message "Mark as read"
+    Then the user see message "Mark as Read"
 
   Scenario: Admin Mark As Read Announcement
     Given the user logged in as "admin"

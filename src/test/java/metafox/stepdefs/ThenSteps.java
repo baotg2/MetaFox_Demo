@@ -10,12 +10,14 @@ import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.annotation.Nonnull;
+import javax.swing.*;
 import java.io.IOException;
 import java.time.Duration;
 
@@ -717,5 +719,23 @@ public class ThenSteps extends StepDefinitions {
     public void testVerifyItems(String itemsValue){
         WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byId(itemsValue));
         assertTrue(element.isDisplayed());
+    }
+
+    @Then("the user select friend to friend list")
+    public void selectFriendToFriendList(){
+        setSectionContext(Locator.byRole("presentation"));
+        WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byType("checkbox"));
+        assertTrue(element.isDisplayed());
+        if(!element.isSelected()){
+            element.click();
+        }
+    }
+
+    @Then("the user moves to items friend list")
+    public void moveToItemsFriendList(){
+       WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byTestId("itemFriendList"));
+       assertTrue(element.isDisplayed());
+       Actions actions = new Actions(driver);
+       actions.moveToElement(element).perform();
     }
 }

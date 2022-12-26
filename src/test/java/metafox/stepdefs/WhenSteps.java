@@ -552,6 +552,22 @@ public class WhenSteps extends StepDefinitions {
         button.click();
     }
 
+    @When("the user opens the friend list")
+    public void clickOnButton() throws InterruptedException {
+        By section = getSectionContext();
+
+        WebElement button = waitUntilDisplayed(section, Locator.byTitle("button", "Open"));
+
+        assertTrue(button.isDisplayed());
+        button.click();
+
+        waitUntilDisplayed(section, Locator.byRole("presentation"));
+        WebElement select_friend = waitUntilDisplayed(section, Locator.byRole("presentation"));
+        Thread.sleep(3000);
+        select_friend.sendKeys(Keys.DOWN);
+        select_friend.sendKeys(Keys.DOWN);
+        select_friend.sendKeys(Keys.ENTER);
+    }
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -818,7 +834,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user marks as read announcements")
     public void markAsReadAnnouncements(){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId("Mark as read"));
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId("Mark as Read"));
         assertTrue(element.isDisplayed());
         element.click();
 
