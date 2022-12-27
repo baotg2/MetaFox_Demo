@@ -8,11 +8,9 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  schedule:
-    - cron: "00 2 * * *"
-
   repository_dispatch:
     types: [ test-staging ]
+  workflow_dispatch:
 
 env:
   BROWSERSTACK_USERNAME: ${{secrets.BROWSERSTACK_USERNAME}}
