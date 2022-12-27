@@ -8,6 +8,7 @@ concurrency: metafox-e2e-dev
 on:
   repository_dispatch:
     types: [test-dev]
+  workflow_dispatch:
 
 env:
   BROWSERSTACK_USERNAME: ${{secrets.BROWSERSTACK_USERNAME}}
