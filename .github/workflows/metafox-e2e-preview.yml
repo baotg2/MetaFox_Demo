@@ -11,6 +11,7 @@ on:
 
   repository_dispatch:
     types: [test-preview]
+  workflow_dispatch:
 
 env:
   BROWSERSTACK_USERNAME: ${{secrets.BROWSERSTACK_USERNAME}}
