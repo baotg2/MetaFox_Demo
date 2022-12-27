@@ -13,7 +13,7 @@
       "bstack:options": {
         "os": "OS X"
       },
-      "browserName": "safari"
+      "browserName": "chrome"
     }
   ]
 }
