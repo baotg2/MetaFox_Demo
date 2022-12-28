@@ -3,7 +3,7 @@
   "capabilities": {
     "bstack:options": {
       "buildName": "e2e",
-      "sessionName": "Safari Single",
+      "sessionName": "Production Single",
       "browserVersion": "latest",
       "debug": true
     }
