@@ -9,7 +9,7 @@ concurrency:
 
 on:
   schedule:
-    - cron: "00 2 * * *"
+    - cron: "00 21 * * *"
 
   repository_dispatch:
     types: [ test-staging ]
