@@ -206,6 +206,9 @@ public class DataProvider {
         return getFile("photo");
     }
 
+    public static String getSingleVideo() {
+        return getFile("video");
+    }
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *

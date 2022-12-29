@@ -159,6 +159,19 @@ public class ThenSteps extends StepDefinitions {
         }
     }
 
+    @Then("the user uploads the video")
+    public void addVideos() {
+        isComponentVisible.waitElement(By.xpath("//input[@type='file']"));
+
+        if (!Utility.isLocal(driver)) {
+            WebElement upload = components.componentInputType("file");
+            ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());
+            upload.sendKeys(DataProvider.getSingleVideo());
+        } else {
+            components.componentInputType("file").sendKeys(DataProvider.getSingleVideo());
+        }
+    }
+
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
