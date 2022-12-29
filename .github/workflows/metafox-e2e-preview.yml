@@ -8,7 +8,6 @@ concurrency:
   cancel-in-progress: true
 
 on:
-
   repository_dispatch:
     types: [test-preview]
   workflow_dispatch:
