@@ -1,6 +1,6 @@
 @app_blog @brian @previewSite
 Feature:  Brian process on blogs app
-  @focus
+
   Scenario: Brian add new blog with image
     Given the user logged in as "brian"
     And the browser opened at "/blog/add"
