@@ -1,4 +1,4 @@
-@app_photo @photo_friend @brian @previewSite
+@app_photo @photo_friend @brian
 Feature: Brian process on photos friend item
 
   Scenario: Brian Add New Photo Friends

@@ -1,4 +1,4 @@
-@app_photo @photo @admin @previewSite
+@app_photo @photo @admin
 Feature: Admin process on photos item
 
   Scenario: AdminSeePendingPhoto

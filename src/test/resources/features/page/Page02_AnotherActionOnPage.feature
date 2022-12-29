@@ -1,4 +1,4 @@
-@app_page @brian @previewSite
+@app_page @brian
 Feature: Another User process on page app
 
   Scenario: Another User Search Page

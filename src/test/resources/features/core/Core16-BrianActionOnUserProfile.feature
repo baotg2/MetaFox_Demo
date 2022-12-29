@@ -14,7 +14,7 @@ Feature: Brain Process On User Profile
 #      |United States|
 
   Scenario: Brian Add Bio
-    Given the user logged in as "brian"
+    Given the user logged in as "admin"
     And the browser opened at "/user/3/profile"
     And within the content
     When the user add on "inputBio" with value "Everyone else was taken so this is me"
@@ -24,7 +24,7 @@ Feature: Brain Process On User Profile
     Then the user sees text "Everyone else was taken so this is me"
 
   Scenario: Brian Add About Me
-    Given the user logged in as "brian"
+    Given the user logged in as "admin"
     And the browser opened at "/user/3/profile"
     And within the content
     When the user add on "inputAboutMe" with value "Designer and Photographer"
@@ -34,7 +34,7 @@ Feature: Brain Process On User Profile
     Then the user sees text "Designer and Photographer"
 
   Scenario: Brian Add Interested
-    Given the user logged in as "brian"
+    Given the user logged in as "admin"
     And the browser opened at "/user/3/profile"
     And within the content
     When the user add on "inputInterest" with value "Enjoy something"
@@ -44,7 +44,7 @@ Feature: Brain Process On User Profile
     Then the user sees text "Enjoy something"
 
   Scenario: Brian Add Hobbies
-    Given the user logged in as "brian"
+    Given the user logged in as "admin"
     And the browser opened at "/user/3/profile"
     And within the content
     When the user add on "inputHobbies" with value "Judo"

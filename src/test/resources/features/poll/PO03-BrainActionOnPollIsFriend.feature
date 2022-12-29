@@ -1,4 +1,4 @@
-@app_poll @poll_friend @brian @previewSite
+@app_poll @poll_friend @brian
 Feature:  Brian process on multiple choice polls is friend
 
   Scenario: Brian Add New Poll Public Vote Is Friend

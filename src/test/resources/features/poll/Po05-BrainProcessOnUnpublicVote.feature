@@ -1,4 +1,4 @@
-@app_poll @unPublicVotePollFunction @brian @previewSite
+@app_poll @unPublicVotePollFunction @brian
 Feature:  Brian process on multiple choice polls
 
   Scenario: Brian Add New Poll Public Vote

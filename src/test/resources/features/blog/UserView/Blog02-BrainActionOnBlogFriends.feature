@@ -1,4 +1,4 @@
-@app_blog @brain @previewSite
+@app_blog @brain
 Feature:  Brian process on blogs is Friend
 
   Scenario: Brian Add New Blog With Image With Privacy Is Friend

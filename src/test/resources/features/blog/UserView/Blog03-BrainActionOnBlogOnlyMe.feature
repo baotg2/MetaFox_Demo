@@ -1,4 +1,4 @@
-@app_blog @brian @previewSite
+@app_blog @brian
 Feature:  Brian process on blogs is OnlyMe
 
   Scenario: Brian Add New Blog With Image With Privacy Is Only Me
