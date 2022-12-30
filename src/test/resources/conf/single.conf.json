@@ -13,7 +13,9 @@
       "bstack:options": {
         "os": "Windows",
         "osVersion": "10",
-        "browserstack.debug": true
+        "browserstack.debug": true,
+        "browserstack.networkLog": true,
+        "browserstack.idleTimeout": "300"
       },
       "browserName": "firefox"
     }
