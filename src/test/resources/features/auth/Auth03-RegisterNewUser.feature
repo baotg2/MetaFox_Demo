@@ -14,7 +14,7 @@ Feature: Verify Register New User Successfully
     When the user submits the form
     Examples:
     |userName|emailValue|
-    |brian   |brian@example.com|
-    |terry   |terry@example.net|
-    |luna    |luna@example.net|
-    |katie   |katie@example.net|
+    |brian   |brian1@example.com|
+    |terry   |terry1@example.net|
+    |luna    |luna1@example.net|
+    |katie   |katie1@example.net|

@@ -11,7 +11,9 @@
   "environments": [
     {
       "bstack:options": {
-        "os": "OS X"
+        "os": "Windows",
+        "osVersion": "10",
+        "browserstack.debug": true
       },
       "browserName": "firefox"
     }
