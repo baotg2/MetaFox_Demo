@@ -12,6 +12,7 @@ Feature: Verify Register New User Successfully
     And the user add on "inputPassword" with value "123456789"
     And the user clicks on check box "checkbox"
     When the user submits the form
+    Then the user sees items "Welcome Back" matches on site
     Examples:
     |userName|emailValue|
     |brian   |brian1@example.com|
