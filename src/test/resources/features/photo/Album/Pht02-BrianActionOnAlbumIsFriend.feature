@@ -35,7 +35,7 @@ Feature: Brian process on album item friends
     Then the user sees text "NewAlbum"
 
   Scenario: Another User Search Album is not friend
-    Given the user logged in as "luna"
+    Given the user logged in as "krixi"
     And the browser opened at "/photo/albums"
     And within the sidebar
     When the user searches with text "NewAlbum"

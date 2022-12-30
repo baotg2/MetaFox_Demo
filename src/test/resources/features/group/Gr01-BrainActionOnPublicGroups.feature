@@ -108,7 +108,7 @@ Feature:  Brain Process On Public Groups
     And the user clicks on button "buttonSubmit"
 
   Scenario: 010_Another user see membership questions
-    Given the user logged in as "luna"
+    Given the user logged in as "krixi"
     And the browser opened at "/group"
     And within the sidebar
     And the user searches with text "IsPublicGroup"

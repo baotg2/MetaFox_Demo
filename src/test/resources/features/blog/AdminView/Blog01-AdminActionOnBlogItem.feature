@@ -2,7 +2,7 @@
 Feature:  Admin process on blogs app
 
   Scenario: Admin can add a new blog
-    Given the user logged in as "brian"
+    Given the user logged in as "admin"
     And the browser opened at "/blog/add"
     And within the content
     When the user adds title
@@ -27,13 +27,6 @@ Feature:  Admin process on blogs app
     And the user clicks on menu item "delete"
     And the user sees confirm popup
     And the user rejects the confirm
-    # chain accept
-    Given within the content
-    When the user opens action menu
-    And the user clicks on menu item "delete"
-    And the user sees confirm popup
-    And the user accepts the confirm
-    Then the user sees successful flash message
 
   Scenario: Admin can delete a blog item
     Given the user logged in as "admin"

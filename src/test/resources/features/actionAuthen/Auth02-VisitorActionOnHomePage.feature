@@ -19,7 +19,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user fills lastName
     And the user fills fullName
     And the user fills userName
-    And the user add on "inputEmail" with value "brian@example.com"
+    And the user add on "inputEmail" with value "brian1@example.com"
     And the user add on "inputPassword" with value "123456789"
     And the user clicks on check box "checkbox"
     When the user submits the form

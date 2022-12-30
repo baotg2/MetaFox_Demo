@@ -177,8 +177,8 @@ public class AndSteps extends StepDefinitions {
         isComponentVisible.waitElement(By.xpath("//div[@role ='button']"));
         for (int i = 0; i < components.componentsSpanList().size(); i++) {
             if (components.componentsSpanList().get(i).getText().contains(fieldSetting)) {
-                if (!components.componentsListDivRole("button").get(i - 8).getText().equals(valueChanged)) {
-                    components.componentsListDivRole("button").get(i - 8).click();
+                if (!components.componentsListDivRole("button").get(i - 9).getText().equals(valueChanged)) {
+                    components.componentsListDivRole("button").get(i - 9).click();
                     isComponentVisible.waitElement(By.xpath("//ul[@role = 'listbox']"));
                     switch (valueChanged) {
                         case "Anyone":

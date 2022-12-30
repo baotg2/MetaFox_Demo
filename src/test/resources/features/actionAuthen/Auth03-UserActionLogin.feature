@@ -20,6 +20,7 @@ Feature: Verify login pHpFox success
     #next logged user accpect request
     And the browser opened at "/brian"
     When the user want to "Confirm"
+    Then the user sees items "Unfriend" matches on site
 
   Scenario: Brian Add Friend With Test
     Given the user logged in as "brian"
@@ -30,3 +31,4 @@ Feature: Verify login pHpFox success
     #next logged user accpect request
     And the browser opened at "/brian"
     When the user want to "Confirm"
+    Then the user sees items "Unfriend" matches on site
