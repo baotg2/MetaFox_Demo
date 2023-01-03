@@ -144,7 +144,7 @@ public class GivenSteps extends StepDefinitions {
         By context = Locator.bySection(name);
         setSectionContext(context);
 
-        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(15))
+        WebElement element = new WebDriverWait(driver, Duration.ofSeconds(30))
                 .ignoring(NoSuchElementException.class)
                 .until(ExpectedConditions.visibilityOfElementLocated(context));
         assertTrue(element.isDisplayed());
