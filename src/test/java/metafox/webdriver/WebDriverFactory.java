@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -87,8 +88,8 @@ public class WebDriverFactory {
 
             String URL = String.format("https://%s/wd/hub", testConfig.get("server"));
 
-            MutableCapabilities caps = new MutableCapabilities(platform);
-
+            DesiredCapabilities caps = new DesiredCapabilities(platform);
+            caps.setCapability("browserstack.idleTimeout", "300");
             return new RemoteWebDriver(new URL(URL), caps);
         } catch (MalformedURLException var4) {
             throw new Error("Unable to create WebDriver", var4);
