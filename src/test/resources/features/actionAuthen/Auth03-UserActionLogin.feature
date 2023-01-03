@@ -1,4 +1,4 @@
-@page_login @previewSite
+@page_login @previewSite @focus
 Feature: Verify login pHpFox success
 
 #  Scenario Outline: verify errorMsg with wrong user info
