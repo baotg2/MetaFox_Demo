@@ -168,8 +168,8 @@ public class GivenSteps extends StepDefinitions {
     @Given("switch account {string}")
     public void openNewTab(String username) throws IOException, InterruptedException {
         Thread.sleep(4000);
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='menuAppBar']/div[5]/div"));
-        driver.findElement(By.xpath("//div[@data-testid ='menuAppBar']/div[5]/div")).click();
+        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='menuAppBar']//div[@data-testid ='more']"));
+        driver.findElement(By.xpath("//div[@data-testid ='menuAppBar']//div[@data-testid ='more']")).click();
         isComponentVisible.waitElement(By.xpath("//span[text()='Logout']"));
         components.componentSpanName("Logout").click();
         driver.get(String.format("%s/_blank.html", System.getenv("BASE_URL")));
