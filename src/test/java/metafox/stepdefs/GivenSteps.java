@@ -89,7 +89,12 @@ public class GivenSteps extends StepDefinitions {
            if ( dataExecutor.getCellData(i, 3).toLowerCase().equals(username) ) {
                components.componentSearchAttributes("Enter your username or email address").sendKeys(dataExecutor.getCellData(i, 4));
                if ( !dataExecutor.getCellData(i, 3).toLowerCase().equals("admin") ) {
-                   components.componentSearchAttributes("Enter your password").sendKeys("123456");
+                   if(System.getenv("BASE_URL").contains("staging")){
+                       components.componentSearchAttributes("Enter your password").sendKeys("123456");
+                   }
+                   else {
+                       components.componentSearchAttributes("Enter your password").sendKeys("123456789");
+                   }
                }
                else {
                    components.componentSearchAttributes("Enter your password").sendKeys(dataExecutor.getCellData(i, 5));
@@ -174,10 +179,8 @@ public class GivenSteps extends StepDefinitions {
         driver.findElement(By.xpath("//div[@data-testid ='menuAppBar']//div[@data-testid ='more']")).click();
         isComponentVisible.waitElement(By.xpath("//span[text()='Logout']"));
         components.componentSpanName("Logout").click();
-        driver.get(String.format("%s/_blank.html", System.getenv("BASE_URL")));
-        String accessToken = DataProvider.getUserAccessToken(username);
-        String cookieName = DataProvider.getAuthCookieName();
-        driver.manage().addCookie(new Cookie(cookieName, accessToken));
+        driver.get(String.format("%s/login", System.getenv("BASE_URL")));
+        the_user_logged_in_form(username);
     }
 
     @Given("the user navigates to {string}")
