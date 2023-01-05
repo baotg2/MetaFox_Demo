@@ -13,7 +13,7 @@ Feature: Verify Register New User Successfully
     And the user clicks on check box "checkbox"
     When the user submits the form
     Then the user sees items "Welcome Back" matches on site
-  @focus
+  
   Scenario: Register New User Krixi
     Given the user clicks on link "/register"
     And within the content
@@ -26,7 +26,7 @@ Feature: Verify Register New User Successfully
     And the user clicks on check box "checkbox"
     When the user submits the form
     Then the user sees items "Welcome Back" matches on site
-  @focus
+  
   Scenario: Register New User Terry
     Given the user clicks on link "/register"
     And within the content
@@ -52,7 +52,7 @@ Feature: Verify Register New User Successfully
     And the user clicks on check box "checkbox"
     When the user submits the form
     Then the user sees items "Welcome Back" matches on site
-  @focus
+  
   Scenario: Register New User Test
     Given the user clicks on link "/register"
     And within the content
