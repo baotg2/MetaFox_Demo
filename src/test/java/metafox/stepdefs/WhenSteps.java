@@ -33,6 +33,9 @@ import static org.junit.Assert.assertTrue;
  */
 public class WhenSteps extends StepDefinitions {
 
+    public WhenSteps() throws InterruptedException {
+    }
+
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *

@@ -24,6 +24,9 @@ import static org.junit.Assert.assertTrue;
  * @since 04-05-2022
  */
 public class AndSteps extends StepDefinitions {
+    public AndSteps() throws InterruptedException {
+    }
+
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *

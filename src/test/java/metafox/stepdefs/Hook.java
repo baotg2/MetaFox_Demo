@@ -26,6 +26,9 @@ public class Hook {
 
     private final WebDriver driver = CucumberTestRunner.getWebDriver();
 
+    public Hook() throws InterruptedException {
+    }
+
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *

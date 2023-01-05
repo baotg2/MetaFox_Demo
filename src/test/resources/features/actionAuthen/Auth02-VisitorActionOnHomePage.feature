@@ -2,7 +2,7 @@
 Feature: Verify Visitor Process on Sign Up
 
   Scenario: Visitor Process register new account With Error Msg Invalid Email
-    Given the user clicks on button "buttonRegister"
+    Given the user clicks on link "/register"
     And within the content
     Given the user fills firstName
     And the user fills lastName
@@ -13,7 +13,7 @@ Feature: Verify Visitor Process on Sign Up
     Then the user sees error message "Email Address must be a valid email"
 
   Scenario: Visitor Process register new account With Error Msg Exist Email
-    Given the user clicks on button "buttonRegister"
+    Given the user clicks on link "/register"
     And within the content
     Given the user fills firstName
     And the user fills lastName
@@ -26,7 +26,7 @@ Feature: Verify Visitor Process on Sign Up
     Then the user sees error message "The email has already been taken."
 
   Scenario: Visitor SignUp With Empty Value
-    Given the user clicks on button "buttonRegister"
+    Given the user clicks on link "/register"
     And within the content
     And the user submits the form
     Then the user sees error message "First Name is required."
@@ -37,14 +37,14 @@ Feature: Verify Visitor Process on Sign Up
     Then the user sees error message "Enter Password"
 
   Scenario: Visitor Break SignUp Action
-    Given the user clicks on button "buttonRegister"
+    Given the user clicks on link "/register"
     And within the header
     When the user clicks on link "/login"
     And within the content
     Then the user sees text "Welcome Back"
 
   Scenario: Visitor Process register new account With Exist User Name
-    Given the user clicks on button "buttonRegister"
+    Given the user clicks on link "/register"
     And within the content
     Given the user fills firstName
     And the user fills lastName
@@ -57,7 +57,7 @@ Feature: Verify Visitor Process on Sign Up
     Then the user sees error message "The user name has already been taken."
 
   Scenario: Visitor Process register new account With Short Password
-    Given the user clicks on button "buttonRegister"
+    Given the user clicks on link "/register"
     And within the content
     Given the user fills firstName
     And the user fills lastName

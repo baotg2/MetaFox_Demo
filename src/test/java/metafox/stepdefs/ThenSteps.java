@@ -35,6 +35,9 @@ import static org.junit.Assert.*;
 public class ThenSteps extends StepDefinitions {
 
 
+    public ThenSteps() throws InterruptedException {
+    }
+
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -688,7 +691,7 @@ public class ThenSteps extends StepDefinitions {
     }
 
     @Then("^the user (selects|not selects) friends on friend list$")
-    public void selectFriendsOnFriendList(@Nonnull String type){
+    public void selectFriendsOnFriendList(@Nonnull String type) throws InterruptedException {
         //setMenuContext(Locator.byTestId("div", "popupFriendPicker"));
         if(type.equals("selects")){
             WebElement btn_confirm = waitUntilDisplayed(Locator.byTestId("button", "buttonDone"));

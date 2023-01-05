@@ -30,7 +30,7 @@ public class IsComponentVisible {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    public IsComponentVisible() {
+    public IsComponentVisible() throws InterruptedException {
     }
 
     /**

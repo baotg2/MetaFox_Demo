@@ -36,6 +36,9 @@ public class StepDefinitions {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger("Steps");
 
+    public StepDefinitions() throws InterruptedException {
+    }
+
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------
      *

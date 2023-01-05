@@ -39,6 +39,9 @@ public class GivenSteps extends StepDefinitions {
     Components components = new Components();
     IsComponentVisible isComponentVisible = new IsComponentVisible();
 
+    public GivenSteps() throws InterruptedException {
+    }
+
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------
      *

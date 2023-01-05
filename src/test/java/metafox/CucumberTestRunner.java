@@ -42,7 +42,7 @@ public class CucumberTestRunner {
         return threadLocalWebDriver.get();
     }
 
-    public synchronized static WebDriver getWebDriver() {
+    public synchronized static WebDriver getWebDriver() throws InterruptedException {
         return getManagedWebDriver().getWebDriver();
     }
 

@@ -55,12 +55,13 @@ public class ManagedWebDriver {
         return this.platform;
     }
 
-    public WebDriver getWebDriver() {
+    public WebDriver getWebDriver() throws InterruptedException {
         if (this.webDriver == null) {
             this.webDriver = this.webDriverFactory.createWebDriverForPlatform(this.platform, this.testName);
             this.webDriver.get(String.format("%s/login", System.getenv("BASE_URL")));
         }
         this.webDriver.manage().window().maximize();
+        Thread.sleep(3000);
         return this.webDriver;
     }
 }

@@ -27,7 +27,7 @@ public class Components {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    public Components() {
+    public Components() throws InterruptedException {
         driver = CucumberTestRunner.getWebDriver();
     }
 
