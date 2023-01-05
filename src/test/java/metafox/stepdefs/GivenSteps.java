@@ -83,21 +83,23 @@ public class GivenSteps extends StepDefinitions {
      */
    @Given("^the user logged in as \"([^\"]*)\"$")
     public void the_user_logged_in_form(String username) throws IOException, InterruptedException {
-       WebElement elementEmail = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputEmail"));
-       WebElement elementPassword = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputPassword"));
-       WebElement btn_login = waitUntilDisplayed(getSectionContext(), Locator.byTestId("buttonLogin"));
-        Optional<Map<String, String>> user = DataProvider.fromSheet("users")
-                .stream()
-                .filter(row -> row.get("username").equalsIgnoreCase(username)).findFirst();
-
-        if (!user.isPresent()) throw new InterruptedException("Failed logged in as " + username);
-
-
-        elementEmail.sendKeys(user.get().get("email"));
-        elementPassword.sendKeys(user.get().get("password"));
-        btn_login.click();
-        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='formSearch']"));
-        assertTrue(components.componentDivDataTestID("formSearch").isDisplayed());
+       isComponentVisible.waitElement(By.xpath("//input[@placeholder='Enter your username or email address']"));
+       dataExecutor.setExcelFile(dataExecutor.excelPathFile, "users");
+       for ( int i = 1; i <= dataExecutor.getRowCountInSheet(); i++ ) {
+           if ( dataExecutor.getCellData(i, 3).toLowerCase().equals(username) ) {
+               components.componentSearchAttributes("Enter your username or email address").sendKeys(dataExecutor.getCellData(i, 4));
+               if ( !dataExecutor.getCellData(i, 3).toLowerCase().equals("admin") ) {
+                   components.componentSearchAttributes("Enter your password").sendKeys("123456");
+               }
+               else {
+                   components.componentSearchAttributes("Enter your password").sendKeys(dataExecutor.getCellData(i, 5));
+               }
+               break;
+           }
+       }
+       components.componentButtonDataTestID("buttonLogin").click();
+       isComponentVisible.waitElement(By.xpath("//div[@data-testid ='formSearch']"));
+       assertTrue(components.componentDivDataTestID("formSearch").isDisplayed());
     }
 
     @Given("the browser will get Administrator URL")

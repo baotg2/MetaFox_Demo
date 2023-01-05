@@ -57,6 +57,10 @@ public class DataProvider {
     private static final String pathToFixtures = "src/test/resources/fixtures";
     private static final String testDataFile = "v5DataProvider.xlsx";
 
+    private final String testDataFolder = "src/test/resources/fixtures/";
+    private final String testDataFile1 = "v5DataProvider.xlsx";
+    public String excelPathFile = testDataFolder + testDataFile1;
+
     public static final Faker faker = new Faker();
 
     private static Map<String, String> rowToMap(XSSFRow row, List<String> header, DataFormatter formatter) {
@@ -119,9 +123,9 @@ public class DataProvider {
         return rows;
     }
 
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
+     * @param fileName name's excel file
      * @param sheetName is sheet want to access/get data
      * @throws IOException occurs when an IO operation fails
      * @purpose get sheet from excel file
@@ -129,21 +133,19 @@ public class DataProvider {
      * ----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    public void setExcelFile(String sheetName) throws IOException {
-        String fileName = String.format("%s/%s", pathToFixtures, testDataFile);
-        File file = new File(fileName);
-        File sameFileName = new File(fileName);
-        if (file.renameTo(sameFileName)) {
-            FileInputStream inputStream = new FileInputStream(file);
-            workbook = new XSSFWorkbook(inputStream);
-            sheet = workbook.getSheet(sheetName);
+    public void setExcelFile( String fileName , String sheetName ) throws IOException {
+        File file = new File( fileName );
+        File sameFileName = new File( fileName );
+        if ( file.renameTo( sameFileName ) ) {
+            FileInputStream inputStream = new FileInputStream( file );
+            workbook = new XSSFWorkbook( inputStream );
+            sheet = workbook.getSheet( sheetName );
         }
     }
 
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param rowNumber  is row want to access
+     * @param rowNumber is row want to access
      * @param cellNumber is cell on row
      * @return value of cell as string at rowNumber
      * @throws IOException occurs when an IO operation fails
@@ -151,15 +153,14 @@ public class DataProvider {
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    public String getCellData(int rowNumber, int cellNumber) throws IOException {
+    public String getCellData( int rowNumber , int cellNumber ) throws IOException {
         //getting the cell value from rowNumber and cell Number
-        XSSFCell cell = sheet.getRow(rowNumber).getCell(cellNumber);
+        XSSFCell cell = sheet.getRow( rowNumber ).getCell( cellNumber );
         workbook.close();
         return cell.getStringCellValue();
     }
 
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
+    /**-----------------------------------------------------------------------------------------------------------------------------------------
      *
      * @return the number on sheet
      * @Author baotg2

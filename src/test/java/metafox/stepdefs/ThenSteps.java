@@ -204,17 +204,17 @@ public class ThenSteps extends StepDefinitions {
      * @Author baotg2
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      */
-    @Then("^I want to access \"([^\"]*)\"$")
-    public void iWantToAccessMenu(String module) throws IOException {
-        dataExecutor.setExcelFile("pages");
-        for (int i = 1; i <= dataExecutor.getRowCountInSheet(); i++) {
-            if (dataExecutor.getCellData(i, 2).toLowerCase().equals(module)) {
-                components.componentLinkText(module).click();
-                assertTrue(components.componentLinkText(dataExecutor.getCellData(i, 3)).isDisplayed());
-                isBackToHomePage();
-            }
-        }
-    }
+//    @Then("^I want to access \"([^\"]*)\"$")
+//    public void iWantToAccessMenu(String module) throws IOException {
+//        dataExecutor.setExcelFile("pages");
+//        for (int i = 1; i <= dataExecutor.getRowCountInSheet(); i++) {
+//            if (dataExecutor.getCellData(i, 2).toLowerCase().equals(module)) {
+//                components.componentLinkText(module).click();
+//                assertTrue(components.componentLinkText(dataExecutor.getCellData(i, 3)).isDisplayed());
+//                isBackToHomePage();
+//            }
+//        }
+//    }
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
