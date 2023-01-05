@@ -2,7 +2,7 @@
   "server": "hub.browserstack.com",
   "capabilities": {
     "bstack:options": {
-      "buildName": "e2e",
+      "buildName": "MetaFox_regression",
       "sessionName": "Production Single",
       "browserVersion": "latest",
       "debug": true
