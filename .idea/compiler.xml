@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="metafox" />
         <module name="testing" />
+        <module name="e2e-test" />
       </profile>
     </annotationProcessing>
   </component>

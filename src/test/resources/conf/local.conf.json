@@ -1,0 +1,19 @@
+{
+  "server": "hub.browserstack.com",
+  "capabilities": {
+    "bstack:options": {
+      "buildName": "e2e",
+      "sessionName": "Local Single",
+      "browserVersion": "latest",
+      "debug": true
+    }
+  },
+  "environments": [
+    {
+      "bstack:options": {
+        "os": "OS X"
+      },
+      "browserName": "firefox"
+    }
+  ]
+}

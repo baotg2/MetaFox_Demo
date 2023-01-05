@@ -1,6 +1,6 @@
 @register @previewSite
 Feature: Verify Visitor Process on Sign Up
-  @focus
+
   Scenario: Visitor Process register new account With Error Msg Invalid Email
     Given the user clicks on link "/register"
     And within the content

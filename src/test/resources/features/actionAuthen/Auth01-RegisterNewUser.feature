@@ -1,6 +1,6 @@
 @registerNewUser @previewSite @NonTearDownData
 Feature: Verify Register New User Successfully
-
+  @focus
   Scenario: Register New User Brian
     Given the user clicks on link "/register"
     And within the content
