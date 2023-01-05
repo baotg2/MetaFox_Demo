@@ -2,7 +2,7 @@
 Feature: Verify Register New User Successfully
 
   Scenario Outline: Register New User Default
-    Given the browser opened at "/register"
+    Given the user clicks on button "buttonRegister"
     And within the content
     Given the user fills firstName
     And the user fills lastName
