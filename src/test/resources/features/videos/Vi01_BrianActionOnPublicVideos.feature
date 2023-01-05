@@ -1,4 +1,4 @@
-@app_videos @videos_public @brian @wip
+@app_videos @videos_public @brian
 Feature: Brian process on video app
 
   Scenario: Brian Attach Video From Feed
@@ -30,7 +30,7 @@ Feature: Brian process on video app
     Given within the detail videos
     And the user clicks on button "reactionButton"
 
-  Scenario: Brian Reaction On Video
+  Scenario: Brian Comment On Video
     Given the user logged in as "brian"
     When the browser opened at "/video"
     And within the sidebar

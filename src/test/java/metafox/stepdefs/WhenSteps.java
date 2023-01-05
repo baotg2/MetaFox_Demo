@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.annotation.Nonnull;
 import java.time.Duration;
+import java.util.List;
 import java.util.Objects;
 
 import static org.junit.Assert.assertEquals;
@@ -56,13 +57,13 @@ public class WhenSteps extends StepDefinitions {
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------------
      *
-     * @param url link want to moved
+     * @param url link want to move
      * @purpose moved to other page by href
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------------
      */
     @When("^the user clicks on link \"([^\"]*)\"$")
-    public void accessNewPage(String url) throws InterruptedException {
+    public void accessNewPage(String url) {
         WebElement link = waitUntilDisplayed(getSectionContext(), Locator.byHref(url));
         assertTrue(link.isDisplayed());
         link.click();
@@ -661,6 +662,13 @@ public class WhenSteps extends StepDefinitions {
         button.click();
     }
 
+    @When("the user uploads new media files")
+    public void theUserUploadsNewMediaFiles() {
+        List<WebElement> button = driver.findElements(Locator.byTestId("button","buttonSubmit"));
+        assertTrue(button.get(1).isDisplayed());
+        button.get(1).click();
+    }
+
     @When("^the user set privacy is (Everyone|Community|Friends|Friends of Friends|Only Me|Custom)$")
     public void theUserSetPrivacyIsFriend(@Nonnull String privacy) {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("fieldPrivacy"), Locator.byRole("button"));
@@ -697,6 +705,14 @@ public class WhenSteps extends StepDefinitions {
         element.sendKeys(value);
     }
 
+    @When("the user fills URL Videos")
+    public void theUserFillsURLVideos() throws InterruptedException {
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputVideoUrl"));
+        assertTrue(element.isDisplayed());
+        element.clear();
+        element.sendKeys("https://www.youtube.com/watch?v=cA_cONblHyM");
+        Thread.sleep(3000);
+    }
     @When("the user adds on {string}")
     public void addOn(String id){
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId("input", id));
@@ -839,5 +855,12 @@ public class WhenSteps extends StepDefinitions {
         element.click();
 
         waitUntilInvisible(Locator.byId("Announcements"));
+    }
+
+    @When("the user moves to tab {string}")
+    public void theUserMovesToTab(String tab){
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId(tab));
+        assertTrue(element.isDisplayed());
+        element.click();
     }
 }

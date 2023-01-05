@@ -1,4 +1,4 @@
-@registerNewUser @previewSite
+@registerNewUser @previewSite @NonTearDownData
 Feature: Verify Register New User Successfully
 
   Scenario Outline: Register New User Default
@@ -16,6 +16,6 @@ Feature: Verify Register New User Successfully
     Examples:
     |userName|emailValue|
     |brian   |brian1@example.com|
-    |terry   |terry1@example.net|
+    |terry  |terry1@example.net|
     |krixi    |luna1@example.net|
     |katie   |katie1@example.net|
