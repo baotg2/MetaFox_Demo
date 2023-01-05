@@ -1,6 +1,6 @@
 @app_videos @videos_public @brian
 Feature: Brian process on video friend
-  @focus
+
   Scenario: Brian Add New Videos Friend From App
     Given the user logged in as "brian1"
     And the browser opened at "/video/share"
