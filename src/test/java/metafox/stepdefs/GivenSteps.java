@@ -49,7 +49,7 @@ public class GivenSteps extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @Given("^the user logged in as \"([^\"]*)\"$")
+    //@Given("^the user logged in as \"([^\"]*)\"$")
     public void the_user_logged_in_as(String username) throws IOException, InterruptedException {
         String accessToken = DataProvider.getUserAccessToken(username);
         String cookieName = DataProvider.getAuthCookieName();
@@ -81,10 +81,11 @@ public class GivenSteps extends StepDefinitions {
      * ------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-//    @Given("^the user logged in as \"([^\"]*)\"$")
+   @Given("^the user logged in as \"([^\"]*)\"$")
     public void the_user_logged_in_form(String username) throws IOException, InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//input[@placeholder='Enter your email address']"));
-
+       WebElement elementEmail = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputEmail"));
+       WebElement elementPassword = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputPassword"));
+       WebElement btn_login = waitUntilDisplayed(getSectionContext(), Locator.byTestId("buttonLogin"));
         Optional<Map<String, String>> user = DataProvider.fromSheet("users")
                 .stream()
                 .filter(row -> row.get("username").equalsIgnoreCase(username)).findFirst();
@@ -92,10 +93,9 @@ public class GivenSteps extends StepDefinitions {
         if (!user.isPresent()) throw new InterruptedException("Failed logged in as " + username);
 
 
-        components.componentSearchAttributes("Enter your email address").sendKeys(user.get().get("email"));
-        components.componentSearchAttributes("Enter your password").sendKeys(user.get().get("password"));
-
-        components.componentButtonDataTestID("buttonLogin").click();
+        elementEmail.sendKeys(user.get().get("email"));
+        elementPassword.sendKeys(user.get().get("password"));
+        btn_login.click();
         isComponentVisible.waitElement(By.xpath("//div[@data-testid ='formSearch']"));
         assertTrue(components.componentDivDataTestID("formSearch").isDisplayed());
     }
