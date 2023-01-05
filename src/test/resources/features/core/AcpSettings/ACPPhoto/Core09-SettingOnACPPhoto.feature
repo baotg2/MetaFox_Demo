@@ -11,7 +11,7 @@ Feature: Config Settings On ACP Photo
     Then the user sees successful flash message
 
   Scenario: Brian Verify settings Downloading Photos
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/all"
     And within the sidebar menu
     Then the user sees text "All Photos"
@@ -60,7 +60,7 @@ Feature: Config Settings On ACP Photo
     Then the user sees successful flash message
 
   Scenario: Admin Verify the setting allow post cover on feed
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/my"
     And within the sidebar menu
     When the user clicks on button "actionMenuButton"

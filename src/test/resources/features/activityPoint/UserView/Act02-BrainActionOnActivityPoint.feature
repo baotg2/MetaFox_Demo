@@ -2,7 +2,7 @@
 Feature:  Brain Action On Activity Point
 
   Scenario: Brain Verify Ui Activity Point
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/activitypoint"
     And within the sidebar
     Then the user sees text "Point Transactions"
@@ -11,7 +11,7 @@ Feature:  Brain Action On Activity Point
     And the user sees text "Transaction History"
 
   Scenario: Brian Verify UIView All Transactions History
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/"
     When I want to click on "Activity Points"
     And the browser opened at "/activitypoint"

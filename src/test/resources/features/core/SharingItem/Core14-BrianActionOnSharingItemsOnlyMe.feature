@@ -2,7 +2,7 @@
 Feature: Brain Process On Sharing Items Only Me
 
   Scenario: Brain Verify Privacy Sharing Blogs
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/settings/items"
     And within the content
     And the user select privacy at field "Blogs" and change to "Only Me"
@@ -13,7 +13,7 @@ Feature: Brain Process On Sharing Items Only Me
     And the user select privacy at field "Blogs" and change to "Everyone"
 
   Scenario:Brain Verify Privacy Feed Default Privacy
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/settings/items"
     And within the content
     And the user select privacy at field "Feed default privacy" and change to "Only Me"
@@ -27,7 +27,7 @@ Feature: Brain Process On Sharing Items Only Me
     And the user select privacy at field "Feed default privacy" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Events
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Events" and change to "Only Me"
@@ -42,7 +42,7 @@ Feature: Brain Process On Sharing Items Only Me
     And the user select privacy at field "Events" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Photos
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Photos" and change to "Only Me"
@@ -56,7 +56,7 @@ Feature: Brain Process On Sharing Items Only Me
     And the user select privacy at field "Photos" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Photos Albums
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Photo Albums" and change to "Only Me"
@@ -70,7 +70,7 @@ Feature: Brain Process On Sharing Items Only Me
     And the user select privacy at field "Photo Albums" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Polls
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Polls" and change to "Only Me"
@@ -85,7 +85,7 @@ Feature: Brain Process On Sharing Items Only Me
 
 
 #  Scenario: Brain Verify Privacy Sharing Quizzes
-#    Given the user logged in as "brian"
+#    Given the user logged in as "brian1"
 #    Then I want to click on "Account Settings"
 #    And the user back to "Sharing Items" page
 #    And the user select privacy at field "Quizzes" and change to "Only Me"
@@ -99,7 +99,7 @@ Feature: Brain Process On Sharing Items Only Me
 #    And the user select privacy at field "Quizzes" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Videos
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Videos" and change to "Only Me"

@@ -2,7 +2,7 @@
 Feature:  Non TearDown Data On Site
 
   Scenario: Admin Attach Photo From Feed
-    Given the user logged in as "Admin"
+    Given the user logged in as "admin"
     And the browser opened at "/"
     And within the content
     When the user want upload 1 photo
@@ -90,7 +90,7 @@ Feature:  Non TearDown Data On Site
     Then the user sees successful flash message
 
   Scenario: Brian action on the blog detail non-tear down
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog/all"
     And within the content
     And the user clicks on the item title
@@ -109,13 +109,13 @@ Feature:  Non TearDown Data On Site
     Then the user sees successful flash message
 
   Scenario: Another User Vote Poll Non Tear Down Data
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/poll/all"
     And the user clicks on the item title
     And the user "brian" action vote on random options
 
   Scenario: Brian Action On Album Detail Non Tear Down Data
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then the browser opened at "/photo/albums"
     And the user clicks on the item title
     And the user clicks on button "reactionButton"

@@ -2,7 +2,7 @@
 Feature:  Brian process on multiple choice polls is friend
 
   Scenario: Brian Add New Poll Public Vote Is Friend
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/poll/add"
     And within the content
     And the user clicks on input field "question" with value "Polls"
@@ -26,7 +26,7 @@ Feature:  Brian process on multiple choice polls is friend
     Then the user sees text "IsThisAutoPoll"
 
   Scenario: Another User Search Poll is not friend
-    Given the user logged in as "katie"
+    Given the user logged in as "katie1"
     When the browser opened at "/poll"
     And within the sidebar
     When the user searches with text "IsThisAutoPoll"
@@ -34,7 +34,7 @@ Feature:  Brian process on multiple choice polls is friend
     Then the user sees text "No polls found."
 
   Scenario: Brian Share Poll is Friend
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/poll"
     And within the sidebar
     When the user searches with text "IsThisAutoPoll"
@@ -48,14 +48,14 @@ Feature:  Brian process on multiple choice polls is friend
     Then the user sees successful flash message
 
   Scenario: Another user access Brian profile
-    Given the user logged in as "katie"
-    When the browser opened at "/brian"
+    Given the user logged in as "katie1"
+    When the browser opened at "/brian1"
     And within the content
     Then the user sees text "shared a post"
     Then the user sees text "The post owner has limited who can view this post"
 
   Scenario: Brain Delete Poll Public Vote Is Friend
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/poll"
     And within the sidebar
     When the user searches with text "IsThisAutoPoll"

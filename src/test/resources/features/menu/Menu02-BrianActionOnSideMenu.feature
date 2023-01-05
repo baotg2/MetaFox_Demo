@@ -2,7 +2,7 @@
 Feature: Verify access side menu success
 
   Scenario Outline: Brain Post Status On Feed
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/"
     And within the content
     When the user "whatsHappening" this item
@@ -25,21 +25,21 @@ Feature: Verify access side menu success
     |AutoPostStatus10|
 
   Scenario: Brain Reaction On Post
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/"
     And within the content
     And the user clicks on button "reactionButton"
     Then the user sees reaction result displayed
 
   Scenario: Brain can access profile from feed
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/"
     And within the content
     When the user access user profile
     Then the user sees page url contains "/brian"
 
   Scenario: Brain comment random on feed
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/"
     And within the content
     And the user add comment "Auto Comment"

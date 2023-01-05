@@ -2,7 +2,7 @@
 Feature: Brian process on album item friends
 
   Scenario: Brian Add New Album Friend With Photo
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/add"
     And within the content
     When the user want upload 2 photo
@@ -13,7 +13,7 @@ Feature: Brian process on album item friends
     Then the browser opened at "/photo/my-albums"
 
   Scenario: Brian Changes Privacy Album
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/photo/albums"
     And within the sidebar
     And the user searches with text "NewAlbum"
@@ -26,7 +26,7 @@ Feature: Brian process on album item friends
     Then the user sees successful flash message
 
   Scenario: Another User Search Album Is Friend
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     And the browser opened at "/photo/albums"
     And within the sidebar
     When the user searches with text "NewAlbum"
@@ -43,7 +43,7 @@ Feature: Brian process on album item friends
     Then the user sees text "No albums are found."
 
   Scenario: Brian Delete Album Is Friend
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/photo/albums"
     And within the sidebar
     And the user searches with text "NewAlbum"

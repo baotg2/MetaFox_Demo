@@ -2,7 +2,7 @@
 Feature: Brain Process On Sharing Items Friends of Friends
 
 #  Scenario:Brain Verify Privacy Feed Default Privacy Is Friends of Friends
-#    Given the user logged in as "brian"
+#    Given the user logged in as "brian1"
 #    And the browser opened at "/settings/items"
 #    And within the content
 #    When the user select privacy at field "Feed default privacy" and change to "Friends of Friends"
@@ -17,7 +17,7 @@ Feature: Brain Process On Sharing Items Friends of Friends
 #    And the user select privacy at field "Feed default privacy" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Blogs Is Friends of Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/settings/items"
     And within the content
     And the user select privacy at field "Blogs" and change to "Friends of Friends"
@@ -29,7 +29,7 @@ Feature: Brain Process On Sharing Items Friends of Friends
     And the user select privacy at field "Blogs" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Events Is Friends of Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/settings/items"
     And within the content
     And the user select privacy at field "Events" and change to "Friends of Friends"
@@ -41,7 +41,7 @@ Feature: Brain Process On Sharing Items Friends of Friends
     And the user select privacy at field "Events" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Photo Is Friends of Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/settings/items"
     And within the content
     And the user select privacy at field "Photos" and change to "Friends of Friends"
@@ -53,7 +53,7 @@ Feature: Brain Process On Sharing Items Friends of Friends
     And the user select privacy at field "Photos" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Photos Albums Is Friends of Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/settings/items"
     And within the content
     And the user select privacy at field "Photo Albums" and change to "Friends of Friends"
@@ -65,7 +65,7 @@ Feature: Brain Process On Sharing Items Friends of Friends
     And the user select privacy at field "Photo Albums" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Polls Is Friends of Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/settings/items"
     And within the content
     And the user select privacy at field "Polls" and change to "Friends of Friends"
@@ -77,7 +77,7 @@ Feature: Brain Process On Sharing Items Friends of Friends
     And the user select privacy at field "Polls" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Videos Is Friends of Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/settings/items"
     And within the content
     And the user select privacy at field "Videos" and change to "Friends of Friends"

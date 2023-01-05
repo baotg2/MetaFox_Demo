@@ -2,7 +2,7 @@
 Feature: Brain Process On Public Events Is Friends
 
   Scenario: Brian Add New Events Is Friend With Empty Value
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/event/add"
     And within the content
     When the user add on "inputName" with value "IsOfflineEvents"
@@ -10,7 +10,7 @@ Feature: Brain Process On Public Events Is Friends
     Then the user sees text "Location is a required field."
 
   Scenario: Brian Add New Events Offline Is Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/event/add"
     And within the content
     When the user add on "inputName" with value "IsOfflineEvents"
@@ -24,7 +24,7 @@ Feature: Brain Process On Public Events Is Friends
     And the user sees page url matches "/event/\d+"
 
   Scenario: Another User Search OfflineEvents Is Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/event"
     And within the sidebar
     And the user searches with text "IsOfflineEvents"
@@ -33,7 +33,7 @@ Feature: Brain Process On Public Events Is Friends
     Then the user sees text "IsOfflineEvents"
 
   Scenario: Another User Search Events is not friend
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     When the browser opened at "/event"
     And within the sidebar
     And the user searches with text "IsOfflineEvents"
@@ -41,7 +41,7 @@ Feature: Brain Process On Public Events Is Friends
     Then the user sees text "No events found"
 
   Scenario: Brain delete offline events is friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/event"
     And within the sidebar
     And the user searches with text "IsOfflineEvents"

@@ -12,7 +12,7 @@ Feature: Config Settings On ACP Events
     Then the user sees successful flash message
 
   Scenario: Brian Verify Settings Events On ACP
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/event/add"
     And within the content
     When the user clicks on input field "name" with value "a"

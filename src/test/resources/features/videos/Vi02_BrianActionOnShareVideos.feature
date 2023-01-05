@@ -2,7 +2,7 @@
 Feature: Brian process on share videos
 
   Scenario: Brian Share Invalid Link Videos
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/video/share"
     And within the content
     And the user moves to tab "Share"
@@ -11,7 +11,7 @@ Feature: Brian process on share videos
     Then the user sees successful flash message
 
   Scenario: Another User Reaction On Video Shared
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/video"
     And within the sidebar
     When the user searches with text "Cascada"
@@ -21,7 +21,7 @@ Feature: Brian process on share videos
     And the user clicks on button "reactionButton"
 
   Scenario: Brian Comment On Video Shared
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/video"
     And within the sidebar
     When the user searches with text "Cascada"

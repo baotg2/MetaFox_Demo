@@ -2,7 +2,7 @@
 Feature:  Brain Process On Online Events
 
   Scenario: Brian Add New Events Events Online With empty value
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/event/add"
     And within the content
     When the user add on "inputName" with value "IsOnlineEvents"
@@ -11,7 +11,7 @@ Feature:  Brain Process On Online Events
     Then the user sees text "Online Link is required."
 
   Scenario: Brian Add New Events Events Online
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/event/add"
     And within the content
     When the user add on "inputName" with value "Dreamworld Venues"
@@ -23,7 +23,7 @@ Feature:  Brain Process On Online Events
     And the user sees page url matches "/event/\d+"
 
   Scenario: Brian Open Link Online Events
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/event"
     And within the sidebar
     And the user searches with text "Dreamworld Venues"
@@ -36,7 +36,7 @@ Feature:  Brain Process On Online Events
     Then the user want to verify tab "https://zoom.us/" open successfully
 
   Scenario: Brain delete online events
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/event"
     And within the sidebar
     And the user searches with text "Dreamworld Venues"

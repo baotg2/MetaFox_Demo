@@ -15,7 +15,8 @@ Feature: Verify Register New User Successfully
     Then the user sees items "Welcome Back" matches on site
     Examples:
     |userName|emailValue|
-    |brian   |brian1@example.com|
-    |terry  |terry1@example.net|
-    |krixi    |luna1@example.net|
-    |katie   |katie1@example.net|
+    |brian1   |brian1@example.com|
+    |terry1   |terry1@example.net|
+    |krixi1   |luna1@example.net|
+    |katie1   |katie1@example.net|
+    |test1    |test1@example.net|

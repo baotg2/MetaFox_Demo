@@ -2,7 +2,7 @@
 Feature: Brian process on album item
 
   Scenario: Brian Add New Album Without Image
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then the browser opened at "/photo/add"
     And within the content
     And the user want to add new album
@@ -10,7 +10,7 @@ Feature: Brian process on album item
     Then the user sees text "Media files are required."
 
   Scenario: Brian Add New Album With Photo
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/photo/add"
     And within the content
     When the user want upload 2 photo
@@ -21,7 +21,7 @@ Feature: Brian process on album item
     Then the browser opened at "/photo/my-albums"
 
   Scenario: Brian Search His Album
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then the browser opened at "/photo/albums"
     And within the sidebar
     When the user searches with text "Album"
@@ -31,7 +31,7 @@ Feature: Brian process on album item
     Then the user sees text "NewAlbum"
 
   Scenario: Brian Reaction On Album
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/photo/albums"
     And within the sidebar
     And the user sees text "All Albums"
@@ -41,7 +41,7 @@ Feature: Brian process on album item
 #    Then the user sees result of "reactionResult" displayed
 
   Scenario: Brian Edit On Album
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/photo/albums"
     And within the sidebar
     And the user searches with text "Album"
@@ -65,7 +65,7 @@ Feature: Brian process on album item
     Then the user sees successful flash message
 
   Scenario: Brian Delete Album
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/photo/albums"
     And within the sidebar
     And the user searches with text "Auto Test New AlbumName"
@@ -77,7 +77,7 @@ Feature: Brian process on album item
     Then the user sees successful flash message
 
   Scenario: Brian Add Empty Album
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/photo/album/add"
     And within the content
     And the user add on "inputName" with value "IsEmptyAlbum"
@@ -88,7 +88,7 @@ Feature: Brian process on album item
     And the user sees text "This album has no photos/videos uploaded"
 
   Scenario: Brian Search Empty Album
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/photo/albums"
     And within the sidebar
     And the user searches with text "IsEmptyAlbum"
@@ -97,7 +97,7 @@ Feature: Brian process on album item
     Then the user sees text "IsEmptyAlbum"
 
   Scenario: Brian Add Photo To Empty Album
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/photo/add"
     And within the content
     When the user add value on "select-album" is "IsEmptyAlbum"
@@ -108,7 +108,7 @@ Feature: Brian process on album item
     Then the user sees text "IsEmptyAlbum"
 
   Scenario: Brian Delete Empty Album
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/photo/albums"
     And within the sidebar
     And the user searches with text "IsEmptyAlbum"

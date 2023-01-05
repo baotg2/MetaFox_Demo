@@ -2,7 +2,7 @@
 Feature:  Brian process on Forum
 
   Scenario: Brian Add New Forum With Empty Value
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/forum/thread/add"
     And within the content
     When the user clicks on button "buttonSubmit"
@@ -10,7 +10,7 @@ Feature:  Brian process on Forum
     And the user sees text "Content is required. "
 
   Scenario: Brian Add New Forum
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/forum/thread/add"
     And within the content
     And the user add value on id "select-forum_id" is "General"
@@ -24,13 +24,13 @@ Feature:  Brian process on Forum
     And the user sees text "IsThreadAutotest"
 
   Scenario: Brian verified subscribed threads
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/forum/subscribed-thread"
     And within the content
     Then the user sees text "IsThreadAutotest"
 
   Scenario: Another User Reply Thread
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     When the browser opened at "/forum"
     And within the sidebar
     And the user searches with text "IsThreadAutotest"
@@ -45,7 +45,7 @@ Feature:  Brian process on Forum
     Then the user sees successful flash message
 
   Scenario: Brain Reaction On Thread
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/forum"
     And within the sidebar
     When the user searches with text "IsThreadAutotest"
@@ -57,7 +57,7 @@ Feature:  Brian process on Forum
     And the user clicks on button "reactionButton"
 
   Scenario: Brain Edit Thread
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/forum"
     And within the sidebar
     And the user searches with text "IsThreadAutotest"
@@ -69,7 +69,7 @@ Feature:  Brian process on Forum
     Then the user sees items "Remove" on screen
 
   Scenario: Brain move thread to another forum
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/forum"
     And within the sidebar
     And the user searches with text "IsThreadAutotest"
@@ -84,7 +84,7 @@ Feature:  Brian process on Forum
     Then the user sees successful flash message
 
   Scenario: Brain copy thread with default title
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/forum"
     And within the sidebar
     And the user searches with text "IsThreadAutotest"
@@ -110,13 +110,13 @@ Feature:  Brian process on Forum
     Then the user sees successful flash message
 
   Scenario: Brian verify on history
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/forum/history-thread"
     And within the content
     Then the user sees text "IsThreadAutotest"
 
   Scenario: Brian closed thread
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/forum"
     And within the sidebar
     And the user searches with text "IsThreadAutotest"

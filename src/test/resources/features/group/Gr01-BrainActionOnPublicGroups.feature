@@ -2,7 +2,7 @@
 Feature:  Brain Process On Public Groups
 
   Scenario: 01_Brian Add New Group With Empty Value
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/group/add"
     And within the content
     And the user clicks on button "buttonSubmit"
@@ -10,7 +10,7 @@ Feature:  Brain Process On Public Groups
     Then the user sees text "Group Privacy is required."
 
   Scenario: 02_Brian Add New Group
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/group/add"
     And within the content
     Given the user add on "inputName" with value "IsPublicGroup"
@@ -55,7 +55,7 @@ Feature:  Brain Process On Public Groups
     And the user clicks on button "submit"
 
   Scenario: 06_Brain Reaction Group
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/group"
     And within the sidebar
     And the user searches with text "IsPublicGroup"
@@ -77,7 +77,7 @@ Feature:  Brain Process On Public Groups
     Then the user sees button "Join" on screen
 
   Scenario: 08_Another User Join Group
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     And the browser opened at "/group"
     And within the sidebar
     And the user searches with text "IsPublicGroup"
@@ -89,7 +89,7 @@ Feature:  Brain Process On Public Groups
     Then the user sees button "Joined" on screen
 
   Scenario: 09_Brain Add MemberShip Question
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/group"
     And within the sidebar
     And the user searches with text "IsPublicGroup"
@@ -120,7 +120,7 @@ Feature:  Brain Process On Public Groups
     Then the user sees button "Submit" on screen
 
   Scenario: 011_Brain Add Pending Post
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/group"
     And within the sidebar
     And the user searches with text "IsPublicGroup"
@@ -134,7 +134,7 @@ Feature:  Brain Process On Public Groups
     When the users turn on setting
 
   Scenario: 012_Brain Delete Public Groups
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/group"
     And within the sidebar
     And the user searches with text "IsPublicGroup"

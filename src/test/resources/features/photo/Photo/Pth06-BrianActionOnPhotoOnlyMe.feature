@@ -2,7 +2,7 @@
 Feature: Brian process on photos only me item
 
   Scenario: Brian Add New Photo Only Me
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/add"
     And within the content
     And the user want upload 1 photo
@@ -11,7 +11,7 @@ Feature: Brian process on photos only me item
     And the user sees successful flash message
 
   Scenario: Brain Share Now On Photo OnlyMe Just Add
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/my"
     And within the content
     When the user get media details

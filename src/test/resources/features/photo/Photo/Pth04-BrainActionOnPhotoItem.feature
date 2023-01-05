@@ -2,7 +2,7 @@
 Feature: Brian process on photos item
 
   Scenario: Brian Attach Photo From Feed
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/"
     And within the content
     When the user want upload 1 photo
@@ -11,7 +11,7 @@ Feature: Brian process on photos item
     Then the user sees successful flash message
 
   Scenario: Brian Add New Photo
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/my"
     And within the content
     And the user verify "itemPhoto" before upload
@@ -22,7 +22,7 @@ Feature: Brian process on photos item
     Then the user verify "itemPhoto" after upload
 
   Scenario: Brian Reaction On Photo
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/my"
     And within the content
     When the user get media details
@@ -30,7 +30,7 @@ Feature: Brian process on photos item
     And the user clicks on button "reactionButton"
 
   Scenario: Brain Comment On Photo
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/my"
     And within the content
     When the user get media details
@@ -39,7 +39,7 @@ Feature: Brian process on photos item
     Then the user sees text "Amazing write-ups"
 
   Scenario: Brian Delete Photo
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/my"
     And within the content
     When the user get media details
@@ -49,7 +49,7 @@ Feature: Brian process on photos item
     And the user sees confirm popup
 
 #  Scenario: Brian Attach Photo From User Profile
-#    Given the user logged in as "brian"
+#    Given the user logged in as "brian1"
 #    Then the browser opened at "/photo/my"
 #    And the user verify "itemPhoto" before upload
 #    And the user back to "linkLogo" page
@@ -61,7 +61,7 @@ Feature: Brian process on photos item
 #    Then the user verify "itemPhoto" after upload
 
   Scenario: Brain Feature Photos
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/my"
     And within the content
     When the user get media details
@@ -71,7 +71,7 @@ Feature: Brian process on photos item
     Then the user sees successful flash message
 
   Scenario: Brain UnFeature Photos
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/my"
     And within the content
     When the user get media details
@@ -81,7 +81,7 @@ Feature: Brian process on photos item
     Then the user sees successful flash message
 
   Scenario: Brian Add Cover Image
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/my"
     And within the content
     When the user get media details

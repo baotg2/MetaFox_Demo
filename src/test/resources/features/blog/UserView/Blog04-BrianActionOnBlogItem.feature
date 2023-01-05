@@ -2,7 +2,7 @@
 Feature:  Brian process on blogs app
 
   Scenario: Brian add new blog with image
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog/add"
     And the user adds title with value "BlogName"
     And the user adds description
@@ -11,14 +11,14 @@ Feature:  Brian process on blogs app
     Then the user sees successful flash message
 
   Scenario: Brian sees post of blog on feed
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the user opened "brian" profile page
     And within the content
     Then the user sees text "added a blog"
 
 
   Scenario: Brian comment on blog
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog"
     And within the sidebar
     When the user searches with text "BlogName"
@@ -34,7 +34,7 @@ Feature:  Brian process on blogs app
     Then the user sees text "test comment"
 
   Scenario: Brain Reaction On This Blog
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog"
     And within the sidebar
     When the user searches with text "BlogName"
@@ -46,7 +46,7 @@ Feature:  Brian process on blogs app
 
 
   Scenario: Brain Share Now On Blog Just Add
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog"
     And within the sidebar
     When the user searches with text "BlogName"
@@ -60,7 +60,7 @@ Feature:  Brian process on blogs app
 
 
   Scenario: Brain Share On Feed Blog Just Add
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog"
     And within the sidebar
     When the user searches with text "BlogName"
@@ -75,7 +75,7 @@ Feature:  Brian process on blogs app
     Then the user sees successful flash message
 
   Scenario: Brian Edit His Blog
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog/my"
     And within the content
     And the user sees text "My Blogs"
@@ -89,7 +89,7 @@ Feature:  Brian process on blogs app
     And the user sees successful flash message
 
   Scenario: Brain Delete Blog Just Added
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog"
     And within the sidebar
     And the user searches with text "Auto Test New Blogs Name"
@@ -102,7 +102,7 @@ Feature:  Brian process on blogs app
     Then the user sees successful flash message
 
   Scenario: Brian Add New Blog And Save As Draft
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog/add"
     Then the user adds title with value "BlogName"
     And the user adds description
@@ -111,7 +111,7 @@ Feature:  Brian process on blogs app
     Then the user verify title of blog is displayed
 
   Scenario: Brian Publish Draft Blog
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then the browser opened at "/blog/draft"
     Given within the content
     When the user opens action menu
@@ -130,7 +130,7 @@ Feature:  Brian process on blogs app
     Then the user sees successful flash message
 
   Scenario: Brian Search Empty KeyWord
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog"
     And within the sidebar
     And the user searches with text "searchesomethings"
@@ -140,7 +140,7 @@ Feature:  Brian process on blogs app
     Then the user sees text "No blogs are found. "
 
   Scenario: Brain Feature Blogs
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog/all"
     And within the content
     And the user opens action menu
@@ -150,7 +150,7 @@ Feature:  Brian process on blogs app
 
 
   Scenario: Brain UnFeature Blogs
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog/all"
     And within the content
     And the user opens action menu
@@ -159,7 +159,7 @@ Feature:  Brian process on blogs app
 
 
   Scenario: Brain deletes his draft blog
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog"
     And within the sidebar
     When the user searches with text "BlogName"

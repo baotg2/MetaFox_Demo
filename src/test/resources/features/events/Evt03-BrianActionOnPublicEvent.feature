@@ -2,7 +2,7 @@
 Feature:  Brain Process On Public Events
 
   Scenario: Brian Add New Events With Empty Value
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/event/add"
     And within the content
     When the user add on "inputName" with value "IsOfflineEvents"
@@ -10,7 +10,7 @@ Feature:  Brain Process On Public Events
     Then the user sees text "Location is a required field."
 
   Scenario: Brian Add New Events EventsOffline
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/event/add"
     And within the content
     When the user add on "inputName" with value "IsOfflineEvents"
@@ -23,7 +23,7 @@ Feature:  Brain Process On Public Events
     And the user sees page url matches "/event/\d+"
 
   Scenario: Brain Reaction On This Event
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/event"
     And within the sidebar
     And the user searches with text "IsOfflineEvents"
@@ -32,14 +32,14 @@ Feature:  Brain Process On Public Events
     And the user clicks on button "reactionButton"
 
   Scenario: Brain See Post Create on Feed
-    Given the user logged in as "brian"
-    When the browser opened at "/brian"
+    Given the user logged in as "brian1"
+    When the browser opened at "/brian1"
     Then the user sees text "added an event "
     Then the user sees text "1 person going"
     And the user sees text "IsOfflineEvents"
 
   Scenario: Brain See OnGoing On EventsOffline
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/event"
     And within the sidebar
     When the user searches with text "IsOfflineEvents"
@@ -50,14 +50,14 @@ Feature:  Brain Process On Public Events
     And the user sees text "Ongoing"
 
   Scenario: Brian Sees Events On My Hosting Envent
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/event/hosted?stab=ONGOING"
     Given within the content
     Then the user sees text "Your event"
     And the user sees text "Ongoing"
 
   Scenario: Brain Verify Number of guests joined events
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/event"
     And within the sidebar
     When the user searches with text "IsOfflineEvents"
@@ -68,7 +68,7 @@ Feature:  Brain Process On Public Events
     Then the user sees text "Your event"
 
   Scenario: Brain Verify HostList On Events
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -81,7 +81,7 @@ Feature:  Brain Process On Public Events
     Then the user sees text "Brian" on invited tab
 
   Scenario: Brain Verify GuestList On Events
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -96,7 +96,7 @@ Feature:  Brain Process On Public Events
     Then the user sees text "No Content" on tab
 
   Scenario: Brain Verify Manage Tab
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -107,7 +107,7 @@ Feature:  Brain Process On Public Events
     Then the user sees text "Event Settings"
 
   Scenario: Brain Add New Hosts
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -124,7 +124,7 @@ Feature:  Brain Process On Public Events
     And the user sees button "Cancel Invite"
     When the user clicks on button "buttonClose"
     And I want to click on "Logout"
-    Given the user logged in as "test"
+    Given the user logged in as "test1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab "/event/friend"
     And the user clicks on the item title
@@ -141,7 +141,7 @@ Feature:  Brain Process On Public Events
     And the user want to click on list button label "PENDING POSTS" and process
 
   Scenario: Brain Remove Hosts
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -154,7 +154,7 @@ Feature:  Brain Process On Public Events
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
     And I want to click on "Logout"
-    Given the user logged in as "test"
+    Given the user logged in as "test1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -162,7 +162,7 @@ Feature:  Brain Process On Public Events
     Then the user sees text "Going"
 
   Scenario: Brain Invite Another User Join Event
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -187,7 +187,7 @@ Feature:  Brain Process On Public Events
     Then the user sees text "admin" on invited tab
 
   Scenario: Brain Share Now On Event Just Add
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -202,7 +202,7 @@ Feature:  Brain Process On Public Events
     Then the user sees h4 "IsOfflineEvents"
 
   Scenario: Brian Share On Feed Events
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -218,7 +218,7 @@ Feature:  Brain Process On Public Events
     Then the user sees h4 "IsOfflineEvents"
 
   Scenario: Brian Share On Events On Friend Profile
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"

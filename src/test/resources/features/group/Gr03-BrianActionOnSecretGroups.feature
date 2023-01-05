@@ -2,7 +2,7 @@
 Feature:  Brain Process On Secret Groups
 
   Scenario: Brian Add New Group
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/group/add"
     And within the content
     Given the user add on "inputName" with value "TestAutoSecretGroup"
@@ -13,7 +13,7 @@ Feature:  Brain Process On Secret Groups
     Then the user sees text "TestAutoSecretGroup"
 
   Scenario: Another User Search Group
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     And the browser opened at "/group"
     And within the sidebar
     And the user searches with text "TestAutoSecretGroup"
@@ -21,7 +21,7 @@ Feature:  Brain Process On Secret Groups
     Then the user sees text "No groups are found. "
 
   Scenario: Brian Invite Another User Join Secret Group
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/group"
     And within the sidebar
     And the user searches with text "TestAutoSecretGroup"
@@ -33,7 +33,7 @@ Feature:  Brain Process On Secret Groups
     When the user selects friends on friend list
 
   Scenario: Another user leave secret group
-    Given the user logged in as "test"
+    Given the user logged in as "test1"
     And the browser opened at "/group"
     And within the sidebar
     And the user searches with text "IsPublicGroup"
@@ -46,7 +46,7 @@ Feature:  Brain Process On Secret Groups
     And the user accepts the confirm
 
   Scenario: Brain delete secret group
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/group"
     And within the sidebar
     And the user searches with text "TestAutoSecretGroup"

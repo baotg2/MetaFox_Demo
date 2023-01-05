@@ -2,7 +2,7 @@
 Feature:  Brian process on public vote polls
 
   Scenario: Brian Add New Poll Public Vote
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/poll/add"
     And within the content
     And the user clicks on input field "question" with value "Polls"
@@ -15,7 +15,7 @@ Feature:  Brian process on public vote polls
     Then the user sees text "IsThisAutoPoll"
 
   Scenario: Brian Search Poll
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/poll"
     And within the sidebar
     When the user searches with text "IsThisAutoPoll"
@@ -34,7 +34,7 @@ Feature:  Brian process on public vote polls
     And the user "admin" action vote on random options
 
   Scenario: Brain Delete Public Vote Poll
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/poll"
     And within the sidebar
     When the user searches with text "IsThisAutoPoll"

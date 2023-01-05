@@ -2,7 +2,7 @@
 Feature:  Brian process on blogs is OnlyMe
 
   Scenario: Brian Add New Blog With Image With Privacy Is Only Me
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog/add"
     And within the content
     And the user adds title with value "BlogOnlyMe"
@@ -15,7 +15,7 @@ Feature:  Brian process on blogs is OnlyMe
     And the user sees successful flash message
 
   Scenario: Another User Search Blog Only Me
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     And the browser opened at "/blog"
     And within the sidebar
     When the user searches with text "BlogOnlyMe"
@@ -24,7 +24,7 @@ Feature:  Brian process on blogs is OnlyMe
     Then the user sees text "No blogs are found."
 
   Scenario: Brain Share Now On Blog OnlyMe Just Add
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog"
     And within the sidebar
     When the user searches with text "BlogOnlyMe"
@@ -35,7 +35,7 @@ Feature:  Brian process on blogs is OnlyMe
     And the user opens action menu
 
   Scenario: Brain Delete Blog OnlyMe Just Added
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog"
     And within the sidebar
     When the user searches with text "BlogOnlyMe"

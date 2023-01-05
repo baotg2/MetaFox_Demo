@@ -2,7 +2,7 @@
 Feature: Guest Action On Public Events
 
   Scenario: Guest Verify On Event Detail
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -16,7 +16,7 @@ Feature: Guest Action On Public Events
     Then the user sees text "Not Interested"
 
   Scenario: Guest Vew Host List by default settings
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -28,7 +28,7 @@ Feature: Guest Action On Public Events
     Then the user sees text "Brian" on invited tab
 
   Scenario: Guest Change Status On Event Details
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -43,7 +43,7 @@ Feature: Guest Action On Public Events
     And the user want to click on list button label "EVENT INFO" and process
 
   Scenario: Guest Change Status On Multiple Grid Views
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -58,7 +58,7 @@ Feature: Guest Action On Public Events
     And the user want to see tab "MANAGE" displayed on detail
 
   Scenario: Guest Share Now On Event Just Add
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -73,7 +73,7 @@ Feature: Guest Action On Public Events
     Then the user sees h4 "IsOfflineEvents"
 
   Scenario: Guest Share On Feed Events
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"
@@ -89,7 +89,7 @@ Feature: Guest Action On Public Events
     Then the user sees h4 "IsOfflineEvents"
 
   Scenario: Brain delete offline events
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the user clicks on "More"
     Then the browser opened at item "event" and tab ""
     And the user searches with text "IsOfflineEvents"

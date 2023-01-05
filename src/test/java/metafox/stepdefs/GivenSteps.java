@@ -89,12 +89,7 @@ public class GivenSteps extends StepDefinitions {
            if ( dataExecutor.getCellData(i, 3).toLowerCase().equals(username) ) {
                components.componentSearchAttributes("Enter your username or email address").sendKeys(dataExecutor.getCellData(i, 4));
                if ( !dataExecutor.getCellData(i, 3).toLowerCase().equals("admin") ) {
-                   if(System.getenv("BASE_URL").contains("staging")){
-                       components.componentSearchAttributes("Enter your password").sendKeys("123456");
-                   }
-                   else {
-                       components.componentSearchAttributes("Enter your password").sendKeys("123456789");
-                   }
+                   components.componentSearchAttributes("Enter your password").sendKeys("123456789");
                }
                else {
                    components.componentSearchAttributes("Enter your password").sendKeys(dataExecutor.getCellData(i, 5));

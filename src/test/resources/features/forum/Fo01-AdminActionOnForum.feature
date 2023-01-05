@@ -21,6 +21,6 @@ Feature:  Admin process on Forum app
     Then the user sees text "IsThreadDisplayedOnWiki"
 
   Scenario: Another User Verify WikiTab
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/forum/wiki-thread"
     Then the user sees text "IsThreadDisplayedOnWiki"

@@ -2,7 +2,7 @@
 Feature:  Brain Process On Closed Groups
 
   Scenario: 01_Brian Add New Group
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/group/add"
     And within the content
     Given the user add on "inputName" with value "TestAutoClosedGroup"
@@ -22,7 +22,7 @@ Feature:  Brain Process On Closed Groups
     Then the user sees text "TestAutoClosedGroup"
 
   Scenario: 03_Another users request join group
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     And the browser opened at "/group"
     And within the sidebar
     And the user searches with text "TestAutoClosedGroup"
@@ -33,7 +33,7 @@ Feature:  Brain Process On Closed Groups
     Then the user sees button "Pending Request" on screen
 
   Scenario: 04_Brian approve pending request
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/"
     And within the header
     When the user "new_notification" this item
@@ -47,7 +47,7 @@ Feature:  Brain Process On Closed Groups
     Then the user sees button "Joined" on screen
 
   Scenario: Brian Delete Closed Group
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/group"
     And within the sidebar
     And the user searches with text "TestAutoClosedGroup"

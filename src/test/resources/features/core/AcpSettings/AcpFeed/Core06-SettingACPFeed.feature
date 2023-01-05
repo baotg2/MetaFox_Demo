@@ -15,7 +15,7 @@ Feature: Config Settings On ACP Feed
     Then the user sees successful flash message
 
   Scenario: Brain Verify Settings Feed On ACP
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/"
     When the user "whatsHappening" this item
     And within the status composer

@@ -12,7 +12,7 @@ Feature: Config Settings On ACP Blogs
     Then the user sees successful flash message
 
   Scenario: Brian Verify Settings Blog On ACP
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/blog/add"
     And within the content
     When the user adds title with value "a"

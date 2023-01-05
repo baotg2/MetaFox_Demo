@@ -2,7 +2,7 @@
 Feature: Brian process on photos friend item
 
   Scenario: Brian Add New Photo Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/add"
     And within the content
     And the user want upload 1 photo
@@ -11,7 +11,7 @@ Feature: Brian process on photos friend item
     And the user sees successful flash message
 
   Scenario: Brain Share Now On Photo Friend
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/my"
     And within the content
     When the user get media details
@@ -21,7 +21,7 @@ Feature: Brian process on photos friend item
     Then the user sees successful flash message
 
   Scenario: Another user access Brian profile and see Photo
-    Given the user logged in as "terry"
+    Given the user logged in as "terry1"
     And the browser opened at "/"
     And within the header
     Then the user searches with text "brian"
@@ -30,7 +30,7 @@ Feature: Brian process on photos friend item
     Then the user sees text "shared a post to newsfeed "
 
   Scenario: Brain Feature Photos Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/my"
     And within the content
     When the user get media details
@@ -41,7 +41,7 @@ Feature: Brian process on photos friend item
 
 
   Scenario: Brain UnFeature Photos Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/photo/my"
     And within the content
     When the user get media details

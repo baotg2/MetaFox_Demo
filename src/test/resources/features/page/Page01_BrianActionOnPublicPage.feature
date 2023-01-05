@@ -9,7 +9,7 @@ Feature: Brian process on page app
     Then the user sees error message "Title is required."
 
   Scenario: Brain Add New Page
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/page/add"
     Given within the content
     And the user add on "inputName" with value "IsPageAutoTest"
@@ -18,7 +18,7 @@ Feature: Brian process on page app
     Then the user sees successful flash message
 
   Scenario: Brain Verify Total Like Page
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/page"
     And within the sidebar
     When the user searches with text "IsPageAutoTest"
@@ -28,7 +28,7 @@ Feature: Brian process on page app
     Then the user see message "1 people liked this page"
 
   Scenario: Brain change cover page
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/page"
     And within the sidebar
     When the user searches with text "IsPageAutoTest"
@@ -40,7 +40,7 @@ Feature: Brian process on page app
     Then the user sees successful flash message
 
   Scenario: Brain reaction post on group
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/page"
     And within the sidebar
     When the user searches with text "IsPageAutoTest"
@@ -49,7 +49,7 @@ Feature: Brian process on page app
     And the user clicks on button "reactionButton"
 
   Scenario: Brian invite friend to join the page
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/page"
     And within the sidebar
     When the user searches with text "IsPageAutoTest"

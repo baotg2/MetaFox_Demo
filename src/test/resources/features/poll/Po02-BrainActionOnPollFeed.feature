@@ -2,7 +2,7 @@
 Feature:  Brian process polls on feed
 
   Scenario: Brian Add New Poll On Feed
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/"
     And within the content
     When the user adds poll on feed
@@ -18,7 +18,7 @@ Feature:  Brian process polls on feed
     Then the user sees text "IsThisAutoPoll"
 
   Scenario: Brian Search Poll Created On Feed
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/poll"
     And within the sidebar
     When the user searches with text "IsThisAutoPoll"
@@ -27,7 +27,7 @@ Feature:  Brian process polls on feed
     Then the user sees text "IsThisAutoPoll"
 
   Scenario: Brain Delete Public Vote Poll Created On Feed
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/poll"
     And within the sidebar
     When the user searches with text "IsThisAutoPoll"

@@ -2,7 +2,7 @@
 Feature: Brian process on video app
 
   Scenario: Brian Attach Video From Feed
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/"
     And within the content
     When the user uploads the video
@@ -11,7 +11,7 @@ Feature: Brian process on video app
     Then the user sees successful flash message
 
   Scenario: Brian Add New Videos From App
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/video/share"
     And within the content
     When the user uploads the video
@@ -21,7 +21,7 @@ Feature: Brian process on video app
     And the user sees successful flash message
 
   Scenario: Another User Reaction On Video
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/video"
     And within the sidebar
     When the user searches with text "IsAutoUploadVideos"
@@ -31,7 +31,7 @@ Feature: Brian process on video app
     And the user clicks on button "reactionButton"
 
   Scenario: Brian Comment On Video
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     When the browser opened at "/video"
     And within the sidebar
     When the user searches with text "IsAutoUploadVideos"
@@ -42,7 +42,7 @@ Feature: Brian process on video app
     Then the user sees text "Amazing write-ups"
 
   Scenario: Brian Share Videos
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/video"
     And within the sidebar
     When the user searches with text "IsAutoUploadVideos"
@@ -54,7 +54,7 @@ Feature: Brian process on video app
     Then the user sees successful flash message
 
   Scenario: Brian Feature Videos
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/video"
     And within the sidebar
     When the user searches with text "IsAutoUploadVideos"
@@ -64,7 +64,7 @@ Feature: Brian process on video app
     Then the user sees successful flash message
 
   Scenario: Brian UnFeature Videos
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/video"
     And within the sidebar
     When the user searches with text "IsAutoUploadVideos"
@@ -74,7 +74,7 @@ Feature: Brian process on video app
     Then the user sees successful flash message
 
   Scenario: Brain Add Thumbnails
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/video"
     And within the sidebar
     When the user searches with text "IsAutoUploadVideos"

@@ -2,7 +2,7 @@
 Feature: Brain Process On User Profile
 
 #  Scenario Outline: Brian Edit Profile
-#    Given the user logged in as "brian"
+#    Given the user logged in as "brian1"
 #    And the browser opened at "/user/3/profile"
 #    And within the content
 #    And the user add value on "selectCountryState" is "<country_state>"

@@ -13,7 +13,7 @@ Feature: Config Settings On ACP Forums
     Then the user sees successful flash message
 
   Scenario: Brian Verify Settings Forums On ACP
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/forum/thread/add"
     And within the content
     When the user add value on id "select-forum_id" is "General"

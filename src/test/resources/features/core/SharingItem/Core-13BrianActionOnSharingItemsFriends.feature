@@ -2,7 +2,7 @@
 Feature: Brain Process On Sharing Items Friends
 
   Scenario:Brain Verify Privacy Feed Default Privacy Is Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Feed default privacy" and change to "Friends"
@@ -17,7 +17,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user select privacy at field "Feed default privacy" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Blogs
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Blogs" and change to "Friends"
@@ -31,7 +31,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user select privacy at field "Blogs" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Events Is Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Events" and change to "Friends"
@@ -45,7 +45,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user select privacy at field "Events" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Photo Is Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Photos" and change to "Friends"
@@ -59,7 +59,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user select privacy at field "Photos" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Photos Albums Is Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Photo Albums" and change to "Friends"
@@ -73,7 +73,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user select privacy at field "Photo Albums" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Polls Is Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Polls" and change to "Friends"
@@ -87,7 +87,7 @@ Feature: Brain Process On Sharing Items Friends
     And the user select privacy at field "Polls" and change to "Everyone"
 
   Scenario: Brain Verify Privacy Sharing Videos Is Friends
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     Then I want to click on "Account Settings"
     And the user clicks on "Sharing Items"
     And the user select privacy at field "Videos" and change to "Friends"

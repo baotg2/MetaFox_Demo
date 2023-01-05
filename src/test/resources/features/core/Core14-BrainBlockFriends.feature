@@ -2,7 +2,7 @@
 Feature:  Brain Process On Block Friend
 
   Scenario: Brian Block User
-    Given the user logged in as "brian"
+    Given the user logged in as "brian1"
     And the browser opened at "/krixi"
     And within the slot top
     When the user "Block this user"
