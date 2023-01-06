@@ -12,7 +12,7 @@ Feature:  Brian process on blogs app
   @focus
   Scenario: Brian sees post of blog on feed
     Given the user logged in as "brian1"
-    And the user opened "/brian1" profile page
+    And the browser opened at "/brian1"
     And within the content
     Then the user sees text "added a blog"
 
