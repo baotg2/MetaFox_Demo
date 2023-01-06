@@ -1,6 +1,6 @@
 @app_blog @brain
 Feature:  Brian process on blogs is Friend
-
+  @focus
   Scenario: Brian Add New Blog With Image With Privacy Is Friend
     Given the user logged in as "brian1"
     And the browser opened at "/blog/add"
