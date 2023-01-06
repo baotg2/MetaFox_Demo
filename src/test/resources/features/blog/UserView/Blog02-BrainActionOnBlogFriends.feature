@@ -11,14 +11,13 @@ Feature:  Brian process on blogs is Friend
     And the user submits the form
     Then the user sees successful flash message
     And the user sees page url matches "/blog/\d+"
-  @focus
+
   Scenario: Another User Search Blog is not friend
     Given the user logged in as "terry1"
     And the browser opened at "/blog"
     And within the sidebar
     When the user searches with text "BlogName"
-
-
+  @focus
   Scenario: Brain Share Now On Blog Friend Just Add
     Given the user logged in as "brian1"
     And the browser opened at "/blog"
