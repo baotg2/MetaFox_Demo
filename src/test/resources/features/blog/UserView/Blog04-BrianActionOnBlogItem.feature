@@ -1,6 +1,6 @@
 @app_blog @brian @previewSite
 Feature:  Brian process on blogs app
-  @focus
+
   Scenario: Brian add new blog with image
     Given the user logged in as "brian1"
     And the browser opened at "/blog/add"
@@ -9,10 +9,10 @@ Feature:  Brian process on blogs app
     And the user attaches a photo
     And the user submits the form
     Then the user sees successful flash message
-
+  @focus
   Scenario: Brian sees post of blog on feed
     Given the user logged in as "brian1"
-    And the user opened "brian" profile page
+    And the user opened "/brian1" profile page
     And within the content
     Then the user sees text "added a blog"
 
