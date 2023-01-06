@@ -11,7 +11,7 @@ Feature:  Brian process on blogs is Friend
     And the user submits the form
     Then the user sees successful flash message
     And the user sees page url matches "/blog/\d+"
-
+  @focus
   Scenario: Another User Search Blog is not friend
     Given the user logged in as "terry1"
     And the browser opened at "/blog"
