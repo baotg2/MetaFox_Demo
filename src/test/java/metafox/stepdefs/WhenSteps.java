@@ -514,7 +514,7 @@ public class WhenSteps extends StepDefinitions {
     @When("the user clicks on menu item {string}")
     public void the_user_click_on_menu_item(String item) {
         // assign current menu context to check every ok
-        WebElement element = waitUntilDisplayed(getMenuContext(), Locator.byTestId(item));
+        WebElement element = waitUntilDisplayed(Locator.byTestId(item));
         assertTrue(element.isDisplayed());
         element.click();
     }
@@ -645,8 +645,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user rejects the confirm")
     public void theUserRejectTheConfirm() {
-        By context = Locator.byTestId("popupConfirm");
-        WebElement button = waitUntilDisplayed(context, Locator.byTestId("buttonCancel"));
+        WebElement button = waitUntilDisplayed(Locator.byTestId("buttonCancel"));
 
         assertTrue(button.isDisplayed());
         button.click();
@@ -732,7 +731,7 @@ public class WhenSteps extends StepDefinitions {
             case "firstName":
                 element = waitUntilDisplayed(Locator.byTestId("inputFirstName"));
                 element.clear();
-                element.sendKeys(DataProvider.faker.name().firstName());
+                element.sendKeys("brian");
                 break;
             case "lastName":
                 element = waitUntilDisplayed(Locator.byTestId("inputLastName"));

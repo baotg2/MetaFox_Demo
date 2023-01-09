@@ -1,4 +1,4 @@
-@registerNewUser @previewSite @NonTearDownData @focus
+@registerNewUser @previewSite @NonTearDownData
 Feature: Verify Register New User Successfully
 
   Scenario: Register New User Brian
