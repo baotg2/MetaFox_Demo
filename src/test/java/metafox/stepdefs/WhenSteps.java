@@ -67,7 +67,7 @@ public class WhenSteps extends StepDefinitions {
      */
     @When("^the user clicks on link \"([^\"]*)\"$")
     public void accessNewPage(String url) {
-        WebElement link = waitUntilDisplayed(getSectionContext(), Locator.byHref(url));
+        WebElement link = waitUntilDisplayed(Locator.byHref(url));
         assertTrue(link.isDisplayed());
         link.click();
     }
@@ -497,7 +497,7 @@ public class WhenSteps extends StepDefinitions {
      */
     @When("the user clicks on {string}")
     public void the_user_click_on(String item) {
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId(item));
+        WebElement element = waitUntilDisplayed(Locator.byTestId(item));
         assertTrue(element.isDisplayed());
         element.click();
     }
@@ -538,9 +538,8 @@ public class WhenSteps extends StepDefinitions {
      */
     @When("the user clicks on button \"([^\"]*)\"$")
     public void clickOnButton(String buttonName) {
-        By section = getSectionContext();
 
-        WebElement button = waitUntilDisplayed(section, Locator.byTestId("button", buttonName));
+        WebElement button = waitUntilDisplayed(Locator.byTestId("button", buttonName));
 
         assertTrue(button.isDisplayed());
         button.click();
@@ -548,9 +547,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user adds poll on feed")
     public void clickOnButtonTitle() {
-        By section = getSectionContext();
-
-        WebElement button = waitUntilDisplayed(section, Locator.byTitle("button", "Create Poll"));
+        WebElement button = waitUntilDisplayed(Locator.byTitle("button", "Create Poll"));
 
         assertTrue(button.isDisplayed());
         button.click();
@@ -558,15 +555,14 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user opens the friend list")
     public void clickOnButton() throws InterruptedException {
-        By section = getSectionContext();
 
-        WebElement button = waitUntilDisplayed(section, Locator.byTitle("button", "Open"));
+        WebElement button = waitUntilDisplayed(Locator.byTitle("button", "Open"));
 
         assertTrue(button.isDisplayed());
         button.click();
 
-        waitUntilDisplayed(section, Locator.byRole("presentation"));
-        WebElement select_friend = waitUntilDisplayed(section, Locator.byRole("presentation"));
+        waitUntilDisplayed(Locator.byRole("presentation"));
+        WebElement select_friend = waitUntilDisplayed(Locator.byRole("presentation"));
         Thread.sleep(3000);
         select_friend.sendKeys(Keys.DOWN);
         select_friend.sendKeys(Keys.DOWN);
@@ -599,7 +595,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user opens action menu")
     public void theUserOpensActionMenu() {
-        WebElement button = waitUntilDisplayed(getSectionContext(), Locator.byTestId("button", "actionMenuButton"));
+        WebElement button = waitUntilDisplayed(Locator.byTestId("button", "actionMenuButton"));
         assertTrue(button.isDisplayed());
         button.click();
 
@@ -611,7 +607,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user opens action menu by label")
     public void openActionMenuByLabel() {
-        WebElement button = waitUntilDisplayed(getSectionContext(), Locator.byAriaLabel("ActionMenu"));
+        WebElement button = waitUntilDisplayed(Locator.byAriaLabel("ActionMenu"));
         assertTrue(button.isDisplayed());
         button.click();
 
@@ -660,7 +656,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user submits the form")
     public void theUserSubmitsTheForm() {
-        WebElement button = waitUntilDisplayed(getSectionContext(), Locator.byTestId("buttonSubmit"));
+        WebElement button = waitUntilDisplayed(Locator.byTestId("buttonSubmit"));
         assertTrue(button.isDisplayed());
         button.click();
     }
@@ -674,7 +670,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("^the user set privacy is (Everyone|Community|Friends|Friends of Friends|Only Me|Custom)$")
     public void theUserSetPrivacyIsFriend(@Nonnull String privacy) {
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("fieldPrivacy"), Locator.byRole("button"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("fieldPrivacy"), Locator.byRole("button"));
         assertTrue(element.isDisplayed());
         element.click();
 
@@ -685,7 +681,7 @@ public class WhenSteps extends StepDefinitions {
 
     @And("the user adds description")
     public void theUserAddsDescription() {
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byRole("textbox"));
+        WebElement element = waitUntilDisplayed(Locator.byRole("textbox"));
         assertTrue(element.isDisplayed());
         element.sendKeys(DataProvider.faker.lorem().paragraph());
     }
@@ -694,7 +690,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user adds title with value {string}")
     public void theUserAddsTitleWithValue(@Nonnull String text) {
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputTitle"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("input", "inputTitle"));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys(text);
@@ -702,7 +698,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user add on {string} with value {string}")
     public void theUserAddValue (String elementsID, String value){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId(elementsID));
+        WebElement element = waitUntilDisplayed(Locator.byTestId(elementsID));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys(value);
@@ -710,7 +706,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user fills URL Videos")
     public void theUserFillsURLVideos() throws InterruptedException {
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputVideoUrl"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("input", "inputVideoUrl"));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys("https://www.youtube.com/watch?v=cA_cONblHyM");
@@ -718,7 +714,7 @@ public class WhenSteps extends StepDefinitions {
     }
     @When("the user adds on {string}")
     public void addOn(String id){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId("input", id));
+        WebElement element = waitUntilDisplayed(Locator.byId("input", id));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys(DataProvider.faker.lorem().paragraph());
@@ -734,22 +730,22 @@ public class WhenSteps extends StepDefinitions {
         WebElement element;
         switch (name){
             case "firstName":
-                element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("inputFirstName"));
+                element = waitUntilDisplayed(Locator.byTestId("inputFirstName"));
                 element.clear();
                 element.sendKeys(DataProvider.faker.name().firstName());
                 break;
             case "lastName":
-                element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("inputLastName"));
+                element = waitUntilDisplayed(Locator.byTestId("inputLastName"));
                 element.clear();
                 element.sendKeys(DataProvider.faker.name().lastName());
                 break;
             case "fullName":
-                element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("inputFullName"));
+                element = waitUntilDisplayed(Locator.byTestId("inputFullName"));
                 element.clear();
                 element.sendKeys(DataProvider.faker.name().fullName());
                 break;
             case "userName":
-                element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("inputUserName"));
+                element = waitUntilDisplayed(Locator.byTestId("inputUserName"));
                 element.clear();
                 element.sendKeys(DataProvider.faker.name().firstName().replace(" ",""));
                 break;
@@ -760,7 +756,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user searches with text {string}")
     public void theUserSearchesWithValue(@Nonnull String value) {
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "searchBox"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("input", "searchBox"));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys(value);
@@ -769,7 +765,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user opens share menu")
     public void theUserOpensShareMenu() {
-        WebElement button = waitUntilDisplayed(getSectionContext(), Locator.byTestId("button", "menuShareButton"));
+        WebElement button = waitUntilDisplayed(Locator.byTestId("button", "menuShareButton"));
         assertTrue(button.isDisplayed());
         // open menu
         button.click();
@@ -778,13 +774,13 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user opens status composer")
     public void openStatusComposer() {
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("div", "whatsHappening"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("div", "whatsHappening"));
         element.click();
     }
 
     @When("the user {string}")
     public void theUserAction(String actionName){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byText("button",actionName));
+        WebElement element = waitUntilDisplayed(Locator.byText("button",actionName));
         assertTrue(element.isDisplayed());
         //click on
         element.click();
@@ -792,20 +788,20 @@ public class WhenSteps extends StepDefinitions {
 
     @And("the user adds a category")
     public void theUserAddsACategory() {
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input", "inputCategories"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("input", "inputCategories"));
         element.click();
         element.sendKeys(Keys.ENTER);
     }
 
     @When("the user clicks on the item title")
     public void theUserClicksOnTheItemTitle(){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("itemTitle"), Locator.byTagName("a"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("itemTitle"), Locator.byTagName("a"));
         element.click();
     }
 
     @When("the user get media details")
     public void theUserClicksOnTheItemMedia(){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("itemPhoto"), Locator.byHref("/photo"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("itemPhoto"), Locator.byHref("/photo"));
         driver.get(element.getAttribute("href"));
     }
 
@@ -828,13 +824,13 @@ public class WhenSteps extends StepDefinitions {
 
     @When("Admin approves the request")
     public void theUserWantToEdit() {
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("itemview group_request"), Locator.byClass("span", "ico-check"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("itemview group_request"), Locator.byClass("span", "ico-check"));
         element.click();
     }
 
     @When("the owner invite to friend")
     public void theOwnerInviteToFriend() {
-        WebElement button = waitUntilDisplayed(getSectionContext(), Locator.byAriaLabel("Action Menu"));
+        WebElement button = waitUntilDisplayed(Locator.byAriaLabel("Action Menu"));
         assertTrue(button.isDisplayed());
         button.click();
 
@@ -846,14 +842,14 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user access user profile")
     public void theUserAccessUserProfile() {
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("userAvatar"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("userAvatar"));
         assertTrue(element.isDisplayed());
         element.click();
     }
 
     @When("the user marks as read announcements")
     public void markAsReadAnnouncements(){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId("Mark as read"));
+        WebElement element = waitUntilDisplayed(Locator.byId("Mark as read"));
         assertTrue(element.isDisplayed());
         element.click();
 
@@ -862,7 +858,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user moves to tab {string}")
     public void theUserMovesToTab(String tab){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId(tab));
+        WebElement element = waitUntilDisplayed(Locator.byId(tab));
         assertTrue(element.isDisplayed());
         element.click();
     }

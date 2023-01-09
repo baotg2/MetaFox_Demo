@@ -82,19 +82,19 @@ public class ThenSteps extends StepDefinitions {
      */
     @Then("^the user sees error message \"([^\"]*)\"$")
     public void isErrMsgDisplayed(String text) {
-        WebElement error = waitUntilDisplayed(getSectionContext(), Locator.byText("p", text));
+        WebElement error = waitUntilDisplayed(Locator.byText("p", text));
         assertTrue(error.isDisplayed());
     }
 
     @Then("the user see message {string}")
     public void isMessageDisplayed(String textMessage){
-        WebElement msg = waitUntilDisplayed(getSectionContext(), Locator.byText("span", textMessage));
+        WebElement msg = waitUntilDisplayed( Locator.byText("span", textMessage));
         assertTrue(msg.isDisplayed());
     }
 
     @Then("the user sees button {string} is enabled")
     public void isButtonEnabled(String buttonText){
-        WebElement btnText = waitUntilDisplayed(getSectionContext(), Locator.byText("button", buttonText));
+        WebElement btnText = waitUntilDisplayed(Locator.byText("button", buttonText));
         assertTrue(btnText.isDisplayed());
     }
     /**
@@ -252,8 +252,7 @@ public class ThenSteps extends StepDefinitions {
      */
     @When("^the user add comment \"([^\"]*)\"$")
     public void addComment(String text){
-        By section = getSectionContext();
-        WebElement commentBox = waitUntilDisplayed(section, Locator.byRole("combobox"));
+        WebElement commentBox = waitUntilDisplayed(Locator.byRole("combobox"));
         assertTrue(commentBox.isDisplayed());
         commentBox.sendKeys(text);
         commentBox.sendKeys(Keys.ENTER);
@@ -345,7 +344,7 @@ public class ThenSteps extends StepDefinitions {
      */
     @Then("the user turn off setting {string}")
     public void accessUserProfile(String settingName){
-        WebElement settingElements = waitUntilDisplayed(getSectionContext(),Locator.byTestId("span", settingName));
+        WebElement settingElements = waitUntilDisplayed(Locator.byTestId("span", settingName));
         assertTrue(settingElements.isDisplayed());
         settingElements.click();
     }
@@ -650,7 +649,7 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("the user sees text {string}")
     public void theUserSeesTextContains(@Nonnull String text) {
-        WebElement element = waitUntilDisplayed(getSectionContext(), By.linkText(String.format("//*[contains(text(),'%s')]", text.trim())));
+        WebElement element = waitUntilDisplayed(By.linkText(String.format("//*[contains(text(),'%s')]", text.trim())));
         assertTrue(element.isDisplayed());
     }
 
@@ -659,9 +658,9 @@ public class ThenSteps extends StepDefinitions {
         boolean negative = action.equalsIgnoreCase("doesn't");
 
         if (negative) {
-            waitUntilInvisible(getSectionContext(), Locator.byTestId("featured"));
+            waitUntilInvisible(Locator.byTestId("featured"));
         } else {
-            WebElement flag = waitUntilDisplayed(getSectionContext(), Locator.byTestId("featured"));
+            WebElement flag = waitUntilDisplayed(Locator.byTestId("featured"));
             assertTrue(flag.isDisplayed());
         }
     }
@@ -671,22 +670,21 @@ public class ThenSteps extends StepDefinitions {
         boolean negative = action.equalsIgnoreCase("doesn't");
 
         if (negative) {
-            waitUntilInvisible(getSectionContext(), Locator.byTestId("sponsor"));
+            waitUntilInvisible(Locator.byTestId("sponsor"));
         } else {
-            WebElement flag = waitUntilDisplayed(getSectionContext(), Locator.byTestId("sponsor"));
+            WebElement flag = waitUntilDisplayed( Locator.byTestId("sponsor"));
             assertTrue(flag.isDisplayed());
         }
     }
 
     @Then("the user sees items {string} on screen")
     public void verifyNameDisplayed(@Nonnull String name){
-        By section = getSectionContext();
-        WebElement commentBox = waitUntilDisplayed(section,Locator.byText("div", name));
+        WebElement commentBox = waitUntilDisplayed(Locator.byText("div", name));
         assertTrue(commentBox.isDisplayed());
     }
     @Then("the user sees button {string} on screen")
     public void theUserAction(String actionName){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byText("button",actionName));
+        WebElement element = waitUntilDisplayed(Locator.byText("button",actionName));
         assertTrue(element.isDisplayed());
     }
 
@@ -711,7 +709,7 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("^the user select option (Checkbox|Multiple Choice|Written Answer)$")
     public void selectOption(String optionValue){
-        WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byRole("button"));
+        WebElement element = waitUntilDisplayed(Locator.byRole("button"));
         assertTrue(element.isDisplayed());
         element.click();
 
@@ -722,7 +720,7 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("the user sees reaction result displayed")
     public void theUserSeesReactionResultDisplayed() {
-        WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byTestId("reactionResult"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("reactionResult"));
         assertTrue(element.isDisplayed());
     }
 
@@ -733,14 +731,14 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("the user sees items {string} matches on site")
     public void testVerifyItems(String itemsValue){
-        WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byId(itemsValue));
+        WebElement element = waitUntilDisplayed(Locator.byId(itemsValue));
         assertTrue(element.isDisplayed());
     }
 
     @Then("the user select friend to friend list")
     public void selectFriendToFriendList(){
         setSectionContext(Locator.byRole("presentation"));
-        WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byType("checkbox"));
+        WebElement element = waitUntilDisplayed(Locator.byType("checkbox"));
         assertTrue(element.isDisplayed());
         if(!element.isSelected()){
             element.click();
@@ -749,7 +747,7 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("the user moves to items friend list")
     public void moveToItemsFriendList(){
-       WebElement element = waitUntilDisplayed(getSectionContext(),Locator.byTestId("itemFriendList"));
+       WebElement element = waitUntilDisplayed(Locator.byTestId("itemFriendList"));
        assertTrue(element.isDisplayed());
        Actions actions = new Actions(driver);
        actions.moveToElement(element).perform();
