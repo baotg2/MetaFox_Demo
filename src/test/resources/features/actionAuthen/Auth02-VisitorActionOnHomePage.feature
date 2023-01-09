@@ -21,7 +21,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user fills userName
     And the user add on "inputEmail" with value "brian1@example.com"
     And the user add on "inputPassword" with value "123456789"
-    And the user clicks on check box "checkbox"
+    And the user clicks on "inputAgree"
     When the user submits the form
     Then the user sees error message "The email has already been taken."
 
@@ -52,7 +52,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user add on "inputEmail" with value "testAuto@example.com"
     When the user add on "inputUserName" with value "admin"
     And the user add on "inputPassword" with value "123456789"
-    And the user clicks on check box "checkbox"
+    And the user clicks on "inputAgree"
     And the user clicks on button "buttonSubmit"
     Then the user sees error message "The user name has already been taken."
 
@@ -65,6 +65,6 @@ Feature: Verify Visitor Process on Sign Up
     And the user input info sign up "Email Address" with value "brian@example123.com"
     And the user fills userName
     And the user clicks on input field "password" with value " "
-    And the user clicks on check box "checkbox"
+    And the user clicks on "inputAgree"
     And the user clicks on button "buttonSubmit"
     Then the user sees error message "Your password must be at least 8 characters long and at most 15 characters long. Please try another."

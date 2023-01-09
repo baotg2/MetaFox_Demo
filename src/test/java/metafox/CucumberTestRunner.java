@@ -16,7 +16,7 @@ import java.util.Iterator;
 @CucumberOptions(
         features = {"src/test/resources/features"},
         glue = "metafox",
-        tags = "@admin",
+        tags = "@register",
         plugin = {
                 "pretty",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",

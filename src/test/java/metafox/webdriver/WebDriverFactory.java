@@ -89,6 +89,7 @@ public class WebDriverFactory {
             String URL = String.format("https://%s/wd/hub", testConfig.get("server"));
 
             DesiredCapabilities caps = new DesiredCapabilities(platform);
+
             return new RemoteWebDriver(new URL(URL), caps);
         } catch (MalformedURLException var4) {
             throw new Error("Unable to create WebDriver", var4);
