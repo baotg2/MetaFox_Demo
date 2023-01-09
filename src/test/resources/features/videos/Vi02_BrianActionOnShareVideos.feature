@@ -1,4 +1,4 @@
-@app_videos @videos_share @brian
+@app_videos @videos_share @brian @previewSite
 Feature: Brian process on share videos
 
   Scenario: Brian Share Invalid Link Videos

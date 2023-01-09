@@ -1,4 +1,4 @@
-@app_videos @videos_public @brian
+@app_videos @videos_public @brian @previewSite
 Feature: Brian process on video friend
 
   Scenario: Brian Add New Videos Friend From App
@@ -11,5 +11,3 @@ Feature: Brian process on video friend
     And the user types a sentence in "inputText"
     And the user clicks on button "buttonSubmit"
     And the user sees successful flash message
-
-  Scenario:

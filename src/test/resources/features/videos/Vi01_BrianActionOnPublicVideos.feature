@@ -1,4 +1,4 @@
-@app_videos @videos_public @brian
+@app_videos @videos_public @brian @previewSite
 Feature: Brian process on video app
 
   Scenario: Brian Attach Video From Feed
