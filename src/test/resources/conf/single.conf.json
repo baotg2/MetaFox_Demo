@@ -1,5 +1,5 @@
 {
-  "server": "hub-apse.browserstack.com",
+  "server": "hub-use.browserstack.com",
   "capabilities": {
     "bstack:options": {
       "buildName": "MetaFox_regression",
