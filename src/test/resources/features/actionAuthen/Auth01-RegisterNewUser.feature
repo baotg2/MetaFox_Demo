@@ -27,7 +27,7 @@ Feature: Verify Register New User Successfully
     When the user submits the form
     Then the user sees items "Welcome Back" matches on site
 
-  Scenario: Register New User Terryocus
+  Scenario: Register New User Terry
     Given the user clicks on link "/register"
     #And within the content
     Given the user fills firstName

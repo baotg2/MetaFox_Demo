@@ -27,7 +27,7 @@ Feature: Verify login pHpFox success
     And the browser opened at "/terry1"
     When within the slot top
     And the user "Add Friend"
-    Given switch account "terry"
+    Given switch account "terry1"
     #next logged user accpect request
     And the browser opened at "/brian1"
     When the user want to "Confirm"
