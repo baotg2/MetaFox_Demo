@@ -43,6 +43,7 @@ public class Hook {
             final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             Allure.addByteAttachmentAsync("Failure Screenshot", "image/png", () -> screenshot);
         }
+        Thread.sleep(3000);
         driver.quit();
     }
 }
