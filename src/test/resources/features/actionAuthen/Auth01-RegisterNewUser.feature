@@ -36,7 +36,7 @@ Feature: Verify Register New User Successfully
     And the user add on "inputUserName" with value "terry1"
     And the user add on "inputEmail" with value "terry1@example.net"
     And the user add on "inputPassword" with value "123456789"
-    And the user clicks on check box "checkbox"
+    And the user clicks on "inputAgree"
     When the user submits the form
     Then the user sees items "Welcome Back" matches on site
 
@@ -49,7 +49,7 @@ Feature: Verify Register New User Successfully
     And the user add on "inputUserName" with value "katie1"
     And the user add on "inputEmail" with value "katie1@example.net"
     And the user add on "inputPassword" with value "123456789"
-    And the user clicks on check box "checkbox"
+    And the user clicks on "inputAgree"
     When the user submits the form
     Then the user sees items "Welcome Back" matches on site
 
@@ -62,6 +62,6 @@ Feature: Verify Register New User Successfully
     And the user add on "inputUserName" with value "test1"
     And the user add on "inputEmail" with value "test1@example.net"
     And the user add on "inputPassword" with value "123456789"
-    And the user clicks on check box "checkbox"
+    And the user clicks on "inputAgree"
     When the user submits the form
     Then the user sees items "Welcome Back" matches on site
