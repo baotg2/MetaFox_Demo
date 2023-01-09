@@ -90,7 +90,7 @@ public class WebDriverFactory {
 
             DesiredCapabilities caps = new DesiredCapabilities(platform);
             caps.setCapability("browserstack.local", "true");
-            caps.setCapability("browserstack.idleTimeout", "200");
+            caps.setCapability("browserstack.idleTimeout", "300");
 
             return new RemoteWebDriver(new URL(URL), caps);
         } catch (MalformedURLException var4) {
