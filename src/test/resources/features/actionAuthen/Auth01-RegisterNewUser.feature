@@ -1,6 +1,6 @@
 @registerNewUser @previewSite @NonTearDownData
 Feature: Verify Register New User Successfully
-
+  @RG_01
   Scenario: Register New User Brian
     Given the user clicks on link "/register"
     And within the content
@@ -13,7 +13,7 @@ Feature: Verify Register New User Successfully
     And the user clicks on check box "checkbox"
     When the user submits the form
     Then the user sees items "Welcome Back" matches on site
-
+  @RG_02
   Scenario: Register New User Krixi
     Given the user clicks on link "/register"
     And within the content
@@ -26,7 +26,7 @@ Feature: Verify Register New User Successfully
     And the user clicks on check box "checkbox"
     When the user submits the form
     Then the user sees items "Welcome Back" matches on site
-
+  @RG_03
   Scenario: Register New User Terry
     Given the user clicks on link "/register"
     And within the content
@@ -39,7 +39,7 @@ Feature: Verify Register New User Successfully
     And the user clicks on "inputAgree"
     When the user submits the form
     Then the user sees items "Welcome Back" matches on site
-
+  @RG_04
   Scenario: Register New User Katie
     Given the user clicks on link "/register"
     And within the content
@@ -52,7 +52,7 @@ Feature: Verify Register New User Successfully
     And the user clicks on "inputAgree"
     When the user submits the form
     Then the user sees items "Welcome Back" matches on site
-
+  @RG_05
   Scenario: Register New User Test
     Given the user clicks on link "/register"
     And within the content

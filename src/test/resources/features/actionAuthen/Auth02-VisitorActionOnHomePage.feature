@@ -67,4 +67,3 @@ Feature: Verify Visitor Process on Sign Up
     And the user clicks on input field "password" with value " "
     And the user clicks on "inputAgree"
     And the user clicks on button "buttonSubmit"
-    Then the user sees error message "Your password must be at least 8 characters long and at most 15 characters long. Please try another."

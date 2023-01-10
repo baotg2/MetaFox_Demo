@@ -61,7 +61,6 @@ public class ManagedWebDriver {
             this.webDriver.get(String.format("%s/login", System.getenv("BASE_URL")));
         }
         this.webDriver.manage().window().maximize();
-        Thread.sleep(3000);
         return this.webDriver;
     }
 }

@@ -642,7 +642,8 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("the user sees confirm popup")
     public void theUserSeesConfirmPopup() {
-        WebElement popup = waitUntilDisplayed(getSectionContext(), Locator.byTestId("popupConfirm"));
+        By context = Locator.byTestId("popupConfirm");
+        WebElement popup = waitUntilDisplayed(context, Locator.byTestId("popupConfirm"));
 
         assertTrue(popup.isDisplayed());
     }

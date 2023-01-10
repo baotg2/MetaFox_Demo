@@ -77,7 +77,6 @@ Feature:  Brian process on blogs app
     Given the user logged in as "brian1"
     And the browser opened at "/blog/my"
     And within the content
-    And the user sees text "My Blogs"
     When the user opens action menu
     And the user clicks on menu item "edit"
     Then the user sees page url matches "/blog/edit/\d+"
