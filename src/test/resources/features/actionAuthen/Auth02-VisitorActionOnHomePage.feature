@@ -1,6 +1,6 @@
 @register @previewSite
 Feature: Verify Visitor Process on Sign Up
-
+  @RG_01
   Scenario: Visitor Process register new account With Error Msg Invalid Email
     Given the user clicks on link "/register"
     And within the content
@@ -11,7 +11,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user add on "inputEmail" with value "emailValue"
     When the user submits the form
     Then the user sees error message "Email Address must be a valid email"
-
+  @RG_02
   Scenario: Visitor Process register new account With Error Msg Exist Email
     Given the user clicks on link "/register"
     And within the content
@@ -24,7 +24,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user clicks on "inputAgree"
     When the user submits the form
     Then the user sees error message "The email has already been taken."
-
+  @RG_03
   Scenario: Visitor SignUp With Empty Value
     Given the user clicks on link "/register"
     And within the content
@@ -35,14 +35,14 @@ Feature: Verify Visitor Process on Sign Up
     Then the user sees error message "Choose a Username"
     Then the user sees error message "Email address is required."
     Then the user sees error message "Enter Password"
-
+  @RG_04
   Scenario: Visitor Break SignUp Action
     Given the user clicks on link "/register"
     And within the header
     When the user clicks on link "/login"
     And within the content
     Then the user sees text "Welcome Back"
-
+  @RG_05
   Scenario: Visitor Process register new account With Exist User Name
     Given the user clicks on link "/register"
     And within the content
@@ -55,7 +55,7 @@ Feature: Verify Visitor Process on Sign Up
     And the user clicks on "inputAgree"
     And the user clicks on button "buttonSubmit"
     Then the user sees error message "The user name has already been taken."
-
+  @RG_06
   Scenario: Visitor Process register new account With Short Password
     Given the user clicks on link "/register"
     And within the content
