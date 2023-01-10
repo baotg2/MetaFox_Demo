@@ -650,7 +650,7 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("the user sees text {string}")
     public void theUserSeesTextContains(@Nonnull String text) {
-        WebElement element = waitUntilDisplayed(By.linkText(String.format("//*[contains(text(),'%s')]", text.trim())));
+        WebElement element = waitUntilDisplayed(getSectionContext(), By.linkText(String.format("//*[contains(text(),'%s')]", text.trim())));
         assertTrue(element.isDisplayed());
     }
 
@@ -691,15 +691,17 @@ public class ThenSteps extends StepDefinitions {
 
     @Then("^the user (selects|not selects) friends on friend list$")
     public void selectFriendsOnFriendList(@Nonnull String type) throws InterruptedException {
-        //setMenuContext(Locator.byTestId("div", "popupFriendPicker"));
         if(type.equals("selects")){
-            WebElement btn_confirm = waitUntilDisplayed(getSectionContext(), Locator.byTestId("button", "buttonDone"));
-            WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("itemUndefined"), Locator.byTagName("div"));
+
+            WebElement element = waitUntilDisplayed(Locator.byRole("presentation"), Locator.byTestId("itemUndefined"), Locator.byTagName("div"), Locator.byTestId("itemMedia"));
+
             assertTrue(element.isDisplayed());
-
             element.click();
+            if (element.isDisplayed()) {
+                element.click();
+            }
+            WebElement btn_confirm = waitUntilDisplayed(Locator.byRole("presentation"), Locator.byTestId("button", "buttonDone"));
             assertTrue(btn_confirm.isDisplayed());
-
             btn_confirm.click();
         }
         else {
@@ -714,7 +716,7 @@ public class ThenSteps extends StepDefinitions {
         assertTrue(element.isDisplayed());
         element.click();
 
-        WebElement menuitem = waitUntilDisplayed(getSectionContext(), Locator.byDataValue(Privacy.getValue(optionValue)));
+        WebElement menuitem = waitUntilDisplayed(Locator.byRole("listbox"), Locator.byDataValue(Privacy.getValue(optionValue)));
         assertTrue(menuitem.isDisplayed());
         menuitem.click();
     }

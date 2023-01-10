@@ -6,8 +6,8 @@ Feature:  Brian process on Forum
     And the browser opened at "/forum/thread/add"
     And within the content
     When the user clicks on button "buttonSubmit"
-    Then the user sees text "Title is required."
-    And the user sees text "Content is required. "
+    Then the user sees error message "Title is required."
+    And the user sees text "Content is required."
 
   Scenario: Brian Add New Forum
     Given the user logged in as "brian1"

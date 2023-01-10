@@ -31,12 +31,22 @@ Feature:  Brain Process On Secret Groups
     When the owner invite to friend
     And the user clicks on menu item "invite"
     When the user selects friends on friend list
+    Then the user sees successful flash message
+
+  Scenario: Another User Accept The Invite Join To Secret Group
+    Given the user logged in as "terry1"
+    And the browser opened at "/"
+    And within the header
+    When the user "new_notification" this item
+    Then the user clicks on notification " invited you to join group TestAutoSecretGroup" and process
+    Given within the slot top
+    And the user moves to tab "Accept Invite"
 
   Scenario: Another user leave secret group
-    Given the user logged in as "test1"
+    Given the user logged in as "terry1"
     And the browser opened at "/group"
     And within the sidebar
-    And the user searches with text "IsPublicGroup"
+    And the user searches with text "TestAutoSecretGroup"
     Given within the content
     And the user clicks on the item title
     And within the slot top
