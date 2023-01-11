@@ -12,7 +12,7 @@ on:
     - cron: "00 21 * * *"
 
   repository_dispatch:
-    types: [ test-staging ]
+    types: [ staging ]
 
 env:
   BROWSERSTACK_USERNAME: ${{secrets.BROWSERSTACK_USERNAME}}

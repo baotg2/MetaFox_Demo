@@ -9,7 +9,7 @@ concurrency:
 
 on:
   repository_dispatch:
-    types: [test-preview]
+    types: [preview]
   workflow_dispatch:
 
 env:

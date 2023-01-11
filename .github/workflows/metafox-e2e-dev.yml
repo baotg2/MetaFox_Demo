@@ -7,7 +7,7 @@ concurrency: metafox-e2e-dev
 
 on:
   repository_dispatch:
-    types: [test-dev]
+    types: [dev]
   workflow_dispatch:
 
 env:
