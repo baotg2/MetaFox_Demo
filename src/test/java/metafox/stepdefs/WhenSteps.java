@@ -709,7 +709,7 @@ public class WhenSteps extends StepDefinitions {
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys("https://www.youtube.com/watch?v=cA_cONblHyM");
-        Thread.sleep(3000);
+        Thread.sleep(5000);
     }
     @When("the user adds on {string}")
     public void addOn(String id){

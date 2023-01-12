@@ -25,7 +25,7 @@ Feature: Brian process on page app
     And within the content
     And the user clicks on the item title
     Given within the subside
-    Then the user see message "1 people liked this page"
+    Then the user see message "1 person liked this page"
 
   Scenario: Brain change cover page
     Given the user logged in as "brian1"

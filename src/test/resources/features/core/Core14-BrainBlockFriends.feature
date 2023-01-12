@@ -6,7 +6,7 @@ Feature:  Brain Process On Block Friend
     And the browser opened at "/krixi1"
     And within the slot top
     When the user opens action menu
-    And the user clicks on "block"
+    And the user "Block this user"
     And the user accepts the confirm
     When within the content
     And the user clicks on "buttonActionMenu"

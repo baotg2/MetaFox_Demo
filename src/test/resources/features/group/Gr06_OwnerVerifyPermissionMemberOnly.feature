@@ -1,4 +1,4 @@
-@app_group @group_owner @brian @wip @focus
+@app_group @group_owner @brian @wip @previewSite
 Feature:  Owner Action On Manage Group Is Member Only
 
   Scenario: Owner Access Manage Permissions Group On Who can create posts
