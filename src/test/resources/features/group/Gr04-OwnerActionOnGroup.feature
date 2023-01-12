@@ -1,4 +1,4 @@
-@app_group @group_owner @brian @wip
+@app_group @group_owner @brian @previewSite
 Feature:  Owner Action On Public Groups
 
   Scenario: Owner Add New Group

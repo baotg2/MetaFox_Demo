@@ -132,6 +132,7 @@ Feature:  Brain Process On Public Groups
     When the user navigates to "/pending_posts"
     And within the content
     When the users turn on setting
+    Then the user sees successful flash message
 
   Scenario: 012_Brain Delete Public Groups
     Given the user logged in as "brian1"
