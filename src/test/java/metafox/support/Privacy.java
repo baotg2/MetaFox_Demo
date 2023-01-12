@@ -20,4 +20,15 @@ public class Privacy {
                 return 0;
         }
     }
+
+    public static int getPrivacy(String label) {
+        switch (label.toLowerCase()) {
+            case "members only":
+                return 2;
+            case "admins only":
+                return 10;
+            default:
+                return 0;
+        }
+    }
 }

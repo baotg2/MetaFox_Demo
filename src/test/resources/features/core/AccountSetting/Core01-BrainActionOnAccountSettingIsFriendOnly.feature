@@ -7,7 +7,7 @@ Feature: Brain Process On Account Settings Is Friend Only
     When within the content
     And the user select privacy at field "Who can view your profile page?" and change to "Friends Only"
     Then the user sees successful flash message
-    Given switch account "terry"
+    Given switch account "terry1"
     And the browser opened at "/brian1"
     When within the slot top
     Then the user see message "Profile is private"
@@ -23,7 +23,7 @@ Feature: Brain Process On Account Settings Is Friend Only
     When within the content
     And the user select privacy at field "Who can view your basic info?" and change to "Friends Only"
     Then the user sees successful flash message
-    Given switch account "terry"
+    Given switch account "terry1"
     And the browser opened at "/brian1"
     When within the subside
     Then the user don't see "detailview profile detail about"
@@ -39,7 +39,7 @@ Feature: Brain Process On Account Settings Is Friend Only
     When within the content
     And the user select privacy at field "Who can view photos on your profile page?" and change to "Friends Only"
     Then the user sees successful flash message
-    Given switch account "terry"
+    Given switch account "terry1"
     And the browser opened at "/brian1"
     Then the user not see a text "Photos" displayed on page
     Given the user logged in as "brian1"

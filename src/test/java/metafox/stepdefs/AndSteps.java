@@ -3,6 +3,8 @@ package metafox.stepdefs;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
+import metafox.support.Locator;
+import metafox.support.Privacy;
 import metafox.support.Utility;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.LocalFileDetector;
@@ -204,6 +206,29 @@ public class AndSteps extends StepDefinitions {
                     }
                 }
                 break;
+            }
+        }
+    }
+
+    @And("^the user changes permissions \"([^\"]*)\" to \"([^\"]*)\"$")
+    public void setPrivacyOnGroup(String permission, String newPrivacy){
+        isComponentVisible.waitElement(By.xpath("//div[@role ='button']"));
+        for (int i = 0; i < components.componentsSpanList().size(); i++) {
+            if (components.componentsSpanList().get(i).getText().contains(permission)) {
+                if (!components.componentsListDivRole("button").get(i - 4).getText().equals(newPrivacy)) {
+                    components.componentsListDivRole("button").get(i - 4).click();
+                    isComponentVisible.waitElement(By.xpath("//ul[@role = 'listbox']"));
+                    switch (newPrivacy) {
+                        case "Members Only":
+                           WebElement elementMember= waitUntilDisplayed(Locator.byRole("presentation"),Locator.byDataValue(Privacy.getPrivacy(newPrivacy)));
+                           assertTrue(elementMember.isDisplayed());
+                            elementMember.click();
+                        case "Admins Only":
+                            WebElement elementAdmin= waitUntilDisplayed(Locator.byRole("presentation"),Locator.byDataValue(Privacy.getPrivacy(newPrivacy)));
+                            assertTrue(elementAdmin.isDisplayed());
+                            elementAdmin.click();
+                    }
+                }
             }
         }
     }
