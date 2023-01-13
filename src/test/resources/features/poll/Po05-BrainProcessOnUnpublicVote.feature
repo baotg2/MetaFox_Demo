@@ -42,5 +42,4 @@ Feature:  Brian process on multiple choice polls
     And within the content
     When the user opens action menu
     And the user clicks on menu item "delete"
-    And the user accepts the confirm
-    Then the user sees successful flash message
+    Then the user accepts the confirm

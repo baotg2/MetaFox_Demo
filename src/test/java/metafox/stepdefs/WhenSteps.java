@@ -668,7 +668,7 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("^the user set privacy is (Everyone|Community|Friends|Friends of Friends|Only Me|Custom)$")
-    public void theUserSetPrivacyIsFriend(@Nonnull String privacy) {
+    public void theUserSetPrivacyIsFriend(@Nonnull String privacy) throws InterruptedException {
         WebElement element = waitUntilDisplayed(Locator.byTestId("fieldPrivacy"), Locator.byRole("button"));
         assertTrue(element.isDisplayed());
         element.click();
@@ -676,6 +676,7 @@ public class WhenSteps extends StepDefinitions {
         WebElement menuitem = waitUntilDisplayed(Locator.byTestId("menuPrivacy"), Locator.byDataValue(Privacy.getValue(privacy)));
         assertTrue(menuitem.isDisplayed());
         menuitem.click();
+        Thread.sleep(2000);
     }
 
     @And("the user adds description")

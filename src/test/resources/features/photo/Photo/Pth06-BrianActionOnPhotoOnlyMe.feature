@@ -1,4 +1,4 @@
-@app_photo @photo_onlyme @brian
+@app_photo @photo_onlyme @brian @previewSite
 Feature: Brian process on photos only me item
 
   Scenario: Brian Add New Photo Only Me

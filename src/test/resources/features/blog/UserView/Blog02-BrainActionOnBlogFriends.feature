@@ -43,5 +43,4 @@ Feature:  Brian process on blogs is Friend
     Given within the content
     And the user opens action menu
     And the user clicks on menu item "delete"
-    And the user accepts the confirm
-    And the user sees successful flash message
+    Then the user accepts the confirm

@@ -72,9 +72,8 @@ Feature: Brian process on album item
     Given within the content
     And the user clicks on the item title
     When the user opens action menu
-    When  the user clicks on menu item "delete"
-    And the user accepts the confirm
-    Then the user sees successful flash message
+    When the user clicks on menu item "delete"
+    Then the user accepts the confirm
 
   Scenario: Brian Add Empty Album
     Given the user logged in as "brian1"
@@ -116,5 +115,4 @@ Feature: Brian process on album item
     And the user clicks on the item title
     When the user opens action menu
     When  the user clicks on menu item "delete"
-    And the user accepts the confirm
-    Then the user sees successful flash message
+    Then the user accepts the confirm

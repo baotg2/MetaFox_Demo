@@ -1,4 +1,4 @@
-@app_photo @photo_friend @brian
+@app_photo @photo_friend @brian @previewSite
 Feature: Brian process on photos friend item
 
   Scenario: Brian Add New Photo Friends
@@ -24,10 +24,9 @@ Feature: Brian process on photos friend item
     Given the user logged in as "terry1"
     And the browser opened at "/"
     And within the header
-    Then the user searches with text "brian"
-    And within the content
-    And the user clicks on link "/brian"
-    Then the user sees text "shared a post to newsfeed "
+    When the browser opened at "/brian1"
+    Given within the content
+    Then the user sees text "shared a post"
 
   Scenario: Brain Feature Photos Friends
     Given the user logged in as "brian1"

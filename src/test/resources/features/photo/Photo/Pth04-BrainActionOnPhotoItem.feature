@@ -46,7 +46,7 @@ Feature: Brian process on photos item
     Given within the detail photo
     And the user opens action menu
     When the user clicks on menu item "delete"
-    And the user sees confirm popup
+    Then the user sees confirm popup
 
 #  Scenario: Brian Attach Photo From User Profile
 #    Given the user logged in as "brian1"

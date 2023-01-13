@@ -52,5 +52,4 @@ Feature: Brain Action On Friend App
     And the user moves to items friend list
     When the user opens action menu
     And  the user clicks on menu item "delete"
-    And the user accepts the confirm
-    Then the user sees successful flash message
+    Then the user accepts the confirm

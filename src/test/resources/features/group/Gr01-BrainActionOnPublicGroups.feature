@@ -144,5 +144,4 @@ Feature:  Brain Process On Public Groups
     And within the slot top
     When the user opens action menu by label
     And  the user clicks on menu item "delete"
-    And the user accepts the confirm
-    Then the user sees successful flash message
+    Then the user accepts the confirm

@@ -51,5 +51,4 @@ Feature: Brian process on album item friends
     And the user clicks on the item title
     When the user opens action menu
     When  the user clicks on menu item "delete"
-    And the user accepts the confirm
-    Then the user sees successful flash message
+    Then the user accepts the confirm

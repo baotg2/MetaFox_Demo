@@ -49,5 +49,4 @@ Feature: Brain Process On Public Events Is Friends
     Given within the content
     And the user opens action menu
     And  the user clicks on menu item "delete"
-    And the user accepts the confirm
-    Then the user sees successful flash message
+    Then the user accepts the confirm

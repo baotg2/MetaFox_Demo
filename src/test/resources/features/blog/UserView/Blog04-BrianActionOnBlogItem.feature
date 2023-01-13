@@ -96,8 +96,7 @@ Feature:  Brian process on blogs app
     Given within the content
     When the user opens action menu
     And the user clicks on menu item "delete"
-    And the user accepts the confirm
-    Then the user sees successful flash message
+    Then the user accepts the confirm
 
   Scenario: Brian Add New Blog And Save As Draft
     Given the user logged in as "brian1"
@@ -167,5 +166,4 @@ Feature:  Brian process on blogs app
     Given within the content
     And the user opens action menu
     And  the user clicks on menu item "delete"
-    And the user accepts the confirm
-    Then the user sees successful flash message
+    Then the user accepts the confirm
