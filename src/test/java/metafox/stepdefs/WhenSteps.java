@@ -807,7 +807,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user modified items")
     public void theUserActionOnOption(){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byRole("menuitem"));
+        WebElement element = waitUntilDisplayed(Locator.byRole("tooltip"), Locator.byRole("menuitem"));
         element.click();
     }
     @When( "^the user add comment \"([^\"]*)\" on items$" )

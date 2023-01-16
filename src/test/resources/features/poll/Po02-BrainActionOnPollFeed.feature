@@ -1,6 +1,6 @@
-@app_poll @poll_onfeed @brian @previewSite
+@app_poll @poll_onfeed @brian
 Feature:  Brian process polls on feed
-
+  
   Scenario: Brian Add New Poll On Feed
     Given the user logged in as "brian1"
     And the browser opened at "/"

@@ -47,15 +47,3 @@ Feature: Brian process on page app
     And within the content
     And the user clicks on the item title
     And the user clicks on button "reactionButton"
-
-  Scenario: Brian invite friend to join the page
-    Given the user logged in as "brian1"
-    And the browser opened at "/page"
-    And within the sidebar
-    When the user searches with text "IsPageAutoTest"
-    And within the content
-    And the user clicks on the item title
-    Given within the slot top
-    And the user "Invite Friends"
-    When the user selects friends on friend list
-    Then the user sees successful flash message

@@ -1,7 +1,7 @@
 @app_videos @videos_share @brian @previewSite
 Feature: Brian process on share videos
 
-  Scenario: Brian Share Invalid Link Videos
+  Scenario: Brian Share With Link Videos
     Given the user logged in as "brian1"
     And the browser opened at "/video/share"
     And within the content

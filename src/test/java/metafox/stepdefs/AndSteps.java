@@ -530,6 +530,7 @@ public class AndSteps extends StepDefinitions {
     public void clickOnButtonText(String actionName) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//button[text()='" + actionName + "']"));
         components.componentButtonText(actionName).click();
+        Thread.sleep(2000);
     }
 
     /**

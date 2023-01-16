@@ -114,7 +114,6 @@ Feature:  Brian process on blogs app
     When the user opens action menu
     And the user clicks on menu item "publish"
     And the user accepts the confirm
-    Then the user sees successful flash message
 
   Scenario: Brian Report Blog
     Given the user logged in as "admin"

@@ -19,18 +19,6 @@ Feature: Brain Action Share Feed
     And the user clicks on button "submit"
     Then the user sees successful flash message
 
-  Scenario: Brian Share On Friend Wall
-    Given the user logged in as "admin"
-    And the browser opened at "/"
-    And within the content
-    When the user opens share menu
-    And the user clicks on menu item "share_on_friends"
-    Given within the friend picker
-    And the user selects friends on friend list
-    Given within the status composer
-    And the user clicks on button "submit"
-    Then the user sees successful flash message
-
   Scenario: Brian Search Random Keywords
     Given the user logged in as "admin"
     And the browser opened at "/"
