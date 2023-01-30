@@ -63,6 +63,8 @@ public class DataProvider {
 
     public static final Faker faker = new Faker();
 
+    public static String categories = "";
+
     private static Map<String, String> rowToMap(XSSFRow row, List<String> header, DataFormatter formatter) {
         Map<String, String> data = new HashMap<String, String>();
         row.forEach(cell -> {

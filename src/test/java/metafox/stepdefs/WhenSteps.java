@@ -862,4 +862,11 @@ public class WhenSteps extends StepDefinitions {
         assertTrue(element.isDisplayed());
         element.click();
     }
+
+    @When("the user actions on setting {string}")
+    public void theUserActionOnSetting(String setting){
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byName(setting));
+        assertTrue(element.isDisplayed());
+        element.click();
+    }
 }

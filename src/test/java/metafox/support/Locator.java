@@ -81,6 +81,9 @@ public class Locator {
         return By.xpath(String.format("//*[@type='%s']", type));
     }
 
+    public static By byName(String name) {
+        return By.xpath(String.format("//*[@name='%s']", name));
+    }
     public static By byAriaLabel(String ariaLabelValue) {
         return By.xpath(String.format("//*[@aria-label='%s']", ariaLabelValue));
     }

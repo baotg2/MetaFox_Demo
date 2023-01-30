@@ -11,3 +11,12 @@ Feature: Brian process on video friend
     And the user types a sentence in "inputText"
     And the user clicks on button "buttonSubmit"
     And the user sees successful flash message
+
+  Scenario: Another User Search Poll Is Friend
+    Given the user logged in as "admin"
+    When the browser opened at "/video"
+    And within the sidebar
+    When the user searches with text "IsAutoUploadVideos"
+    And within the content
+    And the user clicks on the item title
+    Then within the detail videos

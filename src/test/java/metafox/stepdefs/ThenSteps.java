@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.io.IOException;
+import java.nio.file.WatchEvent;
 import java.time.Duration;
 
 import static org.junit.Assert.*;
@@ -752,5 +753,17 @@ public class ThenSteps extends StepDefinitions {
        assertTrue(element.isDisplayed());
        Actions actions = new Actions(driver);
        actions.moveToElement(element).perform();
+    }
+
+    @Then("the user gets default categories from ACP")
+    public void getDefaultCategories() throws InterruptedException {
+        String categories;
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("inputBlogBlogDefaultCategory"));
+        assertTrue(element.isDisplayed());
+        categories = Locator.byTestId("inputBlogBlogDefaultCategory").toString();
+        GivenSteps givenSteps = new GivenSteps();
+        givenSteps.the_browser_opened_at("/blog/add");
+        WebElement categoriesElement = waitUntilDisplayed(Locator.byId(categories));
+        assertTrue(categoriesElement.isDisplayed());
     }
 }

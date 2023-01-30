@@ -1,4 +1,4 @@
-@registerNewUser @previewSite @NonTearDownData
+@registerNewUser @previewSite
 Feature: Verify Register New User Successfully
   @RG_01
   Scenario: Register New User Brian
