@@ -396,7 +396,7 @@ public class WhenSteps extends StepDefinitions {
      * ---------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
-    @When("^the user select location$")
+    @When("^the user selects location$")
     public void clickOnDiv(){
         WebElement element = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(Locator.byRole("tooltip")));
         element.click();
@@ -703,7 +703,6 @@ public class WhenSteps extends StepDefinitions {
         element.clear();
         element.sendKeys(value);
     }
-
     @When("the user fills URL Videos")
     public void theUserFillsURLVideos() throws InterruptedException {
         WebElement element = waitUntilDisplayed(Locator.byTestId("input", "inputVideoUrl"));
@@ -868,5 +867,17 @@ public class WhenSteps extends StepDefinitions {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byName(setting));
         assertTrue(element.isDisplayed());
         element.click();
+    }
+
+    @When("the user opens action menu by aria-controls")
+    public void openActionMenuByAriaControls() {
+        WebElement button = waitUntilDisplayed(Locator.byAriaControls("detailActionMenu"));
+        assertTrue(button.isDisplayed());
+        button.click();
+
+        // the current within must be scoped to new context
+        By menu = Locator.byTestId("div", "action menu");
+        waitUntilDisplayed(menu);
+        setMenuContext(menu);
     }
 }

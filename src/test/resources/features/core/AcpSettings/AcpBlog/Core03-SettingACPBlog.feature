@@ -29,9 +29,10 @@ Feature: Config Settings On ACP Blogs
   Scenario: Admin Config Permissions Browse And View Blog
     Given the user logged in as "admin"
     And the browser opened at "/admincp/blog/permission"
-    And within the content
-    When the user clicks on "fieldBlogView"
-    And the user clicks on button "buttonSubmit"
+    And within the basic
+    When the user clicks on "inputBlogView"
+    And the user want to scroll to the end of page
+    And the user "Save Changes"
     Then the user sees successful flash message
 
   Scenario: Brian Verify Permissions Browse And View Blog

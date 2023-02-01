@@ -17,7 +17,7 @@ Feature:  Brain Process On Public Events
     And the user want to add new date is "29"
     When the user want to scroll to the end of page
     And the user add on "fieldLocation" with value "Ho Chi Minh City"
-    And the user select location
+    And the user selects location
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
     And the user sees page url matches "/event/\d+"

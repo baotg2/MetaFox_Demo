@@ -1,4 +1,4 @@
-@previewSite @NonTearDownData
+@NonTearDownData @previewSite
 Feature:  Non TearDown Data On Site
 
   Scenario: Admin Attach Photo From Feed

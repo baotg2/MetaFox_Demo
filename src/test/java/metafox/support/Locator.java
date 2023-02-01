@@ -121,4 +121,8 @@ public class Locator {
     public static By byHref(@Nonnull String url) {
         return By.xpath(String.format("//a[contains(@href, '%s')]", url.trim()));
     }
+
+    public static By byAriaControls(@Nonnull String ariaControlsValue){
+        return By.xpath(String.format("//*[@aria-controls='%s']", ariaControlsValue));
+    }
 }

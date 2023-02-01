@@ -17,7 +17,7 @@ Feature: Brain Process On Public Events Is Friends
     And the user want to add new date is "29"
     When the user want to scroll to the end of page
     And the user add on "fieldLocation" with value "Ho Chi Minh City"
-    And the user select location
+    And the user selects location
     And the user set privacy is Friends
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
