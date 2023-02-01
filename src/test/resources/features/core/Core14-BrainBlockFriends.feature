@@ -1,6 +1,6 @@
 @app_core @blockUser @brian @previewSite
 Feature:  Brain Process On Block Friend
-  @focus
+
   Scenario: Brian Block User
     Given the user logged in as "brian1"
     And the browser opened at "/krixi1"
