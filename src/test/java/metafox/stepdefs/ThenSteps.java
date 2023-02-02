@@ -738,13 +738,15 @@ public class ThenSteps extends StepDefinitions {
     }
 
     @Then("the user select friend to friend list")
-    public void selectFriendToFriendList(){
-        setSectionContext(Locator.byRole("presentation"));
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byType("checkbox"));
+    public void selectFriendToFriendList() throws InterruptedException {
+        Thread.sleep(3000);
+        WebElement element = waitUntilDisplayed(Locator.byRole("presentation"), Locator.byTestId("itemUndefined"));
         assertTrue(element.isDisplayed());
         if(!element.isSelected()){
             element.click();
         }
+        WebElement btn_Done = waitUntilDisplayed(Locator.byRole("presentation"), Locator.byId("Done"));
+        btn_Done.click();
     }
 
     @Then("the user moves to items friend list")

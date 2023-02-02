@@ -869,9 +869,16 @@ public class WhenSteps extends StepDefinitions {
         element.click();
     }
 
-    @When("the user opens action menu by aria-controls")
-    public void openActionMenuByAriaControls() {
-        WebElement button = waitUntilDisplayed(Locator.byAriaControls("detailActionMenu"));
+    @When("the user enable payment")
+    public void enablePayment() {
+        WebElement element = waitUntilDisplayed(Locator.byTestId("fieldAllowPayment"),Locator.byTagName("span"));
+        assertTrue(element.isDisplayed());
+        element.click();
+    }
+
+    @When("the user opens action menu by aria-controls {string}")
+    public void openActionMenuByAriaControls(String ariaControls) {
+        WebElement button = waitUntilDisplayed(Locator.byAriaControls(ariaControls));
         assertTrue(button.isDisplayed());
         button.click();
 
@@ -879,5 +886,13 @@ public class WhenSteps extends StepDefinitions {
         By menu = Locator.byTestId("div", "action menu");
         waitUntilDisplayed(menu);
         setMenuContext(menu);
+
+    }
+
+    @When("the user selects payments type")
+    public void selectPaymentType(){
+        WebElement element = waitUntilDisplayed(Locator.byTestId("div","fieldBasic"), Locator.byTagName("span"));
+        assertTrue(element.isDisplayed());
+        element.click();
     }
 }

@@ -52,7 +52,7 @@ Feature:  Admin process on listing app
     When the user searches with text "TestAutoListing"
     And within the content
     And the user clicks on the item title
-    When the user opens action menu by aria-controls
+    When the user opens action menu by aria-controls "detailActionMenu"
     And the user clicks on menu item "feature"
     Then the user sees successful flash message
     And the user sees flag featured
@@ -64,7 +64,7 @@ Feature:  Admin process on listing app
     When the user searches with text "TestAutoListing"
     And within the content
     And the user clicks on the item title
-    When the user opens action menu by aria-controls
+    When the user opens action menu by aria-controls "detailActionMenu"
     And the user clicks on menu item "unfeature"
     Then the user sees successful flash message
 
@@ -79,6 +79,26 @@ Feature:  Admin process on listing app
     And the user clicks on menu item "share_now"
     Then the user sees successful flash message
 
+  Scenario: Admin Invites Friends To Listing
+    Given the user logged in as "admin"
+    And the browser opened at "/marketplace"
+    And within the sidebar
+    When the user searches with text "TestAutoListing"
+    And within the content
+    And the user clicks on the item title
+    When the user opens action menu by aria-controls "itemInviteMenu"
+    And the user clicks on menu item "invite_people"
+    When the user select friend to friend list
+    Then the user sees successful flash message
+
+  Scenario: Brian Verify Invited Tab
+    Given the user logged in as "brian1"
+    And the browser opened at "/marketplace"
+    And within the sidebar
+    When the browser opened at "/marketplace/invite"
+    Given within the content
+    Then the user sees text "TestAutoListing"
+
   Scenario: Admin Edit Listing Just Add
     Given the user logged in as "admin"
     And the browser opened at "/marketplace"
@@ -86,7 +106,7 @@ Feature:  Admin process on listing app
     When the user searches with text "TestAutoListing"
     And within the content
     And the user clicks on the item title
-    When the user opens action menu by aria-controls
+    When the user opens action menu by aria-controls "detailActionMenu"
     And the user clicks on menu item "edit"
     When the user adds title with value "UpdateTestAutoListing"
     And the user submits the form
