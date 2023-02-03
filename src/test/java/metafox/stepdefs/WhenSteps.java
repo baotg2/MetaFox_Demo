@@ -895,4 +895,12 @@ public class WhenSteps extends StepDefinitions {
         assertTrue(element.isDisplayed());
         element.click();
     }
+
+    @When("the user adds saved items to collection")
+    public void testAddSavedItems() throws InterruptedException {
+        WebElement element = waitUntilDisplayed(Locator.byRole("tooltip"), Locator.byTagName("label") ,Locator.byTagName("span"));
+        assertTrue(element.isDisplayed());
+        element.click();
+        Thread.sleep(2000);
+    }
 }
