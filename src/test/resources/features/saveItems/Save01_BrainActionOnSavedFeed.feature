@@ -1,5 +1,5 @@
 @action_saveitems @brian @previewSite
-Feature: Brain Action On Saved Items
+Feature: Brain Action On Saved Feed
 
   Scenario: Brian Saved Items On Feed
     Given the user logged in as "brian1"
@@ -26,7 +26,7 @@ Feature: Brain Action On Saved Items
     When the user opens action menu by aria-controls "addToCollection"
     And the user adds saved items to collection
     Then the user sees successful flash message
-  @focus
+
   Scenario: Brain Verify Collection
     Given the user logged in as "brian1"
     And the browser opened at "/saved"
