@@ -7,10 +7,7 @@ import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
 import metafox.support.Locator;
 import metafox.support.Privacy;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -595,7 +592,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user opens action menu")
     public void theUserOpensActionMenu() {
-        WebElement button = waitUntilDisplayed(Locator.byTestId("button", "actionMenuButton"));
+        WebElement button = waitUntilDisplayed(getSectionContext(),Locator.byTestId("button", "actionMenuButton"));
         assertTrue(button.isDisplayed());
         button.click();
 
@@ -793,9 +790,10 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("the user clicks on the item title")
-    public void theUserClicksOnTheItemTitle(){
+    public void theUserClicksOnTheItemTitle() throws InterruptedException {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("itemTitle"), Locator.byTagName("a"));
         element.click();
+        Thread.sleep(2000);
     }
 
     @When("the user get media details")
@@ -899,6 +897,22 @@ public class WhenSteps extends StepDefinitions {
     @When("the user adds saved items to collection")
     public void testAddSavedItems() throws InterruptedException {
         WebElement element = waitUntilDisplayed(Locator.byRole("tooltip"), Locator.byTagName("label") ,Locator.byTagName("span"));
+        assertTrue(element.isDisplayed());
+        element.click();
+        Thread.sleep(2000);
+    }
+
+    @When("the user adds answers on question")
+    public void addAnswerOnQuestion(){
+       List<WebElement> elements = driver.findElements(By.xpath("//input[contains(@placeholder, 'Answer')]"));
+       for (int i = 0; i < elements.size(); i++){
+           elements.get(i).sendKeys(DataProvider.faker.lorem().words(4).toString());
+       }
+    }
+
+    @When("the user plays Quizzes")
+    public void playsQuizzes() throws InterruptedException {
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTagName("label") ,Locator.byTagName("span"));
         assertTrue(element.isDisplayed());
         element.click();
         Thread.sleep(2000);

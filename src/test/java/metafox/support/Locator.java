@@ -115,7 +115,7 @@ public class Locator {
     }
 
     public static By byId(String tagName, String id) {
-        return By.xpath(String.format("//%s[@id='%s']", tagName, id.trim()));
+        return By.xpath(String.format("//%s[contains(@id, '%s')]", tagName, id.trim()));
     }
 
     public static By byHref(@Nonnull String url) {
@@ -124,5 +124,9 @@ public class Locator {
 
     public static By byAriaControls(@Nonnull String ariaControlsValue){
         return By.xpath(String.format("//*[@aria-controls='%s']", ariaControlsValue));
+    }
+
+    public static By byPlaceHolder(@Nonnull String placeholderValue){
+        return By.xpath(String.format("//input[contains(@placeholder, '%s')]",placeholderValue));
     }
 }

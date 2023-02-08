@@ -4,8 +4,10 @@ import metafox.support.Locator;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 
 public class ManagedWebDriver {
     private String testName;
@@ -61,6 +63,10 @@ public class ManagedWebDriver {
             this.webDriver.get(String.format("%s/login", System.getenv("BASE_URL")));
         }
         this.webDriver.manage().window().maximize();
+        List<WebElement> elementAccept = webDriver.findElements(By.xpath("//button[text()='Accept']"));
+        if(elementAccept.size()!=0){
+            elementAccept.get(0).click();
+        }
         return this.webDriver;
     }
 }
