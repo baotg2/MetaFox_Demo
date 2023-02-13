@@ -29,7 +29,7 @@ Feature:  Brian process on quizzes is friend
     When the user searches with text "IsAutoQuiz"
     And within the content
     Then the user sees text "No quizzes are found."
-  @focus
+
   Scenario: Another User Searches Quizzes Is Friend
     Given the user logged in as "terry1"
     When the browser opened at "/quiz"

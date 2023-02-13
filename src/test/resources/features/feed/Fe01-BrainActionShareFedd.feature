@@ -70,3 +70,15 @@ Feature: Brain Action Share Feed
     When the user opens action menu
     Given within the action menu
     Then the user sees text "Pin post on homepage"
+
+  Scenario: Admin Check-in On Feed
+    Given the user logged in as "admin"
+    And the browser opened at "/"
+    Given within the status
+    And the user opens status composer
+    Given within the status composer
+    When the user checks in on feed
+    And the user clicks on "suggestion"
+    Given within the status composer
+    And the user clicks on "submit"
+    Then the user sees successful flash message

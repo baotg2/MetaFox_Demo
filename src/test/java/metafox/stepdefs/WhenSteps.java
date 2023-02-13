@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
 import metafox.support.Locator;
 import metafox.support.Privacy;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -923,6 +924,13 @@ public class WhenSteps extends StepDefinitions {
     @When("the user tags friend on feed")
     public void tagOnFeed(){
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byAriaLabel("Tag Friends"), Locator.byTagName("button"));
+        assertTrue(element.isDisplayed());
+        element.click();
+    }
+
+    @When("the user checks in on feed")
+    public void checkInOnFeed(){
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byAriaLabel("Check-in"), Locator.byTagName("button"));
         assertTrue(element.isDisplayed());
         element.click();
     }
