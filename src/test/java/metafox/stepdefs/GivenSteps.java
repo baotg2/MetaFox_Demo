@@ -156,7 +156,7 @@ public class GivenSteps extends StepDefinitions {
     }
 
     @Given("^within the (content|header|footer|footer|subside|sidebar menu|sidebar|main form|profile menu|form|main top|slot top|status composer|friend picker|form" +
-            "|basic|group picker|report|search|detail photo|detail poll|edit popup|detail videos|action menu)$")
+            "|basic|group picker|report|search|detail photo|detail poll|edit popup|detail videos|action menu|status)$")
     public void GivenWithinTheContent(@Nonnull String name) {
         withinTheContent(name);
     }

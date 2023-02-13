@@ -394,7 +394,7 @@ public class WhenSteps extends StepDefinitions {
      * @since 04-05-2022
      */
     @When("^the user selects location$")
-    public void clickOnDiv(){
+    public void clickOnDiv() {
         WebElement element = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(Locator.byRole("tooltip")));
         element.click();
     }
@@ -565,6 +565,7 @@ public class WhenSteps extends StepDefinitions {
         select_friend.sendKeys(Keys.DOWN);
         select_friend.sendKeys(Keys.ENTER);
     }
+
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -592,7 +593,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user opens action menu")
     public void theUserOpensActionMenu() {
-        WebElement button = waitUntilDisplayed(getSectionContext(),Locator.byTestId("button", "actionMenuButton"));
+        WebElement button = waitUntilDisplayed(getSectionContext(), Locator.byTestId("button", "actionMenuButton"));
         assertTrue(button.isDisplayed());
         button.click();
 
@@ -659,7 +660,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user uploads new media files")
     public void theUserUploadsNewMediaFiles() {
-        List<WebElement> button = driver.findElements(Locator.byTestId("button","buttonSubmit"));
+        List<WebElement> button = driver.findElements(Locator.byTestId("button", "buttonSubmit"));
         assertTrue(button.get(1).isDisplayed());
         button.get(1).click();
     }
@@ -684,7 +685,6 @@ public class WhenSteps extends StepDefinitions {
     }
 
 
-
     @When("the user adds title with value {string}")
     public void theUserAddsTitleWithValue(@Nonnull String text) {
         WebElement element = waitUntilDisplayed(Locator.byTestId("input", "inputTitle"));
@@ -694,12 +694,13 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("the user add on {string} with value {string}")
-    public void theUserAddValue (String elementsID, String value){
+    public void theUserAddValue(String elementsID, String value) {
         WebElement element = waitUntilDisplayed(Locator.byTestId(elementsID));
         assertTrue(element.isDisplayed());
         element.clear();
         element.sendKeys(value);
     }
+
     @When("the user fills URL Videos")
     public void theUserFillsURLVideos() throws InterruptedException {
         WebElement element = waitUntilDisplayed(Locator.byTestId("input", "inputVideoUrl"));
@@ -708,8 +709,9 @@ public class WhenSteps extends StepDefinitions {
         element.sendKeys("https://www.youtube.com/watch?v=cA_cONblHyM");
         Thread.sleep(5000);
     }
+
     @When("the user adds on {string}")
-    public void addOn(String id){
+    public void addOn(String id) {
         WebElement element = waitUntilDisplayed(Locator.byId("input", id));
         assertTrue(element.isDisplayed());
         element.clear();
@@ -722,9 +724,9 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("^the user fills (firstName|lastName|fullName|userName)$")
-    public void fillNames(String name){
+    public void fillNames(String name) {
         WebElement element;
-        switch (name){
+        switch (name) {
             case "firstName":
                 element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("inputFirstName"));
                 element.clear();
@@ -743,7 +745,7 @@ public class WhenSteps extends StepDefinitions {
             case "userName":
                 element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("inputUserName"));
                 element.clear();
-                element.sendKeys(DataProvider.faker.name().firstName().replace(" ",""));
+                element.sendKeys(DataProvider.faker.name().firstName().replace(" ", ""));
                 break;
         }
 
@@ -775,8 +777,8 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("the user {string}")
-    public void theUserAction(String actionName){
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byText("button",actionName));
+    public void theUserAction(String actionName) {
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byText("button", actionName));
         assertTrue(element.isDisplayed());
         //click on
         element.click();
@@ -797,23 +799,23 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("the user get media details")
-    public void theUserClicksOnTheItemMedia(){
+    public void theUserClicksOnTheItemMedia() {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("itemPhoto"), Locator.byHref("/photo"));
         driver.get(element.getAttribute("href"));
     }
 
     @When("the user modified items")
-    public void theUserActionOnOption(){
+    public void theUserActionOnOption() {
         WebElement element = waitUntilDisplayed(Locator.byRole("tooltip"), Locator.byRole("menuitem"));
         element.click();
     }
-    @When( "^the user add comment \"([^\"]*)\" on items$" )
-    public void addComment( String comment ) throws InterruptedException {
+
+    @When("^the user add comment \"([^\"]*)\" on items$")
+    public void addComment(String comment) throws InterruptedException {
         isComponentVisible.waitElement(By.xpath("//div[@role ='combobox']"));
-        if(components.componentListDivDataTestID("fieldStatus").size()!=0){
+        if (components.componentListDivDataTestID("fieldStatus").size() != 0) {
             driver.findElement(By.xpath("//div[@data-testid='fieldStatus']//div[@role ='combobox']")).sendKeys(comment);
-        }
-        else{
+        } else {
             components.componentDivRole("combobox").sendKeys(comment);
             components.componentDivRole("combobox").sendKeys(Keys.ENTER);
         }
@@ -845,7 +847,7 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("the user marks as read announcements")
-    public void markAsReadAnnouncements(){
+    public void markAsReadAnnouncements() {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId("Mark as read"));
         assertTrue(element.isDisplayed());
         element.click();
@@ -854,14 +856,14 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("the user moves to tab {string}")
-    public void theUserMovesToTab(String tab){
+    public void theUserMovesToTab(String tab) {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byId(tab));
         assertTrue(element.isDisplayed());
         element.click();
     }
 
     @When("the user actions on setting {string}")
-    public void theUserActionOnSetting(String setting){
+    public void theUserActionOnSetting(String setting) {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byName(setting));
         assertTrue(element.isDisplayed());
         element.click();
@@ -869,7 +871,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user enable payment")
     public void enablePayment() {
-        WebElement element = waitUntilDisplayed(Locator.byTestId("fieldAllowPayment"),Locator.byTagName("span"));
+        WebElement element = waitUntilDisplayed(Locator.byTestId("fieldAllowPayment"), Locator.byTagName("span"));
         assertTrue(element.isDisplayed());
         element.click();
     }
@@ -888,33 +890,40 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("the user selects payments type")
-    public void selectPaymentType(){
-        WebElement element = waitUntilDisplayed(Locator.byTestId("div","fieldBasic"), Locator.byTagName("span"));
+    public void selectPaymentType() {
+        WebElement element = waitUntilDisplayed(Locator.byTestId("div", "fieldBasic"), Locator.byTagName("span"));
         assertTrue(element.isDisplayed());
         element.click();
     }
 
     @When("the user adds saved items to collection")
     public void testAddSavedItems() throws InterruptedException {
-        WebElement element = waitUntilDisplayed(Locator.byRole("tooltip"), Locator.byTagName("label") ,Locator.byTagName("span"));
+        WebElement element = waitUntilDisplayed(Locator.byRole("tooltip"), Locator.byTagName("label"), Locator.byTagName("span"));
         assertTrue(element.isDisplayed());
         element.click();
         Thread.sleep(2000);
     }
 
     @When("the user adds answers on question")
-    public void addAnswerOnQuestion(){
-       List<WebElement> elements = driver.findElements(By.xpath("//input[contains(@placeholder, 'Answer')]"));
-       for (int i = 0; i < elements.size(); i++){
-           elements.get(i).sendKeys(DataProvider.faker.lorem().words(4).toString());
-       }
+    public void addAnswerOnQuestion() {
+        List<WebElement> elements = driver.findElements(By.xpath("//input[contains(@placeholder, 'Answer')]"));
+        for (int i = 0; i < elements.size(); i++) {
+            elements.get(i).sendKeys(DataProvider.faker.lorem().words(4).toString());
+        }
     }
 
     @When("the user plays Quizzes")
     public void playsQuizzes() throws InterruptedException {
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTagName("label") ,Locator.byTagName("span"));
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTagName("label"), Locator.byTagName("span"));
         assertTrue(element.isDisplayed());
         element.click();
         Thread.sleep(2000);
+    }
+
+    @When("the user tags friend on feed")
+    public void tagOnFeed(){
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byAriaLabel("Tag Friends"), Locator.byTagName("button"));
+        assertTrue(element.isDisplayed());
+        element.click();
     }
 }
