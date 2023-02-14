@@ -18,7 +18,7 @@ Feature: Config Settings On ACP Blogs
     When the user adds title with value "a"
     And the user clicks on button "buttonSubmit"
     Then the user sees text "Title must contain at least 5 characters."
-
+  @focus
   Scenario: Admin Verify Default Category
     Given the user logged in as "admin"
     And the browser opened at "/admincp/blog/setting"

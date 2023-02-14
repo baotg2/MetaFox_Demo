@@ -760,12 +760,13 @@ public class ThenSteps extends StepDefinitions {
     @Then("the user gets default categories from ACP")
     public void getDefaultCategories() throws InterruptedException {
         String categories;
-        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("inputBlogBlogDefaultCategory"));
+        WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byTestId("input","inputBlogBlogDefaultCategory"));
         assertTrue(element.isDisplayed());
-        categories = Locator.byTestId("inputBlogBlogDefaultCategory").toString();
+        categories = element.getAttribute("value");
+        System.out.println(categories);
         GivenSteps givenSteps = new GivenSteps();
         givenSteps.the_browser_opened_at("/blog/add");
-        WebElement categoriesElement = waitUntilDisplayed(Locator.byId(categories));
+        WebElement categoriesElement = waitUntilDisplayed(Locator.byText("span",categories));
         assertTrue(categoriesElement.isDisplayed());
     }
 }
