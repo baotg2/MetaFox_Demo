@@ -4,11 +4,9 @@ Feature: Config Settings On ACP Forums
   Scenario: Admin Config Forums OnACP
     Given the user logged in as "admin"
     When the browser opened at "/admincp/forum/setting"
-    And the user want to scroll to the end of page
     And within the content
-    When the user want to scroll to the end of page
-    And the user clicks on input field "forum.minimum_name_length" with value "5"
-    And the user clicks on input field "forum.maximum_name_length" with value "255"
+    When the user add on "inputForumMinimumNameLength" with value "5"
+    And the user add on "inputForumMaximumNameLength" with value "255"
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
 

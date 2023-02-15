@@ -260,10 +260,9 @@ public class ThenSteps extends StepDefinitions {
         //verifyCommentAdded(text);
     }
 
-    private void verifyCommentAdded(@Nonnull String text) {
-        By section = getSectionContext();
-        WebElement commentBox = waitUntilDisplayed(section, Locator.byTestId("comment"), Locator.byText("p", text));
-
+    @Then("the user sees text {string} on popup")
+    public void verifyCommentAdded(@Nonnull String text) {
+        WebElement commentBox = waitUntilDisplayed(Locator.byTestId("popupAlert"), Locator.byRole("presentation"), Locator.byId(text));
         assertTrue(commentBox.isDisplayed());
     }
 

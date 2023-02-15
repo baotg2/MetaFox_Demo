@@ -480,8 +480,9 @@ public class WhenSteps extends StepDefinitions {
      */
     @When("^the user want to scroll to the up of page")
     public void toScrollToUpOfPage() throws InterruptedException {
+        Thread.sleep(1000);
         scrollUpPage();
-        Thread.sleep(250);
+        Thread.sleep(1000);
     }
 
     /**

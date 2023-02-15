@@ -5,8 +5,8 @@ Feature: Config Settings On ACP Groups
     Given the user logged in as "admin"
     And the browser opened at "/admincp/group/setting"
     And within the content
-    When the user clicks on input field "group.minimum_name_length" with value "5"
-    And the user clicks on input field "group.maximum_name_length" with value "255"
+    When the user add on "inputGroupMinimumNameLength" with value "5"
+    And the user add on "inputGroupMaximumNameLength" with value "255"
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
 

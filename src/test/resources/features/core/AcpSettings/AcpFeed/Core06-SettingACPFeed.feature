@@ -17,11 +17,18 @@ Feature: Config Settings On ACP Feed
   Scenario: Brain Verify Settings Feed On ACP
     Given the user logged in as "brian1"
     And the browser opened at "/"
-    When the user "whatsHappening" this item
+    Given within the status
+    And the user opens status composer
     And within the status composer
     And the user add comment "<autoPost>" on items
     And the user clicks on button "submit"
-    When the user "whatsHappening" this item
+
+  Scenario: Brian Add Another Status On Feed
+    Given the user logged in as "brian1"
+    And the browser opened at "/"
+    Given within the status
+    And the user opens status composer
+    And within the status composer
     And the user add comment "<autoPost>" on items
     And the user clicks on button "submit"
-    Then the user sees text "You have already added this recently. Try adding something else."
+    Then the user sees text "You have already added this recently. Try adding something else." on popup
