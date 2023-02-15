@@ -10,7 +10,7 @@ Feature: Config Settings On ACP Poll
     And the user clicks on input field "poll.maximum_name_length" with value "255"
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
-  @focus
+
   Scenario: Brian Verify Settings Poll On ACP
     Given the user logged in as "brian1"
     And the browser opened at "/poll/add"
