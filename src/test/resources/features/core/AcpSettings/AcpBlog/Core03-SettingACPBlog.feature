@@ -72,5 +72,10 @@ Feature: Config Settings On ACP Blogs
     When the user actions on setting "blog.delete"
     And the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
-
+  @focus
+  Scenario: Admin Add New Category
+    Given the user logged in as "admin"
+    And the browser opened at "/admincp/blog/category/create"
+    And within the content
+    When the user add on "inputName" with value "IsTestAutoCategories"
 

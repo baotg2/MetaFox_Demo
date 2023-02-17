@@ -1,4 +1,4 @@
-@app_core @sharingItem @brian @previewSite @focus
+@app_core @sharingItem @brian @previewSite
 Feature: Brain Process On Sharing Items Friends of Friends
 
 #  Scenario:Brain Verify Privacy Feed Default Privacy Is Friends of Friends
