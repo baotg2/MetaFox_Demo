@@ -3,7 +3,7 @@ Feature: Brain Action On Saved Feed
 
   Scenario: Brian Saved Items On Feed
     Given the user logged in as "brian1"
-    And the browser opened at "/"
+    And the browser opened at "/brian1"
     And within the content
     When the user opens action menu
     And the user clicks on menu item "save"
