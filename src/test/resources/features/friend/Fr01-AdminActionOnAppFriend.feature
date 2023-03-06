@@ -16,13 +16,11 @@ Feature: Brain Action On Friend App
   Scenario: Admin add new friend to friend list from listing
     Given the user logged in as "admin"
     And the browser opened at "/friend"
-    And within the sidebar
-    And the user moves to items friend list
-    When the user opens action menu
-    And the user clicks on menu item "add"
-    Given within the edit popup
-    And the user opens the friend list
-    And the user submits the form
+    And within the content
+    When the user opens the friend list
+    And the user clicks on menu item "edit_list"
+    And the user selects friend list
+    When the user confirms dialog
     Then the user sees successful flash message
 
   Scenario: Admin add new friend to friend list from content

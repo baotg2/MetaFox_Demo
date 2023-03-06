@@ -553,19 +553,17 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("the user opens the friend list")
-    public void clickOnButton() throws InterruptedException {
+    public void clickOnButton() {
+        WebElement selectFriendList = waitUntilDisplayed(getSectionContext(), Locator.byClass("div", "ltr-jgq7b5"), Locator.byTestId("button", "actionMenuButton"));
+        assertTrue(selectFriendList.isDisplayed());
+        selectFriendList.click();
+    }
 
-        WebElement button = waitUntilDisplayed(Locator.byTitle("button", "Open"));
-
-        assertTrue(button.isDisplayed());
-        button.click();
-
-        waitUntilDisplayed(Locator.byRole("presentation"));
-        WebElement select_friend = waitUntilDisplayed(Locator.byRole("presentation"));
-        Thread.sleep(3000);
-        select_friend.sendKeys(Keys.DOWN);
-        select_friend.sendKeys(Keys.DOWN);
-        select_friend.sendKeys(Keys.ENTER);
+    @When("the user selects friend list")
+    public void selectFriendList() {
+        WebElement selectFriendList = waitUntilDisplayed(Locator.byRole("dialog"), Locator.byTagName("div"), Locator.byTagName("span"), Locator.byTagName("input"));
+        assertTrue(selectFriendList.isDisplayed());
+        selectFriendList.click();
     }
 
     /**
@@ -923,15 +921,22 @@ public class WhenSteps extends StepDefinitions {
     }
 
     @When("the user tags friend on feed")
-    public void tagOnFeed(){
+    public void tagOnFeed() {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byAriaLabel("Tag Friends"), Locator.byTagName("button"));
         assertTrue(element.isDisplayed());
         element.click();
     }
 
     @When("the user checks in on feed")
-    public void checkInOnFeed(){
+    public void checkInOnFeed() {
         WebElement element = waitUntilDisplayed(getSectionContext(), Locator.byAriaLabel("Check-in"), Locator.byTagName("button"));
+        assertTrue(element.isDisplayed());
+        element.click();
+    }
+
+    @When("the user confirms dialog")
+    public void confirmDialog() {
+        WebElement element = waitUntilDisplayed(Locator.byRole("dialog"), Locator.byId("button","Save Changes"));
         assertTrue(element.isDisplayed());
         element.click();
     }

@@ -768,4 +768,10 @@ public class ThenSteps extends StepDefinitions {
         WebElement categoriesElement = waitUntilDisplayed(Locator.byText("span",categories));
         assertTrue(categoriesElement.isDisplayed());
     }
+
+    @Then("^the user sees \"([^\"]*)\" on screen$")
+    public void accessNewPage(String url) {
+        WebElement link = waitUntilDisplayed(Locator.byHref(url));
+        assertTrue(link.isDisplayed());
+    }
 }
