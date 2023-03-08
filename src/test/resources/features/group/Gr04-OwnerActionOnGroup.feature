@@ -28,7 +28,7 @@ Feature:  Owner Action On Public Groups
     And the user want to refresh page before handle the action
     Then the user sees text "updated the group cover photo"
 
-  Scenario: OwnersAddBlogOnGroup
+  Scenario: Admin Add Blog On Group
     Given the user logged in as "admin"
     And the browser opened at "/group"
     And within the sidebar
@@ -46,3 +46,61 @@ Feature:  Owner Action On Public Groups
     And the user clicks on button "buttonSubmit"
     And the user sees successful flash message
     Then the user verify title of blog is displayed
+
+  Scenario: Admin Add Poll On Groups
+    Given the user logged in as "admin"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsTestAutoGroup"
+    Given within the content
+    And the user clicks on the item title
+    And within the content
+    When the user adds poll on feed
+    And within the basic
+    When the user add on "inputPollQuestion" with value "IsThisAutoPoll"
+    And the user add value "Yes" on element "1"
+    And the user add value "No" on element "2"
+    And the user want to "Done"
+    Given within the status composer
+    And the user clicks on button "submit"
+    Given within the content
+    Then the user sees text "added a poll"
+    Then the user sees text "IsThisAutoPoll"
+
+  Scenario: Owner Verify Poll On Group
+    Given the user logged in as "brian1"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsTestAutoGroup"
+    Given within the content
+    And the user clicks on the item title
+    Given the user navigates to "/poll"
+    Then the user sees text "IsThisAutoPoll"
+
+  Scenario: Admin Add Event Online On Group
+    Given the user logged in as "admin"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsTestAutoGroup"
+    Given within the content
+    And the user clicks on the item title
+    Given the user navigates to "/event"
+    When the user clicks on link "/event/add"
+    And within the content
+    When the user add on "inputName" with value "Dreamworld Venues"
+    And the user types a sentence in "inputText"
+    And the user turn off setting "inputIsOnline"
+    When the user add on "inputEventUrl" with value "https://zoom.us/"
+    And the user clicks on button "buttonSubmit"
+    Then the user sees successful flash message
+    And the user sees page url matches "/event/\d+"
+
+  Scenario: Owner Verify Poll On Group
+    Given the user logged in as "brian1"
+    And the browser opened at "/group"
+    And within the sidebar
+    And the user searches with text "IsTestAutoGroup"
+    Given within the content
+    And the user clicks on the item title
+    Given the user navigates to "/event"
+    Then the user sees text "Dreamworld Venues"

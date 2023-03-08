@@ -141,7 +141,7 @@ public class ThenSteps extends StepDefinitions {
     @Then("the user want upload {int} photo")
     public void addPhoto(int numberOfImage) {
         isComponentVisible.waitElement(By.xpath("//input[@type='file']"));
-
+        waitUntilDisplayed(Locator.byType("file"));
         if (!Utility.isLocal(driver)) {
             WebElement upload = components.componentInputType("file");
             ((RemoteWebElement) upload).setFileDetector(new LocalFileDetector());

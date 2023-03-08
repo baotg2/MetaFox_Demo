@@ -701,6 +701,16 @@ public class WhenSteps extends StepDefinitions {
         element.sendKeys(value);
     }
 
+    @Override
+    public void scrollToEndPage() {
+        super.scrollToEndPage();
+    }
+
+    @Override
+    public void isBackToHomePage() {
+        super.isBackToHomePage();
+    }
+
     @When("the user fills URL Videos")
     public void theUserFillsURLVideos() throws InterruptedException {
         WebElement element = waitUntilDisplayed(Locator.byTestId("input", "inputVideoUrl"));

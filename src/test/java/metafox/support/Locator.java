@@ -82,6 +82,10 @@ public class Locator {
         return By.xpath(String.format("//*[@type='%s']", type));
     }
 
+    public static By byType(String tagName, String type) {
+        return By.xpath(String.format("//%s[@type='%s']", tagName, type));
+    }
+
     public static By byName(String name) {
         return By.xpath(String.format("//*[@name='%s']", name));
     }

@@ -199,7 +199,7 @@ Feature:  Brain Process On Public Events
     Then the user sees successful flash message
     And the user back to "linkLogo" page
     Then the user sees text "shared a post to newsfeed "
-    Then the user sees h4 "IsOfflineEvents"
+    Then the user sees text "IsOfflineEvents"
 
   Scenario: Brian Share On Feed Events
     Given the user logged in as "brian1"
@@ -215,7 +215,7 @@ Feature:  Brain Process On Public Events
     Then the user sees successful flash message
     And the user back to "linkLogo" page
     Then the user sees text "shared a post to newsfeed "
-    Then the user sees h4 "IsOfflineEvents"
+    Then the user sees text "IsOfflineEvents"
 
   Scenario: Brian Share On Events On Friend Profile
     Given the user logged in as "brian1"
@@ -231,4 +231,4 @@ Feature:  Brain Process On Public Events
     And the user clicks on button "submit"
     And the user back to "linkLogo" page
     And the user want to refresh page before handle the action
-    Then the user sees h4 "IsOfflineEvents"
+    Then the user sees text "IsOfflineEvents"
