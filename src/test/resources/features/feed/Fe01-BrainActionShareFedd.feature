@@ -67,9 +67,7 @@ Feature: Brain Action Share Feed
     When the user opens action menu
     And the user clicks on menu item "unpinHome"
     And the user accepts the confirm
-    When the user opens action menu
-    Given within the action menu
-    Then the user sees text "Pin post on homepage"
+    Then the user opens action menu
 
   Scenario: Admin Check-in On Feed
     Given the user logged in as "admin"

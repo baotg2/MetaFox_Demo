@@ -39,6 +39,7 @@ Feature:  Brian process on Forum
     Given within the content
     And the user clicks on the item title
     Then the user sees text "IsThreadAutotest"
+    And the user want to refresh page before handle the action
     And the user adds description
     And the user attaches a photo
     When the user clicks on button "buttonSubmit"
