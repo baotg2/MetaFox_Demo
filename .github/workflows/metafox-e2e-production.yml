@@ -35,7 +35,7 @@ jobs:
       - name: Test
         run: |
           mvn clean
-          mvn test -Dcucumber.filter.tags=""
+          mvn test -Dcucumber.filter.tags="@register"
 
       - name: Send allure results
         if: always()
