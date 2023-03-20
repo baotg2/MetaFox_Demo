@@ -95,7 +95,7 @@ Feature:  Owner Action On Public Groups
     Then the user sees successful flash message
     And the user sees page url matches "/event/\d+"
 
-  Scenario: Owner Verify Poll On Group
+  Scenario: Owner Verify Event On Group
     Given the user logged in as "brian1"
     And the browser opened at "/group"
     And within the sidebar

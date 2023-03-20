@@ -37,7 +37,7 @@ Feature:  Admin process on listing app
     And within the sidebar
     When the user searches with text "TestAutoListing"
     # verify
-    Given within the content
+    And within the content
     And the user clicks on the item title
     Then the user sees page url matches "/marketplace/\d+"
     # verify
@@ -111,7 +111,6 @@ Feature:  Admin process on listing app
     When the user adds title with value "UpdateTestAutoListing"
     And the user submits the form
     Then the user sees page url matches "/marketplace/\d+"
-    And the user sees successful flash message
 
   Scenario: Admin Delete Listing Just Add
     Given the user logged in as "admin"

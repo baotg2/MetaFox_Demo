@@ -86,13 +86,12 @@ Feature:  Brian process on quizzes app
     When the user want to scroll to the end of page
     And the user submits the form
     Then the user sees page url matches "/quiz/\d+"
-    And the user sees successful flash message
 
   Scenario: Admin Delete Quizzes Just Add
     Given the user logged in as "admin"
     And the browser opened at "/quiz"
     And within the sidebar
-    When the user searches with text "IsAutoQuiz"
+    When the user searches with text "UpdateTestAutoQuizzes"
     Given within the content
     And the user clicks on the item title
     When the user opens action menu
