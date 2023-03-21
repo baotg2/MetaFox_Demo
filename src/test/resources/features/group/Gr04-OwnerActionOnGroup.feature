@@ -102,5 +102,5 @@ Feature:  Owner Action On Public Groups
     And the user searches with text "IsTestAutoGroup"
     Given within the content
     And the user clicks on the item title
-    Given the user navigates to "/event"
+    Given the user navigates to "/event?stab=ongoing"
     Then the user sees text "Dreamworld Venues"

@@ -1,7 +1,7 @@
 @app_page @brian @previewSite
 Feature: Brian process on page app
 
-  Scenario: AdminSeePendingPhoto
+  Scenario: Admin Add Page With Empty Value
     Given the user logged in as "admin"
     And the browser opened at "/page/add"
     And within the content

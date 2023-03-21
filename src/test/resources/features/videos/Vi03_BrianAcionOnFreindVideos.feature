@@ -19,7 +19,7 @@ Feature: Brian process on video friend
     And within the content
     And the user clicks on the item title
     Then within the detail videos
-  @focus
+
   Scenario: Another User Searches Videos Is Not Friend
     Given the user logged in as "krixi1"
     When the browser opened at "/video"
@@ -27,3 +27,4 @@ Feature: Brian process on video friend
     When the user searches with text "IsAutoUploadVideos"
     And within the content
     Then the user sees text "No videos are found."
+

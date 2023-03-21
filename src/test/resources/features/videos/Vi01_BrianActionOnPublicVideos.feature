@@ -16,7 +16,6 @@ Feature: Brian process on video app
     And within the content
     When the user uploads the video
     When the user adds title with value "IsAutoUploadVideos"
-    And the user types a sentence in "inputText"
     And the user clicks on button "buttonSubmit"
     And the user sees successful flash message
 
@@ -84,3 +83,13 @@ Feature: Brian process on video app
     And the user want upload 1 photo
     When the user submits the form
     Then the user sees successful flash message
+
+  Scenario: Brian Delete Videos
+    Given the user logged in as "brian1"
+    And the browser opened at "/video"
+    And within the sidebar
+    When the user searches with text "IsAutoUploadVideos"
+    And within the content
+    And the user opens action menu
+    When the user clicks on menu item "delete"
+    Then the user accepts the confirm
