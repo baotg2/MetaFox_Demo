@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import javax.annotation.Nonnull;
 import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Iterator;

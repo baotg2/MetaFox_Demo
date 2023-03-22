@@ -256,26 +256,6 @@ public class WhenSteps extends StepDefinitions {
         }
     }
 
-//    /**
-//     * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @throws InterruptedException is thrown when interruptedException
-//     * @purpose select first item form tag list
-//     * @Author baotg2
-//     * --------------------------------------------------------------------------------------------------------------------------------------------------------------
-//     * @since 06-15-2022
-//     */
-//    @When("^the user tag first friend on list tag$")
-//    public void tagFirstFriendOnList() throws InterruptedException {
-//        Thread.sleep(6000);
-//        if (components.componentsListH5DataTestID("itemTitle").isDisplayed()) {
-//            components.componentsListH5DataTestID("itemTitle").click();
-//            components.componentsListH5DataTestID("itemTitle").click();
-//        } else {
-//            components.componentsDivMsg("No people found").isDisplayed();
-//        }
-//    }
-
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -435,24 +415,6 @@ public class WhenSteps extends StepDefinitions {
         isComponentVisible.waitElement(By.xpath("//a[text()='" + linkText + "']"));
         components.componentTextLink(linkText).click();
     }
-
-//    /**
-//     * -----------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param titleText is value want to verify
-//     * @purpose verify items displayed enough on profile
-//     * @Author baotg2
-//     * -----------------------------------------------------------------------------------------------------------------------------------------
-//     * @since 27-07-2022
-//     */
-//    @When("^the user verify items \"([^\"]*)\" displayed on \"([^\"]*)\"$")
-//    public void countItemsDisplayedSuccessfully(String titleText, String items) {
-//        isComponentVisible.waitElement(By.xpath("//h4[@data-testid='\"+dataTestID+\"']/a"));
-//        int size = components.componentListH4DataTestID(titleText).size();
-//        components.componentSpanDataTestID("userAvatar").click();
-//        components.componentsListElementByID(items).get(1).click();
-//        assertEquals(components.componentListH4DataTestID(titleText).size(), size);
-//    }
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

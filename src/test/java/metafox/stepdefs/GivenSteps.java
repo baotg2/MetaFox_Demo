@@ -1,8 +1,6 @@
 package metafox.stepdefs;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
 import io.qameta.allure.Allure;
 import metafox.pageobjects.Components;
 import metafox.support.DataProvider;

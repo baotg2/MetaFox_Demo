@@ -31,7 +31,6 @@ public class AndSteps extends StepDefinitions {
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
-     *
      * @param itemName is menu's name
      * @Author baotg2
      * @purpose: Return latest image's id before upload
@@ -150,7 +149,6 @@ public class AndSteps extends StepDefinitions {
         Thread.sleep(2000);
         components.componentsListDivMsg(buttonName).get(1).click();
     }
-//*[@id="root"]/div[3]/div/div/div/div/div/div[3]/div[1]/div[2]/div/div/button[3]
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -317,26 +315,6 @@ public class AndSteps extends StepDefinitions {
         }
     }
 
-//    /**
-//     * -----------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param fieldName is value of field input
-//     * @purpose handle input value
-//     * @Author baotg2
-//     * -----------------------------------------------------------------------------------------------------------------------------------------
-//     * @since 04-05-2022
-//     */
-//    @And("the user add value on div \"([^\"]*)\"$")
-//    public void inputValueOnDiv(String fieldName) throws InterruptedException {
-//        Thread.sleep(2000);
-//        components.componentDivRole(fieldName).sendKeys(DataProvider.readConstants("Description"));
-//    }
-//
-//    @And("^the user add description on items \"([^\"]*)\"$")
-//    public void inputValueOnDivNonTearDown(@Nonnull String itemName) throws Exception {
-//        components.componentDivRole("textbox").sendKeys(DataProvider.faker.lorem().paragraph());
-//    }
-
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -424,42 +402,6 @@ public class AndSteps extends StepDefinitions {
         components.componentDivDataTestID(action).click();
     }
 
-//    /**
-//     * ------------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param divID is data-testid of div
-//     * @param value is value input
-//     * @purpose input value on divID
-//     * @Author baotg2
-//     * -----------------------------------------------------------------------------------------------------------------------------------------
-//     * @since 07-06-2022
-//     */
-//    @And("^the user want to input value \"([^\"]*)\" on div \"([^\"]*)\"")
-//    public void inputOnDiv(String value, String divID) {
-//        isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + divID + "']"));
-//        driver.findElements(By.xpath("//div[contains(text(),'happening')]")).get(1).sendKeys(value);
-//    }
-
-//    /**
-//     * ------------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param status  is status of message want to verify
-//     * @param msgText content of mesage
-//     * @purpose verify message display, if not > noResultFound is displayed
-//     * -----------------------------------------------------------------------------------------------------------------------------------------
-//     * @since 04-05-2022
-//     */
-//    @And("^the user (see|not see) \"([^\"]*)\" on result table$")
-//    public void isSeeMsgText(String status, String msgText) {
-//        if (status.equals("see")) {
-//            isComponentVisible.waitElement(By.xpath("//div[@data-testid='noResultFound']"));
-//            assertEquals(components.componentDivDataTestID("noResultFound").getText(), msgText);
-//        } else {
-//            isComponentVisible.waitElement(By.xpath("//div[@data-testid='itemText']"));
-//            assertTrue(components.componentDivDataTestID("itemText").isDisplayed());
-//        }
-//    }
-
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -484,22 +426,6 @@ public class AndSteps extends StepDefinitions {
         isComponentVisible.waitElement(By.xpath("//div[@data-testid='" + itemName + "']"));
         components.componentDivDataTestID(itemName).click();
     }
-
-//    /**
-//     * -----------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param idPassWord    is id of passWordField
-//     * @param passWordInput value of PassWord
-//     * @purpose find field password and input value on Sign Up form
-//     * -----------------------------------------------------------------------------------------------------------------------------------------
-//     * @since 04-05-2022
-//     */
-//    @And("the user input info password sign up {string} with value {string}")
-//    public void theUserInputInfoPasswordSignUpWithValue(String idPassWord, String passWordInput) {
-//        components.componentInputID(idPassWord).clear();
-//        components.componentInputID(idPassWord).sendKeys(passWordInput);
-//        components.componentInputID(idPassWord).sendKeys(Keys.ENTER);
-//    }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -601,5 +527,4 @@ public class AndSteps extends StepDefinitions {
         isComponentVisible.waitElement(By.xpath("//li[@data-testid='" + commentType + "']"));
         components.componentLi(commentType).click();
     }
-
 }

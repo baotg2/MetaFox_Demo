@@ -94,20 +94,6 @@ public class ThenSteps extends StepDefinitions {
         WebElement btnText = waitUntilDisplayed(getSectionContext(), Locator.byText("button", buttonText));
         assertTrue(btnText.isDisplayed());
     }
-//    /**
-//     * ------------------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param fieldName is action name want to handle
-//     * @purpose click on button has name is fieldName and handle
-//     * @Author baotg2
-//     * ------------------------------------------------------------------------------------------------------------------------------------------------
-//     * @since 04-05-2022
-//     */
-    //@Then("^the user want to edit \"([^\"]*)\"$")
-//    public void editInfoAccount(String fieldName) {
-//        isComponentVisible.waitElement(By.xpath("//div[@data-testid = '" + fieldName + "']//button[2]"));
-//        components.componentDivButton(fieldName).get(0).click();
-//    }
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -193,27 +179,6 @@ public class ThenSteps extends StepDefinitions {
             components.componentInputName(fieldName).sendKeys(value);
         }
     }
-
-//    /**
-//     * ------------------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param module menu's name on side menu
-//     * @throws IOException occurs when an IO operation fails
-//     * @purpose access side menu
-//     * @Author baotg2
-//     * ------------------------------------------------------------------------------------------------------------------------------------------------
-//     */
-//    @Then("^I want to access \"([^\"]*)\"$")
-//    public void iWantToAccessMenu(String module) throws IOException {
-//        dataExecutor.setExcelFile("pages");
-//        for (int i = 1; i <= dataExecutor.getRowCountInSheet(); i++) {
-//            if (dataExecutor.getCellData(i, 2).toLowerCase().equals(module)) {
-//                components.componentLinkText(module).click();
-//                assertTrue(components.componentLinkText(dataExecutor.getCellData(i, 3)).isDisplayed());
-//                isBackToHomePage();
-//            }
-//        }
-//    }
 
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -312,22 +277,6 @@ public class ThenSteps extends StepDefinitions {
         components.componentDivDataTestID("itemTitle").getText().contains(DataProvider.readConstants("BlogName"));
     }
 
-
-//    /**
-//     * ------------------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param formValue id of form
-//     * @purpose verify form is displayed. Like report form, add form, etc
-//     * @Author baotg2
-//     * ------------------------------------------------------------------------------------------------------------------------------------------------
-//     * @since 04-05-2022
-//     */
-//    @Then("^the user see main form \"([^\"]*)\"$")
-//    public void seeMainForm(String formValue) {
-//        isComponentVisible.waitElement(By.xpath("//form[@data-testid ='form']"));
-//        assertTrue(components.componentMainFormDataTestID(formValue).isDisplayed());
-//    }
-
     /**
      * ------------------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -344,36 +293,6 @@ public class ThenSteps extends StepDefinitions {
         settingElements.click();
     }
 
-//    /**
-//     * -----------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param statusContent is content of status
-//     * @purpose verify status after post
-//     * @Author baotg2
-//     * -----------------------------------------------------------------------------------------------------------------------------------------
-//     * @since 04-05-2022
-//     */
-//    @Then("^the user see \"([^\"]*)\"$")
-//    public void isStatusVisible(String statusContent) {
-//        isComponentVisible.waitElement(By.xpath("//p[text() = '" + statusContent + "']"));
-//        assertTrue(components.componentPText(statusContent).isDisplayed());
-//    }
-
-//    /**
-//     * ------------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param text is tab's name
-//     * @purpose verify elements h3 is displayed
-//     * @Author baotg2
-//     * -------------------------------------------------------------------------------------------------------------------------------------------
-//     * @since 04-05-2022
-//     */
-//    @Then("^the user see  tab \"([^\"]*)\"$")
-//    public void isTabDisplayedSuccess(String text) {
-//        isComponentVisible.waitElement(By.xpath("//h3[text()='" + text + "']"));
-//        assertEquals(components.componentH3ItemTitle(text).getText(), text);
-//    }
-
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
      *
@@ -389,20 +308,6 @@ public class ThenSteps extends StepDefinitions {
         components.componentsTagButton(ariaLabel).click();
     }
 
-//    /**
-//     * -----------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param ariaLabel is value ariaLabel of button
-//     * @purpose is check button enabled_by_default
-//     * @Author baotg2
-//     * -----------------------------------------------------------------------------------------------------------------------------------------
-//     * @since 04-05-2022
-//     */
-//    @Then("^the user see button \"([^\"]*)\" is default")
-//    public void isButtonEnabled(String ariaLabel) {
-//        isComponentVisible.waitElement(By.xpath("//button[@aria-label ='" + ariaLabel + "']"));
-//        assertTrue(components.componentsTagButton(ariaLabel).isEnabled());
-//    }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
@@ -418,21 +323,6 @@ public class ThenSteps extends StepDefinitions {
         isComponentVisible.waitElement(By.xpath("//button[@aria-label ='" + ariaLabel + "']"));
         components.componentsListTagButton(ariaLabel).get(1).click();
     }
-
-//    /**
-//     * ------------------------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param title is title content
-//     * @purpose click on the title content of items on search results page
-//     * @Author baotg2
-//     * ------------------------------------------------------------------------------------------------------------------------------------------------
-//     * @since 04-05-2022
-//     */
-//    @Then("^the user see title \"([^\"]*)\" with value \"([^\"]*)\"")
-//    public void isTitleDisplayed(String title, String titleContent) {
-//        isComponentVisible.waitElement(By.xpath("//h4[@data-testid='" + title + "']"));
-//        assertEquals(components.componentH4DataTestID(title).getText(), titleContent);
-//    }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------
@@ -482,22 +372,6 @@ public class ThenSteps extends StepDefinitions {
             new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.urlMatches(url));
         }
     }
-
-//    /**
-//     * -----------------------------------------------------------------------------------------------------------------------------------
-//     *
-//     * @param postTitle the title of post on feed
-//     * @return true if the feed has post title displayed on screen
-//     * @Author baotg2
-//     * -----------------------------------------------------------------------------------------------------------------------------------
-//     * @since 10-06-2022
-//     */
-//    @Then("^the user see the post \"([^\"]*)\" after upload")
-//    public boolean isThePostCreated(String postTitle) {
-//        isComponentVisible.waitElement(By.xpath("//div[@data-testid ='itemFeed']//div//span[2]"));
-//        assertTrue(driver.findElement(By.xpath("//div[@data-testid ='itemFeed']//div//span[2]")).getText().contains(postTitle));
-//        return true;
-//    }
 
     /**
      * -----------------------------------------------------------------------------------------------------------------------------------------
