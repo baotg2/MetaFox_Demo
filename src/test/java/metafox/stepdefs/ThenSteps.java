@@ -6,7 +6,6 @@ import metafox.support.DataProvider;
 import metafox.support.Locator;
 import metafox.support.Privacy;
 import metafox.support.Utility;
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -17,9 +16,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.annotation.Nonnull;
-import javax.swing.*;
-import java.io.IOException;
-import java.nio.file.WatchEvent;
 import java.time.Duration;
 
 import static org.junit.Assert.*;
@@ -198,15 +194,15 @@ public class ThenSteps extends StepDefinitions {
         }
     }
 
-    /**
-     * ------------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param module menu's name on side menu
-     * @throws IOException occurs when an IO operation fails
-     * @purpose access side menu
-     * @Author baotg2
-     * ------------------------------------------------------------------------------------------------------------------------------------------------
-     */
+//    /**
+//     * ------------------------------------------------------------------------------------------------------------------------------------------------
+//     *
+//     * @param module menu's name on side menu
+//     * @throws IOException occurs when an IO operation fails
+//     * @purpose access side menu
+//     * @Author baotg2
+//     * ------------------------------------------------------------------------------------------------------------------------------------------------
+//     */
 //    @Then("^I want to access \"([^\"]*)\"$")
 //    public void iWantToAccessMenu(String module) throws IOException {
 //        dataExecutor.setExcelFile("pages");
@@ -348,30 +344,30 @@ public class ThenSteps extends StepDefinitions {
         settingElements.click();
     }
 
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param statusContent is content of status
-     * @purpose verify status after post
-     * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
+//    /**
+//     * -----------------------------------------------------------------------------------------------------------------------------------------
+//     *
+//     * @param statusContent is content of status
+//     * @purpose verify status after post
+//     * @Author baotg2
+//     * -----------------------------------------------------------------------------------------------------------------------------------------
+//     * @since 04-05-2022
+//     */
 //    @Then("^the user see \"([^\"]*)\"$")
 //    public void isStatusVisible(String statusContent) {
 //        isComponentVisible.waitElement(By.xpath("//p[text() = '" + statusContent + "']"));
 //        assertTrue(components.componentPText(statusContent).isDisplayed());
 //    }
 
-    /**
-     * ------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param text is tab's name
-     * @purpose verify elements h3 is displayed
-     * @Author baotg2
-     * -------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
+//    /**
+//     * ------------------------------------------------------------------------------------------------------------------------------------------
+//     *
+//     * @param text is tab's name
+//     * @purpose verify elements h3 is displayed
+//     * @Author baotg2
+//     * -------------------------------------------------------------------------------------------------------------------------------------------
+//     * @since 04-05-2022
+//     */
 //    @Then("^the user see  tab \"([^\"]*)\"$")
 //    public void isTabDisplayedSuccess(String text) {
 //        isComponentVisible.waitElement(By.xpath("//h3[text()='" + text + "']"));
@@ -393,15 +389,15 @@ public class ThenSteps extends StepDefinitions {
         components.componentsTagButton(ariaLabel).click();
     }
 
-    /**
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param ariaLabel is value ariaLabel of button
-     * @purpose is check button enabled_by_default
-     * @Author baotg2
-     * -----------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
+//    /**
+//     * -----------------------------------------------------------------------------------------------------------------------------------------
+//     *
+//     * @param ariaLabel is value ariaLabel of button
+//     * @purpose is check button enabled_by_default
+//     * @Author baotg2
+//     * -----------------------------------------------------------------------------------------------------------------------------------------
+//     * @since 04-05-2022
+//     */
 //    @Then("^the user see button \"([^\"]*)\" is default")
 //    public void isButtonEnabled(String ariaLabel) {
 //        isComponentVisible.waitElement(By.xpath("//button[@aria-label ='" + ariaLabel + "']"));

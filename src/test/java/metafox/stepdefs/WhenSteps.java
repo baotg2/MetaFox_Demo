@@ -1,13 +1,11 @@
 package metafox.stepdefs;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import metafox.support.DataProvider;
 import metafox.support.Locator;
 import metafox.support.Privacy;
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
