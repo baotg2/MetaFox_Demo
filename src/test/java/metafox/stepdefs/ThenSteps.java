@@ -98,15 +98,15 @@ public class ThenSteps extends StepDefinitions {
         WebElement btnText = waitUntilDisplayed(getSectionContext(), Locator.byText("button", buttonText));
         assertTrue(btnText.isDisplayed());
     }
-    /**
-     * ------------------------------------------------------------------------------------------------------------------------------------------------
-     *
-     * @param fieldName is action name want to handle
-     * @purpose click on button has name is fieldName and handle
-     * @Author baotg2
-     * ------------------------------------------------------------------------------------------------------------------------------------------------
-     * @since 04-05-2022
-     */
+//    /**
+//     * ------------------------------------------------------------------------------------------------------------------------------------------------
+//     *
+//     * @param fieldName is action name want to handle
+//     * @purpose click on button has name is fieldName and handle
+//     * @Author baotg2
+//     * ------------------------------------------------------------------------------------------------------------------------------------------------
+//     * @since 04-05-2022
+//     */
     //@Then("^the user want to edit \"([^\"]*)\"$")
 //    public void editInfoAccount(String fieldName) {
 //        isComponentVisible.waitElement(By.xpath("//div[@data-testid = '" + fieldName + "']//button[2]"));

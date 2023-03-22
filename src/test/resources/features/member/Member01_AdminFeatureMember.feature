@@ -1,7 +1,7 @@
-@app_core @member @admin
-Feature: Brain Feature Members On Profile
+@app_core @member @admin @previewSite
+Feature: Admin Feature Members
 
-  Scenario: Admin Add New Friend List
+  Scenario: Admin Feature Members On Profile
     Given the user logged in as "admin"
     And the browser opened at "/brian1"
     And within the slot top

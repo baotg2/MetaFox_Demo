@@ -561,7 +561,7 @@ public class WhenSteps extends StepDefinitions {
 
     @When("the user selects friend list")
     public void selectFriendList() {
-        WebElement selectFriendList = waitUntilDisplayed(Locator.byRole("dialog"), Locator.byTagName("div"), Locator.byTagName("span"), Locator.byTagName("input"));
+        WebElement selectFriendList = waitUntilDisplayed(Locator.byRole("dialog"), Locator.byTagName("input"));
         assertTrue(selectFriendList.isDisplayed());
         selectFriendList.click();
     }
