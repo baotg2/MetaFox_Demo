@@ -28,4 +28,3 @@ Feature: Admin Feature Members
     When within the slot top
     And the user moves to tab "Un-featured this User"
     Then the user sees successful flash message
-
