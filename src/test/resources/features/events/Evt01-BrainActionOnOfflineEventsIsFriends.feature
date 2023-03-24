@@ -1,4 +1,4 @@
-@app_event @brian
+@app_event @brian @previewSite
 Feature: Brain Process On Public Events Is Friends
 
   Scenario: Brian Add New Events Is Friend With Empty Value
@@ -14,9 +14,9 @@ Feature: Brain Process On Public Events Is Friends
     And the browser opened at "/event/add"
     And within the content
     When the user add on "inputName" with value "IsOfflineEvents"
+    And the user want to scroll to the end of page
     And the user want to add new date is "29"
-    When the user want to scroll to the end of page
-    And the user add on "fieldLocation" with value "Ho Chi Minh City"
+    When the user clicks on "fieldLocation"
     And the user selects location
     And the user set privacy is Friends
     When the user clicks on button "buttonSubmit"
@@ -38,14 +38,13 @@ Feature: Brain Process On Public Events Is Friends
     And within the sidebar
     And the user searches with text "IsOfflineEvents"
     Given within the content
-    Then the user sees text "No events found"
+    Then the user sees text "No events are found."
 
   Scenario: Brain delete offline events is friends
     Given the user logged in as "brian1"
     And the browser opened at "/event"
     And within the sidebar
     And the user searches with text "IsOfflineEvents"
-    And the user turn off setting "inputIsOnline"
     Given within the content
     And the user opens action menu
     And  the user clicks on menu item "delete"

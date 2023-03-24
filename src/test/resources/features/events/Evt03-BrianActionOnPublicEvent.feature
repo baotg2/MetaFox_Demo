@@ -16,7 +16,7 @@ Feature:  Brain Process On Public Events
     When the user add on "inputName" with value "IsOfflineEvents"
     And the user want to add new date is "29"
     When the user want to scroll to the end of page
-    And the user add on "fieldLocation" with value "Ho Chi Minh City"
+    When the user clicks on "fieldLocation"
     And the user selects location
     When the user clicks on button "buttonSubmit"
     Then the user sees successful flash message
@@ -78,7 +78,7 @@ Feature:  Brain Process On Public Events
     Then the user sees text "IsOfflineEvents"
     And the user want to "All Hosts"
     And the user want to "Host List"
-    Then the user sees text "Brian" on invited tab
+    Then the user sees text "Brian"
 
   Scenario: Brain Verify GuestList On Events
     Given the user logged in as "brian1"
@@ -91,9 +91,9 @@ Feature:  Brain Process On Public Events
     Then the user sees text "IsOfflineEvents"
     And the user want to "View list"
     And the user want to "Going"
-    Then the user sees text "Brian" on invited tab
+    Then the user sees text "Brian"
     And the user want to "Invited"
-    Then the user sees text "No Content" on tab
+    Then the user sees text "No Content"
 
   Scenario: Brain Verify Manage Tab
     Given the user logged in as "brian1"

@@ -51,7 +51,7 @@ Feature: Verify access side menu success
     Given within the sidebar
     Then the user sees text "Shortcuts"
     And the user sees text "IsPageAutoTest"
-  @focus
+
   Scenario: Brian Access Pages Detail From Shortcuts
     Given the user logged in as "brian1"
     And the browser opened at "/"
@@ -60,4 +60,3 @@ Feature: Verify access side menu success
     Then the user sees page url matches "/page/\d+"
     Given within the slot top
     Then the user sees text "IsPageAutoTest"
-

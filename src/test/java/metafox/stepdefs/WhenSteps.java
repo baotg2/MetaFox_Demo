@@ -373,7 +373,8 @@ public class WhenSteps extends StepDefinitions {
      * @since 04-05-2022
      */
     @When("^the user selects location$")
-    public void clickOnDiv() {
+    public void clickOnDiv() throws InterruptedException {
+        Thread.sleep(2000);
         WebElement element = new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(Locator.byRole("tooltip")));
         element.click();
     }
