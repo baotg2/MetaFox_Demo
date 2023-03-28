@@ -447,14 +447,14 @@ public class AndSteps extends StepDefinitions {
      * -------------------------------------------------------------------------------------------------------------------------------------------
      *
      * @param actionName is action name
-     * @purpose click on action on action menu
+     * @purpose click on action menu
      * @Author baotg2
      * -----------------------------------------------------------------------------------------------------------------------------------------
      * @since 04-05-2022
      */
     @And("^the user want to \"([^\"]*)\"$")
     public void clickOnButtonText(String actionName) throws InterruptedException {
-        isComponentVisible.waitElement(By.xpath("//button[text()='" + actionName + "']"));
+        isComponentVisible.waitElement(By.xpath("//button[contains(text(),'" + actionName +"')]"));
         components.componentButtonText(actionName).click();
         Thread.sleep(2000);
     }

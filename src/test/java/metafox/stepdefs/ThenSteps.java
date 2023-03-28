@@ -643,4 +643,10 @@ public class ThenSteps extends StepDefinitions {
         WebElement link = waitUntilDisplayed(Locator.byHref(url));
         assertTrue(link.isDisplayed());
     }
+
+    @Then("^the user sees \"([^\"]*)\" on dialog")
+    public void seeItemOnDilalog(String itemsText) {
+        WebElement link = waitUntilDisplayed(Locator.byRole("dialog"), Locator.byId(itemsText));
+        assertTrue(link.isDisplayed());
+    }
 }

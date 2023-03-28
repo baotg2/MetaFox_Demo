@@ -135,7 +135,7 @@ public class Components {
      * @since 04-05-2022
      */
     public WebElement componentButtonText(String textValue) {
-        return driver.findElement(By.xpath("//button[text()='" + textValue + "']"));
+        return driver.findElement(By.xpath("//button[contains(text(),'" + textValue +"')]"));
     }
 
     /**
