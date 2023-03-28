@@ -1,0 +1,6 @@
+.env.sh
+.env
+allure-results
+reports
+target/allure-results
+target/*

@@ -1,0 +1,20 @@
+{
+  "server": "hub-apse.browserstack.com",
+  "capabilities": {
+    "bstack:options": {
+      "buildName": "MetaFox_regression",
+      "sessionName": "Production Single",
+      "browserVersion": "latest",
+      "debug": true
+    }
+  },
+  "environments": [
+    {
+      "bstack:options": {
+        "os": "Windows",
+        "osVersion": "10"
+      },
+      "browserName": "firefox"
+    }
+  ]
+}

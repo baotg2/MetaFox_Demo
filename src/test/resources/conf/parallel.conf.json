@@ -1,0 +1,25 @@
+{
+  "server": "hub.browserstack.com",
+  "capabilities": {
+    "bstack:options": {
+      "buildName": "MetaFox_regression",
+      "sessionName": "BStack parallel cucumber-java",
+      "browserVersion": "latest",
+      "debug": true
+    }
+  },
+  "environments": [
+    {
+      "browserName": "chrome"
+    },
+    {
+      "browserName": "firefox"
+    },
+    {
+      "bstack:options": {
+        "os": "OS X"
+      },
+      "browserName": "safari"
+    }
+  ]
+}

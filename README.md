@@ -1,6 +1,6 @@
 # Meta_Fox_Demo
 
-Meta_Fox_Demo is a project hanlde automation test of MetaFox on Web Platform.
+Meta_Fox_Demo is a project hanlde automation test of metafox on Web Platform.
 Technical used:
 
 - Java
@@ -13,13 +13,13 @@ Technical used:
 # Structure
 
 - src/test/java: Test sources
-- src/test/java/MetaFox: project folder
-- src/test/java/MetaFox/browserConfig: include files set up browser before/after execute test
-- src/test/java/MetaFox/testFeature: include files describe the tests in Descriptive language
-- src/test/java/MetaFox/pageObject: contain elements on web pages
-- src/test/java/MetaFox/stepDefined: defined test step using JAVA
+- src/test/java/metafox: project folder
+- src/test/java/metafox/browserConfig: include files set up browser before/after execute test
+- src/test/java/metafox/testFeature: include files describe the tests in Descriptive language
+- src/test/java/metafox/pageObject: contain elements on web pages
+- src/test/java/metafox/stepDefined: defined test step using JAVA
 - src/test/java/pHpFox/support: include files handle function related to test data
-- src/test/java/pHpFox/testdata: include data files (excel, image, videos)
+- src/test/resources/fixtures: include data files (excel, image, videos)
 
 When deploy test case, need focus on pageObject and stepDefined. 
 [The project structure be designed base on Page Object Model](https://www.guru99.com/page-object-model-pom-page-factory-in-selenium-ultimate-guide.html)
@@ -105,7 +105,7 @@ Build Tools > Maven
 For the report
 
 ```sh
-<allure.results.directory>target/allure-results</allure.results.directory>
+<allure.results.directory>allure-results</allure.results.directory>
 ```
 #### Execute test case
 

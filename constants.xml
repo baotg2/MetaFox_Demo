@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <constants>
-    <URL>https://staging-foxsocial.phpfox.us/</URL>
-    <URLACP>https://staging-foxsocial.phpfox.us/admincp/</URLACP>
     <URLEvent>https://zoom.us/</URLEvent>
-    <TestDataFolder>src/test/java/MetaFox/testdata/</TestDataFolder>
+    <TestDataFolder>src/test/resources/fixtures/</TestDataFolder>
     <DataFile>v5DataProvider.xlsx</DataFile>
     <BlogName>TestAuto</BlogName>
     <NewBlogName>NewTestAuto</NewBlogName>
@@ -14,8 +12,6 @@
     <Groups>GroupTestAuto</Groups>
     <NewGroupName>NewGroupName</NewGroupName>
     <Polls>IsThisAutoPoll</Polls>
-    <BROWSERSTACK_USERNAME>baotran_moYtnK</BROWSERSTACK_USERNAME>
-    <BROWSERSTACK_ACCESS_KEY>2cnCJbmwkKAmmb9hEVsN</BROWSERSTACK_ACCESS_KEY>
-    <TestBuilder>MetaFox regression Test</TestBuilder>
+    <TestBuilder>metafox regression Test</TestBuilder>
     <TestCaseRunner>Builder_Features</TestCaseRunner>
 </constants>

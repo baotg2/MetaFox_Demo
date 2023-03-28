@@ -1,0 +1,42 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: metafox-e2e-production
+
+concurrency:
+  group: metafox-e2e-production
+  cancel-in-progress: true
+
+on:
+  repository_dispatch:
+    types: [ production ]
+  workflow_dispatch:
+
+env:
+  BROWSERSTACK_USERNAME: "${{secrets.BROWSERSTACK_USERNAME}}"
+  BROWSERSTACK_ACCESS_KEY: "${{secrets.BROWSERSTACK_ACCESS_KEY}}"
+  ALLURE_SERVER: "https://cloudcall-s01.phpfox.com"
+  ALLURE_PROJECT: default
+  BASE_URL: "https://production.metafox.app"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: "11"
+          distribution: "temurin"
+          cache: maven
+
+      - name: Test
+        run: |
+          mvn clean
+          mvn test -Dcucumber.filter.tags="@register"
+
+      - name: Send allure results
+        if: always()
+        run: bash ./send_results.sh

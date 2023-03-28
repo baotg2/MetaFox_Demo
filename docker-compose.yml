@@ -12,5 +12,5 @@ services:
   allure-ui:
     image: "frankescobar/allure-docker-service-ui"
     environment:
-      ALLURE_DOCKER_PUBLIC_API_URL: "https://cloudcall-s01.phpfox.com/allure-docker-service/"
-      ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: "projects/metafox-e2e-testing/reports/1/"
+      ALLURE_DOCKER_PUBLIC_API_URL: "https://cloudcall-s01.phpfox.com"
+      ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: "reports/1/"
