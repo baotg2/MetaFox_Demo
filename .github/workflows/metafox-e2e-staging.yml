@@ -8,9 +8,6 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  schedule:
-    - cron: "00 21 * * *"
-
   repository_dispatch:
     types: [ staging ]
 
